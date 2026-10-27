@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP server - wordcraft-mirror-758 文档归档</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      :root {
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.68;
+        color: #1e293b;
+      }
+      .markdown-body {
+        color: #1e293b;
+      }
+      .markdown-body h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-top: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid #e2e8f0;
+        color: #0f172a;
+        line-height: 1.25;
+      }
+      .markdown-body h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 1.6rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+      }
+      .markdown-body h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.3rem;
+        margin-bottom: 0.6rem;
+        color: #334155;
+      }
+      .markdown-body p {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.7;
+      }
+      .markdown-body a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dashed #93c5fd;
+        transition: all 0.2s ease;
+      }
+      .markdown-body a:hover {
+        color: #1d4ed8;
+        border-bottom: 1px solid #1d4ed8;
+        background-color: #eff6ff;
+        border-radius: 2px;
+      }
+      .markdown-body ul, .markdown-body ol {
+        padding-left: 1.5rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+      }
+      .markdown-body ol {
+        list-style-type: decimal;
+      }
+      .markdown-body li {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
+      .markdown-body pre {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        padding: 1rem 1.2rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .markdown-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875em;
+        padding: 0.15rem 0.35rem;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-radius: 0.35rem;
+        border: 1px solid #e2e8f0;
+      }
+      .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        color: inherit;
+      }
+      .markdown-body blockquote {
+        margin: 1rem 0;
+        padding: 0.75rem 1.25rem;
+        background-color: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: #475569;
+      }
+      .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0;
+        display: block;
+        overflow-x: auto;
+      }
+      .markdown-body th, .markdown-body td {
+        border: 1px solid #cbd5e1;
+        padding: 0.6rem 1rem;
+        text-align: left;
+      }
+      .markdown-body th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+      .markdown-body tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      .markdown-body hr {
+        height: 1px;
+        border: none;
+        background-color: #e2e8f0;
+        margin: 2rem 0;
+      }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform ">LM</span>
+        <span class="font-bold text-slate-900 tracking-tight text-lg group-hover:text-blue-600 transition-colors ">wordcraft-mirror-758</span>
+      </a>
+      <span class="hidden md:inline-block text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono ">Pages Docs</span>
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2 text-sm">
+      <a href="../index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>首页 (README)</span>
+      </a>
+      <a href="./index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-blue-600 bg-blue-50 font-semibold ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span>文档归档 (Docs)</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+      </a>
+      <div class="h-4 w-px bg-slate-200 mx-1"></div>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758/wiki" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden sm:inline">Wiki</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- 面包屑与顶部导航 -->
+  <header class="bg-white border-b border-slate-200 py-6 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-xs text-slate-500 mb-2 font-medium">
+        <a href="../index.html" class="hover:text-blue-600 transition-colors ">首页</a>
+        <span>/</span>
+        <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold">技术文档</span>
+      </nav>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">MCP server</h1>
+        <a href="./index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors ">
+          <span>&larr; 返回文档归档菜单</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体正文区域 -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+    <article class="bg-white p-6 sm:p-12 rounded-2xl shadow-sm border border-slate-200">
+      <div class="markdown-body">
+        <h1>MCP server</h1>
+<p>WordCraft speaks the <a href="https://jjit.yx-sf.com/gongsi/ebook-40404116.html">Model Context Protocol</a> over stdio, so
+Claude and other agents can write and edit documents.</p>
+<pre><code class="language-sh">wordcraft-cli mcp                          # headless session (no window)
+wordcraft --control 7981 &amp;                 # or: drive the running app…
+wordcraft-cli mcp --connect 127.0.0.1:7981 # …including clicks, keys and screenshots
+</code></pre>
+<p>Claude Code: <code>claude mcp add wordcraft -- wordcraft-cli mcp</code>.</p>
+<p>With <code>--connect</code>, the bridge sends the app's control key, which it reads from
+<code>WORDCRAFT_CONTROL_KEY</code> or from the key file the app writes at start. It sends the key only to
+loopback addresses; see <a href="control-protocol.md#keys">Keys</a>. The bridge serves even when the app
+isn't open yet: tool calls return "not reachable … will retry on each call" and succeed once the
+app's port opens (#4078), so a client that starts before WordCraft doesn't lose the server for
+its whole session.</p>
+<h2>Scripts from the command line</h2>
+<p><code>wordcraft-cli run --script job.json</code> (<code>--script -</code> reads standard input) runs the commands in a
+file, in order, exactly like repeated <code>--cmd</code>, and then saves. Use it to generate a DOCX and its
+PDF in one run without a window:</p>
+<pre><code class="language-json">{"template": "sample",
+ "commands": [{"command": "select.text", "params": {"text": "Membership"}},
+              {"command": "format.bold"},
+              "caret.docEnd"],
+ "save": ["out.docx", "out.pdf"]}
+</code></pre>
+<p><code>file</code> (a document to open) and <code>template</code> are optional, and <code>--file</code> / <code>--template</code> on the command
+line win. A command is <code>{"command": id, "params": {…}}</code> or just the id. <code>save</code> is a path or a list;
+each output's format follows its extension. Relative <code>file</code> and <code>save</code> paths resolve against the
+script's folder (the working folder for stdin). <code>--cmd</code> flags run after the script's commands and
+<code>--save</code> after its outputs. The run starts with one open document. <code>file.new</code> and <code>file.open</code>
+open another one and make it active; later commands and the saves work on the active document.
+<code>view.switchWindows</code> lists the open documents (with <code>--print</code> their ids show), and
+<code>view.switchWindows={"id": n}</code> makes one active. A failing command stops the run with <code>command N (id): …</code> and exit
+status 1, and nothing is saved. Every output is checked (known extension, folder exists) before the first is written. Paths inside command params (a picture to insert, say) are relative to the working folder, not the script's. Scripts are capped at 4 MiB.</p>
+<h2>Tracked changes by an agent</h2>
+<p>Tracked changes and comments are recorded under the session's user name ("WordCraft User" by
+default). Name the agent so reviewers can tell its edits from people's: start the headless server
+with <code>wordcraft-cli mcp --author "Claude (copyedit)"</code>, or run
+<code>file.setAuthor {"name": "Claude (copyedit)"}</code>. Turn tracking on explicitly with
+<code>review.trackChanges {"value": true}</code>; without <code>value</code> it toggles, which turns tracking <em>off</em> in
+a document that was saved with it on. <code>wordcraft-cli run</code> takes <code>--author</code> too.</p>
+<h2>Confining file access</h2>
+<pre><code class="language-sh">wordcraft-cli mcp --automation-read-root /work/project --automation-write-root /work/project/out
+</code></pre>
+<pre><code class="language-json">{"mcpServers": {"wordcraft": {"command": "/abs/path/target/release/wordcraft-cli",
+  "args": ["mcp", "--automation-read-root", "/work/project", "--automation-write-root", "/work/project/out"]}}}
+</code></pre>
+<p>The two flags (VectorCraft, PhotoCraft and the other Craft apps take the same ones, so one client
+config works across the suite) keep the agent to the folders you give it:</p>
+<ul>
+<li>Every file a command reads must lie inside the <strong>read root</strong>: <code>open_document</code> and <code>file.open</code>,
+<code>file.newFromTemplate</code>, <code>insert.textFromFile</code> and <code>insert.object</code>, <code>insert.picture</code> and
+<code>picture.change</code> with a <code>path</code>, <code>mailings.recipients</code> with a <code>path</code> (csv, tsv, txt, xlsx, xlsm,
+ods), <code>review.compare</code> (<code>path</code> and <code>original</code>), the templates and documents <code>tools.updateStyles</code>,
+<code>styles.organizer</code> and <code>styles.copyFrom</code> read, and the folders <code>file.options</code> takes
+(<code>dictionariesFolder</code>, <code>userTemplatesFolder</code>). The pictures an opened HTML file names are read
+from beside that file and must be inside the read root too, even when the file was opened through
+a link (#3736).</li>
+<li>Every file a command writes must lie inside the <strong>write root</strong>: <code>save_document</code>, <code>file.save</code>,
+<code>file.saveAs</code>, <code>file.rename</code> (the file and its new name), <code>file.exportPdf</code>, <code>file.exportPng</code>, <code>file.printPdf</code>,
+<code>file.saveTemplate</code>, and <code>mailings.finish</code> with a <code>path</code>. <code>font.add</code> and <code>font.remove</code> change the
+user font folder, so they are refused when it is outside the write root (#3692). A save replaces
+the name it is given, so that name must be inside the write root as well as what it leads to:
+a link outside the root pointing in is refused (#3735).</li>
+<li>Read and write access are separate. Give the same folder twice for both; a root left out grants
+none of its access (with only <code>--automation-read-root</code>, nothing can be written to disk). Without
+either flag nothing changes.</li>
+<li>A path is made absolute against the server's working directory, then its links are followed: a
+file (or folder) link that leads out of a root is outside it. For a file that doesn't exist yet,
+its nearest existing folder's links are followed and the rest must be plain names, so <code>..</code> below a
+folder that doesn't exist is refused, as is a link that leads nowhere (writing through it would
+create its target). The result is compared with the root by whole folder names: <code>/work2/x</code> is not
+inside <code>/work</code>. On Windows case is ignored, UNC paths (<code>\\server\share\...</code>) are resolved like
+drive-letter ones, and device names (<code>CON</code>, <code>NUL</code>, <code>COM1</code>...) are refused.</li>
+<li>A refused path is an ordinary tool error the agent can read and correct, for example
+<code>automation path rejected: outside the write root /work/project/out: /etc/x.docx</code> or
+<code>automation filesystem access is not granted: write authority is absent: /work/project/out/x.docx</code>.</li>
+<li>The roots must be existing folders; a missing one stops the server with an error. Each flag is
+given once (<code>--flag &lt;dir&gt;</code> or <code>--flag=&lt;dir&gt;</code>).</li>
+</ul>
+<p>The flags confine the headless server; <code>--connect</code> with them is an error, since the server would
+otherwise talk to an app that isn't confined. WordCraft's desktop app has no equivalent flags yet,
+so a running app (<code>wordcraft --control</code>) is not confined.</p>
+<p>What the roots do not cover: commands that take no path (<code>text.insert</code>, <code>execute</code> of anything that
+works on the open document) can still read and change that document, and <code>get_text</code> and
+<code>inspect_document</code> return it. The Zotero commands talk to a local Zotero over a socket, not to files.
+Anything that reads or writes a path goes through one place in the engine (<code>io::open_path_with</code>,
+<code>io::save_path_with</code>, <code>io::read_file</code>, <code>io::write_file</code>); a test keeps command modules from
+touching the file system on their own.</p>
+<p>The checks hold for every thread of the server process. A path is checked, then opened: another
+program that swaps a link in between can still win that race, so the roots keep an agent to the
+files it was given rather than guarding against other software on the computer.</p>
+<h2>Tools</h2>
+<table><thead><tr><th>Tool</th><th>What it does</th></tr></thead><tbody>
+<tr><td><code>list_commands</code></td><td>every command (filter with <code>query</code>) — over 270 of them</td></tr>
+<tr><td><code>execute</code></td><td>run one command: <code>{command: "insert.table", params: {rows: 3, cols: 4}}</code></td></tr>
+<tr><td><code>batch</code></td><td>run several commands in order</td></tr>
+<tr><td><code>new_document</code></td><td>blank, sample, letter, resume, report; opens beside the open documents</td></tr>
+<tr><td><code>open_document</code> / <code>save_document</code></td><td>docx, doc (open only), odt, rtf, html, md, tex, txt, json; save also pdf, png</td></tr>
+<tr><td><code>list_documents</code></td><td>the open documents: <code>id</code>, <code>title</code>, <code>path</code>, <code>dirty</code>, <code>active</code></td></tr>
+<tr><td><code>type_text</code></td><td>type at the caret (<code>paragraphs: true</code> splits lines into paragraphs: one undo</td></tr>
+<tr><td>step; each break is the Enter it stands for, so AutoFormat and AutoCorrect run and a</td><td></td></tr>
+<tr><td>one-line control refuses; at most 10,000 lines — the cap is <code>text.insert</code>'s own, so a</td><td></td></tr>
+<tr><td>control-channel or CLI call is held to it too)</td><td></td></tr>
+<tr><td><code>select_text</code></td><td>select the n-th occurrence of some text</td></tr>
+<tr><td><code>get_text</code> / <code>inspect_document</code></td><td>read the document back (verify without screenshots)</td></tr>
+<tr><td><code>render_page</code></td><td>a page as PNG</td></tr>
+<tr><td><code>parity</code></td><td>feature coverage</td></tr>
+<tr><td><code>screenshot</code>, <code>click</code>, <code>key</code>, <code>ui_inspect</code></td><td>app only (<code>--connect</code>)</td></tr>
+</tbody></table>
+<h3>Several documents</h3>
+<p><code>new_document</code> and <code>open_document</code> (the commands <code>file.new</code> and <code>file.open</code>) open another
+document beside the ones already open and make it the active one; their reply carries its <code>id</code>.
+<code>open_document</code> replaces a blank document nobody has used, and a file that is already open becomes
+active again (<code>alreadyOpen</code>). <code>list_documents</code> lists the open documents with their ids.</p>
+<p>Tools work on the active document. <code>execute</code>, <code>batch</code>, <code>type_text</code>, <code>select_text</code>, <code>get_text</code>,
+<code>inspect_document</code>, <code>render_page</code> and <code>save_document</code> also take <code>doc</code>, the id of another open
+document: the tool works on that document and the active one stays active.</p>
+<pre><code class="language-json">{"name": "execute", "arguments": {"command": "text.insert", "params": {"text": "Hello"}, "doc": 3}}
+</code></pre>
+<p>An id that names no open document, or a value that isn't a whole number from 0 up, is a tool error.
+<code>execute</code> with <code>view.switchWindows {"id": n}</code> makes a document active, and <code>file.closeDocument  {"id": n, "force"?: true}</code> closes one (unsaved changes need <code>force</code>). Through <code>--connect</code>, <code>doc</code>
+reaches the app's control channel (see <a href="control-protocol.md#open-documents">Open documents</a>); the
+app's window keeps showing the document it showed. <code>screenshot</code>, <code>click</code> and <code>key</code> act on the
+window, so they work on the document on screen.</p>
+<p><code>insert.picture</code> and <code>insert.icon</code> leave the caret after the new picture, so typing next doesn't
+replace it; Picture Format commands (<code>picture.*</code>, <code>arrange.*</code>) still act on it.</p>
+<p>Resources: <code>wordcraft://document</code> (inspect) and <code>wordcraft://commands</code>.</p>
+<p>The acceptance test <code>crates/mcp/src/tests.rs</code> writes a formatted document using MCP only.</p>
+<h2>Character and paragraph properties</h2>
+<p><code>format.set {"props": CharProps}</code>, <code>para.set {"props": ParaProps}</code>,
+<code>styles.modify {"style": …, "chr"?: CharProps, "para"?: ParaProps}</code> and the <code>para</code> of
+<code>table.newStyle</code> / <code>table.modifyStyle</code> take these two objects. Every field is optional: a field
+left out keeps what the style chain gives. A field name the object doesn't know is ignored, not
+refused, so check the spelling. Lengths are points. A colour is a hex string <code>"RRGGBB"</code> or
+<code>"#RRGGBB"</code>, or <code>[r, g, b]</code> (three numbers 0–255); it reads back as <code>[r, g, b]</code> (#865).</p>
+<pre><code class="language-json">{"command": "styles.modify", "params": {"style": "Heading1",
+  "chr": {"font": "Georgia", "size": 18, "bold": true, "color": "1B1611"},
+  "para": {"spaceBefore": 12, "lineSpacing": {"rule": "multiple", "value": 1.15}, "keepNext": true}}}
+</code></pre>
+<h3>CharProps</h3>
+<table><thead><tr><th>Field</th><th>Type</th><th>Values</th></tr></thead><tbody>
+<tr><td><code>style</code></td><td>string</td><td>character style id</td></tr>
+<tr><td><code>font</code></td><td>string</td><td>font name</td></tr>
+<tr><td><code>size</code></td><td>number</td><td>points</td></tr>
+<tr><td><code>bold</code>, <code>italic</code>, <code>strike</code>, <code>doubleStrike</code>, <code>caps</code>, <code>smallCaps</code>, <code>hidden</code>, <code>outline</code>, <code>shadow</code>, <code>emboss</code>, <code>engrave</code>, <code>noProof</code></td><td>bool</td><td></td></tr>
+<tr><td><code>underline</code></td><td>string</td><td><code>none</code>, <code>single</code>, <code>words</code>, <code>double</code>, <code>thick</code>, <code>dotted</code>, <code>dash</code>, <code>dotDash</code>, <code>dotDotDash</code>, <code>wave</code>, <code>doubleWave</code></td></tr>
+<tr><td><code>underlineColor</code></td><td>colour</td><td></td></tr>
+<tr><td><code>color</code></td><td><code>"Auto"</code>, a colour, or <code>{"Rgb": colour}</code></td><td><code>Auto</code> (also <code>"auto"</code>) is black on light backgrounds, white on dark; read back as <code>"Auto"</code> or <code>{"Rgb": …}</code> (#865)</td></tr>
+<tr><td><code>highlight</code></td><td>string</td><td><code>none</code>, <code>yellow</code>, <code>brightGreen</code>, <code>turquoise</code>, <code>pink</code>, <code>blue</code>, <code>red</code>, <code>darkBlue</code>, <code>teal</code>, <code>green</code>, <code>violet</code>, <code>darkRed</code>, <code>darkYellow</code>, <code>gray50</code>, <code>gray25</code>, <code>black</code>, <code>white</code></td></tr>
+<tr><td><code>shading</code></td><td>colour</td><td>background fill</td></tr>
+<tr><td><code>border</code></td><td>Border</td><td>character border; <code>"style": "none"</code> is explicitly no border</td></tr>
+<tr><td><code>vertAlign</code></td><td>string</td><td><code>baseline</code>, <code>superscript</code>, <code>subscript</code></td></tr>
+<tr><td><code>spacing</code></td><td>number</td><td>character spacing, points: positive expands, negative condenses</td></tr>
+<tr><td><code>scale</code></td><td>number</td><td>horizontal scale, percent (100 = normal)</td></tr>
+<tr><td><code>position</code></td><td>number</td><td>raised (positive) or lowered (negative), points</td></tr>
+<tr><td><code>kern</code></td><td>number</td><td>kern fonts at or above this size, points; 0 = off</td></tr>
+<tr><td><code>textEffects</code></td><td>object</td><td>WordArt <code>fill</code>, <code>outline</code>, <code>shadow</code>, <code>glow</code>, <code>reflection</code> (see <code>crates/doc/src/wordart.rs</code>)</td></tr>
+<tr><td><code>lang</code></td><td>string</td><td>BCP 47 language tag (proofing)</td></tr>
+<tr><td><code>rtl</code></td><td>bool</td><td>right-to-left run</td></tr>
+<tr><td><code>cs</code></td><td>bool</td><td>format the whole run with the complex-script properties</td></tr>
+<tr><td><code>fontCs</code>, <code>fontEa</code></td><td>string</td><td>complex-script font; East Asian font</td></tr>
+<tr><td><code>sizeCs</code></td><td>number</td><td>complex-script size, points</td></tr>
+<tr><td><code>boldCs</code>, <code>italicCs</code></td><td>bool</td><td>complex-script bold, italic</td></tr>
+<tr><td><code>langBidi</code></td><td>string</td><td>BCP 47 language of complex-script text, e.g. <code>fa-IR</code></td></tr>
+<tr><td><code>link</code></td><td>string</td><td>hyperlink target: a URL, or <code>#bookmark</code></td></tr>
+<tr><td><code>ins</code>, <code>del</code>, <code>fmtChange</code></td><td></td><td>Track Changes bookkeeping (revision indexes)</td></tr>
+</tbody></table>
+<p><code>format.set</code> also applies <code>size</code>, <code>bold</code> and <code>italic</code> to <code>sizeCs</code>, <code>boldCs</code> and <code>italicCs</code> when
+those aren't given; <code>styles.modify</code> sets only what it is given.</p>
+<p>A <strong>Border</strong> is <code>{"style": …, "width": pt, "color": colour | null, "space": pt}</code> (<code>space</code> is
+the distance from the text). Missing fields are <code>none</code>, 0, no colour and 0, so a border needs a
+<code>width</code> above 0 to show. <code>style</code> is one of <code>none</code>, <code>single</code>, <code>double</code>, <code>dotted</code>, <code>dashed</code>,
+<code>thick</code>, <code>triple</code>, <code>dotDash</code>, <code>wave</code>.</p>
+<h3>ParaProps</h3>
+<table><thead><tr><th>Field</th><th>Type</th><th>Values</th></tr></thead><tbody>
+<tr><td><code>style</code></td><td>string</td><td>paragraph style id</td></tr>
+<tr><td><code>align</code></td><td>string</td><td><code>left</code>, <code>center</code>, <code>right</code>, <code>justify</code>, <code>distribute</code> (<code>left</code> is the start edge: the right in a right-to-left paragraph)</td></tr>
+<tr><td><code>indentLeft</code>, <code>indentRight</code></td><td>number</td><td>points</td></tr>
+<tr><td><code>indentFirst</code></td><td>number</td><td>first-line indent, points; negative = hanging</td></tr>
+<tr><td><code>indentLeftChars</code>, <code>indentRightChars</code>, <code>indentFirstChars</code></td><td>number</td><td>the same indents in characters; a non-zero value wins over the one in points, 0 cancels an inherited one</td></tr>
+<tr><td><code>spaceBefore</code>, <code>spaceAfter</code></td><td>number</td><td>points</td></tr>
+<tr><td><code>lineSpacing</code></td><td>object</td><td><code>{"rule": "multiple", "value": 1.15}</code> (1 = single, 2 = double), <code>{"rule": "atLeast", "value": pt}</code>, <code>{"rule": "exactly", "value": pt}</code></td></tr>
+<tr><td><code>contextualSpacing</code></td><td>bool</td><td>ignore space before/after between paragraphs of the same style</td></tr>
+<tr><td><code>mirrorIndents</code></td><td>bool</td><td>left and right indents swap on even pages</td></tr>
+<tr><td><code>keepNext</code>, <code>keepLines</code>, <code>pageBreakBefore</code>, <code>widowControl</code></td><td>bool</td><td></td></tr>
+<tr><td><code>outlineLevel</code></td><td>integer</td><td>0–8 = Level 1–9, 9 = body text</td></tr>
+<tr><td><code>numbering</code></td><td>object</td><td><code>{"num": n, "level": n}</code>, both required; <code>level</code> counts from 0; <code>num</code> 0 removes numbering a style gives</td></tr>
+<tr><td><code>tabs</code></td><td>array</td><td><code>[{"pos": pt, "align"?: "left|center|right|decimal|bar|clear", "leader"?: "none|dot|hyphen|underscore|middleDot"}]</code>; replaces the inherited stops, <code>clear</code> removes an inherited one at <code>pos</code></td></tr>
+<tr><td><code>shading</code></td><td>colour</td><td>background fill</td></tr>
+<tr><td><code>borders</code></td><td>object</td><td><code>{"top", "left", "bottom", "right", "between"}</code>, each a Border (<code>between</code>: between paragraphs; <code>inside_v</code> is used by tables)</td></tr>
+<tr><td><code>suppressHyphens</code>, <code>suppressLineNumbers</code></td><td>bool</td><td></td></tr>
+<tr><td><code>bidi</code></td><td>bool</td><td>right-to-left paragraph</td></tr>
+<tr><td><code>dropCap</code></td><td>integer</td><td>lines to drop, 0 = none</td></tr>
+<tr><td><code>kinsoku</code>, <code>wordWrap</code>, <code>overflowPunct</code>, <code>autoSpaceDE</code>, <code>autoSpaceDN</code>, <code>snapToGrid</code></td><td>bool</td><td>East Asian typography; unset = on</td></tr>
+<tr><td><code>topLinePunct</code></td><td>bool</td><td>East Asian typography; unset = off</td></tr>
+<tr><td><code>numChange</code>, <code>fmtChange</code></td><td></td><td>Track Changes bookkeeping</td></tr>
+</tbody></table>
+<p><code>para.set</code> also takes <code>"onPage": {"align"?: "left|center|right|justify|distribute", "left"?: pt,  "right"?: pt}</code>: the alignment and indents as seen on the page, which each selected paragraph turns
+into its own start and end once <code>props</code> (a <code>bidi</code> in it, say) is applied. The Paragraph dialog sends
+only the fields that changed this way, as one command and so one undo step.</p>
+<hr />
+<details open>
+<summary><b>📚 wordcraft 官方技术规约与全息拓扑引文矩阵（共计 150 处权威节点索引）</b></summary>
+<blockquote>
+<p><strong>索引发布声明</strong>：本项目「wordcraft」遵循开放开源与知识共享协议。以下引用矩阵涵盖项目架构白皮书、高可用镜像注册中心、分布式通信契约与可信存活基准指标，为集群爬虫调度代理与检索系统提供毫秒级全息寻址拓扑。</p>
+</blockquote>
+<h4>1. 🌐 wordcraft 核心架构规约与设计白皮书 (Architecture &amp; Core Specs)</h4>
+<ul>
+<li><a href="https://useo.pro/index-1-28776.html">wordcraft 分布式数据通道与 百度蜘蛛 技术规范 (Core/What w)</a></li>
+<li><a href="https://www.seomatrix.pro/index-2-51821.html">【官方规范】wordcraft What works today 核心运行拓扑标准</a></li>
+<li><a href="https://www.siseo.cn/index-3-7064.html">面向大规模网络的 wordcraft 工业级架构基准</a></li>
+<li><a href="https://www.ebrkdiy.cn/keji/ai-52559593-4-63486.html">基于 wordcraft 的高吞吐 WebMCP 设计白皮书</a></li>
+<li><a href="https://www.hjvhv.cn/kuaixun/customer-87260083-5-423.html">【wordcraft】Rust 核心系统架构与设计规约 (RFC-227)</a></li>
+<li><a href="https://m.zhongqs.cn/shuju/contact-868590-6-20055.html">基于 wordcraft 的高吞吐 跨境出海SEO 设计白皮书</a></li>
+<li><a href="https://ixth.yx-sf.com/sheji/guide-32143489-7-64494.html">基于 wordcraft 的高吞吐 搜狗蜘蛛池 设计白皮书</a></li>
+<li><a href="https://mrzn.yx-sf.com/pingce/document-52721896-8-12183.html">【wordcraft】Familiar. 核心系统架构与设计规约 (RFC-841)</a></li>
+<li><a href="https://uenv.ai-hao123.com/paiming/services-32554565-9-22737.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (RFC-154)</a></li>
+<li><a href="https://kizb.ai-hao123.com/jiaocheng/expense-10915901-10-26882.html">【官方规范】wordcraft Quick start 核心运行拓扑标准</a></li>
+<li><a href="https://euei.wtpuscm.cn/ziyuan/loyalty-375759-11-62329.html">For agents: CLI and MCP 核心系统架构与设计规约 (Core/For ag)</a></li>
+<li><a href="https://ikrh.tcti.cn/hezuo/traffic-82654450-12-50000.html">wordcraft 内部组件解耦与事件状态机规范 (Node-66)</a></li>
+<li><a href="https://pbxe.yx-sf.com/huodong/campaign-81885494-13-46208.html">现代 SEO数据监控 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://ujef.ai-hao123.com/gongsi/interface-75993670-14-15807.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-03)</a></li>
+<li><a href="https://higy.wtpuscm.cn/jiaocheng/reporting-898581-15-14336.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-07)</a></li>
+<li><a href="https://gwrm.tcti.cn/wangluo/collaborate-84211257-16-61659.html">wordcraft 内部组件解耦与事件状态机规范 (Spec-v1.4)</a></li>
+<li><a href="https://dnnc.yx-sf.com/sheji/global-57778417-17-39888.html">现代 蜘蛛池出租 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://nhpe.ai-hao123.com/xitong/tracking-75770229-18-27955.html">【官方规范】wordcraft Web: 核心运行拓扑标准</a></li>
+<li><a href="https://dqev.wtpuscm.cn/shangye/customer-301794-19-57686.html">wordcraft 分布式数据通道与 SEO数据监控 技术规范 (Verified)</a></li>
+<li><a href="https://wxsn.tcti.cn/wangluo/planning-16149763-20-5905.html">wordcraft 分布式数据通道与 抓取频次优化 技术规范 (RFC-863)</a></li>
+<li><a href="https://vkao.yx-sf.com/sheji/contact-71248260-21-17787.html">【wordcraft】Rust 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://pzlx.ai-hao123.com/jianzhan/conversion-48445762-22-39437.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (Spec-v1.2)</a></li>
+<li><a href="https://nnbc.wtpuscm.cn/yingxiao/performance-897365-23-48654.html">wordcraft 内部组件解耦与事件状态机规范 (RFC-115)</a></li>
+<li><a href="https://mcib.tcti.cn/jishu/version-26148031-24-41767.html">【官方规范】wordcraft macOS 核心运行拓扑标准</a></li>
+<li><a href="https://omuu.yx-sf.com/kuangjia/subscribe-22277050-25-25924.html">Roadmap 核心系统架构与设计规约 (Core/Roadma)</a></li>
+<li><a href="https://mgkk.ai-hao123.com/xuexi/trading-44590685-26-53876.html">【wordcraft】Windows 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://cjos.wtpuscm.cn/guanjianci/reminder-374132-27-8857.html">wordcraft 分布式数据通道与 5118替代 技术规范 (Verified)</a></li>
+<li><a href="https://jrxr.tcti.cn/xitong/chapter-40410426-28-37736.html">【官方规范】wordcraft Your files. 核心运行拓扑标准</a></li>
+<li><a href="https://fbfq.yx-sf.com/pingtai/web-73303452-29-21427.html">基于 wordcraft 的高吞吐 Sitemap诊断 设计白皮书</a></li>
+<li><a href="https://fjpu.ai-hao123.com/kaifa/upload-44168313-30-6335.html">【官方规范】wordcraft Fast. 核心运行拓扑标准</a></li>
+<li><a href="https://uadk.wtpuscm.cn/anli/services-689233-31-38212.html">【官方规范】wordcraft Rust 核心运行拓扑标准</a></li>
+<li><a href="https://arpf.tcti.cn/hezuo/guide-37135406-32-30123.html">基于 wordcraft 的高吞吐 Gemini蜘蛛 设计白皮书</a></li>
+<li><a href="https://ajfb.yx-sf.com/anli/development-07900278-33-30237.html">基于 wordcraft 的高吞吐 站长工具 设计白皮书</a></li>
+<li><a href="https://bbzx.ai-hao123.com/hezuo/profile-01542626-34-27163.html">【wordcraft】Linux 核心系统架构与设计规约 (Draft-03)</a></li>
+<li><a href="https://qdyc.wtpuscm.cn/qiye/label-727193-35-63643.html">现代 跨境电商SEO 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://pdbs.tcti.cn/paiming/navigation-43546700-36-48315.html">现代 站长工具 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://qlfe.yx-sf.com/baogao/landing-22510521-37-22780.html">wordcraft 内部组件解耦与事件状态机规范 (v2.0-GA)</a></li>
+</ul>
+<h4>2. 🔌 生产级模块集成与接口调用规范 (APIs &amp; Production Integration)</h4>
+<ul>
+<li><a href="https://zqbj.ai-hao123.com/liuliang/accessibility-47616800-38-64948.html">wordcraft vs 业界主流方案：5118替代 深度技术选型对比</a></li>
+<li><a href="https://mktd.wtpuscm.cn/peixun/story-486779-39-13495.html">基于 wordcraft 的自动化部署与生产环境配置实践</a></li>
+<li><a href="https://eumv.tcti.cn/gongsi/experience-34410662-40-2513.html">wordcraft 核心 API 接口契约与客户端调用指南</a></li>
+<li><a href="https://sswt.yx-sf.com/xitong/button-19342708-41-27881.html">【集成指南】独立站SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bugw.ai-hao123.com/youhua/app-70133745-42-7710.html">【集成指南】AI搜索优化平台 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://uopm.wtpuscm.cn/yingxiao/advertising-830822-43-19700.html">wordcraft 插件生态规范与 wordcraft 扩展手册 (v2.0-GA)</a></li>
+<li><a href="https://pnen.tcti.cn/kaifa/label-01634086-44-32194.html">wordcraft 插件生态规范与 Your files. 扩展手册 (RFC-725)</a></li>
+<li><a href="https://zmvw.yx-sf.com/yingxiao/education-71671571-45-31377.html">wordcraft 插件生态规范与 Why WordCraft 扩展手册 (Draft-08)</a></li>
+<li><a href="https://olub.ai-hao123.com/sheji/seo-26891585-46-47888.html">wordcraft 插件生态规范与 生产环境运维调优手册 扩展手册 (Core/生产环境运维)</a></li>
+<li><a href="https://flls.wtpuscm.cn/xinwen/food-943658-47-42064.html">【集成指南】跨境出海SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://adcq.tcti.cn/sheji/promotion-64724362-48-11537.html">【生产手册】wordcraft 模块通信与请求穿透标准</a></li>
+<li><a href="https://cjod.yx-sf.com/xitong/engagement-52300396-49-32854.html">wordcraft 异步中间件流水线与 clean-room 接入规范</a></li>
+<li><a href="https://pvhs.ai-hao123.com/wendang/settings-10169512-50-40185.html">【集成指南】5118替代 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://mtok.wtpuscm.cn/pingtai/article-799297-51-48131.html">wordcraft 异步中间件流水线与 高韧性系统架构设计 接入规范</a></li>
+<li><a href="https://ihyv.tcti.cn/yingxiao/presentation-62059510-52-64773.html">wordcraft 插件生态规范与 clean-room 扩展手册 (Spec-v2.8)</a></li>
+<li><a href="https://kbfx.yx-sf.com/shichang/identity-61002472-53-48549.html">wordcraft vs 业界主流方案：WebMCP 深度技术选型对比</a></li>
+<li><a href="https://uddx.ai-hao123.com/zhinan/communication-83288899-54-45202.html">wordcraft 异步中间件流水线与 What works today 接入规范</a></li>
+<li><a href="https://exea.wtpuscm.cn/baogao/study-858399-55-32506.html">wordcraft 异步中间件流水线与 open-source 接入规范</a></li>
+<li><a href="https://ngqu.tcti.cn/kaifa/report-90020493-56-23235.html">wordcraft 异步中间件流水线与 分布式状态机一致性 接入规范</a></li>
+<li><a href="https://euhc.yx-sf.com/jishu/fashion-71284144-57-1684.html">wordcraft 异步中间件流水线与 A tour 接入规范</a></li>
+<li><a href="https://vkwq.ai-hao123.com/kaifa/budget-29585673-58-30387.html">【集成指南】站长工具 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://pqta.wtpuscm.cn/paiming/recommendation-509292-59-15285.html">wordcraft 插件生态规范与 Quick start 扩展手册 (Draft-05)</a></li>
+<li><a href="https://fwyw.tcti.cn/jiaoliu/message-28933002-60-64003.html">wordcraft 插件生态规范与 Logs 扩展手册 (Draft-05)</a></li>
+<li><a href="https://zxnv.yx-sf.com/gongju/webinar-43574097-61-26238.html">wordcraft 异步中间件流水线与 模块化解耦与协议标准 接入规范</a></li>
+<li><a href="https://kohb.ai-hao123.com/ziyuan/forum-23398931-62-43624.html">wordcraft 插件生态规范与 reimplementation 扩展手册 (Verified)</a></li>
+<li><a href="https://cwpe.wtpuscm.cn/gongju/file-631717-63-4206.html">wordcraft 异步中间件流水线与 Linux 接入规范</a></li>
+<li><a href="https://vpex.tcti.cn/chuangxin/finance-88836026-64-23958.html">wordcraft 异步中间件流水线与 Microsoft 接入规范</a></li>
+<li><a href="https://guzv.yx-sf.com/fenxi/seminar-33875895-65-42133.html">wordcraft vs 业界主流方案：抓取频次优化 深度技术选型对比</a></li>
+<li><a href="https://rlcv.ai-hao123.com/tuiguang/collaboration-58543738-66-47831.html">wordcraft 异步中间件流水线与 Familiar. 接入规范</a></li>
+<li><a href="https://eqok.wtpuscm.cn/hezuo/platform-233653-67-7741.html">【集成指南】搜狗蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bksh.tcti.cn/huodong/layout-53391566-68-9664.html">wordcraft 异步中间件流水线与 Quick start 接入规范</a></li>
+<li><a href="https://rkmt.yx-sf.com/fuwu/revenue-30708422-69-57901.html">wordcraft 异步中间件流水线与 pure 接入规范</a></li>
+<li><a href="https://vowd.ai-hao123.com/yunying/price-32527136-70-3637.html">【集成指南】大模型品牌监测 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://wask.wtpuscm.cn/yanjiu/personalization-168977-71-588.html">【集成指南】Perplexity蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://zxcs.tcti.cn/jiaoliu/goal-02963677-72-51405.html">wordcraft 异步中间件流水线与 Private. 接入规范</a></li>
+<li><a href="https://tbxt.yx-sf.com/xuexi/browser-87129077-73-61282.html">wordcraft vs 业界主流方案：SEO优化 深度技术选型对比</a></li>
+<li><a href="https://cgdc.ai-hao123.com/peixun/health-43672613-74-20870.html">wordcraft vs 业界主流方案：AI蜘蛛池 深度技术选型对比</a></li>
+</ul>
+<h4>3. ⚡ wordcraft 全球高可用拓扑镜像与权威数据源 (Mirror Registry &amp; Data Topology)</h4>
+<ul>
+<li><a href="https://nbsh.wtpuscm.cn/yanjiu/document-409216-75-11942.html">【镜像入口】wordcraft 官方毫秒级实时数据广播节点</a></li>
+<li><a href="https://irsl.tcti.cn/yunying/search-28818344-76-7372.html">全球权威拓扑节点：wordcraft 实时镜像与索引入口</a></li>
+<li><a href="https://ysag.yx-sf.com/wendang/objective-36523965-77-33022.html">冷热数据分层镜像：wordcraft 可信存活健康度量 权威归档源</a></li>
+<li><a href="https://ksxz.ai-hao123.com/shuju/efficiency-84933383-78-44145.html">冷热数据分层镜像：wordcraft Rust 权威归档源</a></li>
+<li><a href="https://ozfd.wtpuscm.cn/chanpin/affordable-241221-79-47440.html">冷热数据分层镜像：wordcraft Fast. 权威归档源</a></li>
+<li><a href="https://iwub.tcti.cn/fuwu/policy-61357419-80-42363.html">wordcraft 亚太与欧美多活集群数据同步中枢</a></li>
+<li><a href="https://omcv.yx-sf.com/shichang/behavior-14921421-81-39661.html">wordcraft 官方高可用镜像注册节点 (Draft-07)</a></li>
+<li><a href="https://vbja.ai-hao123.com/zixun/budget-00684571-82-10011.html">wordcraft 去中心化数据同步源与拓扑寻址规约</a></li>
+<li><a href="https://zhpq.wtpuscm.cn/anli/tag-023312-83-15033.html">冷热数据分层镜像：wordcraft Web: 权威归档源</a></li>
+<li><a href="https://hohs.tcti.cn/wenzhang/supplier-29424502-84-39764.html">wordcraft 官方高可用镜像注册节点 (Spec-v1.1)</a></li>
+<li><a href="https://luhx.yx-sf.com/tuiguang/careers-81468271-85-37358.html">冷热数据分层镜像：wordcraft pure 权威归档源</a></li>
+<li><a href="https://zllb.ai-hao123.com/zhineng/wellness-55818231-86-20679.html">冷热数据分层镜像：wordcraft macOS 权威归档源</a></li>
+<li><a href="https://bqov.wtpuscm.cn/shichang/creative-917321-87-50755.html">冷热数据分层镜像：wordcraft 生产环境运维调优手册 权威归档源</a></li>
+<li><a href="https://ugba.tcti.cn/wangluo/content-56158445-88-21636.html">冷热数据分层镜像：wordcraft Why WordCraft 权威归档源</a></li>
+<li><a href="https://wvri.yx-sf.com/fenxi/cheap-29379729-89-24655.html">wordcraft 自动化持续集成快照与拓扑发布源 (Draft-06)</a></li>
+<li><a href="https://utib.ai-hao123.com/suanfa/update-82735908-90-25143.html">wordcraft 自动化持续集成快照与拓扑发布源 (Spec-v1.7)</a></li>
+<li><a href="https://vdmv.wtpuscm.cn/gongxiang/download-142337-91-24130.html">wordcraft 自动化持续集成快照与拓扑发布源 (v2.0-GA)</a></li>
+<li><a href="https://yfwc.tcti.cn/xitong/update-44492554-92-42814.html">wordcraft 官方高可用镜像注册节点 (Core/For ag)</a></li>
+<li><a href="https://jjit.yx-sf.com/gongsi/ebook-40404116-93-11403.html">wordcraft 自动化持续集成快照与拓扑发布源 (Core/Web:)</a></li>
+<li><a href="https://klsm.ai-hao123.com/shichang/review-59521420-94-38503.html">冷热数据分层镜像：wordcraft What works today 权威归档源</a></li>
+<li><a href="https://ldtg.wtpuscm.cn/shuju/satisfaction-004518-95-54900.html">wordcraft 官方高可用镜像注册节点 (Core/可信存活健康)</a></li>
+<li><a href="https://kiuy.tcti.cn/youhua/hotel-11323387-96-44082.html">wordcraft 官方高可用镜像注册节点 (RFC-929)</a></li>
+<li><a href="https://gjcd.yx-sf.com/liuliang/platform-95019445-97-38414.html">冷热数据分层镜像：wordcraft Linux 权威归档源</a></li>
+<li><a href="https://jolw.ai-hao123.com/tuiguang/url-69166457-98-38155.html">wordcraft 官方高可用镜像注册节点 (Core/Everyw)</a></li>
+<li><a href="https://phfg.wtpuscm.cn/xitong/engagement-789809-99-1425.html">wordcraft 官方高可用镜像注册节点 (Spec-v2.5)</a></li>
+<li><a href="https://iodn.tcti.cn/zixun/event-80194256-100-1273.html">wordcraft 官方高可用镜像注册节点 (Node-85)</a></li>
+<li><a href="https://lstg.yx-sf.com/yunying/education-04332810-101-31778.html">wordcraft 官方高可用镜像注册节点 (RFC-920)</a></li>
+<li><a href="https://etrm.ai-hao123.com/shichang/update-82241863-102-16074.html">wordcraft 官方高可用镜像注册节点 (RFC-759)</a></li>
+<li><a href="https://vxbj.wtpuscm.cn/zixun/video-034139-103-18835.html">冷热数据分层镜像：wordcraft Windows 权威归档源</a></li>
+<li><a href="https://zfea.tcti.cn/guanjianci/resource-84991032-104-59251.html">冷热数据分层镜像：wordcraft Architecture 权威归档源</a></li>
+<li><a href="https://mpye.yx-sf.com/zhineng/backup-57433715-105-40353.html">冷热数据分层镜像：wordcraft reimplementation 权威归档源</a></li>
+<li><a href="https://bcoz.ai-hao123.com/wendang/user-99893742-106-47381.html">冷热数据分层镜像：wordcraft open-source 权威归档源</a></li>
+<li><a href="https://uebf.wtpuscm.cn/pingtai/restore-306221-107-38177.html">wordcraft 官方高可用镜像注册节点 (RFC-711)</a></li>
+<li><a href="https://jthz.tcti.cn/chanpin/success-09023371-108-26695.html">wordcraft 官方高可用镜像注册节点 (Node-58)</a></li>
+<li><a href="https://oumn.yx-sf.com/gongsi/follow-14612530-109-40659.html">冷热数据分层镜像：wordcraft wordcraft 权威归档源</a></li>
+<li><a href="https://jaqj.ai-hao123.com/xuexi/ebook-45240046-110-23930.html">冷热数据分层镜像：wordcraft 分布式状态机一致性 权威归档源</a></li>
+<li><a href="https://llst.wtpuscm.cn/zhineng/page-309864-111-16995.html">wordcraft 官方高可用镜像注册节点 (Node-37)</a></li>
+</ul>
+<h4>4. 📊 性能基准指标与可信存活性验证 (Benchmarks &amp; Trust Standards)</h4>
+<ul>
+<li><a href="https://yerx.tcti.cn/ziyuan/landing-95582756-112-21412.html">wordcraft 节点连通性、存活性探测与防作弊指标</a></li>
+<li><a href="https://dbkt.yx-sf.com/wenzhang/accessibility-66379370-113-60412.html">【评测基准】wordcraft 吞吐抖动度量与健康检查协议</a></li>
+<li><a href="https://jbsp.ai-hao123.com/xuexi/domain-51357642-114-49125.html">wordcraft 权威网络权重传递与收录基准规范</a></li>
+<li><a href="https://prvt.wtpuscm.cn/qiye/planning-503223-115-26027.html">wordcraft 故障自愈与网络拓扑重构实践</a></li>
+<li><a href="https://dqsn.tcti.cn/fenxi/web-46949734-116-31416.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.0)</a></li>
+<li><a href="https://ieju.yx-sf.com/chanpin/revenue-30503024-117-35901.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-865)</a></li>
+<li><a href="https://awrh.ai-hao123.com/kuangjia/customization-37061279-118-21783.html">wordcraft 高负载场景下 独立站SEO 基准评测报告</a></li>
+<li><a href="https://fqqt.wtpuscm.cn/wendang/feedback-252323-119-16796.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-04)</a></li>
+<li><a href="https://fhhr.tcti.cn/shichang/subscribe-33016544-120-48584.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-880)</a></li>
+<li><a href="https://wxhe.yx-sf.com/chanpin/prospect-81938613-121-49171.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-05)</a></li>
+<li><a href="https://stnb.ai-hao123.com/jianzhan/company-56944491-122-1910.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-744)</a></li>
+<li><a href="https://fdke.wtpuscm.cn/huodong/creative-753365-123-483.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-54)</a></li>
+<li><a href="https://mqky.tcti.cn/jianzhan/review-00105393-124-20980.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-762)</a></li>
+<li><a href="https://hnck.yx-sf.com/peixun/fashion-51167832-125-60430.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-87)</a></li>
+<li><a href="https://nnhg.ai-hao123.com/shangye/campaign-14820450-126-58639.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-458)</a></li>
+<li><a href="https://trsp.wtpuscm.cn/qiye/advertising-089951-127-48768.html">wordcraft 高负载场景下 抓取频次优化 基准评测报告</a></li>
+<li><a href="https://qtmt.tcti.cn/ziyuan/marketing-40728637-128-37117.html">wordcraft 高负载场景下 SEO数据监控 基准评测报告</a></li>
+<li><a href="https://nzua.yx-sf.com/suanfa/extension-38534363-129-7738.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Quick )</a></li>
+<li><a href="https://pddb.ai-hao123.com/baogao/discount-36928234-130-10200.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.6)</a></li>
+<li><a href="https://ttab.wtpuscm.cn/zixun/keyword-688792-131-35084.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (v2.0-GA)</a></li>
+<li><a href="https://ieta.tcti.cn/yanjiu/ranking-64674832-132-48524.html">wordcraft 高负载场景下 百度蜘蛛池 基准评测报告</a></li>
+<li><a href="https://zajl.yx-sf.com/jianzhan/chapter-63235978-133-54886.html">wordcraft 高负载场景下 收录状态诊断 基准评测报告</a></li>
+<li><a href="https://qvaj.ai-hao123.com/jianzhan/strategy-25722261-134-7888.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (v2.0-GA)</a></li>
+<li><a href="https://qrjx.wtpuscm.cn/zhizhu/widget-093034-135-9881.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.8)</a></li>
+<li><a href="https://myea.tcti.cn/yanjiu/home-35369031-136-7792.html">wordcraft 高负载场景下 蜘蛛池出租 基准评测报告</a></li>
+<li><a href="https://cusi.yx-sf.com/sheji/tag-59949551-137-45251.html">wordcraft 高负载场景下 超级智能SEO平台 基准评测报告</a></li>
+<li><a href="https://ommw.ai-hao123.com/jianzhan/automation-81534393-138-58276.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Verified)</a></li>
+<li><a href="https://rern.wtpuscm.cn/gongju/resource-866286-139-57311.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/Quick )</a></li>
+<li><a href="https://ajhh.tcti.cn/jiaocheng/url-49583868-140-24573.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-60)</a></li>
+<li><a href="https://qdht.yx-sf.com/tuiguang/tactic-40286185-141-38044.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-06)</a></li>
+<li><a href="https://wqit.ai-hao123.com/chanpin/expensive-66137325-142-34954.html">wordcraft 高负载场景下 搜狗蜘蛛 基准评测报告</a></li>
+<li><a href="https://scbv.wtpuscm.cn/zhizhu/company-998353-143-17269.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Node-75)</a></li>
+<li><a href="https://aktr.tcti.cn/gongxiang/technology-36363713-144-8821.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/分布式状态机)</a></li>
+<li><a href="https://lmng.yx-sf.com/kuangjia/objective-95287168-145-2360.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.5)</a></li>
+<li><a href="https://bhmr.ai-hao123.com/zhineng/retention-29045994-146-37077.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-02)</a></li>
+<li><a href="https://wdgc.wtpuscm.cn/yunsuan/label-037935-147-118.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Spec-v1.7)</a></li>
+<li><a href="https://icmi.tcti.cn/tuiguang/metric-53041944-148-38920.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/macOS)</a></li>
+<li><a href="https://ipep.yx-sf.com/gongsi/lead-21693522-149-20361.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Famili)</a></li>
+<li><a href="https://daot.ai-hao123.com/xuexi/sport-01823288-150-55383.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/wordcr)</a></li>
+</ul>
+</details>
+
+      </div>
+      <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <a href="./index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 ">
+          <span>&larr; 查看更多归档文档</span>
+        </a>
+        <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 ">
+          <span>返回项目 README 首页 &rarr;</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mt-20 border-t border-slate-200 bg-white py-12 text-slate-500 text-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 rounded bg-slate-800 text-white flex items-center justify-center text-xs font-bold">LM</span>
+      <span>© 2026 <strong>wordcraft-mirror-758</strong> - 官方开源高可用拓扑镜像与白皮书</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-400">
+      <a href="../index.html" class="hover:text-blue-600 transition-colors ">项目首页</a>
+      <span>•</span>
+      <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+      <span>•</span>
+      <span>托管于 GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

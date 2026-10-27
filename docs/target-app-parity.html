@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WordCraft parity with Microsoft Word - wordcraft-mirror-758 文档归档</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      :root {
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.68;
+        color: #1e293b;
+      }
+      .markdown-body {
+        color: #1e293b;
+      }
+      .markdown-body h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-top: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid #e2e8f0;
+        color: #0f172a;
+        line-height: 1.25;
+      }
+      .markdown-body h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 1.6rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+      }
+      .markdown-body h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.3rem;
+        margin-bottom: 0.6rem;
+        color: #334155;
+      }
+      .markdown-body p {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.7;
+      }
+      .markdown-body a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dashed #93c5fd;
+        transition: all 0.2s ease;
+      }
+      .markdown-body a:hover {
+        color: #1d4ed8;
+        border-bottom: 1px solid #1d4ed8;
+        background-color: #eff6ff;
+        border-radius: 2px;
+      }
+      .markdown-body ul, .markdown-body ol {
+        padding-left: 1.5rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+      }
+      .markdown-body ol {
+        list-style-type: decimal;
+      }
+      .markdown-body li {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
+      .markdown-body pre {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        padding: 1rem 1.2rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .markdown-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875em;
+        padding: 0.15rem 0.35rem;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-radius: 0.35rem;
+        border: 1px solid #e2e8f0;
+      }
+      .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        color: inherit;
+      }
+      .markdown-body blockquote {
+        margin: 1rem 0;
+        padding: 0.75rem 1.25rem;
+        background-color: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: #475569;
+      }
+      .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0;
+        display: block;
+        overflow-x: auto;
+      }
+      .markdown-body th, .markdown-body td {
+        border: 1px solid #cbd5e1;
+        padding: 0.6rem 1rem;
+        text-align: left;
+      }
+      .markdown-body th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+      .markdown-body tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      .markdown-body hr {
+        height: 1px;
+        border: none;
+        background-color: #e2e8f0;
+        margin: 2rem 0;
+      }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform ">LM</span>
+        <span class="font-bold text-slate-900 tracking-tight text-lg group-hover:text-blue-600 transition-colors ">wordcraft-mirror-758</span>
+      </a>
+      <span class="hidden md:inline-block text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono ">Pages Docs</span>
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2 text-sm">
+      <a href="../index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>首页 (README)</span>
+      </a>
+      <a href="./index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-blue-600 bg-blue-50 font-semibold ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span>文档归档 (Docs)</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+      </a>
+      <div class="h-4 w-px bg-slate-200 mx-1"></div>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758/wiki" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden sm:inline">Wiki</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- 面包屑与顶部导航 -->
+  <header class="bg-white border-b border-slate-200 py-6 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-xs text-slate-500 mb-2 font-medium">
+        <a href="../index.html" class="hover:text-blue-600 transition-colors ">首页</a>
+        <span>/</span>
+        <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold">技术文档</span>
+      </nav>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">WordCraft parity with Microsoft Word</h1>
+        <a href="./index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors ">
+          <span>&larr; 返回文档归档菜单</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体正文区域 -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+    <article class="bg-white p-6 sm:p-12 rounded-2xl shadow-sm border border-slate-200">
+      <div class="markdown-body">
+        <h1>WordCraft parity with Microsoft Word</h1>
+<blockquote>
+<p><strong>Last reviewed:</strong> 2026-10-10 · <strong>Last updated:</strong> 2026-10-19 · <strong>Change:</strong> trivial (Insert Table of Figures lists any caption label, #3013; previously trivial: Performance row: typing no longer starts render threads on every repaint, #3027; previously trivial: shapes inserted in a row are all kept, #2019; previously trivial: East Asian typography: <code>w:eastAsianLayout</code> kept on save, not laid out; previously trivial: Ink to Shape recognises arrows; previously trivial: Windows Magnifier follows the caret onto a new line, #1119; previously trivial: table border drags with Ctrl and Alt, from the left edge and of selected cells, #711; previously trivial: table column and row markers on the rulers, #700; previously trivial: table borders and the resize handle drag on the page, #217; previously trivial: all 12 bibliography styles, #383; previously trivial: formatting revisions landed, #41; previously trivial: Draw Table and Eraser landed, #303; previously minor: readiness table with hours per audience; full number back to the additive weighted sum, 60%; mainstream and essentials numbers added; alpha gate checked; previously major: full re-measure against Word for Mac 16.113.4; replaces the parity tables that lived in ROADMAP.md) · <strong>Target:</strong> Microsoft Word (Microsoft 365) for Mac 16.113.4</p>
+</blockquote>
+<p>The authoritative assessment of how close WordCraft is to Microsoft Word. <a href="../ROADMAP.md"><code>ROADMAP.md</code></a>
+summarizes it; <a href="gaps.md"><code>gaps.md</code></a> itemizes every shortfall; the deep checklists are
+<a href="file-format-parity.md"><code>file-format-parity.md</code></a>, <a href="layout-parity.md"><code>layout-parity.md</code></a>,
+<a href="typing-parity.md"><code>typing-parity.md</code></a>, <a href="ui-parity.md"><code>ui-parity.md</code></a>,
+<a href="hardware-parity.md"><code>hardware-parity.md</code></a> and <a href="localization-parity.md"><code>localization-parity.md</code></a>.
+The generated ribbon checklist is <a href="parity-checklist.md"><code>parity-checklist.md</code></a>.</p>
+<h2>Headline (2026-10-10, origin/main <code>a99dddc</code>, v0.4.0 + ~90 merged PRs)</h2>
+<table><thead><tr><th>Number</th><th>Value</th><th>Kind</th></tr></thead><tbody>
+<tr><td>Ribbon/menu catalog coverage</td><td><strong>487 / 502 (97.0%)</strong></td><td><strong>measured</strong>: <code>cargo xtask parity</code> (re-derived this pass from <code>crates/engine/src/catalog.rs</code> against every <code>CommandSpec::new</code> id in the source; identical to the checked-in <code>parity-checklist.md</code>)</td></tr>
+<tr><td>Feature breadth (weighted, beyond the ribbon: dialog options, citation styles, proofing languages, chart types, UI languages)</td><td><strong>~80%</strong></td><td>estimated</td></tr>
+<tr><td>Feature depth (weighted by use, table below)</td><td><strong>~68%</strong></td><td>estimated</td></tr>
+<tr><td><strong>Ready for real work</strong> (full target)</td><td><strong>~60%</strong> (range 55–63%)</td><td>estimated: weighted sum over the dimension table (<a href="#by-dimension">By dimension</a>)</td></tr>
+<tr><td><strong>Mainstream practitioner</strong></td><td><strong>~55%</strong></td><td>estimated, same method</td></tr>
+<tr><td><strong>Essentials user</strong></td><td><strong>~63%</strong></td><td>estimated, same method</td></tr>
+<tr><td>Remaining effort to beta</td><td><strong>~150–230 h</strong> of Opus 5.5 agent wall-clock: the blocking beta list (<a href="gaps.md">gaps.md</a> #1–#7), which lifts file formats, layout, stability and UI enough to reach ~75%</td><td>estimated</td></tr>
+<tr><td>Remaining effort to full parity with Word desktop</td><td><strong>~750–1,250 h</strong></td><td>estimated</td></tr>
+<tr><td>Commands</td><td>431 engine commands (+ <code>ui.*</code> commands in the front end)</td><td>measured (source count)</td></tr>
+<tr><td>Tests</td><td>852 <code>#[test]</code> functions + 10 <code>proptest!</code> blocks</td><td>measured (source count)</td></tr>
+<tr><td>Code</td><td>~88,700 lines of Rust in 15 crates, 3 apps and xtask</td><td>measured (<code>wc -l</code>)</td></tr>
+</tbody></table>
+<p><strong>Stage: alpha.</strong> All six core workflows pass the <a href="roadmap.md#alpha-gate-core-workflows">alpha gate</a>; see <a href="../ROADMAP.md"><code>ROADMAP.md</code></a> for why it isn't beta, and the distance.</p>
+<h2>What we measured against</h2>
+<ul>
+<li><strong>Microsoft Word for Mac 16.113.4</strong> (Microsoft 365 subscription build, installed on the owner's Mac
+at <code>/Applications/Microsoft Word.app</code>; version read with <code>mdls</code>, bundle modified 2026-10-06).</li>
+<li>Inspected black-box, by <strong>file listing only</strong>, as <code>AGENTS.md</code> § Clean room requires (no bundle file
+was opened or read): 31 <code>.lproj</code> folders (30 interface languages plus Base), 120 proofing tools
+under <code>SharedSupport/Proofing Tools</code> (spellers, grammars, hyphenators and thesauri for ~50
+languages), 12 bibliography styles under <code>Resources/Style</code> (APA 6th, Chicago, GB 7714, GOST name
+and title, Harvard Anglia, IEEE, ISO 690 author-date and numerical, MLA 7th, SIST02, Turabian),
+11 Quick Style sets plus Word 2010, Office themes, a PDF print-dialog extension (<code>WordPDE.plugin</code>),
+ink rendering (<code>InkRender.bundle</code>), a Copilot backstage bundle, and text converters (Excel 2.x–11,
+Recover Text).</li>
+<li>Word's file formats, ribbon, dialogs and keyboard shortcuts from Microsoft's public documentation
+and our knowledge of Word for Windows and Mac (Microsoft 365). Windows-only features (PDF Reflow
+open, Works/WordPerfect import) are counted, because a Word user on Windows expects them.</li>
+<li>WordCraft as it is on origin/main today: source (catalog, command registry, readers/writers,
+layout), tests, the i18n catalogs, open issues (62 as of 2026-10-10) and open PRs (~45 as of 2026-10-10), git history.</li>
+<li><strong>Not done this pass:</strong> opening real-world .docx files in both apps and comparing pages. There is
+no real-world corpus in the repo (Word-produced files can't be committed), and the disk budget
+ruled out building. That comparison is the first gap in <a href="gaps.md"><code>gaps.md</code></a>.</li>
+</ul>
+<h2>Feature areas</h2>
+<p>Percent is depth and fidelity against Word, not presence. Weight is our estimate of the share of a
+typical Word user's time spent in the area (sums to 100). Hours are Opus 5.5 agent wall-clock to
+full parity for the area.</p>
+<table><thead><tr><th>Area</th><th>Weight</th><th>Parity</th><th>Was (2026-10-06)</th><th>Hours</th><th>Evidence and what's missing</th></tr></thead><tbody>
+<tr><td>Typing, selection, clipboard, undo, find/replace</td><td>12</td><td>85%</td><td>85%</td><td>8–12</td><td>Typing parity pinned by <code>tests/typing.rs</code> (<a href="typing-parity.md">typing-parity.md</a>). Paste Special (#235), Advanced Find (#234) and Column Selection (#237) landed; Clipboard pane still missing (PR #264 open).</td></tr>
+<tr><td>Character and paragraph formatting</td><td>11</td><td>82%</td><td>85%</td><td>8–12</td><td>Nearly every property, Font/Paragraph dialogs, character border, Phonetic Guide (#288), Enclose Characters (#297). Kerning for fonts in the Font dialog. Missing: Asian Typography, ligature/stylistic-set options in the Font dialog's Advanced tab.</td></tr>
+<tr><td>Styles and themes</td><td>8</td><td>74%</td><td>75%</td><td>8–12</td><td>Gallery, pane, create/modify, style sets, themes. Style Inspector landed (#236). Missing: Manage Styles (#270 open), style separators, linked-style edge cases; Word ships 11 Quick Style sets plus dozens of themes, we ship our own smaller set.</td></tr>
+<tr><td>Lists</td><td>6</td><td>78%</td><td>75%</td><td>5–8</td><td>Bullets, numbering, multilevel, restart, <code>w:lvlOverride</code> levels (#134), Word's list AutoFormat and Enter/Backspace behaviour. Missing: Define New Multilevel List dialog depth, list styles, legal numbering edge cases.</td></tr>
+<tr><td>Tables</td><td>8</td><td>76%</td><td>72%</td><td>10–16</td><td>Merge/split, styles (cell text takes style formatting, #104), custom table styles saved in the .docx (#256), Word 2013 edge, floating tables, rows split across pages, sort, formula, cell gridlines (#243), Draw Table and Eraser (#303), tables nested 24 deep at most, as the .docx reader and writer keep them (#1596; Word has no limit). Cell Margins opens an editable dialog initialized from table defaults and preserves unchanged values (#1960). Missing: splitting or erasing around vertically merged cells, nested-table polish. Dragging column and row borders and the resize handle on the page (#217) and the column and row markers on the rulers (#700) landed, with Word's Ctrl, Alt, left-edge and selected-cells drags (#711), and so did selecting columns, rows and cells, the "+" insert buttons, the move handle and double-click AutoFit on the page, Select Column, and drags and Shift+arrows over cells selecting whole cells; right-clicking a cell offers the table's commands, following the selection as in Word (Delete Cells, Rows, Columns or Table, Merge and Split Cells, Distribute, AutoFit, Text Direction, Insert Caption…, Table Properties…); cell text direction landed (#245).</td></tr>
+<tr><td>Page layout and sections</td><td>7</td><td>70%</td><td>72%</td><td>12–20</td><td>Margins, size, columns, breaks, page borders, line numbers, vertical alignment, drop caps, hyphenation. Columns don't balance; RTL sections missing. Vertical sections (tbRl/btLr) landed (#491). Detail: <a href="layout-parity.md">layout-parity.md</a>.</td></tr>
+<tr><td>Headers, footers, page numbers, fields</td><td>5</td><td>70%</td><td>70%</td><td>8–12</td><td>First/even/odd, link to previous, TOC as an updatable field (#52), cross-references to real bookmarks (#227). Field coverage is a subset of Word's ~90 field codes; Field dialog missing.</td></tr>
+<tr><td>Footnotes and endnotes</td><td>3</td><td>60%</td><td>60%</td><td>3–5</td><td>Placed and editable, numbers from Word files (#103); long notes continue onto the next page under the continuation separator (#352). Footnote and Endnote dialog with options per section: below text, end of section, number format, start at, restart each section or page, custom mark, convert (#385).</td></tr>
+<tr><td>References (TOC, citations, bibliography, captions, index, TOA)</td><td>5</td><td>65%</td><td>60%</td><td>12–20</td><td>Working first versions, Zotero integration (#189), Zotero/Mendeley <code>ADDIN</code> fields round-trip. Caption, Index, Mark Entry, Custom TOC, Table of Figures and Create/Edit Source dialogs; updates honour the TOC (<code>\o \u \t \f \n \p \h</code>), table of figures (<code>\c \a \n \p</code>, any caption label, so a list of tables sits beside a list of figures; #3013), INDEX (<code>\c \e \h \r</code>), XE (<code>\b \i \t \r</code>) and SEQ/STYLEREF chapter switches (#402); Insert Caption… on the right-click menu of pictures, shapes, text boxes and charts (#1230). All 12 of Word's bibliography styles (APA, MLA, Chicago, IEEE, Harvard, ISO 690 author-date and numerical, Turabian, GB/T 7714, GOST name and title sort, SIST02; #383); bibliography sources saved in DOCX (#790). Manage Sources imports Word's bibliography file (<code>b:Sources</code>, <code>Sources.xml</code>, #2640).</td></tr>
+<tr><td>Review (proofing UI, comments, track changes, compare, protect)</td><td>8</td><td>72%</td><td>75%</td><td>15–25</td><td>Comment balloons, tracked insert/delete incl. paragraph marks (#244, #125), Compare / Combine with comparison settings (case, white space, formatting, tables, word or character level, #412), Restrict Editing pane with formatting and editing restrictions, exceptions for everyone and a password (#412). Formatting revisions (#41): kept in DOCX, recorded while tracking, accepted/rejected, "Formatted: …" balloons and change bars. Moves (#400): kept in DOCX, recorded on a tracked cut and paste, accepted/rejected at either end, green markup and "Moved from/to" balloons. Show revisions in balloons takes tracked deletions in the body out of the text into "Deleted: …" balloons (insertions stay inline, as in Word; deletions in headers, footers, notes and text boxes, and in print and PDF, stay inline). Missing: drag-and-drop moves, insert/delete balloons, Translate, Block Authors, modern comment threads/mentions. Lowered: these gaps are confirmed by source (no <code>rPrChange</code> anywhere).</td></tr>
+<tr><td>Proofing (spelling, grammar, thesaurus, languages)</td><td>5</td><td>44%</td><td>(in Review)</td><td>20–40</td><td>English, Polish, Portuguese, Italian and Czech (system Hunspell, #1048), chosen per run from its language (<code>w:lang</code>): English word list (Moby plus our supplement of modern words such as "desktop", #520) and rule-based grammar; Polish against the installed Hunspell dictionary through a Hunspell-style affix engine, Polish grammar rules and TeX hyphenation patterns (2026-10-10); Portuguese (pt-BR) against the installed VERO Hunspell dictionary — the affix engine reads its <code>FLAG UTF-8</code> flags, continuation classes and forbidden spellings — with accent-first suggestions, conservative grammar rules and TeX patterns (2026-10-12); Italian (it-IT) against the installed Hunspell dictionary through the same affix engine, with accent-first suggestions and conservative grammar rules. Other languages are left unmarked. The custom dictionary persists across sessions (#40). Word ships 120 proofing tools for ~50 languages plus Editor (style refinements, similarity). Issues #25, #40, #100.</td></tr>
+<tr><td>Mailings</td><td>2</td><td>70%</td><td>70%</td><td>6–10</td><td>Mail merge from CSV, fields, rules (IF, SKIPIF, NEXT, NEXTIF, evaluated alike in preview and merge), fields in headers/footers (one section per letter), preview, envelopes, labels. Select Recipients takes a typed list or CSV (#247); no Excel/Outlook/Contacts data sources, no email merge.</td></tr>
+<tr><td>Pictures, shapes, text boxes, WordArt</td><td>6</td><td>60%</td><td>60%</td><td>20–30</td><td>Insert, crop, recolour, styles, floating placement like Word (#136), wrap (square/top-bottom/behind/front), text boxes edit and overflow (#46), VML text boxes (#242), free rotation and flips with a rotation handle (#332), WordArt: text fill (solid, gradient, none), outline, shadow, glow and reflection with our own styles, and Transform warps along arch, circle, wave, slant, inflate/deflate, chevron and triangle (other presets kept and drawn flat), connectors (straight, elbow, curved, arrowheads) glued to shapes' connection sites and re-routed when those move (#416). Missing: tight/through contour wrap, rotated text-box text, group (#267 open), shape effects, WordArt 3-D/bevel and editing text in its bent form, connector routing around shapes, Drawing Canvas, Icons, online pictures, screenshot.</td></tr>
+<tr><td>Mailings</td><td>2</td><td>70%</td><td>70%</td><td>6–10</td><td>Mail merge from CSV, fields, rules (IF, SKIPIF, NEXT, NEXTIF, evaluated alike in preview and merge), fields in headers/footers (one section per letter), preview, envelopes, labels. Select Recipients takes a typed list, CSV (#247) or a sheet of an Excel (.xlsx/.xlsm) or OpenDocument (.ods) workbook, with Select Table to pick the sheet (#334); no Outlook/Contacts/Access data sources, no email merge.</td></tr>
+<tr><td>Pictures, shapes, text boxes, WordArt</td><td>6</td><td>60%</td><td>60%</td><td>20–30</td><td>Insert, crop, recolour, styles, floating placement like Word (#136), wrap (square/top-bottom/behind/front), text boxes edit and overflow (#46), VML text boxes (#242), free rotation and flips with a rotation handle (#332), text-box text direction (90°, 270°, stacked), Align Text and linked text boxes (#369), Icons: an original icon library drawn in code with a searchable picker, inserted as pictures and recoloured with Icon Color (#309), Drawing Canvas with Fit/Expand/Scale and DOCX <code>wpc:wpc</code> (#344; members edited by command, not yet dragged inside the canvas; the canvas rotates and flips as a whole). Missing: tight/through contour wrap, text in a freely rotated text box, group (#267 open), shape effects, WordArt, connectors, online pictures, screenshot.</td></tr>
+<tr><td>Equations</td><td>1</td><td>75%</td><td>20% (with Draw)</td><td>4–8</td><td>OMML read/write, OpenType MATH layout, in-place editor with an Equation tab (#191). Missing: line breaking of long display equations, ink equations.</td></tr>
+<tr><td>Charts, SmartArt, Draw/ink, 3D models, icons</td><td>4</td><td>3%</td><td>(20% with equations)</td><td>70–110</td><td>Icons landed (#309; an original library drawn in code). Draw: pens, pencil, highlighter, stroke eraser and Hide Ink (#307), ink saved as DrawingML freeforms; Lasso Select (move, recolour, delete), Add Pen gallery, Ink to Shape (line, arrow, rectangle, ellipse, triangle, polygon) and Ink Replay (#395); Ink to Math, pressure and Word's own InkML missing; charts: Insert › Chart makes column, bar (clustered and stacked), line, area, pie, doughnut and scatter charts with Chart Design (change type, Edit Data grid, title, legend, data labels) and saves them as real chart parts (#409); charts from Word are drawn (#292) and kept on save (#319) but stay read-only; SmartArt is drawn and kept (#292, #319); Insert › SmartArt (#497) creates and edits list, process, cycle, hierarchy, pyramid, radial, matrix and Venn graphics with our own layouts, a Text Pane and the SmartArt Design tab, saved as diagram parts with the drawing; SmartArt from other programs stays read-only.</td></tr>
+<tr><td>View (modes, zoom, panes, windows)</td><td>3</td><td>72%</td><td>70%</td><td>6–10</td><td>Print/web/draft/read/focus, dark page (#194), pages side by side when zoomed out (#251), navigation pane; Outline view with the Outlining tab: levels, promote/demote, moving with collapsed content, expand/collapse, Show Level, first line only, text formatting (#493). Missing: View Side by Side, Synchronous Scrolling, Arrange All, Switch Windows, Master Document, Immersive Reader depth.</td></tr>
+<tr><td>Backstage, printing, options</td><td>3</td><td>58%</td><td>55%</td><td>12–20</td><td>New/Home pages (#254), save prompts (#151), web printing via the browser (#209). Desktop printing still goes through PDF; Options has a fraction of Word's panes.</td></tr>
+<tr><td>Right-to-left and complex scripts</td><td>1</td><td>50%</td><td>55%</td><td>15–25</td><td>UAX #9, Arabic shaping, RTL paragraphs (#207). No RTL sections/tables, kashida justification or mirrored UI; open bug reports (#215, #211, #199, #66, #63, #48, #19) need re-testing against #207.</td></tr>
+<tr><td>East Asian typography</td><td>1</td><td>25%</td><td>not rated</td><td>13–22</td><td>IME input works (winit fixes pending, #155–#164). Vertical text in sections, text boxes and cells with upright ideographs (#491; no <code>vert</code> glyph alternates). Ruby/Phonetic Guide with DOCX round trip (#288); document grid (lines per page, characters per line, #391). Two lines in one and horizontal in vertical (<code>w:eastAsianLayout</code>) are kept on save but not laid out. No enclose characters, Asian line-break options.</td></tr>
+<tr><td>Accessibility</td><td>1</td><td>50%</td><td>not rated</td><td>10–18</td><td>AccessKit enabled in eframe. Alt Text pane for pictures, shapes, text boxes, groups, charts and tables with Mark as decorative, all round-tripping in DOCX (#386). The Accessibility pane groups errors, warnings and tips with jump-to and one-click fixes; rules for alt text, heading order, header rows, blank table rows/columns, merged cells, low contrast (WCAG ratio), floating objects and blank paragraphs. Screen-reader access to the document canvas is still untested (#18); no reading-order tools. The document canvas describes its text, headings, lists, tables, links, pictures and caret to screen readers through AccessKit (#488); Windows Magnifier follows the caret, onto a new line too (#1119).</td></tr>
+<tr><td>Agent control (CLI, MCP, control channel, macro record/playback)</td><td>0</td><td>beyond Word</td><td>100%+</td><td>—</td><td>Every action is a command id usable from CLI, MCP and a keyed control port. Word has VBA and Office.js instead (see Ecosystem).</td></tr>
+</tbody></table>
+<p>Weighted feature depth: <strong>~68%</strong> (Σ weight × parity / 100 over the table).</p>
+<h2>Readiness numbers: full, mainstream practitioner, essentials user</h2>
+<p>Three numbers, each with its own hours (craftrules <code>standards/progress-docs.md</code>, "Numbers"). The
+<strong>full</strong> number is the additive weighted sum over the dimension table below. <strong>Mainstream</strong> and
+<strong>essentials</strong> average depth over the areas in scope, then multiply by written-down discounts for
+what still stops real work. The stage follows the full number and the core-workflow gate.</p>
+<table><thead><tr><th>Audience</th><th>Ready</th><th>Opus 5.5 agent wall-clock hours to ~95%</th><th>Work that dominates</th></tr></thead><tbody>
+<tr><td>Full target (ready for real work)</td><td><strong>~60%</strong></td><td><strong>~650–1,100 h</strong> (70–80% parallelizes)</td><td>Breadth: charts/SmartArt/Draw, localization and proofing languages, East Asian and RTL typography, <code>.doc</code> writing, PDF Reflow, ecosystem; plus everything below</td></tr>
+<tr><td>Mainstream practitioner</td><td><strong>~55%</strong></td><td><strong>~300–500 h</strong> (~65% parallelizes)</td><td>DOCX real-world fidelity and preserving charts/SmartArt, pagination fidelity, formatting revisions, dialog depth, objects, stability</td></tr>
+<tr><td>Essentials user</td><td><strong>~63%</strong></td><td><strong>~90–140 h</strong> (~50% parallelizes)</td><td>Install/launch stability, opening files people send (corpus subset, chart fallbacks), native printing, picture handling, English spelling depth</td></tr>
+</tbody></table>
+<p>Hours are calibrated as in <a href="#calibration-of-hours-from-this-repos-history">Calibration</a> and are
+subsets: essentials ⊂ mainstream ⊂ full. Mainstream to ~95%: its areas' depth (~180–280 h) plus
+the file-exchange, stability and interaction work behind the discounts (~135–225 h). Essentials to
+~95%: launch/install stability (15–25 h), opening received files (30–50 h), native printing (6–10
+h), pictures and tables (12–18 h), spelling depth (8–12 h), polish (10–20 h).</p>
+<h3>The discounts (evidence)</h3>
+<table><thead><tr><th>Discount</th><th>Mainstream</th><th>Essentials</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>Interaction fidelity</td><td>×0.93</td><td>—</td><td>Typing pinned to Word (<code>tests/typing.rs</code>), ribbon, keytips, mini-toolbar; but 16 modal dialogs against Word's ~100, 125 of ~250 shortcuts, picture/shape handling complaints (#82, #142), lines wrap differently without an Aptos-metric font</td></tr>
+<tr><td>Discoverability and UI clarity</td><td>—</td><td>×0.95</td><td>Word-style ribbon a Word user already knows, command search, keytips; some newer pane strings and tooltips terse or untranslated</td></tr>
+<tr><td>Stability on real machines</td><td>×0.90</td><td>×0.90 (launch and install)</td><td>Never-crash standard, hostile-param fuzzing, panic guard; but open startup crash on Intel UHD (#170), freezes (#77, #59, #31), Windows writes fail without admin (#218), installer conflicts with other Crafting Apps (#64, #73, #106, #51); 5 days of field history</td></tr>
+<tr><td>Exchanging files with Word users</td><td>×0.90</td><td>×0.92 (opening files people send)</td><td>Word opens our .docx; <code>.doc</code> import; but no real-world corpus test, charts/SmartArt/OLE dropped silently, pagination differs (Aptos, no column balancing or footnote continuation). Simple documents, which are most of what a casual user receives, come through well; double-click open on macOS is fixed on main but not yet released (#223, #279)</td></tr>
+<tr><td>Product</td><td><strong>×0.753</strong></td><td><strong>×0.787</strong></td><td></td></tr>
+</tbody></table>
+<h3>Full target (ready for real work): ~60%</h3>
+<p>The additive weighted sum over the <a href="#by-dimension">dimension table</a>: <strong>0.30·68 + 0.20·60 + 0.15·55 +
+0.10·65 + 0.10·50 + 0.05·75 + 0.04·25 + 0.03·95 + 0.01·40 + 0.02·15 ≈ 60%</strong> (range 55–63%). No
+multiplicative discounts: stability, file formats, layout and UI are weighted dimensions here.</p>
+<h3>Mainstream practitioner: ~55%</h3>
+<p>The typical professional Word user (office, legal, academic, writing) in their own language, weekly
+work only. Left out: equations, mail merge, Draw/ink, East Asian and right-to-left typography,
+accessibility tools, proofing in other languages, add-ins/VBA, Copilot, cloud and co-authoring,
+dictation and pens.</p>
+<table><thead><tr><th>Area</th><th>Weight</th><th>Depth</th></tr></thead><tbody>
+<tr><td>Typing, selection, clipboard, undo, find/replace</td><td>17</td><td>85%</td></tr>
+<tr><td>Character and paragraph formatting</td><td>16</td><td>82%</td></tr>
+<tr><td>Styles</td><td>9</td><td>74%</td></tr>
+<tr><td>Tables</td><td>9</td><td>76%</td></tr>
+<tr><td>Review (comments, track changes)</td><td>9</td><td>72%</td></tr>
+<tr><td>Lists</td><td>8</td><td>78%</td></tr>
+<tr><td>Page layout and sections</td><td>6</td><td>70%</td></tr>
+<tr><td>Headers, footers, page numbers, fields</td><td>5</td><td>70%</td></tr>
+<tr><td>Proofing in the user's language (English)</td><td>5</td><td>55%</td></tr>
+<tr><td>Pictures, shapes, text boxes</td><td>5</td><td>60%</td></tr>
+<tr><td>References (TOC, captions, citations)</td><td>4</td><td>65%</td></tr>
+<tr><td>Footnotes</td><td>2</td><td>60%</td></tr>
+<tr><td>Charts and SmartArt (pasted from Excel or received)</td><td>2</td><td>3%</td></tr>
+<tr><td>Print and PDF</td><td>2</td><td>65%</td></tr>
+<tr><td>View</td><td>1</td><td>72%</td></tr>
+</tbody></table>
+<p>Base ≈ <strong>73%</strong>; <strong>73% × 0.753 ≈ 55%</strong>.</p>
+<h3>Essentials user: ~63%</h3>
+<p>Someone who uses only the core of Word: create or open a document, type and format it, a list, a
+picture, a simple table, spelling, undo, save, PDF or print, default settings. Advanced options,
+professional workflows and file-exchange edge cases are left out, as is everything left out of
+mainstream.</p>
+<table><thead><tr><th>Feature</th><th>Weight</th><th>Depth</th></tr></thead><tbody>
+<tr><td>Typing, selection, copy/paste, undo</td><td>20</td><td>85%</td></tr>
+<tr><td>Font, size, bold/italic/underline, colour, highlight</td><td>15</td><td>88%</td></tr>
+<tr><td>New, open, save, AutoSave, templates</td><td>12</td><td>80%</td></tr>
+<tr><td>Alignment, line spacing, indents</td><td>8</td><td>85%</td></tr>
+<tr><td>Bullets and numbering</td><td>8</td><td>85%</td></tr>
+<tr><td>Spelling (English)</td><td>8</td><td>65%</td></tr>
+<tr><td>Insert, move and resize a picture</td><td>7</td><td>65%</td></tr>
+<tr><td>Simple table</td><td>6</td><td>78%</td></tr>
+<tr><td>Heading styles from the gallery</td><td>5</td><td>78%</td></tr>
+<tr><td>Print and export PDF</td><td>5</td><td>70%</td></tr>
+<tr><td>Find and replace</td><td>3</td><td>85%</td></tr>
+<tr><td>Page numbers and a simple header</td><td>3</td><td>75%</td></tr>
+</tbody></table>
+<p>Base ≈ <strong>80%</strong>; <strong>80% × 0.787 ≈ 63%</strong>.</p>
+<h3>User evidence (GitHub, 2026-10-10; no issue was filed by a storytold org member)</h3>
+<ul>
+<li><strong>120 issues</strong> filed by 80+ outside users in 5 days; about 60 closed, most fixed within a day.</li>
+<li><strong>Praise:</strong> 4 issues or comments ("Awesome job guys!" #28, "amazing how much it advanced" #146,
+"appreciate the repo" #57, thanks in #73/#51). <strong>"Switched from Word" reports: 0.</strong></li>
+<li><strong>Open issues by kind</strong> (hand-classified, ~56 open at classification): <strong>~21 core-path bugs</strong>
+(install/launch: #64, #73, #106, #51, #47, #170, #218; hangs: #77, #59, #31; editing: #82, #142,
+#44, #45, #217, #95; files and saving: #187, #195, #279, #18; printing #15; several may already
+be fixed on main), <strong>~11 right-to-left and language</strong> reports (#19, #48, #63, #66, #199, #211,
+#215, #25, #40, #56, #100), <strong>~24 feature requests or minor bugs</strong> (catalog parity, macros,
+passwords, cloud, theming).</li>
+<li>Reading: people are trying WordCraft as a Word replacement and report core-path problems more
+than niche ones; the install and stability discount is earned.</li>
+</ul>
+<h2>By dimension</h2>
+<p>Weights are our estimate of how much each dimension decides whether a professional can switch from
+Word. Their weighted sum is the <strong>full ready for real work</strong> number.</p>
+<table><thead><tr><th>Dimension</th><th>Weight</th><th>Parity</th><th>Hours to full</th><th>Doc</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>Features (depth, table above)</td><td>30%</td><td>68%</td><td>210–335</td><td>this file</td><td>Weighted table above. Hours: the area table sums to 290–460 h; the Page layout, Footnotes, RTL and East Asian rows (~50–85 h) are counted under Layout and the Proofing row (25–45 h) under Localization, so they aren't counted twice</td></tr>
+<tr><td>File formats (DOCX fidelity first)</td><td>20%</td><td>60%</td><td>185–300</td><td><a href="file-format-parity.md">file-format-parity.md</a></td><td>DOCX opens in Word and round-trips our own tests, but no real-world corpus test yet; charts, SmartArt, OLE and encrypted files are lost or refused (content controls kept since #381)</td></tr>
+<tr><td>Layout and pagination fidelity</td><td>15%</td><td>55%</td><td>90–145</td><td><a href="layout-parity.md">layout-parity.md</a></td><td>Aptos has no metric-matched substitute so lines break differently from Word; no column balancing, footnote continuation or document grid; compatibility modes beyond 15 partial</td></tr>
+<tr><td>UI/UX fidelity</td><td>10%</td><td>65%</td><td>65–100</td><td><a href="ui-parity.md">ui-parity.md</a></td><td>Ribbon, keytips, mini-toolbar, Backstage, 125 shortcuts; 16 modal dialogs against Word's ~100; no ribbon/keyboard customization</td></tr>
+<tr><td>Stability</td><td>10%</td><td>50%</td><td>25–45</td><td><a href="gaps.md">gaps.md</a></td><td>Never-crash standard and hostile-param fuzzing in place, but open reports of a startup crash on Intel UHD (#170), freezes (#77, #59, #31) and Windows write failure without admin (#218); local desktop recovery with focused lifecycle tests, but no longer soak test; 5 days of field history</td></tr>
+<tr><td>Performance</td><td>5%</td><td>75%</td><td>10–20</td><td><a href="layout-parity.md">layout-parity.md</a></td><td>61 ms cold layout and 1.4 ms relayout on a 188-page document (measured 2026-10-06, not re-run); font picker freezes fixed in #233; typing no longer starts and stops render threads on every repaint (#3027); no large real-world documents measured</td></tr>
+<tr><td>Localization</td><td>4%</td><td>27%</td><td>75–120 + native review</td><td><a href="localization-parity.md">localization-parity.md</a></td><td>13 UI languages (Word 30); 4 of the 12 key languages partly done; English and Polish proofing</td></tr>
+<tr><td>Platforms</td><td>3%</td><td>95%</td><td>5–10</td><td><a href="../ROADMAP.md">ROADMAP.md</a></td><td>macOS (universal, signed), Windows x64/x86/arm64, Linux (AppImage/deb/rpm/Flatpak), FreeBSD, web. Beyond Word on Linux, BSD and the web; Word's iPad/iPhone/Android apps are out of scope</td></tr>
+<tr><td>Hardware</td><td>1%</td><td>40%</td><td>20–40</td><td><a href="hardware-parity.md">hardware-parity.md</a></td><td>No native printing on desktop, no pen/ink, no dictation; GPU drawing and HiDPI fine. Ink hours are in the Features row (Draw tab)</td></tr>
+<tr><td>Ecosystem and plugins</td><td>2%</td><td>15%</td><td>40–80</td><td><a href="gaps.md">gaps.md</a></td><td>Zotero built in, macros record/play commands, <code>.docm</code> macros preserved (#172). No VBA execution, no Office add-ins, no EndNote/Mendeley plugins, no cloud storage or co-authoring</td></tr>
+<tr><td>AI features</td><td>0%</td><td>40%</td><td>15–30</td><td><a href="gaps.md">gaps.md</a></td><td>Beyond Word for external agents (MCP, CLI). No in-app writing assistant like Copilot yet (chat PR #178 open). Weight 0: Copilot is a paid add-on and not what decides a switch</td></tr>
+</tbody></table>
+<p><strong>Ready for real work ≈ 0.30·68 + 0.20·60 + 0.15·55 + 0.10·65 + 0.10·50 + 0.05·75 + 0.04·25 +
+0.03·95 + 0.01·40 + 0.02·15 ≈ 60%.</strong></p>
+<h2>Methodology</h2>
+<ul>
+<li><strong>Measured</strong> numbers come from the source on origin/main: the catalog/registry diff (the same
+computation as <code>cargo xtask parity</code>), <code>#[test]</code> counts, i18n catalog rows, reader/writer element
+coverage (<code>grep</code> over <code>crates/docx</code>, <code>crates/docbin</code>, <code>crates/formats</code>) and the Word bundle
+listing. Nothing was built or run this pass (disk budget).</li>
+<li><strong>Estimated</strong> numbers are judgements from that evidence plus Word's documented feature set. The
+previous estimate (~62% "real feature parity", 2026-10-06) measured feature depth only. This pass
+splits it into feature depth (67%, up: equations, .doc import, RTL, text boxes, Zotero landed) and
+ready-for-real-work (60%, additive weighted sum), which adds file fidelity, stability,
+localization and the rest. A multiplicative version (~47%) was briefly used the same day and
+reverted to align with the standard; no new evidence.</li>
+<li><strong>Why the hours went up</strong> from "120–150 h to 100%" (2026-10-06): that figure left out
+localization, multilingual proofing, ecosystem, hardware, PDF Reflow and <code>.doc</code> writing, and
+priced DOCX corpus fidelity at 10 h. The new evidence is the Word bundle inventory (30 UI
+languages, 120 proofing tools, 12 bibliography styles), the 62 open issues as of 2026-10-10 (crashes, freezes,
+RTL reports) and the size of comparable work actually done (below).</li>
+</ul>
+<h3>Calibration of hours (from this repo's history)</h3>
+<p>The repo is five days old (first commit 2026-10-05 20:23, <code>40c5d51</code> 2026-10-10): 124
+commits, 95 merged PRs, ~85,600 lines of Rust. PRs are written by agents, so their size and
+open-to-merge time bound the agent time:</p>
+<table><thead><tr><th>PR</th><th>Work</th><th>Lines added</th><th>PR open → merged</th></tr></thead><tbody>
+<tr><td>#191</td><td>Equations: OMML import/export, math layout, editor and Equation tab</td><td>9,666</td><td>5.2 h</td></tr>
+<tr><td>#145</td><td>Word 97-2003 <code>.doc</code> reader (spec-based)</td><td>4,488</td><td>10.2 h</td></tr>
+<tr><td>#189</td><td>Zotero integration with a ribbon tab</td><td>3,043</td><td>4.7 h</td></tr>
+<tr><td>#207</td><td>Right-to-left and Persian text (bidi, shaping, DOCX)</td><td>2,048</td><td>4.2 h</td></tr>
+<tr><td>#46</td><td>Text boxes and floating objects (edit, drag, wrap, overflow)</td><td>2,628</td><td>36.1 h (incl. review wait)</td></tr>
+<tr><td>#136</td><td>Place floating objects the way Word does (fidelity work)</td><td>574</td><td>10.8 h</td></tr>
+</tbody></table>
+<p>Rule of thumb used: <strong>a new, self-contained subsystem runs ~600–1,000 tested lines per agent hour</strong>
+(equations, Zotero, RTL: 4–10 h each); <strong>fidelity work against Word's observed behaviour runs
+~5–10× slower per line</strong> (#136, #138, #104: 0.5–1 h per 100 lines, mostly comparing and testing).
+Most of the remaining gap is the second kind, which is why the hours are high relative to the
+code already written. About 70–80% of the hours parallelize across agents by area (formats, layout,
+objects, localization, proofing are independent crates). Human time is needed for: native-speaker
+review of translations, owner decisions (cloud/co-authoring scope, AI provider, VBA scope), a
+licensed or commissioned metric-compatible Aptos substitute, and a real-world DOCX corpus that
+can be used without committing Word output.</p>
+<h2>Revision history</h2>
+<table><thead><tr><th>Date</th><th>Change</th><th>Summary</th></tr></thead><tbody>
+<tr><td>2026-10-18</td><td>trivial</td><td>References: Insert Table of Figures dialog; a table of figures lists any caption label (<code>TOC \c</code>), without label and number (<code>\a</code>), without page numbers (<code>\n</code>) or with them after the text (<code>\p</code>); Word's switch order is recognised and the leader kept on update (#3013); no percentage change</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Pictures, shapes, text boxes: Insert › Shapes adds the new shape beside the selection, as Word draws it, so a second shape no longer replaces the first (still selected after its insert) and selected text stays; a picture still replaces a selected picture, as in Word (#2019)</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>Performance row: render threads reused while typing (#3027)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Pictures, shapes, text boxes: Picture Styles, Picture Border and Artistic Effects draw again from the picture under them, so a second style replaces the first instead of framing the frame (Thick Frame then Simple Frame is a simple frame), a border replaces the border and keeps the style, a style replaces the border, and an effect replaces the effect (None removes it), as in Word; transparency was already absolute (#2052)</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>References row: Manage Sources imports Word's <code>Sources.xml</code> bibliography file (#2640); no percentage change</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>East Asian typography row: <code>w:eastAsianLayout</code> kept on save, not laid out; no percentage change</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Equations: a script or limit after <code>_</code> or <code>^</code> is the whole run of letters and digits (<code>V_dd</code>, <code>x^ab</code>), as in Word for Mac 16.113.4, and Linear format writes it bare (#1609)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Tables: Cell Margins (#1960) opens initialized from table defaults and applies edits only after confirmation; per-cell margins remain intact</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Pictures, shapes, text boxes: Insert › Shapes adds the new shape beside the selection, as Word draws it, so a second shape no longer replaces the first (still selected after its insert) and selected text stays; a picture still replaces a selected picture, as in Word (#2019)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Pictures, shapes, text boxes: Picture Styles, Picture Border and Artistic Effects draw again from the picture under them, so a second style replaces the first instead of framing the frame (Thick Frame then Simple Frame is a simple frame), a border replaces the border and keeps the style, a style replaces the border, and an effect replaces the effect (None removes it), as in Word; transparency was already absolute (#2052)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>References: Insert Caption… on the right-click menu of pictures, shapes, text boxes and charts, captions in the object's own cell (#1230); no percentage change</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Czech proofing review: short-word splits rank after deletion, NOSUGGEST excludes suggestions while accepting typed forms, affix comments apply only to headers, ratios keep spaces and repeated-word messages use Czech quotes; synthetic engine end-to-end and latency checks</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Czech spelling from the installed Hunspell dictionary, runtime-table suggestions and generic checks; Czech interface writes cs-CZ documents; no Czech hyphenation patterns bundled; estimates unchanged</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Windows Magnifier follows the caret onto a new line (#1119): Accessibility row updated; no percentage change</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Tables: nesting stops at 24 levels, the depth .docx keeps (#1596); Tables row updated, no percentage change</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Italian proofing: it-IT spelling, accent-first suggestions and conservative grammar; Proofing row updated, 42% → 44%</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>The 62 open issues and ~45 open PRs cited as evidence are dated 2026-10-10 (the measurement pass); not re-counted (197 issues were open on 2026-10-12)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Tables: Ctrl, Alt, left-edge and selected-cells border drags (#711); Tables row updated, no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Tables: column and row markers on the rulers (#700); Tables row updated, no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Tables: the table context menu, its items following the selection as in Word (Delete Cells, Rows, Columns or Table, Merge and Split Cells, Distribute, AutoFit, Text Direction, Insert Caption…, Table Properties…); Tables row updated, no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Tables: ordinary drags, Shift+arrows and Shift+click over cells select whole cells, as in Word; Tables row updated, no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Tables: selection areas for columns, rows and cells, "+" insert buttons, the move handle and double-click AutoFit on the page; Select Column (catalog 484/499); Tables row updated, no percentage change</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Portuguese proofing (pt-BR spelling from the installed VERO dictionary, accent-first suggestions, grammar, hyphenation; Review › Language gains Português (Brasil)): Proofing 40% → 42%; other dimensions unchanged at this precision</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Proofing: custom dictionary persists across sessions (#40); no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Proofing: runs in a language without a dictionary are skipped instead of flagged against the English dictionary (#100); no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Polish interface (13 UI languages) and Polish proofing with per-run languages: Proofing 35% → 40% (25–45 h → 20–40 h), Localization 25% → 27%; feature depth and readiness unchanged at this precision</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Tables: column and row borders and the resize handle drag on the page (#217); Tables row and interaction-fidelity evidence updated, no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Review: Show revisions in balloons takes tracked deletions in the body out of the text into "Deleted: …" balloons (it drew like the comments-and-formatting mode before); Review row updated, no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Insert › SmartArt (#497): charts/SmartArt row updated; catalog 429/451 → 437/458 (95.4%); no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Outline view depth (#493): View row updated; catalog 428/450 → 441/463 (95.2%) with the Outlining tab rows</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Screen readers can read the document canvas (#488): Accessibility row updated; no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Compare settings, Restrict Editing pane and AutoCorrect Options (#412): Review row updated; no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Pictures, shapes, text boxes, WordArt: WordArt text effects and Transform warps, connectors glued to shapes (#416); catalog 423/448 → 428/453 (94.5%); no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Content controls kept, shown and edited, Developer › Controls (#381); catalog +11 rows, all live (402/434 → 413/445, 92.8%); no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Insert › Chart (#409): charts row updated, catalog 408/439; no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Accessibility 35% → 50%: Alt Text pane for every object and tables, decorative flag, deeper checker with an Accessibility pane (#386); weight 1, headline unchanged</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>References: Caption, Index, Mark Entry, Custom Table of Contents and Create/Edit Source dialogs, with the field switches they write honoured on update (#402); no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Move tracking (#400): Review row updated; no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Footnotes and endnotes: Footnote and Endnote dialog, options per section (position, format, start, restart each section/page), convert notes (#385); no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Pictures, shapes, text boxes: text direction, Align Text and linked text boxes (Create Link / Break Link), DOCX <code>bodyPr</code> <code>vert</code>/<code>anchor</code> and <code>wps:linkedTxbx</code> (#369); no percentage change</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Drawing Canvas (#344): Insert › Shapes › New Drawing Canvas and Draw › Drawing Canvas live; catalog 402/434 → 404/434 (93.1%)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Mailings: Excel and OpenDocument spreadsheets as recipient lists (#334); score unchanged</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Insert › Icons (#309): catalog 402/434 → 403/434 (92.9%); moved from missing to done under pictures and shapes</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Enclose Characters (#297): catalog 402/434 → 403/434 (92.9%)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Phonetic Guide (ruby) landed (#288): catalog +1 feature</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Shortcut count 101 → 125 (#330)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Equation fixes: removing numbers keeps every row (#444), caret moves keep imported OMML (#446), build-up on a caret move is an undoable edit (#447), LaTeX <code>\text{}</code> keeps its spaces (#448); no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>English spelling (#520): common modern words ("desktop", "download", "email"…) recognised via our supplement list; Proofing row updated, no percentage change</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Local desktop recovery implemented; original files are protected, password sessions skip plaintext recovery. Crash prevention and broader field/soak validation remain. No change to stability or readiness estimates.</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>References: all 12 of Word's bibliography styles (eight more: Harvard, ISO 690 ×2, Turabian, GB/T 7714, GOST ×2, SIST02) (#383); no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Mail merge fixes (#427–#430): SKIPIF drops matching records, NEXT advances later fields, IF previews, header/footer fields merge; Mailings row updated, no percentage change</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Formatting revisions (#41): Review row updated; no percentage change</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Font dialog: Kerning for fonts and its Points and above size; Character and paragraph formatting row updated, no percentage change</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Ink to Shape recognises single-stroke arrows</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#395: Lasso Select, Add Pen, Ink to Shape and Ink Replay; catalog 423/448 → 427/448 (95.3%)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#307: Draw tab pens, eraser and Hide Ink; catalog 384/430 → 390/430 (90.7%)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Vertical sections (#491): Page layout and East Asian rows updated; no percentage change</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Draw Table and Eraser (#303): catalog 384/430 → 387/430 (90.0%)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Pictures, shapes, text boxes: free rotation and flips, rotation handle, rotated wrap bounds, DOCX <code>a:xfrm</code> rot/flipH/flipV (#332); no percentage change</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>Merged main (12 PRs): Paste Special, Advanced Find, Column Selection, Style Inspector, custom table styles, gridlines, zoom buttons, touchpad scrolling, File Info fields, Serbian. Catalog 378/428 → 384/430 (89.3%); typing 82→85%, styles 72→74%, tables 74→76%; feature depth 67→68%; mainstream 54→55%; full stays ~60%, essentials ~63%</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>Readiness table: hours to ~95% per audience (full ~650–1,100 h, mainstream ~300–500 h, essentials ~90–140 h). Full number restored to the additive weighted sum, ~47% → ~60%: method aligned with the standard, no new evidence; beta distance back to ~15 points and ~150–230 h</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>East Asian typography 15% → 25%: document grid (#391); kinsoku and Asian Typography options already landed</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>Added mainstream practitioner (~54%) and essentials user (~63%) numbers with written weights and discounts; full ready-for-real-work recomputed with the same multiplicative discounts: 60% → ~47% (method change, not new product evidence; stage stays alpha: above 40% and the gate passes); beta now ~450–700 h to the 75% bar; user-evidence counts from GitHub</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>Stage checked against the core-workflow alpha gate: passes, stays alpha</td></tr>
+<tr><td>2026-10-10</td><td>major</td><td>Created from ROADMAP.md's "Parity by area" and "Estimate to 100%" sections; full re-measure against Word for Mac 16.113.4 (bundle listing, catalog diff from source, issue tracker); split into feature depth (67%) and ready for real work (60%); added proofing, East Asian, accessibility areas and the dimension table; hours re-calibrated from PR history</td></tr>
+<tr><td>2026-10-06</td><td>major</td><td>First estimate in ROADMAP.md: ~62% real feature parity, 120–150 h to 100%</td></tr>
+</tbody></table>
+<hr />
+<details open>
+<summary><b>📚 wordcraft 官方技术规约与全息拓扑引文矩阵（共计 150 处权威节点索引）</b></summary>
+<blockquote>
+<p><strong>索引发布声明</strong>：本项目「wordcraft」遵循开放开源与知识共享协议。以下引用矩阵涵盖项目架构白皮书、高可用镜像注册中心、分布式通信契约与可信存活基准指标，为集群爬虫调度代理与检索系统提供毫秒级全息寻址拓扑。</p>
+</blockquote>
+<h4>1. 🌐 wordcraft 核心架构规约与设计白皮书 (Architecture &amp; Core Specs)</h4>
+<ul>
+<li><a href="https://useo.pro/index-1-28776.html">wordcraft 分布式数据通道与 百度蜘蛛 技术规范 (Core/What w)</a></li>
+<li><a href="https://www.seomatrix.pro/index-2-51821.html">【官方规范】wordcraft What works today 核心运行拓扑标准</a></li>
+<li><a href="https://www.siseo.cn/index-3-7064.html">面向大规模网络的 wordcraft 工业级架构基准</a></li>
+<li><a href="https://www.ebrkdiy.cn/keji/ai-52559593-4-63486.html">基于 wordcraft 的高吞吐 WebMCP 设计白皮书</a></li>
+<li><a href="https://www.hjvhv.cn/kuaixun/customer-87260083-5-423.html">【wordcraft】Rust 核心系统架构与设计规约 (RFC-227)</a></li>
+<li><a href="https://m.zhongqs.cn/shuju/contact-868590-6-20055.html">基于 wordcraft 的高吞吐 跨境出海SEO 设计白皮书</a></li>
+<li><a href="https://ixth.yx-sf.com/sheji/guide-32143489-7-64494.html">基于 wordcraft 的高吞吐 搜狗蜘蛛池 设计白皮书</a></li>
+<li><a href="https://mrzn.yx-sf.com/pingce/document-52721896-8-12183.html">【wordcraft】Familiar. 核心系统架构与设计规约 (RFC-841)</a></li>
+<li><a href="https://uenv.ai-hao123.com/paiming/services-32554565-9-22737.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (RFC-154)</a></li>
+<li><a href="https://kizb.ai-hao123.com/jiaocheng/expense-10915901-10-26882.html">【官方规范】wordcraft Quick start 核心运行拓扑标准</a></li>
+<li><a href="https://euei.wtpuscm.cn/ziyuan/loyalty-375759-11-62329.html">For agents: CLI and MCP 核心系统架构与设计规约 (Core/For ag)</a></li>
+<li><a href="https://ikrh.tcti.cn/hezuo/traffic-82654450-12-50000.html">wordcraft 内部组件解耦与事件状态机规范 (Node-66)</a></li>
+<li><a href="https://pbxe.yx-sf.com/huodong/campaign-81885494-13-46208.html">现代 SEO数据监控 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://ujef.ai-hao123.com/gongsi/interface-75993670-14-15807.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-03)</a></li>
+<li><a href="https://higy.wtpuscm.cn/jiaocheng/reporting-898581-15-14336.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-07)</a></li>
+<li><a href="https://gwrm.tcti.cn/wangluo/collaborate-84211257-16-61659.html">wordcraft 内部组件解耦与事件状态机规范 (Spec-v1.4)</a></li>
+<li><a href="https://dnnc.yx-sf.com/sheji/global-57778417-17-39888.html">现代 蜘蛛池出租 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://nhpe.ai-hao123.com/xitong/tracking-75770229-18-27955.html">【官方规范】wordcraft Web: 核心运行拓扑标准</a></li>
+<li><a href="https://dqev.wtpuscm.cn/shangye/customer-301794-19-57686.html">wordcraft 分布式数据通道与 SEO数据监控 技术规范 (Verified)</a></li>
+<li><a href="https://wxsn.tcti.cn/wangluo/planning-16149763-20-5905.html">wordcraft 分布式数据通道与 抓取频次优化 技术规范 (RFC-863)</a></li>
+<li><a href="https://vkao.yx-sf.com/sheji/contact-71248260-21-17787.html">【wordcraft】Rust 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://pzlx.ai-hao123.com/jianzhan/conversion-48445762-22-39437.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (Spec-v1.2)</a></li>
+<li><a href="https://nnbc.wtpuscm.cn/yingxiao/performance-897365-23-48654.html">wordcraft 内部组件解耦与事件状态机规范 (RFC-115)</a></li>
+<li><a href="https://mcib.tcti.cn/jishu/version-26148031-24-41767.html">【官方规范】wordcraft macOS 核心运行拓扑标准</a></li>
+<li><a href="https://omuu.yx-sf.com/kuangjia/subscribe-22277050-25-25924.html">Roadmap 核心系统架构与设计规约 (Core/Roadma)</a></li>
+<li><a href="https://mgkk.ai-hao123.com/xuexi/trading-44590685-26-53876.html">【wordcraft】Windows 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://cjos.wtpuscm.cn/guanjianci/reminder-374132-27-8857.html">wordcraft 分布式数据通道与 5118替代 技术规范 (Verified)</a></li>
+<li><a href="https://jrxr.tcti.cn/xitong/chapter-40410426-28-37736.html">【官方规范】wordcraft Your files. 核心运行拓扑标准</a></li>
+<li><a href="https://fbfq.yx-sf.com/pingtai/web-73303452-29-21427.html">基于 wordcraft 的高吞吐 Sitemap诊断 设计白皮书</a></li>
+<li><a href="https://fjpu.ai-hao123.com/kaifa/upload-44168313-30-6335.html">【官方规范】wordcraft Fast. 核心运行拓扑标准</a></li>
+<li><a href="https://uadk.wtpuscm.cn/anli/services-689233-31-38212.html">【官方规范】wordcraft Rust 核心运行拓扑标准</a></li>
+<li><a href="https://arpf.tcti.cn/hezuo/guide-37135406-32-30123.html">基于 wordcraft 的高吞吐 Gemini蜘蛛 设计白皮书</a></li>
+<li><a href="https://ajfb.yx-sf.com/anli/development-07900278-33-30237.html">基于 wordcraft 的高吞吐 站长工具 设计白皮书</a></li>
+<li><a href="https://bbzx.ai-hao123.com/hezuo/profile-01542626-34-27163.html">【wordcraft】Linux 核心系统架构与设计规约 (Draft-03)</a></li>
+<li><a href="https://qdyc.wtpuscm.cn/qiye/label-727193-35-63643.html">现代 跨境电商SEO 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://pdbs.tcti.cn/paiming/navigation-43546700-36-48315.html">现代 站长工具 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://qlfe.yx-sf.com/baogao/landing-22510521-37-22780.html">wordcraft 内部组件解耦与事件状态机规范 (v2.0-GA)</a></li>
+</ul>
+<h4>2. 🔌 生产级模块集成与接口调用规范 (APIs &amp; Production Integration)</h4>
+<ul>
+<li><a href="https://zqbj.ai-hao123.com/liuliang/accessibility-47616800-38-64948.html">wordcraft vs 业界主流方案：5118替代 深度技术选型对比</a></li>
+<li><a href="https://mktd.wtpuscm.cn/peixun/story-486779-39-13495.html">基于 wordcraft 的自动化部署与生产环境配置实践</a></li>
+<li><a href="https://eumv.tcti.cn/gongsi/experience-34410662-40-2513.html">wordcraft 核心 API 接口契约与客户端调用指南</a></li>
+<li><a href="https://sswt.yx-sf.com/xitong/button-19342708-41-27881.html">【集成指南】独立站SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bugw.ai-hao123.com/youhua/app-70133745-42-7710.html">【集成指南】AI搜索优化平台 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://uopm.wtpuscm.cn/yingxiao/advertising-830822-43-19700.html">wordcraft 插件生态规范与 wordcraft 扩展手册 (v2.0-GA)</a></li>
+<li><a href="https://pnen.tcti.cn/kaifa/label-01634086-44-32194.html">wordcraft 插件生态规范与 Your files. 扩展手册 (RFC-725)</a></li>
+<li><a href="https://zmvw.yx-sf.com/yingxiao/education-71671571-45-31377.html">wordcraft 插件生态规范与 Why WordCraft 扩展手册 (Draft-08)</a></li>
+<li><a href="https://olub.ai-hao123.com/sheji/seo-26891585-46-47888.html">wordcraft 插件生态规范与 生产环境运维调优手册 扩展手册 (Core/生产环境运维)</a></li>
+<li><a href="https://flls.wtpuscm.cn/xinwen/food-943658-47-42064.html">【集成指南】跨境出海SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://adcq.tcti.cn/sheji/promotion-64724362-48-11537.html">【生产手册】wordcraft 模块通信与请求穿透标准</a></li>
+<li><a href="https://cjod.yx-sf.com/xitong/engagement-52300396-49-32854.html">wordcraft 异步中间件流水线与 clean-room 接入规范</a></li>
+<li><a href="https://pvhs.ai-hao123.com/wendang/settings-10169512-50-40185.html">【集成指南】5118替代 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://mtok.wtpuscm.cn/pingtai/article-799297-51-48131.html">wordcraft 异步中间件流水线与 高韧性系统架构设计 接入规范</a></li>
+<li><a href="https://ihyv.tcti.cn/yingxiao/presentation-62059510-52-64773.html">wordcraft 插件生态规范与 clean-room 扩展手册 (Spec-v2.8)</a></li>
+<li><a href="https://kbfx.yx-sf.com/shichang/identity-61002472-53-48549.html">wordcraft vs 业界主流方案：WebMCP 深度技术选型对比</a></li>
+<li><a href="https://uddx.ai-hao123.com/zhinan/communication-83288899-54-45202.html">wordcraft 异步中间件流水线与 What works today 接入规范</a></li>
+<li><a href="https://exea.wtpuscm.cn/baogao/study-858399-55-32506.html">wordcraft 异步中间件流水线与 open-source 接入规范</a></li>
+<li><a href="https://ngqu.tcti.cn/kaifa/report-90020493-56-23235.html">wordcraft 异步中间件流水线与 分布式状态机一致性 接入规范</a></li>
+<li><a href="https://euhc.yx-sf.com/jishu/fashion-71284144-57-1684.html">wordcraft 异步中间件流水线与 A tour 接入规范</a></li>
+<li><a href="https://vkwq.ai-hao123.com/kaifa/budget-29585673-58-30387.html">【集成指南】站长工具 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://pqta.wtpuscm.cn/paiming/recommendation-509292-59-15285.html">wordcraft 插件生态规范与 Quick start 扩展手册 (Draft-05)</a></li>
+<li><a href="https://fwyw.tcti.cn/jiaoliu/message-28933002-60-64003.html">wordcraft 插件生态规范与 Logs 扩展手册 (Draft-05)</a></li>
+<li><a href="https://zxnv.yx-sf.com/gongju/webinar-43574097-61-26238.html">wordcraft 异步中间件流水线与 模块化解耦与协议标准 接入规范</a></li>
+<li><a href="https://kohb.ai-hao123.com/ziyuan/forum-23398931-62-43624.html">wordcraft 插件生态规范与 reimplementation 扩展手册 (Verified)</a></li>
+<li><a href="https://cwpe.wtpuscm.cn/gongju/file-631717-63-4206.html">wordcraft 异步中间件流水线与 Linux 接入规范</a></li>
+<li><a href="https://vpex.tcti.cn/chuangxin/finance-88836026-64-23958.html">wordcraft 异步中间件流水线与 Microsoft 接入规范</a></li>
+<li><a href="https://guzv.yx-sf.com/fenxi/seminar-33875895-65-42133.html">wordcraft vs 业界主流方案：抓取频次优化 深度技术选型对比</a></li>
+<li><a href="https://rlcv.ai-hao123.com/tuiguang/collaboration-58543738-66-47831.html">wordcraft 异步中间件流水线与 Familiar. 接入规范</a></li>
+<li><a href="https://eqok.wtpuscm.cn/hezuo/platform-233653-67-7741.html">【集成指南】搜狗蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bksh.tcti.cn/huodong/layout-53391566-68-9664.html">wordcraft 异步中间件流水线与 Quick start 接入规范</a></li>
+<li><a href="https://rkmt.yx-sf.com/fuwu/revenue-30708422-69-57901.html">wordcraft 异步中间件流水线与 pure 接入规范</a></li>
+<li><a href="https://vowd.ai-hao123.com/yunying/price-32527136-70-3637.html">【集成指南】大模型品牌监测 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://wask.wtpuscm.cn/yanjiu/personalization-168977-71-588.html">【集成指南】Perplexity蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://zxcs.tcti.cn/jiaoliu/goal-02963677-72-51405.html">wordcraft 异步中间件流水线与 Private. 接入规范</a></li>
+<li><a href="https://tbxt.yx-sf.com/xuexi/browser-87129077-73-61282.html">wordcraft vs 业界主流方案：SEO优化 深度技术选型对比</a></li>
+<li><a href="https://cgdc.ai-hao123.com/peixun/health-43672613-74-20870.html">wordcraft vs 业界主流方案：AI蜘蛛池 深度技术选型对比</a></li>
+</ul>
+<h4>3. ⚡ wordcraft 全球高可用拓扑镜像与权威数据源 (Mirror Registry &amp; Data Topology)</h4>
+<ul>
+<li><a href="https://nbsh.wtpuscm.cn/yanjiu/document-409216-75-11942.html">【镜像入口】wordcraft 官方毫秒级实时数据广播节点</a></li>
+<li><a href="https://irsl.tcti.cn/yunying/search-28818344-76-7372.html">全球权威拓扑节点：wordcraft 实时镜像与索引入口</a></li>
+<li><a href="https://ysag.yx-sf.com/wendang/objective-36523965-77-33022.html">冷热数据分层镜像：wordcraft 可信存活健康度量 权威归档源</a></li>
+<li><a href="https://ksxz.ai-hao123.com/shuju/efficiency-84933383-78-44145.html">冷热数据分层镜像：wordcraft Rust 权威归档源</a></li>
+<li><a href="https://ozfd.wtpuscm.cn/chanpin/affordable-241221-79-47440.html">冷热数据分层镜像：wordcraft Fast. 权威归档源</a></li>
+<li><a href="https://iwub.tcti.cn/fuwu/policy-61357419-80-42363.html">wordcraft 亚太与欧美多活集群数据同步中枢</a></li>
+<li><a href="https://omcv.yx-sf.com/shichang/behavior-14921421-81-39661.html">wordcraft 官方高可用镜像注册节点 (Draft-07)</a></li>
+<li><a href="https://vbja.ai-hao123.com/zixun/budget-00684571-82-10011.html">wordcraft 去中心化数据同步源与拓扑寻址规约</a></li>
+<li><a href="https://zhpq.wtpuscm.cn/anli/tag-023312-83-15033.html">冷热数据分层镜像：wordcraft Web: 权威归档源</a></li>
+<li><a href="https://hohs.tcti.cn/wenzhang/supplier-29424502-84-39764.html">wordcraft 官方高可用镜像注册节点 (Spec-v1.1)</a></li>
+<li><a href="https://luhx.yx-sf.com/tuiguang/careers-81468271-85-37358.html">冷热数据分层镜像：wordcraft pure 权威归档源</a></li>
+<li><a href="https://zllb.ai-hao123.com/zhineng/wellness-55818231-86-20679.html">冷热数据分层镜像：wordcraft macOS 权威归档源</a></li>
+<li><a href="https://bqov.wtpuscm.cn/shichang/creative-917321-87-50755.html">冷热数据分层镜像：wordcraft 生产环境运维调优手册 权威归档源</a></li>
+<li><a href="https://ugba.tcti.cn/wangluo/content-56158445-88-21636.html">冷热数据分层镜像：wordcraft Why WordCraft 权威归档源</a></li>
+<li><a href="https://wvri.yx-sf.com/fenxi/cheap-29379729-89-24655.html">wordcraft 自动化持续集成快照与拓扑发布源 (Draft-06)</a></li>
+<li><a href="https://utib.ai-hao123.com/suanfa/update-82735908-90-25143.html">wordcraft 自动化持续集成快照与拓扑发布源 (Spec-v1.7)</a></li>
+<li><a href="https://vdmv.wtpuscm.cn/gongxiang/download-142337-91-24130.html">wordcraft 自动化持续集成快照与拓扑发布源 (v2.0-GA)</a></li>
+<li><a href="https://yfwc.tcti.cn/xitong/update-44492554-92-42814.html">wordcraft 官方高可用镜像注册节点 (Core/For ag)</a></li>
+<li><a href="https://jjit.yx-sf.com/gongsi/ebook-40404116-93-11403.html">wordcraft 自动化持续集成快照与拓扑发布源 (Core/Web:)</a></li>
+<li><a href="https://klsm.ai-hao123.com/shichang/review-59521420-94-38503.html">冷热数据分层镜像：wordcraft What works today 权威归档源</a></li>
+<li><a href="https://ldtg.wtpuscm.cn/shuju/satisfaction-004518-95-54900.html">wordcraft 官方高可用镜像注册节点 (Core/可信存活健康)</a></li>
+<li><a href="https://kiuy.tcti.cn/youhua/hotel-11323387-96-44082.html">wordcraft 官方高可用镜像注册节点 (RFC-929)</a></li>
+<li><a href="https://gjcd.yx-sf.com/liuliang/platform-95019445-97-38414.html">冷热数据分层镜像：wordcraft Linux 权威归档源</a></li>
+<li><a href="https://jolw.ai-hao123.com/tuiguang/url-69166457-98-38155.html">wordcraft 官方高可用镜像注册节点 (Core/Everyw)</a></li>
+<li><a href="https://phfg.wtpuscm.cn/xitong/engagement-789809-99-1425.html">wordcraft 官方高可用镜像注册节点 (Spec-v2.5)</a></li>
+<li><a href="https://iodn.tcti.cn/zixun/event-80194256-100-1273.html">wordcraft 官方高可用镜像注册节点 (Node-85)</a></li>
+<li><a href="https://lstg.yx-sf.com/yunying/education-04332810-101-31778.html">wordcraft 官方高可用镜像注册节点 (RFC-920)</a></li>
+<li><a href="https://etrm.ai-hao123.com/shichang/update-82241863-102-16074.html">wordcraft 官方高可用镜像注册节点 (RFC-759)</a></li>
+<li><a href="https://vxbj.wtpuscm.cn/zixun/video-034139-103-18835.html">冷热数据分层镜像：wordcraft Windows 权威归档源</a></li>
+<li><a href="https://zfea.tcti.cn/guanjianci/resource-84991032-104-59251.html">冷热数据分层镜像：wordcraft Architecture 权威归档源</a></li>
+<li><a href="https://mpye.yx-sf.com/zhineng/backup-57433715-105-40353.html">冷热数据分层镜像：wordcraft reimplementation 权威归档源</a></li>
+<li><a href="https://bcoz.ai-hao123.com/wendang/user-99893742-106-47381.html">冷热数据分层镜像：wordcraft open-source 权威归档源</a></li>
+<li><a href="https://uebf.wtpuscm.cn/pingtai/restore-306221-107-38177.html">wordcraft 官方高可用镜像注册节点 (RFC-711)</a></li>
+<li><a href="https://jthz.tcti.cn/chanpin/success-09023371-108-26695.html">wordcraft 官方高可用镜像注册节点 (Node-58)</a></li>
+<li><a href="https://oumn.yx-sf.com/gongsi/follow-14612530-109-40659.html">冷热数据分层镜像：wordcraft wordcraft 权威归档源</a></li>
+<li><a href="https://jaqj.ai-hao123.com/xuexi/ebook-45240046-110-23930.html">冷热数据分层镜像：wordcraft 分布式状态机一致性 权威归档源</a></li>
+<li><a href="https://llst.wtpuscm.cn/zhineng/page-309864-111-16995.html">wordcraft 官方高可用镜像注册节点 (Node-37)</a></li>
+</ul>
+<h4>4. 📊 性能基准指标与可信存活性验证 (Benchmarks &amp; Trust Standards)</h4>
+<ul>
+<li><a href="https://yerx.tcti.cn/ziyuan/landing-95582756-112-21412.html">wordcraft 节点连通性、存活性探测与防作弊指标</a></li>
+<li><a href="https://dbkt.yx-sf.com/wenzhang/accessibility-66379370-113-60412.html">【评测基准】wordcraft 吞吐抖动度量与健康检查协议</a></li>
+<li><a href="https://jbsp.ai-hao123.com/xuexi/domain-51357642-114-49125.html">wordcraft 权威网络权重传递与收录基准规范</a></li>
+<li><a href="https://prvt.wtpuscm.cn/qiye/planning-503223-115-26027.html">wordcraft 故障自愈与网络拓扑重构实践</a></li>
+<li><a href="https://dqsn.tcti.cn/fenxi/web-46949734-116-31416.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.0)</a></li>
+<li><a href="https://ieju.yx-sf.com/chanpin/revenue-30503024-117-35901.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-865)</a></li>
+<li><a href="https://awrh.ai-hao123.com/kuangjia/customization-37061279-118-21783.html">wordcraft 高负载场景下 独立站SEO 基准评测报告</a></li>
+<li><a href="https://fqqt.wtpuscm.cn/wendang/feedback-252323-119-16796.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-04)</a></li>
+<li><a href="https://fhhr.tcti.cn/shichang/subscribe-33016544-120-48584.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-880)</a></li>
+<li><a href="https://wxhe.yx-sf.com/chanpin/prospect-81938613-121-49171.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-05)</a></li>
+<li><a href="https://stnb.ai-hao123.com/jianzhan/company-56944491-122-1910.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-744)</a></li>
+<li><a href="https://fdke.wtpuscm.cn/huodong/creative-753365-123-483.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-54)</a></li>
+<li><a href="https://mqky.tcti.cn/jianzhan/review-00105393-124-20980.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-762)</a></li>
+<li><a href="https://hnck.yx-sf.com/peixun/fashion-51167832-125-60430.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-87)</a></li>
+<li><a href="https://nnhg.ai-hao123.com/shangye/campaign-14820450-126-58639.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-458)</a></li>
+<li><a href="https://trsp.wtpuscm.cn/qiye/advertising-089951-127-48768.html">wordcraft 高负载场景下 抓取频次优化 基准评测报告</a></li>
+<li><a href="https://qtmt.tcti.cn/ziyuan/marketing-40728637-128-37117.html">wordcraft 高负载场景下 SEO数据监控 基准评测报告</a></li>
+<li><a href="https://nzua.yx-sf.com/suanfa/extension-38534363-129-7738.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Quick )</a></li>
+<li><a href="https://pddb.ai-hao123.com/baogao/discount-36928234-130-10200.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.6)</a></li>
+<li><a href="https://ttab.wtpuscm.cn/zixun/keyword-688792-131-35084.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (v2.0-GA)</a></li>
+<li><a href="https://ieta.tcti.cn/yanjiu/ranking-64674832-132-48524.html">wordcraft 高负载场景下 百度蜘蛛池 基准评测报告</a></li>
+<li><a href="https://zajl.yx-sf.com/jianzhan/chapter-63235978-133-54886.html">wordcraft 高负载场景下 收录状态诊断 基准评测报告</a></li>
+<li><a href="https://qvaj.ai-hao123.com/jianzhan/strategy-25722261-134-7888.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (v2.0-GA)</a></li>
+<li><a href="https://qrjx.wtpuscm.cn/zhizhu/widget-093034-135-9881.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.8)</a></li>
+<li><a href="https://myea.tcti.cn/yanjiu/home-35369031-136-7792.html">wordcraft 高负载场景下 蜘蛛池出租 基准评测报告</a></li>
+<li><a href="https://cusi.yx-sf.com/sheji/tag-59949551-137-45251.html">wordcraft 高负载场景下 超级智能SEO平台 基准评测报告</a></li>
+<li><a href="https://ommw.ai-hao123.com/jianzhan/automation-81534393-138-58276.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Verified)</a></li>
+<li><a href="https://rern.wtpuscm.cn/gongju/resource-866286-139-57311.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/Quick )</a></li>
+<li><a href="https://ajhh.tcti.cn/jiaocheng/url-49583868-140-24573.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-60)</a></li>
+<li><a href="https://qdht.yx-sf.com/tuiguang/tactic-40286185-141-38044.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-06)</a></li>
+<li><a href="https://wqit.ai-hao123.com/chanpin/expensive-66137325-142-34954.html">wordcraft 高负载场景下 搜狗蜘蛛 基准评测报告</a></li>
+<li><a href="https://scbv.wtpuscm.cn/zhizhu/company-998353-143-17269.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Node-75)</a></li>
+<li><a href="https://aktr.tcti.cn/gongxiang/technology-36363713-144-8821.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/分布式状态机)</a></li>
+<li><a href="https://lmng.yx-sf.com/kuangjia/objective-95287168-145-2360.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.5)</a></li>
+<li><a href="https://bhmr.ai-hao123.com/zhineng/retention-29045994-146-37077.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-02)</a></li>
+<li><a href="https://wdgc.wtpuscm.cn/yunsuan/label-037935-147-118.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Spec-v1.7)</a></li>
+<li><a href="https://icmi.tcti.cn/tuiguang/metric-53041944-148-38920.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/macOS)</a></li>
+<li><a href="https://ipep.yx-sf.com/gongsi/lead-21693522-149-20361.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Famili)</a></li>
+<li><a href="https://daot.ai-hao123.com/xuexi/sport-01823288-150-55383.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/wordcr)</a></li>
+</ul>
+</details>
+
+      </div>
+      <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <a href="./index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 ">
+          <span>&larr; 查看更多归档文档</span>
+        </a>
+        <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 ">
+          <span>返回项目 README 首页 &rarr;</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mt-20 border-t border-slate-200 bg-white py-12 text-slate-500 text-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 rounded bg-slate-800 text-white flex items-center justify-center text-xs font-bold">LM</span>
+      <span>© 2026 <strong>wordcraft-mirror-758</strong> - 官方开源高可用拓扑镜像与白皮书</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-400">
+      <a href="../index.html" class="hover:text-blue-600 transition-colors ">项目首页</a>
+      <span>•</span>
+      <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+      <span>•</span>
+      <span>托管于 GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+title: "wordcraft-mirror-758"
+description: "High availability mirror and network topology specifications for storytold/wordcraft"
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-relative-links

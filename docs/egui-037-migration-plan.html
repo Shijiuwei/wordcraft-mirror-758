@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WordCraft: egui 0.37 migration plan - wordcraft-mirror-758 文档归档</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      :root {
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.68;
+        color: #1e293b;
+      }
+      .markdown-body {
+        color: #1e293b;
+      }
+      .markdown-body h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-top: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid #e2e8f0;
+        color: #0f172a;
+        line-height: 1.25;
+      }
+      .markdown-body h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 1.6rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+      }
+      .markdown-body h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.3rem;
+        margin-bottom: 0.6rem;
+        color: #334155;
+      }
+      .markdown-body p {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.7;
+      }
+      .markdown-body a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dashed #93c5fd;
+        transition: all 0.2s ease;
+      }
+      .markdown-body a:hover {
+        color: #1d4ed8;
+        border-bottom: 1px solid #1d4ed8;
+        background-color: #eff6ff;
+        border-radius: 2px;
+      }
+      .markdown-body ul, .markdown-body ol {
+        padding-left: 1.5rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+      }
+      .markdown-body ol {
+        list-style-type: decimal;
+      }
+      .markdown-body li {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
+      .markdown-body pre {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        padding: 1rem 1.2rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .markdown-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875em;
+        padding: 0.15rem 0.35rem;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-radius: 0.35rem;
+        border: 1px solid #e2e8f0;
+      }
+      .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        color: inherit;
+      }
+      .markdown-body blockquote {
+        margin: 1rem 0;
+        padding: 0.75rem 1.25rem;
+        background-color: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: #475569;
+      }
+      .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0;
+        display: block;
+        overflow-x: auto;
+      }
+      .markdown-body th, .markdown-body td {
+        border: 1px solid #cbd5e1;
+        padding: 0.6rem 1rem;
+        text-align: left;
+      }
+      .markdown-body th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+      .markdown-body tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      .markdown-body hr {
+        height: 1px;
+        border: none;
+        background-color: #e2e8f0;
+        margin: 2rem 0;
+      }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform ">LM</span>
+        <span class="font-bold text-slate-900 tracking-tight text-lg group-hover:text-blue-600 transition-colors ">wordcraft-mirror-758</span>
+      </a>
+      <span class="hidden md:inline-block text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono ">Pages Docs</span>
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2 text-sm">
+      <a href="../index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>首页 (README)</span>
+      </a>
+      <a href="./index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-blue-600 bg-blue-50 font-semibold ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span>文档归档 (Docs)</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+      </a>
+      <div class="h-4 w-px bg-slate-200 mx-1"></div>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758/wiki" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden sm:inline">Wiki</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- 面包屑与顶部导航 -->
+  <header class="bg-white border-b border-slate-200 py-6 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-xs text-slate-500 mb-2 font-medium">
+        <a href="../index.html" class="hover:text-blue-600 transition-colors ">首页</a>
+        <span>/</span>
+        <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold">技术文档</span>
+      </nav>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">WordCraft: egui 0.37 migration plan</h1>
+        <a href="./index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors ">
+          <span>&larr; 返回文档归档菜单</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体正文区域 -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+    <article class="bg-white p-6 sm:p-12 rounded-2xl shadow-sm border border-slate-200">
+      <div class="markdown-body">
+        <h1>WordCraft: egui 0.37 migration plan</h1>
+<p><strong>Status:</strong> current-main reconciliation through <code>b4da59f0c38b506c36629b1d812ad7c0519fc238</code> passed all eight mandatory CI stages on 2026-10-25: 4,270 passing test executions, zero failures and 4 ignored (<code>egui037-wordcraft-main-refresh-ci-20261025-0603</code>). This includes main's encrypted-DOCX integrity requirement and selected-paragraph-mark highlight behavior. The dependency pins and lockfile are unchanged. A fresh review verified that the merge preserves the IME documentation and upstream fixes. Earlier counts and source snapshots below are historical.</p>
+<p>Read-only comment balloons now consume the explicit <code>AlignedGalley</code> result from craft-ui at
+<code>25da1314d443171b4adeaad2cd9454b273f35c6f</code>: height comes from the requested reading area,
+and painting retains the existing reading origin and card clip while preserving overwide
+right-to-left rows through an explicit offset. Added geometry/ink and actual card/body/reply
+regressions use bundled Latin fonts and require exact embedded Arabic/Hebrew faces in the
+canonical <code>CRAFT_FONTS_REQUIRED=1</code> lane. Optional-input builds still exercise Latin geometry.
+The earlier 616-file migration/current-main PDF overlay and its CI run remain historical
+baseline evidence. The current full CI qualifies the API/dependency followup, preview fix,
+phonetic labels and preserved notice/packaging source repair.
+Native GUI/IME/capture/save-reopen traces, package notice verification, paired performance,
+platform/installer execution and app publication remain separate gates. This records local
+work, not publication or complete platform acceptance. Historical notes below remain history.
+<strong>Scope:</strong> the WordCraft checkout at
+<code>/home/codex/work/CraftApps/egui037-migration-20261022/wordcraft-implementation</code>.
+<strong>Baseline source:</strong> <code>3a4770ef8ce037d2650c93e2d5764536549357c7</code> ("Merge pull request #3286 from
+matstrange/fix/protection-inspect-tracking"), workspace version 0.10.0, edition 2024,
+<code>rust-version = "1.95"</code>, resolver 3. Baseline <code>Cargo.lock</code> SHA-256
+<code>be3d0675270364a44b7011d1d80a6a255d5823c1a52088347faa18fa9cebfd88</code>; baseline <code>Cargo.toml</code>
+SHA-256 <code>7838ccd3744441a54b9e8024121e9007e64b54294a6e0b442fe758edc45c184a</code>.</p>
+<p>Baseline dependency identities in that lockfile:</p>
+<table><thead><tr><th>Source</th><th>Baseline identity</th></tr></thead><tbody>
+<tr><td>egui family</td><td>registry <code>egui</code>/<code>eframe</code>/<code>egui-winit</code>/<code>egui-wgpu</code>/<code>egui_glow</code>/<code>egui_kittest</code>/<code>epaint</code>/<code>emath</code>/<code>ecolor</code> = 0.36.2; <code>kittest</code> = 0.4.0</td></tr>
+<tr><td>winit</td><td>registry 0.30.13</td></tr>
+<tr><td>accesskit</td><td>registry <code>accesskit</code> 0.24.1, <code>accesskit_winit</code> 0.32.2, <code>accesskit_unix</code> 0.21.1</td></tr>
+<tr><td>craft-libs</td><td><code>craft-ui</code> + <code>craft-print</code> at <code>d27646a5f7c8b4fc85d9dd3213b8c88b58e0088d</code>; <code>craft-pdf</code> at <code>c3487320b2d1de657b860b3c8abb44e1f2b32bd8</code></td></tr>
+<tr><td>fonts</td><td><code>CRAFT_FONTS_REF</code> <code>b076417b5880bd4154bd22f00695b1d28c6bea83</code> (CI), plus the bundled Inter/SourceSans/JetBrains Mono assets</td></tr>
+<tr><td>toolchain</td><td>workspace MSRV 1.95; the planning host used rustc/cargo 1.99.0, which is not an acceptance toolchain by itself</td></tr>
+</tbody></table>
+<p><strong>Target and current local pins:</strong> egui family 0.37.0 at
+<code>6d518fc799681571963842f95b55a6b68431b15a</code>, winit at
+<code>a517b3846ee8457d84ee4975110bfda6797c44dc</code>, and craft-ui at
+<code>25da1314d443171b4adeaad2cd9454b273f35c6f</code>. The regenerated lock records these exact
+revisions and passed the dependency-source audit. The current-main shared PDF, printing and
+locale update uses craft-pdf, krilla, craft-print and craft-i18n at
+<code>17744430be327d0257496a6a31c8d38fe20a6756</code>. These are immutable canonical Git URL pins.
+The predecessor passed full CI; the latest main integration is undergoing its own full CI.
+The translation catalog is pinned
+separately to the reviewed <code>9205108cfdced5177706264038848b68b2422d2b</code>; it is not a Cargo dependency.
+Publication observations and
+authority remain separate from this local status. Stock 0.37 is a measurement control, not the production target.
+Earlier baseline and research revisions below remain historical references.</p>
+<p>This plan follows the suite contract in
+<code>craft-libs/docs/egui-037-suite-rollout.md</code> and the planning contract. It records only
+WordCraft-specific source, behavior and evidence. The shared rollout plan remains the authority
+for suite-wide publication order and the shared performance protocol.</p>
+<h2>1. What is and is not changing</h2>
+<p>WordCraft already uses the 0.36 <code>App::logic</code> / <code>App::ui</code> split and an existing root <code>Ui</code>.
+<code>App::logic</code> is already called before every UI pass, including repeated passes; <code>App::ui</code>
+already receives the root <code>Ui</code>. The 0.37 migration must preserve that architecture rather than
+rewriting it. The real work is:</p>
+<ol>
+<li>making the dependency graph coherent and immutable;</li>
+<li>repairing the concrete 0.37 API breaks;</li>
+<li>removing application-side text processing that the fork now performs correctly;</li>
+<li>preserving one-shot lifecycle work across repeated passes and logic-only frames;</li>
+<li>validating that the page, chrome, accessibility, input, clipboard and save/reopen behavior
+remain what users expect.</li>
+</ol>
+<p>No engine, command id, document format, undo semantic or persistence format is intentionally
+changed by this migration. The app remains <code>Session</code>-driven; egui remains a thin L6 front end.</p>
+<h2>2. Repository inventory</h2>
+<h3>2.1 Workspace and package targets</h3>
+<p><code>Cargo.toml</code> declares one workspace, <code>members = ["crates/*", "apps/*", "xtask"]</code>, with no nested
+workspace and no vendor directory. <code>cargo metadata --no-deps</code> lists these packages:</p>
+<ul>
+<li>application: <code>wordcraft</code> (<code>apps/wordcraft</code>, native eframe app), <code>wordcraft-web</code>
+(<code>apps/wordcraft-web</code>, wasm eframe app), <code>wordcraft-cli</code> (no egui dependency).</li>
+<li>UI: <code>wordcraft-ui-egui</code> (<code>crates/ui-egui</code>, the only direct egui/eframe consumer in the
+workspace). It also depends on <code>craft-ui</code> for print-page controls and on <code>egui_kittest</code> as a
+dev-dependency.</li>
+<li>lower layers and stand-alone crates: <code>wordcraft-{geom,doc,fonts,layout,docx,docbin,formats,  render,pdf,proof,engine,mcp,zotero,control-key,metafile}</code>. None may acquire an egui dependency;
+<code>cargo xtask layers</code> enforces this (<code>xtask/src/layers.rs</code>, <code>UI_CRATES</code>).</li>
+<li><code>xtask</code> itself has no egui dependency.</li>
+</ul>
+<p>Direct egui-family declarations are only:</p>
+<table><thead><tr><th>Manifest</th><th>Declaration</th><th>Notes</th></tr></thead><tbody>
+<tr><td>root <code>Cargo.toml</code></td><td><code>egui = "0.36"</code>, <code>egui_extras = { version = "0.36", default-features = false }</code>, <code>eframe = { version = "0.36", default-features = false }</code>, <code>egui_kittest = "0.36"</code></td><td><code>egui_extras</code> is currently unused by source; remove it or pin it deliberately.</td></tr>
+<tr><td><code>crates/ui-egui/Cargo.toml</code></td><td><code>egui = { workspace = true }</code>; dev: <code>egui_kittest = { workspace = true, features = ["wgpu", "snapshot"] }</code></td><td><code>egui</code> is not given <code>default_fonts</code> here; production gets it from the app roots' eframe feature, while the UI test root must declare egui's font features itself because kittest's own dev-dependencies do not propagate.</td></tr>
+<tr><td><code>apps/wordcraft/Cargo.toml</code></td><td><code>eframe</code> with <code>default_fonts</code>, <code>wgpu</code>, <code>accesskit</code>, <code>wayland</code>, <code>x11</code>, <code>links</code>; <code>egui</code>; Linux/BSD <code>winit = "0.30"</code> with <code>x11</code></td><td><code>eframe</code> is the native renderer; S1 adds <code>clipboard</code> to preserve 0.36’s integration-forced OS text clipboard.</td></tr>
+<tr><td><code>apps/wordcraft-web/Cargo.toml</code></td><td><code>egui</code>; wasm <code>eframe</code> with <code>default_fonts</code>, <code>wgpu</code>, <code>accesskit</code></td><td>web runner and browser download/inbox shell.</td></tr>
+</tbody></table>
+<p><code>craft-libs</code> is pinned in two places: <code>craft-ui</code> and <code>craft-print</code> at
+<code>d27646a5f7c8b4fc85d9dd3213b8c88b58e0088d</code>, and <code>craft-pdf</code> at
+<code>c3487320b2d1de657b860b3c8abb44e1f2b32bd8</code>. <code>craft-ui</code> and <code>craft-print</code> share public print
+types; <code>craft-pdf</code> does not share those types. Do not churn <code>craft-pdf</code> just to make revision
+strings look uniform.</p>
+<h3>2.2 Entry points and examples</h3>
+<ul>
+<li>Native: <code>apps/wordcraft/src/main.rs</code>. <code>impl eframe::App for App</code> at <code>main.rs:44</code> implements
+<code>logic</code>, <code>raw_input_hook</code>, <code>ui</code> and <code>on_exit</code> (<code>main.rs:45-120</code>). <code>NativeOptions</code> and the
+winit/platform setup are at <code>main.rs:376-420</code>; Windows wgpu backend/probe code is
+<code>apps/wordcraft/src/graphics.rs:26-180</code>.</li>
+<li>Web: <code>apps/wordcraft-web/src/web.rs</code>. <code>WebShell</code> implements <code>eframe::App</code> at <code>web.rs:117</code>;
+<code>logic</code> drains browser drops/messages and calls <code>WordApp::logic</code>, <code>ui</code> calls <code>WordApp::ui</code>;
+<code>WebOptions</code>/WebGPU-WebGL2 selection is at <code>web.rs:35-65</code>.</li>
+<li>UI library: <code>WordApp::logic</code> at <code>crates/ui-egui/src/lib.rs:2087</code>, <code>WordApp::ui</code> at
+<code>lib.rs:2353</code>, <code>raw_input_hook</code> at <code>lib.rs:2325</code>.</li>
+<li>Headless screenshot example: <code>crates/ui-egui/examples/ui_shot.rs</code> (1440x900 at 2x by default,
+<code>wgpu</code> harness, <code>--sample</code>, control JSON lines).</li>
+<li>Performance probe: <code>crates/ui-egui/examples/perf_probe.rs</code> (open, typing, wheel/trackpad
+scrolling, zoom, ribbon tabs, resize, accept-all; returns medians, p95 and max, not p99).</li>
+<li>Large-table benchmark: <code>crates/ui-egui/src/tests/perf.rs</code> (<code>big_table_scroll_bench</code>, ignored,
+2000x8 synthetic table by default, <code>WORDCRAFT_BENCH_DOCX</code> override).</li>
+<li>Control protocol: <code>crates/ui-egui/src/control.rs</code>, documented in <code>docs/control-protocol.md</code>.
+<code>ui.screenshot</code>/<code>ui.render</code> reply shapes, request ids, timeouts and paths are public contracts.</li>
+</ul>
+<h3>2.3 Platform configuration</h3>
+<p>Relevant cfgs are all in the UI/app boundary, not in lower layers:</p>
+<ul>
+<li><code>cfg(target_os = "linux")</code>: <code>zbus = "=5.19.0"</code> in <code>crates/ui-egui/Cargo.toml</code>;
+<code>desktop_theme.rs</code> reads the desktop portal. <code>system_clipboard.rs</code> and
+<code>apps/wordcraft/src/clipboard.rs</code> use <code>wl-clipboard-rs</code> for the <strong>regular</strong> Wayland
+clipboard (formats/text/pictures); they do not read or write PRIMARY
+(<code>ClipboardType::Regular</code> only, <code>clipboard.rs:135-160</code>). Middle-click on the canvas is
+WordCraft's autoscroll, not a PRIMARY paste (<code>autoscroll.rs:1-10</code>).</li>
+<li><code>cfg(all(unix, not(target_os = "macos")))</code>: app <code>winit</code> X11; XWayland selection is in
+<code>main.rs:404-413</code>.</li>
+<li><code>cfg(target_os = "macos")</code>: <code>fmv-macos-events</code>, <code>objc2-app-kit</code>, <code>dispatch2</code>; termination
+workaround <code>schedule_macos_terminate</code> at <code>main.rs:121-160</code>; AppKit pasteboard additions in
+<code>apps/wordcraft/src/clipboard.rs</code>.</li>
+<li><code>cfg(target_os = "windows")</code>: <code>open</code>, <code>windows</code> 0.62, <code>clipboard-win</code>; wgpu DX12/FXC and
+backend probe in <code>apps/wordcraft/src/graphics.rs</code>.</li>
+<li><code>cfg(target_arch = "wasm32")</code>: <code>js-sys</code>, <code>web-sys</code>, browser inbox, <code>font_store.rs</code>, browser
+downloads; <code>sys-locale</code> with <code>js</code>.</li>
+</ul>
+<p>No code uses child viewports (<code>show_viewport_deferred</code>/<code>show_viewport_immediate</code>), <code>craft-ui</code>
+docking, or <code>craft-window</code>. The app's "windows" are <code>egui::Window</code> areas inside the single root
+viewport. A viewport-focused migration is therefore not triggered by this app; the one root
+viewport still matters for screenshots, DPI and wgpu surface limits.</p>
+<h2>3. Dependency target and publication constraints</h2>
+<h3>3.1 Exact coherent target</h3>
+<p>All egui-family crates must resolve from one immutable fork revision, not merely from
+<code>version = "0.37.0"</code>. The target family is:</p>
+<table><thead><tr><th>Crate</th><th>Target</th><th>Source</th></tr></thead><tbody>
+<tr><td><code>egui</code>, <code>eframe</code>, <code>egui-winit</code>, <code>egui-wgpu</code>, <code>egui_glow</code>, <code>egui_kittest</code>, <code>egui_extras</code>, <code>epaint</code>, <code>emath</code>, <code>ecolor</code>, <code>epaint_default_fonts</code>, <code>egui_system_font_provider</code></td><td>0.37.0</td><td>the approved, published, reachable <code>storytold/egui</code> P8 release containing the complete series: P2b async W15P routing, P7 with held-key release pairing, P7b/E21b, P7c's selected #8763/#8748 fixes and justified performance fixes; the exact SHA is assigned only after review/publication. Research input: aiongg <code>a4f9a17f64a6bae61350fb85804c9df0d9865916</code> (<code>ai-0.37</code> in an <code>emilk/egui</code> clone).</td></tr>
+<tr><td><code>winit</code></td><td>0.30.13</td><td>the completed, approved, published, reachable <code>storytold/winit</code> revision containing W1-W15 minus W5, plus W17-W27 including W20 as W5’s replacement including the W27 lifecycle revision, and W15P PRIMARY; exact SHA assigned after review/publication. Research input: aiongg <code>8b35388bd719e8cc86a95971ba0bc026c9a8f058</code> (<code>ai-lang</code>).</td></tr>
+<tr><td><code>accesskit</code> / <code>accesskit_winit</code></td><td>0.25.x / 0.34.x</td><td>registry, resolved by the lockfile</td></tr>
+<tr><td><code>kittest</code></td><td>0.5.0</td><td>registry, via <code>egui_kittest</code> 0.37</td></tr>
+<tr><td><code>craft-ui</code>, <code>craft-print</code></td><td>the published craft-libs revision containing CL-1 and the CL-2F frozen helper containing the reviewed PR 199 port on current main</td><td>exact git <code>rev</code>, not a branch; it must move in the same atomic dependency stage as the egui/winit pins</td></tr>
+<tr><td><code>craft-pdf</code></td><td>existing <code>c3487320...</code> unless a separate reviewed reason appears</td><td>exact git <code>rev</code></td></tr>
+</tbody></table>
+<p>Required prerequisites, all in the approved revisions above:</p>
+<ul>
+<li><strong>E4/P2b + W15P:</strong> the complete shared contract in <code>egui</code> plan §6 E4/P2b and winit plan
+§5.3.1-5.3.2. Claim selection synchronously on a fresh <strong>pointer or keyboard</strong> triggering
+serial for the focused seat, with origin and epoch; only serving/reading is async, using the
+total-deadline (2 s), byte (16 MiB), worker (4 readers, 2 writers, queue 8) bounds. A live
+per-owner completion waker routes only to the still-current request; canceled/stale results
+are discarded. WordCraft's application clipboard stays regular-only; built-in <code>TextEdit</code>
+PRIMARY is tested only where the feature graph enables it.</li>
+<li><strong>E21b/P7b + winit W27 lifecycle:</strong> the complete shared contract in <code>egui</code> plan §6 E21b and
+winit plan §5.2.3/§5.2.2, not a partial restatement. It includes the owner/context generation
+on both Available and Unavailable, distinct explicitly-sent empty Available payloads, cache
+clearing plus a committed disable/enable transition on owner/unavailable changes, the latest
+completed pass (including <code>None</code>) as authoritative, and current-epoch serial-mismatch
+handling that applies incoming edits once while deferring outgoing state. WordCraft's two
+canvas producers need real model adapters.</li>
+<li><strong>P7c selected UI-regression fixes:</strong> the fork owns the selected #8763 click-away selection
+fix and #8748 hidden-parent/child fix, with pointer and keyboard regressions. #8764 remains
+only a proposal input. WordCraft has no child viewports, so #8748 is a dependency-series
+gate rather than app behavior, but no app workaround substitutes for P7c.</li>
+</ul>
+<p>The root <code>[patch.crates-io]</code> must contain every crate whose crates.io identity would otherwise
+pull a second egui/winit. A dependency's own <code>[patch]</code> table is ignored when it is a dependency,
+so the wordcraft root must repeat the patches. At minimum: <code>egui</code>, <code>eframe</code>, <code>egui-winit</code>,
+<code>egui-wgpu</code>, <code>egui_glow</code>, <code>egui_kittest</code>, <code>egui_extras</code>, <code>epaint</code>, <code>emath</code>, <code>ecolor</code>,
+<code>epaint_default_fonts</code>, <code>egui_system_font_provider</code>, and <code>winit</code>. Keep the existing
+<code>krilla</code> patch only because <code>craft-pdf</code> requires it; it is unrelated to this migration.
+The published manifest must not contain any absolute path patch, branch, <code>path = "/home/..."</code>,
+or machine-local checkout.</p>
+<p>Use exact requirements in the workspace (<code>=0.37.0</code>, <code>=0.30.13</code>) so that removing a patch cannot
+silently float to a different registry release. The resulting <code>Cargo.lock</code> must contain exactly
+one <code>egui</code>, <code>epaint</code>, <code>emath</code>, <code>ecolor</code>, <code>eframe</code>, <code>egui-winit</code>, <code>egui-wgpu</code> and <code>winit</code> package,
+all with the intended <code>git+...#&lt;sha&gt;</code> source and no <code>path</code> source.</p>
+<h3>3.2 Existing shared work</h3>
+<ul>
+<li><strong>Current shared-library integration base:</strong> <code>3832c47ef68a0e6214f2c1e85f3526b6adcb686e</code>,
+the reconciled merge base that carries the reviewed 0.37 API port of <code>craft-ui</code>. It is the
+base for this migration; the exact reachable immutable publication pin remains a
+central-publication prerequisite and is not guessed here. The historical PR 199 head
+<code>b68de8c5f4f1c060904d211a7b1320aa0f7bce78</code> and audit merge
+<code>ec8840af8c5fda695cf195cdd05e5ae078415c07</code> are evidence only and must not be merged as
+trees: they omit current <code>craft-platform</code> and revert security, settings, docking and printer
+fixes.</li>
+<li><strong>craft-libs PR 199</strong> (historical). Its API port — <code>WidgetType</code> to <code>accesskit::Role</code>,
+<code>UiBuilder::id</code>/<code>Ui::id</code> to <code>scope_id</code>, <code>Id::new</code> to <code>Id::unique</code>,
+<code>egui_extras</code>/<code>egui_kittest</code> 0.37, and the missing-glyph docking-fixture change — is already
+contained in the <code>3832c47…</code> base. The historical API-port hunks from
+<code>8614e4a04fae516fba16c22b31ff1008cb6be10b</code> and the relevant README changes from <code>1764bca</code>
+on the earlier <code>49190884278f16c9a9f5823d7698a8ffb5deb062</code> main describe how that base was
+assembled; they are no longer the base to apply. Preserve intervening fixes and provenance,
+and re-run the actual gates; neither PR 199 nor historical checks qualify the resulting
+tree. WordCraft pins the published CL-1 plus CL-2F revision in the same atomic dependency
+stage as the egui/winit pins (section 9), never after a 0.37-only first step.</li>
+<li><strong>craft-libs #192 / print types</strong> already landed on the path to PR 199: <code>craft-ui::printing::Printer</code>
+gains <code>label</code>; <code>craft-print::Printer</code> gains <code>description</code>. WordCraft must adapt when it moves
+its <code>craft-ui</code>/<code>craft-print</code> pin:
+<ul>
+<li><code>apps/wordcraft/src/print.rs:8</code> builds <code>printing::Printer</code> from
+<code>craft_print::printers()</code>; add <code>label: printer.description</code>.</li>
+<li><code>crates/ui-egui/src/lib.rs:6038</code> (test) constructs <code>Printer { name, default }</code>; add
+<code>label: String::new()</code> or <code>..Default::default()</code>.</li>
+<li><code>crates/ui-egui/src/printing.rs</code> continues to re-export the shared types and labels.</li>
+</ul>
+</li>
+<li><strong>craft-libs #198</strong> is a language-support proposal/issue, not a merged dependency. Its
+requirements that matter to WordCraft are already represented in fork patches E5/E12/E13/E16/E17/
+E19/E21: logical text at OS/accessibility boundaries, no double bidi, IME replacement by bytes,
+and Latin shortcut keys on non-Latin layouts. Do not import the proposal's locale/formatting
+roadmap or any prohibited font asset into this migration.</li>
+</ul>
+<h3>3.3 Fork patch provenance and decisions</h3>
+<p>The fork is a superset of 0.37.0 plus the suite patches documented in its <code>PATCHES.md</code>. The
+completed P8 revision retains the whole series; do not delete unrelated patches to reduce the
+diff. WordCraft consumes only that published P8 revision, never the aiongg candidate or an
+intermediate stage. The WordCraft-relevant patches are:</p>
+<table><thead><tr><th>Patch</th><th>Relevance to WordCraft</th><th>Decision</th></tr></thead><tbody>
+<tr><td>E1 eframe viewport hooks</td><td>No child viewports today</td><td>Retain; do not adopt.</td></tr>
+<tr><td>E2+E3 egui-wgpu surface fit/error scopes</td><td>Protects large windows and device setup</td><td>Retain; test large/high-DPI window and device-error paths.</td></tr>
+<tr><td>E4 egui-winit Wayland clipboard</td><td>WordCraft reads the regular clipboard through arboard/wl-clipboard-rs; E4 changes egui-winit's own path</td><td>Required fork prerequisite with the complete P2b/W15P contract (synchronous pointer-or-keyboard claim, bounded async transfer); test the app's regular clipboard separately and do not assume E4 replaces WordCraft's HTML/RTF/MathML path. Do not add app-level PRIMARY paste.</td></tr>
+<tr><td>E5/E12/E16 bidi shaping, direction, caret affinity</td><td>Replaces WordCraft's manual <code>bidi_display</code>/<code>visual_row</code> workarounds</td><td>Required. Remove double processing; use logical text and fork layout.</td></tr>
+<tr><td>E6 IME focus request</td><td>Text fields and canvas IME</td><td>Retain; test preedit/focus.</td></tr>
+<tr><td>E7/E19 Latin keys on non-Latin layouts</td><td>App shortcuts use <code>Event::Key.key</code>; fork supplies Latin layout characters</td><td>Required for shortcut parity; test Russian/Arabic/Hebrew layouts.</td></tr>
+<tr><td>E8 TextEdit glyph overshoot</td><td>Dialogs and custom combo fields</td><td>Retain; visual test combining marks/Thai/Vietnamese.</td></tr>
+<tr><td>E9 RTL UI mirroring</td><td>WordCraft has no RTL interface catalog yet</td><td>Retain as capability; do not enable a half-mirrored UI without a locale.</td></tr>
+<tr><td>E10 web named keys/language</td><td>Browser shortcuts and hidden input</td><td>Required for web; test browser workflow.</td></tr>
+<tr><td>E11 vello single-threaded glyph rasterization</td><td>WordCraft's page renderer is separate; epaint UI glyphs still use it</td><td>Retain; no app change unless <code>vello_cpu</code> feature use is introduced.</td></tr>
+<tr><td>E13 grapheme editing</td><td>Fork TextEdit/caret behavior; app's document editing is engine-owned</td><td>Retain; ensure no duplicate grapheme handling; test emoji/combining.</td></tr>
+<tr><td>E14 fallback baseline</td><td>CJK/Indic UI fallbacks</td><td>Retain; test CJK/Indic interface text.</td></tr>
+<tr><td>E15 line breaker</td><td>egui UI text (ribbon, dialogs); document layout is app-owned</td><td>Retain; do not move document layout to epaint.</td></tr>
+<tr><td>E17 language on Context/Ui</td><td>Accessibility language and widget text</td><td>Adopt <code>Context::set_language(Some(lang.code()))</code>; optionally tag document/canvas content with the editing language.</td></tr>
+<tr><td>E18 eframe UI language</td><td>Could replace app-side <code>Frame</code> language plumbing</td><td>Evaluate; not required.</td></tr>
+<tr><td>E20 widget text language</td><td>Dialog/ribbon text layout</td><td>Retain; test CJK/Thai line breaking.</td></tr>
+<tr><td>E21 <code>ImeEvent::DeleteSurroundingBytes</code></td><td>Desktop macOS/Wayland IME replacement</td><td>Required. Add a byte-range path alongside the existing char-count web path.</td></tr>
+<tr><td>E21b/P7b outgoing IME surrounding text</td><td>Canvas/Wayland surrounding-text support; the candidate has incoming deletion only</td><td>Required fork prerequisite under the complete E21b/W27 contract (owner generation, empty-Available, serial/epoch rules). TextEdit producer and W27 adapter; both WordCraft canvas producers need real model/preedit/UTF-8 adapters.</td></tr>
+</tbody></table>
+<p>Winit provenance: the final pin must be the completed, approved, published <code>storytold/winit</code>
+revision containing W1-W15 minus W5, plus W17-W27 including W20 as W5’s replacement including the W27 lifecycle revision, and the
+W15P PRIMARY path. The inspected <code>8b35388</code> <code>ai-lang</code> commit is an aiongg research input, not a production
+pin. WordCraft's existing issue references (#787, #721 and related IME/DPI fixes) depend on
+W1-W15; do not compare only against upstream 0.30.13 and conclude the patches are new. The patch
+table records the removal condition for each. No wordcraft vendor directory exists, so no vendor
+deletion is part of this plan.</p>
+<h3>3.4 Pin and lock checks</h3>
+<p>Proposed checks, to run through the managed <code>task.py</code> workflow after the plans land:</p>
+<ol>
+<li><code>cargo metadata --locked --format-version 1</code> over the root and with
+<code>--filter-platform wasm32-unknown-unknown</code> (<code>cargo metadata</code> has no <code>--target</code>); parse
+package <code>source</code> and <code>version</code> and fail on any <code>path</code> source,
+branch source, unknown git URL, duplicate egui/winit, or a <code>craft-ui</code>/<code>craft-print</code> pair from
+different craft-libs revisions.</li>
+<li><code>cargo tree -d --workspace</code> and <code>cargo tree -i egui</code>, <code>cargo tree -i winit</code>; no duplicate
+family member.</li>
+<li><code>cargo fetch --locked</code> from a clean clone, then a second <code>cargo metadata --locked</code>; no
+network-only branch resolution.</li>
+<li>A small <code>xtask</code> dependency gate (proposed name <code>cargo xtask deps</code>) with tests for: missing
+root patch, two egui versions, old <code>craft-ui</code>, moving branch, absolute path, and a git SHA
+that is not reachable from the approved fork ref. This turns the manual checks into a
+regression.</li>
+<li>Feature-identity checks, not just version metadata: <code>cargo tree -e features --target  wasm32-unknown-unknown -p wordcraft-web</code> and the native <code>-p wordcraft</code> tree must show the
+expected <code>egui/default_fonts</code>, <code>egui-winit/clipboard</code> (required on native, with arboard resolved),
+<code>accesskit</code>, <code>wgpu</code> and no <code>system_fonts</code> resolution for the app root. Record the exact
+feature sets in the lock/evidence manifest.</li>
+<li>Publication reachability: a clean clone must fetch the approved <code>storytold</code> revisions and
+pass <code>--locked</code> without local overrides. S1 cannot start while the only available trees are
+the aiongg research inputs; do not substitute a candidate SHA for a published pin.</li>
+<li>Release/packaging check after the source migration: signed native builds and the web package
+must use the same lock identity; no local overrides.</li>
+</ol>
+<h2>4. Concrete 0.37 API and behavior refactors</h2>
+<p>The historical compiler audit at
+<code>/home/codex/work/ssd2/task-evidence/egui037-audit-20261022/{fork,stock}/wordcraft.errors</code>
+lists 42 diagnostics, identical for stock and fork. They are clues, not current acceptance and
+not an exhaustive list. The concrete fixes are:</p>
+<h3>4.1 <code>Event::MouseWheel</code> gains <code>source</code></h3>
+<p><code>egui::Event::MouseWheel</code> now has <code>source: MouseWheelSource</code> (0.37 <code>data/input/event.rs</code>).
+Affected constructors and patterns:</p>
+<ul>
+<li><code>crates/ui-egui/src/control.rs:247</code> (<code>ui.wheel</code> synthetic event): add
+<code>source: egui::MouseWheelSource::Unknown</code>.</li>
+<li><code>crates/ui-egui/src/canvas.rs:642</code> (pattern), <code>canvas.rs:3821</code> (test constructor).</li>
+<li><code>crates/ui-egui/src/scroll.rs:180</code>, <code>:278</code>, <code>:329</code>, <code>:418</code>; <code>tests/perf.rs:39</code>;
+<code>examples/perf_probe.rs:106</code>; <code>mini_toolbar.rs:779</code>; <code>dialogs_keyboard.rs:430</code>; and the
+test constructors in <code>lib.rs</code>
+(<code>:3772</code>, <code>:3817</code>, <code>:3924</code>, <code>:4131</code>, <code>:4277</code>, <code>:4332</code>, <code>:4397</code>, <code>:4522</code>, <code>:4821</code>, <code>:5018</code>,
+<code>:6094</code>).</li>
+<li>Add <code>..</code> to patterns where the source is not used. For tests, use <code>Wheel</code> or <code>Trackpad</code> to
+match the behavior under test; for the control channel use <code>Unknown</code>.</li>
+<li>Preserve <code>CanvasScroll</code> behavior: WordCraft disables egui's canvas wheel handling
+(<code>ScrollArea::scroll_source { mouse_wheel: false }</code>) and computes its own delta. Do not start
+feeding the same momentum twice. The app's <code>SYNTH_MOMENTUM</code> policy remains Linux/BSD-only;
+macOS/Windows/Web already send their own momentum. Use <code>source</code> only for diagnostics/future
+differentiation, not to change current deltas without a measured test.</li>
+</ul>
+<h3>4.2 <code>ScrollArea::State::offset</code> is private</h3>
+<p>Use the 0.37 accessors and builder:</p>
+<ul>
+<li><code>crates/ui-egui/src/canvas.rs:1650</code>: <code>app.canvas.scroll_offset = out.state.clamped_offset();</code>
+(the old public offset was the clamped value; <code>unclamped_offset()</code> is for painting/rubber-band
+only).</li>
+<li><code>crates/ui-egui/src/widgets.rs:1158</code>: <code>shown.state.clamped_offset().y</code>.</li>
+<li><code>crates/ui-egui/src/scroll.rs:440</code> (test helper): <code>seen = (out.state.clamped_offset().y, zoom);</code>.</li>
+<li><code>crates/ui-egui/src/ribbon.rs:543</code> and <code>:560</code>: read <code>scroll.state.clamped_offset().x</code>.
+Setting <code>state.offset.x</code> is no longer possible. Store a one-frame pending horizontal offset
+(in <code>ui.data_mut</code> keyed by the scroll area id, or a small <code>RibbonScroll</code> field) and build the
+next frame with <code>egui::ScrollArea::horizontal().horizontal_scroll_offset(x)</code>. Clear the pending
+value after it is consumed. This preserves the edge-chevron behavior without touching private
+state.</li>
+<li><code>crates/ui-egui/src/canvas.rs:1173-1205</code> already uses <code>.scroll_offset(after)</code>; keep that
+builder path. The scroll maximum remains the app's own <code>content_size - inner_rect.size()</code>.</li>
+</ul>
+<p>Verify the sweep is exhaustive: the only <code>state.offset</code> reads/writes in <code>crates/ui-egui/src</code>
+are <code>canvas.rs:1650</code>, <code>widgets.rs:1158</code>, <code>scroll.rs:440</code>, <code>ribbon.rs:543/560</code>, plus the builder
+path at <code>canvas.rs:1173-1205</code>; no other direct field access remains. Regression: wheel notch and
+trackpad tests assert the same offsets and page indices after the change; ribbon left/right
+chevrons move exactly one step and clamp at both ends.</p>
+<h3>4.3 <code>WidgetType</code> becomes <code>accesskit::Role</code></h3>
+<p>The app uses <code>egui::WidgetInfo::labeled/selected(WidgetType::...)</code> in 34 places. Replace with
+<code>egui::Role</code> using the mapping egui itself documents (and craft-libs PR 199 uses):</p>
+<table><thead><tr><th>Old</th><th>New</th><th>Files</th></tr></thead><tbody>
+<tr><td><code>Button</code></td><td><code>Role::Button</code></td><td><code>backstage.rs:79,127,234,524</code>; <code>widgets.rs:294,333,336,402,510,523,934,1256,1289</code>; <code>print_page.rs:290</code>; <code>format_shape.rs:439</code>; <code>previews.rs:231</code>; <code>chrome.rs:333,392,416,492,551,698</code>; <code>window_close.rs:60</code>; <code>ribbon.rs:355,467,696,2271</code> (Full Screen)</td></tr>
+<tr><td><code>SelectableLabel</code> (selected)</td><td><code>Role::Button</code> with <code>selected</code></td><td><code>options.rs:150</code>; <code>previews.rs:530</code>; <code>chrome.rs:671</code>; <code>ribbon.rs:404</code></td></tr>
+<tr><td><code>TextEdit</code></td><td><code>Role::TextInput</code></td><td><code>widgets.rs:878</code></td></tr>
+<tr><td><code>Image</code></td><td><code>Role::Image</code></td><td><code>print_page.rs:278</code></td></tr>
+<tr><td><code>Other</code></td><td><code>Role::Splitter</code> for the ruler drag grip, not <code>Unknown</code></td><td><code>table_ruler.rs:60</code></td></tr>
+</tbody></table>
+<p>The <code>table_ruler</code> grip is a draggable column/row boundary; <code>Role::Splitter</code> is an input role and
+matches its behavior. If a test insists on the old generic role, review whether that test was
+asserting implementation rather than semantics; do not hide a real control under <code>Unknown</code>.
+<code>Role::Unknown</code> is not an input in <code>egui::accessibility::is_input</code>, so <code>unnamed_widgets()</code> cannot
+detect a missing/Unknown node. Add an explicit <code>get_by_role(Role::Splitter, ...)</code> assertion for
+the grip; a mutation that removes its name must fail <code>unnamed_widgets()</code>, and a mutation that
+changes the role to <code>Unknown</code> must fail the explicit role query.</p>
+<p><code>egui::accesskit::Role</code> remains available for tests; <code>egui::Role</code> is the re-export. Existing
+<code>get_by_role_and_label(Role::Button, ...)</code> tests remain valid.</p>
+<h3>4.4 Screenshot command becomes a callback</h3>
+<p>0.37 removes <code>Event::Screenshot</code> and <code>UserData</code>; <code>ViewportCommand::Screenshot</code> carries a
+<code>ScreenshotCallback</code>, and <code>Context::request_screenshot</code> is the convenience API. Current code:</p>
+<ul>
+<li><code>crates/ui-egui/src/lib.rs:2577</code> <code>issue_screenshots</code> sends
+<code>ViewportCommand::Screenshot(UserData::new(token))</code>.</li>
+<li><code>crates/ui-egui/src/lib.rs:2593</code> <code>collect_screenshots</code> scans <code>egui::Event::Screenshot</code> and
+returns immediately when <code>pending_shots</code> is empty.</li>
+<li><code>crates/ui-egui/src/control.rs:312</code> <code>save_screenshot(&amp;ColorImage, path)</code> encodes/writes.</li>
+</ul>
+<p>Required design. WordCraft is one of the eleven <code>craft-ui</code> capture consumers and adopts the
+shared helper only after CL-2F freezes it; it does not take the provisional CL-2 revision used
+by the DesignCraft/GridCraft pilots. The callback contract is:</p>
+<ul>
+<li>Keep request admission, paths, reply schema, settling delay and the 8 s deadline in
+<code>WordApp</code>. Each request record owns a strong completion slot and waker; the
+<code>ScreenshotCallback</code> holds only a <code>Weak</code> reference to the slot and receives pixels only. It
+must not capture <code>WordApp</code>, a <code>Context</code>, a file path, or an unbounded <code>mpsc::Sender</code>. The
+callback stores the image, validates it, releases the lock, and only then invokes the live
+slot's app-owned waker. It never calls <code>Context::request_repaint</code> itself and never wakes
+while holding the lock; never strongly capture a context from a callback queued in that same
+context.</li>
+<li><code>Context::request_screenshot</code> itself schedules a repaint: it calls <code>send_viewport_cmd</code> -&gt;
+<code>send_viewport_cmd_to</code> -&gt; <code>request_repaint_of</code>. Only callback <em>arrival</em> is documented not to
+request a repaint. Do not claim the request is repaint-free; keep the existing
+<code>request_repaint_after(16 ms)</code> while a request is pending and wake explicitly after
+completion.</li>
+<li>Admit by count <strong>and</strong> bytes. Before issuing, estimate <code>width * height * 4</code> from the current
+viewport logical content and pixels-per-point with checked arithmetic, then reserve its
+working set (raw RGBA + worst-case PNG + base64, a 10/3 factor) in an in-flight budget that
+also counts completed-but-undrained slots. Use the shared defaults: at most 4 outstanding
+requests, 128 MiB reserved per image and 256 MiB aggregate; reject excess admission without
+evicting earlier requests. A 4K viewport at 2x is about 7680x4320x4 ~= 127 MiB raw and is
+therefore rejected by the working-set limit rather than silently exceeding the encode peak.
+Revalidate the checked dimensions and geometry epoch immediately before issuance.</li>
+<li>Bind the image to the issuance-time UI geometry: logical content/screen bounds, size,
+pixels-per-point, zoom and surface epoch. On completion, validate dimensions/byte length
+against the reservation and that epoch. Any geometry/DPI/zoom change before save, <strong>even a
+change back</strong>, cancels and retries within the deadline or returns an explicit stale-capture
+error; never combine old pixels with current geometry. With an unchanged epoch, derive the
+pixel scale from the returned image dimensions and verify aspect/rounding.</li>
+<li><code>collect_screenshots</code> drains the slots unconditionally in <code>logic</code>, matches the request
+record, calls <code>control::save_screenshot(&amp;image, path.as_deref())</code>, sends exactly one reply,
+and releases the slot and reservation. A timeout/cancel/drop removes the record and releases
+the slot; a late callback then finds a dead weak reference and retains nothing, writes no
+file and sends no second reply. Retained image bytes must return to zero after drain,
+timeout, cancel and shutdown.</li>
+<li>Hidden windows: the screenshot command itself forces a full hidden <code>App::logic</code> + <code>App::ui</code>
+pass (<code>ActionRequested::wants_paint()</code>), while callback arrival does not repaint. A request
+queued in <code>logic</code> but issued only in <code>ui</code>, including every remaining settling frame, must
+therefore send <code>ViewportCommand::RequestPaintWhileHidden</code> from the logic side to reach
+issuance; a wake/repaint alone may run hidden logic only. Keep the timeout contract and test
+both the forced pass and the queued-not-issued settling path.</li>
+<li>The app has one root viewport. If child viewports are added later, route requests by
+<code>ViewportId</code> and generation; do not reuse an old token for a new document or viewport.</li>
+<li><code>ui_shot</code> uses <code>Harness::render</code>, not the viewport callback; keep it as a separate headless
+path. Do not make <code>ui.render</code> depend on the native callback.</li>
+<li>The suite has fourteen capture consumers. The eleven existing <code>craft-ui</code> consumers require
+CL-1 and CL-2F; only the DesignCraft/GridCraft pilots use the reviewed CL-2 provisional
+revision, and their adapters are reviewed before CL-2F freezes the API. DeckCraft, FigCraft
+and ArtCraft Native keep contract-compatible local adapters; <code>ai-egui</code> has no capture path.
+Do not add <code>craft-ui</code> solely for capture; if DeckCraft/FigCraft later adopt it, WordCraft's
+adapter stays unchanged.</li>
+</ul>
+<p>Tests: four-request/128 MiB/256 MiB admission, two outstanding requests with distinct
+tokens, out-of-order completion, callback once and no self-wake, late callback after
+timeout/cancel (no file/second reply), forced hidden pass, queued-not-issued
+<code>RequestPaintWhileHidden</code>, resize/DPI/zoom change and change-back, and retained-bytes-zero
+after drain/shutdown.</p>
+<h3>4.5 <code>Id::new</code> and <code>Ui::id</code> deprecations</h3>
+<p>0.37 deprecates <code>Id::new</code> in favor of <code>Id::unique</code> and renames <code>Ui::id</code> to <code>Ui::scope_id</code>
+(<code>Ui::id</code> remains deprecated). Exact symbol-filtered counts in <code>crates/ui-egui/src</code> at this
+baseline are 108 egui <code>Id::new</code> calls (89 <code>egui::Id::new</code> and 19 bare <code>Id::new</code>) and 37
+<code>ui.id()</code> calls; <code>FontId::new</code> (3) and <code>LayerId::new</code> (3) are unrelated and must not be swept.
+The mechanical count is a review aid, not a replacement trigger. Replace with same-hash
+equivalents:</p>
+<ul>
+<li><code>egui::Id::new(x)</code> -&gt; <code>egui::Id::unique(x)</code>; hashes are intentionally unchanged for existing
+ids, so widget state, focus and temp data keys stay stable.</li>
+<li><code>ui.id()</code> -&gt; <code>ui.scope_id()</code>; the value is unchanged.</li>
+<li><code>UiBuilder::new().id(x)</code> -&gt; <code>.scope_id(x)</code> if any is introduced (none currently in app code).</li>
+<li>Do not replace <code>Id::unique</code> with <code>IdSalt</code> for globally stored state; <code>IdSalt</code> is for child
+scopes only. Preserve the distinction between stable scope ids and <code>ui.unique_id()</code>.</li>
+</ul>
+<p>The mechanical sweep is large but must be reviewed by symbol, not regex alone: <code>ui.id()</code> on a
+<code>Ui</code> is not the same as <code>TextureHandle::id()</code>, <code>CommandSpec::id()</code>, <code>Document::id()</code> or other
+domain ids. The replacement applies only to egui <code>Ui</code>.</p>
+<h3>4.6 Panels take <code>AsIdSalt</code></h3>
+<p><code>Panel::left/right/top/bottom</code> in 0.37 take <code>impl AsIdSalt</code>, not <code>impl Into&lt;Id&gt;</code>; the panel id
+is now <code>parent_scope.with(IdSalt)</code>. Existing string literals in <code>chrome.rs</code>, <code>panes.rs</code>,
+<code>backstage.rs</code> and <code>ribbon.rs</code> compile, but their effective ids change. WordCraft does not persist
+panel sizes in <code>ui.json</code> or enable egui <code>persistence</code>, so the only consequence is fresh in-process
+panel state after upgrade. Verify:</p>
+<ul>
+<li>panel order remains title bar -&gt; ribbon -&gt; status -&gt; side panes -&gt; central canvas in
+<code>WordApp::ui</code> (<code>lib.rs:2353-2410</code>);</li>
+<li><code>Panel::top("title_bar")</code>, <code>Panel::top("ribbon")</code>, <code>Panel::bottom("status")</code>, the side panes in
+<code>panes.rs:20-105</code>, and the <code>CentralPanel</code> reserve and clip correctly at 760x480, 1440x900 and
+2x DPI;</li>
+<li>no panel is shown on a non-root <code>Ui</code> where 0.37 would change order. <code>backstage.rs:40-160</code>
+shows a left panel and then a central panel on the passed root <code>Ui</code>; keep that contract.</li>
+<li>Do not use <code>Context::root_ui</code> inside <code>WordApp::ui</code>: 0.37 explicitly panics when the root <code>Ui</code>
+is already borrowed (<code>Context::root_ui</code> docs, upstream #8535). Pass the existing <code>Ui</code>.</li>
+</ul>
+<h3>4.7 <code>default_fonts</code> is no longer a default feature</h3>
+<p>0.37 removes <code>default_fonts</code> from <code>egui</code>/<code>epaint</code> default features; <code>eframe</code> still enables it.
+<code>egui_kittest</code>'s normal <code>[dependencies] egui</code> uses <code>default-features = false</code>; only kittest's
+own <code>[dev-dependencies]</code> enable <code>default_fonts</code>/<code>monochrome_emoji_fonts</code>, and a dependency's
+dev-dependencies do not propagate. Neither kittest's manifest nor its dev-dependency graph
+supplies fonts to WordCraft's test root. WordCraft's <code>theme::font_definitions_language</code> starts from
+<code>FontDefinitions::default()</code>, inserts <code>Inter</code> at index 0, pushes <code>SourceSans</code> at the end, then
+appends CJK/system faces (<code>theme.rs:536-620</code>). With <code>default_fonts</code> the default proportional
+family is <code>["Ubuntu-Light", "egui-icons"]</code>; with <code>monochrome_emoji_fonts</code> it is
+<code>["Ubuntu-Light", "egui-icons", "NotoEmoji-Regular", "emoji-icon-font"]</code>.</p>
+<p>The actual production order is therefore:
+<code>Inter, Ubuntu-Light, egui-icons, SourceSans, &lt;CJK/system faces&gt;</code>.
+Explicitly enable <code>default_fonts</code> and <code>monochrome_emoji_fonts</code> on the UI test root's egui
+dev dependency for the controlled emoji fixture; its expected order is:
+<code>Inter, Ubuntu-Light, egui-icons, NotoEmoji-Regular, emoji-icon-font, SourceSans,  &lt;CJK/system faces&gt;</code>.
+Do not assert the earlier proposed <code>Inter, SourceSans, Ubuntu-Light, egui-icons</code> order; it is
+wrong and would force an unintended fallback reorder.</p>
+<p>Concrete fix:</p>
+<ul>
+<li>Keep eframe's <code>default_fonts</code> feature in both app manifests.</li>
+<li>Make <code>wordcraft-ui-egui</code> test features explicit with <code>egui</code> dev-dependency features
+<code>default_fonts</code> and <code>monochrome_emoji_fonts</code>; these are egui features, not kittest features.
+Do not rely on kittest's private dev-dependencies: without this explicit declaration the
+test root is font-empty apart from WordCraft's own assets. Do not enable
+<code>monochrome_emoji_fonts</code> in production just to make the test order match.</li>
+<li>Add a font coverage test that asserts the exact prefix/position for the feature set under
+test: <code>Inter</code> at 0, <code>Ubuntu-Light</code> and <code>egui-icons</code> in the default fallback block,
+<code>SourceSans</code> immediately after that block, then CJK/system faces. Assert <code>has_glyphs</code> for the
+interface catalog's punctuation/symbol strings, <code>icons.rs</code> labels, Arabic/Hebrew, CJK,
+Thai/Vietnamese combining marks and only emoji the chosen UI font actually covers.</li>
+<li>Choose the emoji source explicitly: interface emoji coverage is the bundled monochrome
+<code>egui-icons</code> set (plus the test-only <code>NotoEmoji-Regular</code>/<code>emoji-icon-font</code> fallbacks from
+<code>monochrome_emoji_fonts</code>). The production UI family has no color emoji font; do not assert
+color/ZWJ emoji in the interface test. For document/canvas emoji, use the pinned test-only
+Noto Color Emoji v2.047 fixture from egui plan 10.6 (<code>39ee3c58...</code>, OFL-1.1) or record a
+native platform color-font result separately. Do not bundle a proprietary emoji font.</li>
+<li>Keep <code>system_fonts</code> off; it would add a system provider and startup discovery cost (upstream
+#8512), change coverage and complicate reproducibility.</li>
+</ul>
+<p>The strict accessible-name sweep and this font/glyph work are part of S1, not deferred to the later screenshot stage:
+<code>egui_kittest</code> 0.37's <code>check_accessibility</code> defaults to true and panics on unnamed visible
+inputs after <code>Harness::run</code>, so S1 cannot leave <code>cargo xtask ci</code> green without them.</p>
+<h3>4.8 kittest 0.37 stricter defaults</h3>
+<p><code>egui_kittest</code> 0.37 fails tests when an input widget has no accessible name and panics on a glyph
+no installed font can draw. WordCraft has many custom-drawn controls and many <code>TextEdit</code>s whose
+adjacent labels are not attached. The migration must not disable these checks globally.</p>
+<ul>
+<li>First run the UI suite with defaults; enumerate <code>Harness::unnamed_widgets()</code>.</li>
+<li>Attach names with <code>Response::labelled_by(label.id)</code> where a visible label exists, or
+<code>Response::accessible_name(...)</code> for icon-only controls. Prefer visible-label association over
+duplicating translated strings. <code>Ui::label_inputs_by</code>/<code>Ui::name_inputs</code> are available in 0.37
+for groups.</li>
+<li>Audit the dialog modules: <code>dialogs_controls.rs</code>, <code>dialogs_review.rs</code>, <code>dialogs_layout.rs</code>,
+<code>dialogs_insert.rs</code>, <code>dialogs_para.rs</code>, <code>dialogs_lists.rs</code>, <code>dialogs_table_style.rs</code>,
+<code>options.rs</code>, <code>backstage.rs</code>, <code>colors.rs</code>, <code>print_page.rs</code>, and the combo field in
+<code>widgets.rs:842-878</code>. A <code>TextEdit</code> with a <code>hint_text</code> passes the check, but a visible label is
+better semantics; do not add hints merely to satisfy the test.</li>
+<li>Keep <code>Role::Button</code>/<code>Role::TextInput</code> accurate; a named widget with the wrong role is still a
+screen-reader regression. The a11y tree in <code>a11y.rs</code> (Document/paragraph/table/text-run) must
+keep its current logical text; the fork's bidi changes must not leak visual-order strings into
+AccessKit.</li>
+<li>This is API compatibility, not behavior, so the name sweep and font coverage are part of S1.
+The suite has 15 <code>h.run()</code> call sites and 153 harness constructions; most tests use
+<code>step</code>/<code>run_steps</code>, where the default check does not fire. Add explicit
+<code>h.check_accessibility()</code>/<code>unnamed_widgets()</code> assertions where the UI settles, and add explicit
+role queries for controls such as the ruler grip. <code>Role::Unknown</code> is not an input and cannot
+detect a missing node.</li>
+</ul>
+<h3>4.9 <code>craft-ui</code>/<code>craft-print</code> print type change</h3>
+<p>Already described in 3.2. Add a test that discovery maps CUPS <code>description</code> to <code>label</code>, and that
+<code>shown_names</code> distinguishes two printers with the same label. Keep the app's command ids and
+print settings schema unchanged.</p>
+<h3>4.10 Text: remove double bidi and handle byte IME replacement</h3>
+<p>This is the highest-risk app-specific change. WordCraft manually reorders right-to-left text for
+egui 0.36:</p>
+<ul>
+<li><code>crates/ui-egui/src/canvas.rs:2132-2185</code> <code>has_rtl</code>/<code>bidi_display</code>/<code>visual_row</code>, used by
+<code>backstage.rs:529-530</code> for recent file names.</li>
+<li><code>crates/ui-egui/src/canvas.rs:2190-2245</code> <code>balloon_text</code> wraps and visually reorders comment
+text itself, then right-aligns RTL rows.</li>
+<li><code>crates/ui-egui/src/keys.rs:352-390</code> handles <code>ImeEvent::Preedit/Commit/DeleteSurrounding</code>
+(char counts) and <code>keys.rs:626-680</code> implements <code>delete_surrounding</code> and <code>type_text</code>.</li>
+<li><code>apps/wordcraft/src/clipboard.rs</code> and <code>crates/ui-egui/src/a11y.rs</code> use logical text at the
+OS/accessibility boundary; they must stay logical.</li>
+</ul>
+<p>With the fork's E5/E12/E16, egui shapes RTL runs and places rows in visual order. Keeping
+<code>bidi_display</code> would reverse the text a second time. Refactor:</p>
+<ul>
+<li>Replace <code>bidi_display(name/path)</code> calls in <code>backstage.rs:529-530</code> with the original logical
+strings. Set <code>LayoutJob</code>/widget direction only where a specific element needs an explicit base
+direction; for ordinary labels, let <code>TextDirection::Auto</code> choose from the first strong
+character.</li>
+<li>Replace the manual wrapping/reordering in <code>balloon_text</code> with an egui <code>LayoutJob</code> over logical
+text, <code>TextDirection::Auto</code>, the existing font/color and <code>TextWrapping::max_width = width</code>.
+Do not use <code>.trim()</code> on each visual row; let epaint handle trailing whitespace and line breaks.
+If a right-aligned RTL paragraph needs an explicit <code>halign</code>, use the fork's
+<code>halign_min_is_start</code>/<code>TextDirection</code> controls, not pre-reversed strings.</li>
+<li>Keep <code>has_rtl</code> only if a non-layout decision needs it; otherwise remove the dead helper and its
+tests. Replace the old <code>visual_row</code> tests with tests that assert screen x positions of the first
+and last Arabic/Hebrew words (fork behavior), not the old reordered strings.</li>
+<li>Keep document layout (<code>crates/layout</code>) untouched: it has its own bidi/line-break logic and is
+not egui text. This migration only changes egui UI text and comment balloons.</li>
+<li>Add <code>Context::set_language(Some(lang.code().to_owned()))</code> in <code>WordApp::logic</code> when the effective
+interface language changes, so AccessKit exposes the UI language. Optionally tag the canvas
+document <code>Ui</code>/AccessKit node with the document editing language via <code>UiBuilder::language</code>; do
+not tag every text run with a guessed language.</li>
+</ul>
+<p>IME byte replacement:</p>
+<ul>
+<li>The fork adds <code>ImeEvent::DeleteSurroundingBytes { before_bytes, after_bytes }</code> on macOS and
+Wayland, sent immediately before the <code>Commit</code>. The existing char-count
+<code>DeleteSurrounding</code> remains for web/legacy paths.</li>
+<li>Add a match arm next to <code>keys.rs:384</code> that:
+<ol>
+<li>returns early if a selection exists or an equation is open, as the char path does;</li>
+<li>computes <code>start = off.saturating_sub(before_bytes)</code> and
+<code>end = off.saturating_add(after_bytes)</code> and verifies both are UTF-8 boundaries in the
+paragraph text; if not, refuse the event rather than slice at a non-boundary;</li>
+<li>returns immediately when <code>start == end</code> (the existing char path does, <code>keys.rs:656</code>);
+otherwise selects <code>start..end</code>, joins the current typing group, runs <code>text.backspace</code> (or
+the same delete command used by the engine), records <code>ime_join_text</code> for the following
+commit, and restores the caret if the command is refused;</li>
+<li>does not erase paragraph marks/list labels beyond the paragraph.</li>
+</ol>
+</li>
+<li>Keep one undo step for delete+commit. Extend the existing <code>#1480</code> tests and add:
+emoji modifier/ZWJ replacement, combining Vietnamese accent replacement, a letter after an
+emoji sequence, a deletion-only batch, a <code>0/0</code> and clamped-empty byte range, and a commit
+with empty text. Test that outgoing
+surrounding text (document text after the operation) is updated, not merely the event mapping.</li>
+</ul>
+<p><strong>E21b/P7b outgoing surrounding text (shared fork prerequisite).</strong> The candidate egui-winit
+never calls <code>WindowExtWayland::set_ime_surrounding_text</code>, and <code>egui::IMEOutput</code> has no logical
+text (<code>data/output.rs:100-114</code>). E21's incoming delete/commit is not full surrounding-text
+support. The complete contract is owned by <code>egui</code> plan §6 E21b and winit plan §5.2.3/§5.2.2;
+WordCraft depends on it and does not restate a weaker subset. It provides:
+an owner/context generation present for both Available and Unavailable; a valid empty document
+as Available, explicitly sent as <code>set_surrounding_text("", 0, 0)</code> plus commit, distinct from
+Unavailable; a bounded transient payload (logical committed text, UTF-8 byte cursor/anchor,
+preedit excluded, at most 4,000 bytes, explicit unavailable when the selection cannot fit) with
+no full-document allocation for the new payload; W27 cache clearing plus a committed
+disable/enable boundary on owner/support transition; the latest completed pass's descriptor,
+including authoritative <code>None</code>, as the only published value; and current-epoch <code>done</code> serial
+mismatch applying incoming edits once while deferring outgoing state until a matching serial,
+with obsolete epochs invalidated.</p>
+<p>Both WordCraft canvas producers (<code>crates/ui-egui/src/canvas.rs:1556-1561</code> math/equation caret
+and <code>:1633-1638</code> text caret) need real model adapters, not <code>None</code>: derive the bounded logical
+paragraph/equation excerpt and byte cursor/anchor from <code>session.sel</code>/the equation editor,
+convert scalar/grapheme positions deliberately, exclude <code>ime_preedit</code>/<code>ime_preedit_range</code>,
+and never send display-reordered bidi text. The adapter updates on commit/delete/selection/
+focus changes and clears on focus loss, password/no-context and widget switch. Existing
+TextEdit buffer cloning is baseline behavior, not part of the new payload allocation.</p>
+<p>Tests: outgoing text after delete+commit and deletion-only batches; preedit exclusion and caret
+movement; supplementary emoji/combining/RTL logical order; long selection/window limits;
+empty→non-empty and unavailable/password→available; late <code>Done</code> and current-epoch serial
+mismatch vs stale epoch; same-window field switch and two windows; a final pass with <code>None</code>;
+focus loss/reset/password/no-context clearing; and a native Wayland text-input trace on a real
+compositor. A kittest event test is not native IME proof.</p>
+<p>Do not make the document engine depend on egui's grapheme implementation. The engine's own
+grapheme/backspace rules remain the source of truth for document editing.</p>
+<h3>4.11 Accessibility roles, names and selection</h3>
+<ul>
+<li>Keep the custom AccessKit document tree in <code>a11y.rs</code> (Document, Paragraph, Heading, List,
+ListItem, ListMarker, Table/Row/Cell, TextRun, Image, Link). The fork's bidi must not change
+the logical <code>TextRun</code> strings; <code>set_text_direction</code> remains based on the layout's <code>line.rtl</code>.</li>
+<li>Ensure every new <code>Role</code> assignment has a name. The kittest default check will catch unnamed
+input roles that <code>is_input</code> recognizes (<code>Button</code>, <code>TextInput</code>, <code>Splitter</code>, <code>ComboBox</code>, ...).</li>
+<li><code>refocus_after_chrome_click</code> (<code>lib.rs:2471-2520</code>) relies on <code>ctx.memory().focused()</code> and
+<code>ctx.cumulative_pass_nr()</code>. 0.37's <code>TextEdit</code> can lose its selection before a clicked widget
+runs. P7c owns the selected #8763 and #8748 fixes; #8764 is an open, unmerged proposal input,
+not the dependency. This is a blocking fork prerequisite, not accepted behavior. The
+approved P8 revision must contain the central fixes with pointer and keyboard tests proving
+the intended range reaches the adjacent action in the same pass.</li>
+<li><code>Role::Splitter</code> on the ruler grip must not make a passive ruler tick an input; only the grip
+gets the role.</li>
+</ul>
+<h3>4.12 GPU, surface and texture behavior</h3>
+<p>WordCraft uses wgpu 30 on native and WebGPU/WebGL2 on web; <code>graphics.rs</code> configures Windows
+DX12/FXC and the Intel-Mac indirect-validation skip. wgpu and winit versions do not change, so
+those APIs should compile; revalidate anyway under the new eframe/egui-wgpu:</p>
+<ul>
+<li><code>apps/wordcraft/src/graphics.rs:26-120</code> still reaches <code>WgpuSetup::CreateNew</code> and
+<code>InstanceDescriptor</code>; confirm with <code>cargo check</code> on Windows.</li>
+<li>E2/E3 surface fit fixes should remove a class of large-window configure errors. Add a window
+size/DPI test near the surface limit if hardware permits; otherwise record the unresolved
+hardware gate.</li>
+<li>Page textures use <code>TextureOptions::LINEAR</code> (<code>canvas.rs:1261-1332</code>, <code>print_page.rs:128</code>,
+<code>previews.rs</code>). Do not change filtering/wrap; the upstream #8736 shader cost is about
+predictable filtering, not the app's sampling choice. If a renderer option is changed, test
+the actual page pixels and color emoji, not just compile.</li>
+<li>Screenshot callback memory: <code>Arc&lt;ColorImage&gt;</code> may be large at 2x/4K. The count/byte
+admission, in-flight reservation and completed-slot accounting are part of the design.</li>
+</ul>
+<h3>4.13 Clipboard and PRIMARY</h3>
+<p>The app's clipboard is host-owned (<code>apps/wordcraft/src/clipboard.rs</code>, <code>system_clipboard.rs</code>) and
+supports text, HTML, RTF, MathML, pictures and format names. It uses <code>wl-clipboard-rs</code>
+<code>ClipboardType::Regular</code> only; there is no application PRIMARY read/write, and middle-click on
+the canvas is autoscroll, not paste. S1 enables native <code>eframe/clipboard</code> to preserve the
+0.36 integration-forced OS text clipboard and the <code>Event::Paste</code> paths used by canvas and
+dialog TextEdits. This does not add PRIMARY to the app’s canvas or change rich-format
+ownership. Do not route <code>Event::PasteImage</code> into a new app-level paste path. Verify:</p>
+<ul>
+<li>copy/cut/paste text and formatting through the app's commands, not only egui <code>TextEdit</code>;</li>
+<li>regular Wayland clipboard behavior with <code>wl-clipboard-rs</code> and <code>arboard</code> after E4/W15, while
+W15P/P2b PRIMARY remains a fork-level prerequisite and is not added to the app's own paste
+path;</li>
+<li>native <code>egui-winit/clipboard</code> is enabled and built-in TextEdit PRIMARY follows W15P;</li>
+<li>paste text from an independent process into the canvas and a dialog/search TextEdit,
+then copy back to the other process; an in-process fallback must fail this regression;</li>
+<li>no double clipboard owner or last-writer race on X11/Wayland when both egui and the app write;</li>
+<li>macOS/Windows native pasteboard formats (HTML, MathML, RTF) unchanged;</li>
+<li>browser paste picture path in <code>apps/wordcraft-web/src/web.rs:160-220</code> still receives events;</li>
+<li>a regression that middle-click on the canvas starts autoscroll and never pastes PRIMARY.</li>
+</ul>
+<h2>5. Lifecycle, root <code>Ui</code>, hidden windows and repeated passes</h2>
+<h3>5.1 What eframe does</h3>
+<p>In 0.37, <code>eframe</code> calls <code>App::logic</code> and <code>App::ui</code> inside <code>Context::run_ui</code> for every pass on
+native and web (<code>crates/eframe/src/native/epi_integration.rs:349-365</code> and
+<code>crates/eframe/src/web/app_runner.rs</code> in the target source). <code>Context::run_ui</code> may run the
+closure more than once when a pass calls <code>request_discard</code> (default <code>max_passes = 2</code>).
+<code>new_input.take()</code> gives events/dropped files to the first pass only. A hidden window normally
+goes through <code>update_logic_only</code> -&gt; <code>Context::run_logic</code>, which updates only viewport/focus
+state and leaves events/time/layout from the previous UI pass. However a pending
+<code>ViewportCommand::Screenshot</code> or <code>RequestPaintWhileHidden</code> makes eframe run a full hidden pass
+(<code>is_visible = viewport.info.visible().unwrap_or(true) ||  actions_requested.any(ActionRequested::wants_paint)</code>), so <code>ViewportInfo::visible()</code> is not a
+phase indicator. After a normally completed <code>run_ui</code>, <code>current_pass_index()</code> is zero
+(<code>end_pass</code> takes the output); do not use a stale nonzero index as evidence of hidden work.
+This is the exact contract the WordCraft code must be audited against.</p>
+<h3>5.2 <code>logic</code> is currently mostly idempotent; fix the exceptions</h3>
+<p><code>WordApp::logic</code> (<code>lib.rs:2087-2238</code>) drains channels (<code>drain_control</code>, <code>zotero::poll</code>,
+<code>read_aloud::poll</code>, <code>poll_file_dialog</code>, <code>drain_inbox</code>, <code>drain_pasted</code>), ticks recovery/autosave,
+issues/collects screenshots, and handles dropped files. Most drains are inherently once-only
+because they <code>take</code>/<code>recv</code>. The audit must prove, not assume:</p>
+<ul>
+<li><strong>Dropped files are stale in hidden/forced logic passes.</strong> <code>lib.rs:2208-2230</code> reads
+<code>ctx.input(|i| i.raw.dropped_files.clone())</code> without taking. A hidden <code>run_logic</code> frame or a
+forced hidden full pass can see the last shown frame's drops and open/insert them again.
+The browser shell already takes the vector in <code>apps/wordcraft-web/src/web.rs:119</code>; native
+<code>WordApp::logic</code> still clones it. Change <code>WordApp::logic</code> to
+<code>ctx.input_mut(|i| std::mem::take(&amp;mut i.raw.dropped_files))</code> and handle the drained vector.
+Apply the same rule to any future input-derived queue read in <code>logic</code>; never poll a
+prior pass's event twice.</li>
+<li><strong>SmartArt Tab</strong> uses <code>ctx.input_mut(|i| i.consume_key(...))</code> (<code>lib.rs:2106-2118</code>); consuming
+makes a repeated logic pass harmless. Keep that pattern.</li>
+<li><strong>Synthetic input</strong> (<code>raw_input_hook</code>, <code>lib.rs:2325</code>) runs before each frame, not once per UI
+pass, and can run on a hidden <code>update_logic_only</code> tick. Keep at most one unapplied synthetic
+gesture step pending until a full <code>WordApp::ui</code> pass consumes it; repeated hidden logic ticks
+must not inject the next step, and a press/release pair stays two ordered events, never
+collapsed. When queued synthetic input needs a UI pass while hidden, request paint through
+the same <code>RequestPaintWhileHidden</code> path as 4.4.</li>
+<li><strong>Screenshots</strong> replace event collection with the request-owned completion slots in 4.4; a
+repeated pass must not issue the same request twice. <code>queued_shots</code> and the request records
+(with their slots/deadlines) remain the one-shot state.</li>
+<li><strong>Autosave</strong> sets <code>last_autosave</code> before running <code>file.save</code> (<code>lib.rs:2312-2325</code>); a second
+logic pass in the same frame sees the new timestamp. Keep that ordering; add a test with a
+forced double pass that counts save calls.</li>
+<li><strong>Recovery/read-aloud/Zotero</strong> mutate state flags (<code>recovery_seen</code>, <code>read_aloud_at</code>,
+<code>zotero</code> channel state). Add a forced double-pass test that asserts one recovery tick, one
+status transition and one Zotero answer per event.</li>
+<li><strong><code>report_dirty</code></strong> is idempotent; do not move it out of <code>logic</code>/<code>ui</code>.</li>
+<li><strong>Undo transactions</strong> are engine-owned. Do not open/close a transaction in <code>logic</code> on every
+pass; only commands do. A repeated pass must not add an undo step. The IME delete+commit path
+explicitly joins the typing group once.</li>
+</ul>
+<h3>5.3 Repeated <code>ui</code> passes</h3>
+<p>The app has one existing <code>request_discard</code> in <code>widgets.rs:985</code> (font list sizing). The
+<code>WordApp::ui</code> path performs command side effects through widget clicks and <code>keys.rs</code>; events
+exist only in the first pass, so the normal multi-pass layout rerun should not duplicate a click
+or keystroke. This must be demonstrated:</p>
+<ul>
+<li>add a test-only wrapper that requests a discard once in a <code>WordApp::ui</code> pass (or drive the font
+list to a new row count) and assert one command execution, one undo step, one autosave and one
+screenshot request;</li>
+<li>keep <code>logic</code> in the same test to prove it does not replay stale input;</li>
+<li>if a duplicate is found, fix it with a narrowly scoped one-shot action queue or by deferring
+only the affected layout action. Do not introduce a generic "compatibility layer" or move all
+commands into <code>logic</code> wholesale.</li>
+</ul>
+<h3>5.4 Root <code>Ui</code> and panel ordering</h3>
+<p><code>WordApp::ui</code> receives <code>&amp;mut egui::Ui</code> and must continue to use it directly:</p>
+<ul>
+<li><code>chrome::title_bar(self, ui)</code>, <code>ribbon::show(self, ui)</code>, <code>chrome::status_bar(self, ui)</code>,
+<code>panes::show(self, ui)</code>, then <code>CentralPanel::default().show(ui, |ui| canvas::show(self, ui))</code>
+(<code>lib.rs:2360-2410</code>).</li>
+<li><code>backstage::show</code> uses <code>Panel::left</code> + <code>CentralPanel</code> on the same root; no recursive
+<code>root_ui</code>.</li>
+<li>Dialogs/windows use <code>egui::Window</code>/<code>Area</code> on the context; they are not viewports. Keep their
+<code>Id</code>/layer/order semantics.</li>
+<li>Test <code>Context::run_ui(RawInput, |ui| { app.logic(ui.ctx()); app.ui(ui) })</code> at 760x480 and
+1440x900, 1x/2x, both themes; assert the central canvas rect equals the root area after
+panel reservations, page rects are unchanged, and clicks at page coordinates still hit the
+same document positions.</li>
+</ul>
+<h3>5.5 Logic-only and forced hidden-pass checks</h3>
+<p>Use <code>Context::run_logic(&amp;RawInput { viewports, focused, ..Default::default() }, |ctx| app.logic(ctx))</code>
+(the 0.37 API) only for the background/timer contract; it is not a model of a screenshot-driven
+hidden pass. Check:</p>
+<ul>
+<li>a pending autosave still fires on its timer without a UI pass;</li>
+<li>a pending print/Zotero/read-aloud result still drains;</li>
+<li>stale events from the previous shown frame are not consumed twice;</li>
+<li>a pending screenshot may force a full hidden <code>App::logic</code> + <code>App::ui</code> pass; assert exactly one
+request/reply and one command/undo/autosave, and test that no duplicate side effects occur.
+Do not call that path logic-only, and do not infer the phase from <code>visible()</code>;</li>
+<li>a queued capture issued only in <code>ui</code> (including settling frames) or pending synthetic input
+on a hidden window sends <code>RequestPaintWhileHidden</code>; test that it reaches issuance, that a
+plain wake may run logic only, and measure its repaint cost;</li>
+<li>after a completed multi-pass <code>run_ui</code>, assert <code>current_pass_index() == 0</code>; do not claim a
+stale nonzero index;</li>
+<li>fonts are not initialized in a logic-only test and then assumed laid out; <code>Context::run_logic</code>
+performs no pass or layout, so call <code>run_ui</code> for layout assertions. (#8535 documents only the
+recursive <code>root_ui</code> panic, not font initialization.)</li>
+<li>repeated hidden logic ticks do not advance the synthetic gesture queue; a full UI pass
+consumes exactly one pending step, and a queued capture/synthetic step on a hidden window
+uses <code>RequestPaintWhileHidden</code> to reach issuance.</li>
+</ul>
+<h2>6. Behavior contracts and regression assertions</h2>
+<h3>6.1 Commands, undo and persistence</h3>
+<p>The engine and command registry are not migrated. Tests must still prove the UI dispatch path:</p>
+<ul>
+<li><code>engine.execute</code> and keyboard shortcuts run the same command id for: text insert, bold,
+undo/redo, save/saveAs/open, find, print settings.</li>
+<li>One typing run or IME replacement is one undo step; undo restores text and formatting;
+redo reapplies.</li>
+<li>Save/reopen: create a synthetic document, type text, apply bold, insert a comment/bookmark,
+save as a temp <code>.docx</code>, open it in a fresh <code>Session</code>, assert text, formatting, comments and
+selection/page hints that the product expects. Do not assert egui widget ids survive reopen.</li>
+<li>Autosave writes the same file and does not clear undo; failure shows the existing message and
+disables autosave for that file.</li>
+<li><code>file.close</code> with unsaved changes still refuses unless <code>force</code>/Save, through control and UI.</li>
+</ul>
+<h3>6.2 UI geometry and screenshots</h3>
+<p>Fixtures: <code>wordcraft_engine::sample::sample_document()</code>, a large synthetic table
+(<code>tests::perf::big_table_doc</code>), and a durable evidence <code>.docx</code> with Latin/Arabic/Hebrew/CJK/
+Vietnamese/emoji/comments/headers. Fixtures and fonts are licensed and pinned: use
+<code>CRAFT_FONTS_DIR</code> at <code>b076417b5880bd4154bd22f00695b1d28c6bea83</code> for the app's CI text faces,
+the central craft-fonts fixtures at <code>2481a8a324b986a45954e90045ed1f8f2efaaf3c</code> for
+Arabic/Thai/CJK/Japanese coverage, the pinned Noto Sans Hebrew variable fixture
+(<code>7ef36a2c...</code>, OFL-1.1) for Hebrew, and the test-only Noto Color Emoji v2.047
+(<code>39ee3c58...</code>, OFL-1.1) for document emoji. Record every fixture file SHA256, source and
+licence in the evidence manifest; do not redistribute proprietary system fonts. Run at 1x/2x,
+light/dark, 1440x900 and 760x480.</p>
+<p>Assertions:</p>
+<ul>
+<li><code>ui.inspect</code>/<code>document.inspect</code> JSON: page count, page rects, canvas rect, caret screen point.
+Page/canvas geometry for the same fixture and DPI must be unchanged; chrome heights may change
+only after manual review of the 0.37 style deltas.</li>
+<li><code>ui_shot</code> images: the page area (app-rendered textures) must match the 0.36 baseline exactly at
+the same DPI; chrome comparisons use a documented per-region threshold. Proposed starting
+policy: a candidate passes only if no page-area pixel differs and chrome changed-pixel fraction
+is &lt;=0.5% with max channel delta &lt;=2 after review; any larger change needs a named cause and a
+reviewed replacement image, never a bulk refresh. The exact threshold is frozen in the baseline
+report before candidate measurement, as the shared protocol requires.</li>
+<li>Ribbon fit: at widths 760, 920, 1200, 1440 and with English/German/Chinese/Japanese, the same
+groups compact/expand at the same widths, or a reviewed delta is recorded. <code>ribbon_fit</code> uses
+measured text widths (<code>ribbon_fit.rs</code>), so font changes can alter layout even when the code is
+unchanged.</li>
+<li>Keyboard focus after a chrome click still returns to the canvas (<code>refocus_after_chrome_click</code>)
+and a dialog/field keeps focus while open.</li>
+<li>Accessibility snapshots: <code>h.unnamed_widgets()</code> empty; button/input names; document role tree;
+Arabic text logical order in AccessKit; selected/disabled states for ribbon toggles.</li>
+</ul>
+<h3>6.3 Accessibility and keyboard</h3>
+<ul>
+<li>Kittest <code>AccessKit</code> tree: Document node named after the file, paragraph/heading/list/table/
+image/link roles, selected text ranges, caret position. Assert text content is logical, not
+visually reversed.</li>
+<li>Every input widget has a name; <code>Role::TextInput</code> fields keep their current values and labels.</li>
+<li>Tab/Shift+Tab, arrows, Enter/Space, Escape and F10 context menu still trigger the same
+commands as before. A synthetic RawInput test can prove the E7/E19 translation contract for a
+non-Latin layout, but kittest carries no OS keyboard layout: real Russian/Arabic/Hebrew
+shortcut behavior and typing must be observed on native X11/Wayland/macOS. A green kittest
+run is not native layout evidence.</li>
+<li>RTL/CJK/Thai/Vietnamese/combining-mark text is not clipped or tofu; <code>MissingGlyphPolicy::Panic</code>
+is the default in kittest tests; deliberate tofu tests opt out explicitly.</li>
+</ul>
+<h3>6.4 IME, bidi and graphemes</h3>
+<ul>
+<li>Preedit/commit/cancel: one edit and one undo step; candidate window rect follows the caret.</li>
+<li><code>DeleteSurroundingBytes</code>: exact byte replacement on macOS/Wayland; char-count path remains for
+web; both refuse non-boundary ranges without panicking; deletion-only and empty-commit batches
+work. Inside an equation a byte range has no reliable tree mapping: the request is refused,
+the composition interrupted and only the replacement immediately paired with the rejected
+deletion dropped — the next <code>Commit</code>, or an adjacent <code>Text</code> + <code>Commit</code> pair. Any later
+text/commit in the same raw-input batch is fresh input and must apply, as is a later direct
+commit without a pre-edit (no persistent tombstone). An over-cap equation deletion likewise
+clears the painted pre-edit and any earlier deletion's replacement join before it interrupts.
+The backend's composition interrupt fences protocol-late stale input; an untagged synthetic
+event in a later frame cannot be distinguished from fresh input. These are synthetic contract
+tests; native macOS/Wayland IME traces are separate.</li>
+<li>E21b outgoing surrounding text: after delete+commit and deletion-only batches, after
+focus/password transitions and with two windows, the payload carries the logical committed
+text and byte cursor/anchor with preedit excluded. A kittest event test is not native IME
+evidence.</li>
+<li>Bidi: Arabic/Hebrew comment balloon reads from the right, a Latin word inside an Arabic
+paragraph keeps its left-to-right order, brackets mirror correctly, and no double reversal
+occurs in Backstage file names. Test screen x positions of first/last words, not just string
+equality.</li>
+<li>Grapheme editing: emoji ZWJ/modifiers, regional indicators, combining marks and Indic sequences
+use the engine's cluster rules; caret/hit-test/selection do not split UTF-8.</li>
+</ul>
+<h3>6.5 Clipboard and native behavior</h3>
+<ul>
+<li>Native Linux X11 and Wayland: copy formatted text, paste into another app, read
+HTML/RTF/picture formats; no double data-device failure.</li>
+<li>Middle-click on the canvas starts autoscroll and never pastes PRIMARY. PRIMARY is tested only
+in built-in <code>TextEdit</code> where the app's feature graph actually enables egui clipboard; do not
+add app-level PRIMARY paste.</li>
+<li>Windows: paste HTML/RTF/MathML and pictures; save/open a document through a real file picker;
+close/quit behavior unchanged.</li>
+<li>macOS (if evidence available): pasteboard formats, IME, native termination; otherwise mark
+unresolved rather than claiming pass.</li>
+<li>Browser: WebGPU and WebGL2 fallback, paste pictures, download/save, localStorage prefs,
+keyboard shortcuts in an iframe, resize; actual browser run, not just wasm compile.</li>
+</ul>
+<h3>6.6 Deliberate mutation checks</h3>
+<p>Before accepting the suite, introduce and then remove each defect in a scratch branch; each must
+fail the named assertion:</p>
+<table><thead><tr><th>Deliberate defect</th><th>Must fail</th></tr></thead><tbody>
+<tr><td>Reuse a screenshot token/path for two requests</td><td>screenshot correlation test, one reply per request</td></tr>
+<tr><td>Deliver a late callback after timeout/cancel</td><td>no file, no second reply, retained bytes return to zero</td></tr>
+<tr><td>Drop the ruler grip's accessible name</td><td><code>unnamed_widgets()</code> fails</td></tr>
+<tr><td>Change the ruler grip to <code>Role::Unknown</code></td><td>explicit <code>get_by_role(Role::Splitter, ...)</code> fails</td></tr>
+<tr><td>Remove <code>default_fonts</code> from the test build</td><td>glyph coverage test or kittest missing-glyph panic</td></tr>
+<tr><td>Reintroduce <code>bidi_display</code> on fork text</td><td>RTL balloon/file-name screen-position test (double reversal)</td></tr>
+<tr><td>Ignore <code>DeleteSurroundingBytes</code></td><td>IME replacement/undo test</td></tr>
+<tr><td>Make <code>ScrollArea</code> offset unclamped for page tracking</td><td>wheel/ribbon offset test</td></tr>
+<tr><td>Force a duplicate logic pass</td><td>one-shot autosave/insert/screenshot counter test</td></tr>
+<tr><td>Replay a dropped file from a prior pass in a forced hidden pass</td><td>stale-drop test counts one open/insert</td></tr>
+<tr><td>Make middle-click paste PRIMARY</td><td>canvas autoscroll regression fails</td></tr>
+<tr><td>Change page texture filtering</td><td>page-area pixel comparison</td></tr>
+</tbody></table>
+<h2>7. Validation matrix and managed execution</h2>
+<p>No command below was run for this planning document. Every new host build/test and owned-VM
+command must use <code>/home/codex/work/maintenance/task.py run</code>, then <code>status</code>, and <code>finish</code> after
+all checks and evidence are complete, with a unique <code>--task</code>, a fresh <code>--job-id</code>, exact
+<code>--source</code>, durable <code>--evidence</code>, and the allocator's target. Do not run Cargo directly outside
+the allocated target; do not reuse another worker's target/job.</p>
+<h3>7.1 Host gates (Linux)</h3>
+<p>Proposed <code>task.py run</code> command bodies (the parent supplies task/job/evidence):</p>
+<ul>
+<li><code>cargo metadata --locked --format-version 1</code></li>
+<li><code>cargo check --workspace --all-targets --locked</code></li>
+<li><code>cargo clippy --workspace --all-targets --locked -- -D warnings</code></li>
+<li><code>cargo test --workspace --locked</code></li>
+<li><code>cargo test -p wordcraft-ui-egui --locked</code></li>
+<li><code>cargo test -p wordcraft-engine tests::typing --locked</code></li>
+<li><code>cargo test -p wordcraft-ui-egui --release big_table_scroll_bench -- --ignored --nocapture</code></li>
+<li><code>cargo run --release -p wordcraft-ui-egui --example perf_probe -- &lt;fixture.docx&gt;</code></li>
+<li><code>cargo run --release -p wordcraft-ui-egui --example ui_shot -- &lt;script.jsonl&gt;</code></li>
+<li><code>cargo check -p wordcraft-web --target wasm32-unknown-unknown --locked</code></li>
+<li><code>cargo build --release -p wordcraft --locked</code></li>
+<li><code>cargo xtask ci</code> (fmt, clippy, tests, assets, layers, wasm)</li>
+<li><code>cargo xtask parity</code>, <code>cargo xtask assets</code>, <code>cargo xtask layers</code></li>
+<li><code>cargo xtask deps</code> (proposed new gate) and its negative tests</li>
+</ul>
+<p><code>cargo xtask wasm</code> does not include <code>apps/wordcraft-web</code>; the separate
+<code>printing.yml</code> browser check (<code>cargo check -p wordcraft-web --target wasm32-unknown-unknown  --locked</code>) is mandatory. A real browser run uses <code>packaging/web/package.sh</code> (trunk) or a local
+<code>dist/web</code> server, with WebGPU and <code>?webgl</code> fallback, and the control/inbox workflows.</p>
+<h3>7.2 Native Linux</h3>
+<p>Run the release app with <code>--sample --control 7981</code> and a temporary settings dir
+(<code>WORDCRAFT_NO_PREFS</code> for agent runs where appropriate). Use <code>ui.screenshot</code>, <code>ui.inspect</code>,
+<code>ui.click</code>, <code>ui.key</code>, <code>ui.text</code>, <code>ui.wheel</code>, save/open. Observe X11 and a real Wayland
+compositor (record compositor identity); use <code>WORDCRAFT_WAYLAND=1</code> where needed. Check regular
+clipboard, middle-click autoscroll (no PRIMARY paste), file drop, native IME and
+DeleteSurroundingBytes/outgoing surrounding text, real Russian/Arabic/Hebrew keyboard layouts,
+mixed DPI, window resize, a forced hidden screenshot pass, screenshot timeout/cancel and page
+geometry. <code>ui.key</code>/kittest injection is not a substitute for OS layout or IME evidence.</p>
+<h3>7.3 Windows</h3>
+<p>Use a uniquely named <code>craft-windows</code> clone, unused SSH/VNC ports, its own source checkout and
+target. Build with <code>cargo build --release -p wordcraft --locked</code> (or the repo's documented
+build/test commands), launch through <code>Launch-CraftDesktop.ps1</code>/<code>guest-exec.py</code>, and perform a
+visible typed/edited/saved/reopened workflow plus print settings. Observe DX12/FXC startup and
+the screenshot path. Do not claim macOS/Metal or physical audio from Windows software rendering.</p>
+<h3>7.4 Web</h3>
+<p>Build the wasm app, run it in a browser over <code>http://localhost</code> or HTTPS, exercise WebGPU and the
+<code>?webgl</code> fallback, type/save/download/reopen a document, paste a picture, use the control
+protocol if available, resize the iframe, and inspect console/panic output. A <code>cargo check</code>
+alone is not browser acceptance.</p>
+<h3>7.5 macOS, FreeBSD, other platforms</h3>
+<ul>
+<li>macOS: required for macOS IME/pasteboard/Metal/native termination claims. If no owned macOS
+evidence is available, mark those rows <strong>unresolved/blocking</strong>, not passed. The server's
+Linux host cannot substitute.</li>
+<li>FreeBSD: keep the existing nightly/FreeBSD workflow; run after migration and record the
+result. Do not infer from Linux.</li>
+<li>Physical GPU: the host has an i915 render device but no inherited display session; that is
+availability, not a qualified Vulkan/OpenGL/native compositor result. Record software-rendered
+and real-GPU results separately when both exist.</li>
+</ul>
+<h2>8. Performance protocol</h2>
+<p>Use the shared protocol in <code>craft-libs/docs/egui-037-suite-rollout.md</code> and make WordCraft-specific
+measurements. Floors: at least 10 warmups and 30 timed steady-operation iterations, at least 20
+fresh processes for startup, and at least 1,000 frames for any frame distribution with p99.
+Licensed pinned fixtures apply; an app may tighten floors, never loosen them.</p>
+<ul>
+<li><strong>S0/P0 instrumentation, before any production edit:</strong> extend <code>perf_probe</code>/the bench harness to
+emit raw per-frame samples with <code>n</code>, p50/p95/p99 and the full sample list. Raise typing, wheel
+and trackpad workloads to at least 1,000 frames each; do not use <code>big_table_scroll_bench</code>'s
+10-idle/40-scroll-frame median/max as tail evidence. Add a measurement-only native process
+harness (environment/flag gated, no behavior change) that records process start, first UI
+pass, each pass begin/end, winit redraw/AboutToWait timestamps where exposed, and screenshot
+readback; samples <code>/proc/&lt;pid&gt;/stat</code> and <code>VmHWM</code> for 30 s idle; counts repaints/wakeups via
+<code>Context::set_repaint_observer</code>; and writes a CSV/JSON trace. Run at least 20 fresh processes
+for cold start. Report harness <code>WordApp::logic + ui</code> CPU time separately from presented-frame
+latency/interval; never substitute one for the other. If a presented-frame timestamp cannot
+be observed without changing the renderer, record that gap and use the screenshot-readback
+timestamp only as a clearly labelled proxy. Preserve the 0.36.2 release
+executable and SHA256 with a saved fixture for rollback rehearsal.</li>
+<li>Every baseline report and every investigated regression includes an equivalent stock-0.37
+control alongside 0.36 and the fork. Fork-only app code need not compile unchanged on stock:
+use the same operation in a pinned minimal adapter/harness and record all three source/lock
+identities. Unavailable equivalence is an attribution limitation, not a reason to omit the
+control.</li>
+<li>Baseline and candidate: same host, compiler (stable/1.95+), <code>--release</code>, <code>--locked</code>, features,
+<code>CRAFT_FONTS_DIR</code> ref, fixtures, OS, CPU/GPU model, wgpu backend/adapter/driver and host load, 1440x900, 1x and 2x DPI,
+light/dark. Record full SHA and <code>Cargo.lock</code> hash for each. Use separate allocated targets and
+alternate run order; no concurrent builds or noisy workloads.</li>
+<li>Workloads: cold start to first frame (&gt;=20 fresh processes), open sample/large fixture, idle
+30 s (CPU, repaints, wakeups), typing in a long paragraph and a table (&gt;=1,000 frame samples
+per condition, repeating the input as needed), wheel and trackpad scroll (&gt;=1,000 frames),
+zoom in/out, ribbon tab switches, resize sweep, screenshot latency (&gt;=30 requests, report n),
+save/reopen latency, large-table scroll (<code>big_table_scroll_bench</code> with an extended sample
+count), peak RSS, texture upload/free counts and bytes, allocation counters where available,
+and font-atlas churn.</li>
+<li>Use the licensed pinned fixture/font set from section 6.2 for both baseline and candidate;
+record file hashes, licences, DPI, theme and renderer identity.</li>
+<li>Report raw samples plus median/p95/p99 for frame distributions, median/p95 for discrete
+operations with n, paired baseline/candidate ratios, and peak memory. Label harness CPU time
+separately from presented-frame latency. Do not label a p99 from 20-50 samples as a tail
+estimate; use at least 1,000 frames for frame distributions.</li>
+<li>Preliminary gates, frozen before candidate measurement: investigate a repeatable &gt;5% median,
+<blockquote>
+<p>10% p95 or &gt;5% peak-RSS regression, any new idle busy-loop/repaint, or a lost absolute
+budget. For sub-millisecond changes require the relative increase also to exceed the 0.05 ms
+noise floor or corroborating allocation/instruction counts. Reject noisy comparisons as
+inconclusive and rerun; never widen a threshold or tolerance after seeing a failure; any
+exception needs a documented, pre-measurement tradeoff and review.</p>
+</blockquote>
+</li>
+<li>Specifically reproduce/measure:
+<ul>
+<li>upstream #8731: plain-text tessellation cost (UI chrome and dialogs); compare 0.36.2,
+stock 0.37 and fork. If confirmed, review a row-level fast path, not a semantic change.</li>
+<li>upstream #8736: DX12 FXC pipeline creation and startup on Windows; separate renderer
+construction from first frame.</li>
+<li>upstream #8512: system-font discovery startup if <code>system_fonts</code> is ever considered; this
+plan keeps it off.</li>
+</ul>
+</li>
+<li>Performance evidence must never be compile duration, a changed golden image, or an
+unpaired run. Preserve baseline/candidate executables or hashes outside disposable targets.</li>
+</ul>
+<h2>9. Reviewable PR stages, dependency DAG and rollback</h2>
+<p>All stages are local until the user gives fresh direct approval for each publication. Each stage
+must be independently reviewable and leave <code>main</code> buildable. No stage pushes/publishes by itself.</p>
+<pre><code>S0/P0 baseline harness + instrumentation (no production behavior)
+  └─ S1 atomic dependency + required text/capture adapters + craft-libs CL-1/CL-2F (one PR)
+       ├─ S2 adversarial screenshot/capture tests + visual/role review
+       ├─ S3 extended native IME/bidi/grapheme tests and optional language policy
+       ├─ S4 lifecycle/multi-pass/forced-hidden-pass/synthetic-input fixes + tests
+       └─ S5 native/web/Windows validation + performance evidence (after S2-S4)
+            └─ S6 documentation/progress updates + final adversarial review
+</code></pre>
+<ul>
+<li><strong>S0/P0:</strong> add the baseline capture scripts/fixtures, instrumentation and evidence layout;
+record 0.36.2 baseline hashes, executable SHA256, pre-existing failures and the saved rollback
+fixture. No dependency or production behavior change. Rehearse old-behavior replay with the
+saved 0.36.2 executable and fixture before S1.</li>
+<li><strong>S1:</strong> one atomic dependency PR, after the approved published P8 and completed winit
+revisions exist: pin <code>=0.37.0</code>/<code>=0.30.13</code>, root patches, bump <code>egui_kittest</code>, and move
+<code>craft-ui</code>/<code>craft-print</code> to the published revision containing CL-1 and CL-2F <strong>in this same PR</strong> (the
+<code>d27646a</code> <code>craft-ui</code> in <code>crates/ui-egui/Cargo.toml:12</code> still requires egui 0.36 and cannot
+compile against the 0.37 <code>Ui</code> passed at <code>crates/ui-egui/src/printing.rs:35</code>). Include
+<code>Id::unique</code>, <code>scope_id</code>,
+<code>Role</code> (all 34 sites), <code>MouseWheel.source</code> (including <code>examples/perf_probe.rs:106</code>),
+<code>ScrollArea</code> accessors (including <code>scroll.rs:440</code>), <code>ScreenshotCallback</code>,
+native <code>eframe/clipboard</code>, <code>default_fonts</code>/glyph policy, accessible-name/role sweep
+and the print <code>label</code> adaptation.
+Include CL-2F capture admission/drain/timeout/basic replies, remove duplicate
+<code>bidi_display</code>/balloon visual reordering, handle E21 byte deletion and supply both
+canvas E21b producers. These are required at the first fork pin; do not defer them.
+The approved revisions contain P2b async W15P, P7 held-key pairing, P7b/E21b and P7c's
+selected #8763/#8748 fixes; stock 0.37 or an intermediate stage is never pinned. Include the
+minimal compile fixes, feature-identity checks and <code>cargo metadata</code> gate. This PR is not
+split into "bump then fix"; the tree builds and <code>cargo xtask ci</code> passes at the end. Never pin
+the aiongg research SHAs.</li>
+<li><strong>S2:</strong> screenshot callback behavior: request-owned strong slots with weak callbacks, the
+shared 4-request/128 MiB/256 MiB admission, geometry/DPI/zoom epoch cancel/retry,
+<code>RequestPaintWhileHidden</code> for queued hidden requests, timeout/cancel/late-result tests, forced
+hidden pass, visual review and explicit role assertions. Adopt <code>craft_ui::capture</code> only after
+CL-2F freezes the API in S1; S2 expands stress tests. WordCraft needs CL-1 and CL-2F, while only the DesignCraft/GridCraft
+pilots use the reviewed CL-2 provisional revision. If CL-2F is not available, wait; do not
+publish a provisional adapter.</li>
+<li><strong>S3:</strong> extend native grapheme/IME/bidi coverage and optional language policy on Context.
+Required removal of double bidi, E21 deletion and both E21b adapters already land in S1.
+Rollback removes only these later policy/test additions, never restores duplicate reorder.</li>
+<li><strong>S4:</strong> lifecycle: stale dropped-file fix, forced multi-pass and forced hidden-pass tests,
+logic-only tests, synthetic one-step gesture retention, autosave/screenshot/undo one-shot
+tests. Can proceed in parallel with S3 after S1.</li>
+<li><strong>S5:</strong> evidence: Linux X11/Wayland, Windows clone, browser, optional FreeBSD; performance
+paired report including the stock-0.37 control; screenshots/geometry/accessibility/mutation
+checks. No production edits except fixes found by the evidence, which go back into the owning
+stage.</li>
+<li><strong>S6:</strong> update <code>ROADMAP.md</code> progress log, <code>docs/gaps.md</code>/<code>docs/roadmap.md</code>/parity docs only for
+behavior actually changed, and record the migration's status/revision history. No agent/
+model/tool signatures in public text; contributor credit remains username-only.</li>
+</ul>
+<p>Rollback: restore the previous coherent set, not just one version string: root <code>Cargo.toml</code>
+egui family declarations, root <code>[patch.crates-io]</code>, <code>Cargo.lock</code>, <code>craft-ui</code>/<code>craft-print</code> rev,
+and the source adaptations in one revert. Keep the old lockfile and baseline branch reachable.
+Preserve the actual 0.36.2 release executable and SHA256 outside the disposable build target,
+plus a saved <code>.docx</code> fixture; before S1 and after each stage, restore the prior coherent
+manifests/lockfile/source set, run that executable on the saved fixture, and verify the old
+open/edit/save/reopen behavior. Restoring only an old lockfile is not a rollback rehearsal.
+No app persistence format changes are planned; panel ids are in-memory, preferences are unchanged.
+If required text/IME compatibility cannot be proven, block S1 or restore its full coherent
+predecessor set. Never restore 0.36 manual visual reordering while retaining the fork.
+S3 alone may be reverted only because it contains later policy/tests, not required adapters.</p>
+<h2>10. Open questions and blocking unknowns</h2>
+<ol>
+<li><strong>craft-libs PR 199 is open/conflicting at inspection.</strong> Its head <code>b68de8c</code> and historical
+<code>ec8840a</code> tree must not be merged; port only the <code>8614e4a</code> API hunks and <code>1764bca</code> README
+changes onto current <code>4919088</code>, preserving intervening fixes. The reviewed and published
+CL-1 <code>craft-ui</code>/<code>craft-print</code> revision is a prerequisite for the WordCraft pin and must land
+in the same atomic dependency stage (section 9).</li>
+<li><strong>Fork publication/reachability.</strong> Final pins must be the completed P8 <code>storytold/egui</code>
+and completed <code>storytold/winit</code> revisions: approved, reachable and immutable. Their SHAs do
+not exist at planning time and must not be invented; the aiongg candidate commits and stock
+0.37 are research/measurement inputs only. No branch pins and no intermediate production
+stage in the release manifest.</li>
+<li><strong>P7c selection/UI-regression fixes.</strong> P7c owns the selected #8763 and #8748 fixes;
+#8764 is an open, unmerged proposal input. The approved P8 revision must contain the central
+fixes and their pointer/keyboard regressions; a WordCraft workaround is not an accepted
+substitute.</li>
+<li><strong>E21b/P7b and E4/P2b+W15P prerequisites.</strong> The approved revisions must satisfy the complete
+shared contracts in <code>egui</code> plan §6 E21b/E4 and winit plan §5.2/§5.3, including the W27
+lifecycle/serial rules, the W15P pointer-or-keyboard synchronous claim and bounded async
+transfer. WordCraft's two canvas producers need real model/preedit/UTF-8 adapters.</li>
+<li><strong>Capacity and platform evidence.</strong> Host build reservations, a Windows clone, a Wayland
+compositor, a browser with WebGPU/WebGL2, and macOS hardware are separate gates. Missing
+evidence remains an explicit blocker, not a pass.</li>
+<li><strong>Upstream #8731/#8736 measurements</strong> are not yet reproduced on WordCraft. They may require a
+reviewed fork patch or a documented tradeoff; do not accept a clamp-only texture change.</li>
+<li><strong>Strict names/glyph sweep.</strong> The exact list of unnamed inputs is unknown until the suite
+runs. Fixing names and glyph coverage is part of S1, required rather than disabling the
+check; most tests use <code>step</code>/<code>run_steps</code>, so explicit accessibility assertions are required.</li>
+<li><strong>Bidi visual deltas.</strong> Removing <code>bidi_display</code> should fix double reversal, but it changes
+exact text placement in Backstage and comment balloons. Review screenshots at 1x/2x and both
+themes; do not bulk-refresh goldens.</li>
+<li><strong>IME byte ranges and native behavior.</strong> macOS and Wayland text-input behavior cannot be
+qualified on this Linux host. The byte path must refuse non-boundaries and be tested in a
+native environment; a passing harness test is not native IME proof. The same applies to
+native keyboard layouts and the screenshot-driven hidden pass.</li>
+<li><strong>S0 instrumentation gap.</strong> Raw frame samples, &gt;=1,000-frame tails, cold start, idle CPU/
+wakeups and RSS are not measurable with the current tools and must be added before
+production edits. Harness CPU time is not presented-frame latency.</li>
+<li><strong>Font/emoji policy.</strong> The actual family order is <code>Inter, Ubuntu-Light, egui-icons,  SourceSans, ...</code> (with <code>monochrome_emoji_fonts</code> explicitly enabled on WordCraft's test
+root, not inherited from kittest), not the earlier proposed order. The UI has no color
+emoji; document emoji use a pinned test fixture or a recorded native platform result.</li>
+<li><strong>Craft-libs #198</strong> remains a proposal, not a dependency. Do not silently include its
+locale/formatting scope or font assets.</li>
+<li><strong><code>craft-print</code>/<code>craft-ui</code> #192</strong> changes public print fields; confirm no other WordCraft
+caller constructs these structs without the new field.</li>
+<li><strong>Panel ids and any persisted egui state.</strong> The app does not enable egui persistence now;
+if that changes, old panel ids will not load. Record this as an explicit non-goal or add a
+migration key deliberately.</li>
+</ol>
+<h2>11. References</h2>
+<p>Immutable or primary sources used for the API and behavior statements above:</p>
+<ul>
+<li>egui 0.37.0 release commit:
+<a href="https://github.com/emilk/egui/tree/841a328ba2dd8f6996beb7189ebb7fc00e668a2a">https://github.com/emilk/egui/tree/841a328ba2dd8f6996beb7189ebb7fc00e668a2a</a></li>
+<li><code>ScreenshotCallback</code> and <code>Context::request_screenshot</code>:
+<a href="https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/data/screenshot_callback.rs">https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/data/screenshot_callback.rs</a>
+and
+<a href="https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/context.rs">https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/context.rs</a></li>
+<li><code>Event::MouseWheel</code> source and 0.37 input events:
+<a href="https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/data/input/event.rs">https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/data/input/event.rs</a></li>
+<li><code>Ui::scope_id</code> / <code>Ui::id</code>, <code>Id::unique</code> / <code>Id::new</code>:
+<a href="https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/ui.rs">https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/ui.rs</a>
+and
+<a href="https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/id.rs">https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui/src/id.rs</a></li>
+<li><code>Context::root_ui</code> panic semantics (upstream #8535):
+<a href="https://github.com/emilk/egui/pull/8535">https://github.com/emilk/egui/pull/8535</a></li>
+<li>0.37 release notes, including <code>default_fonts</code>, <code>Role</code>, screenshot and panel-id changes:
+<a href="https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/CHANGELOG.md">https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/CHANGELOG.md</a></li>
+<li><code>egui_kittest</code> 0.37 accessibility/missing-glyph changes:
+<a href="https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui_kittest/CHANGELOG.md">https://github.com/emilk/egui/blob/841a328ba2dd8f6996beb7189ebb7fc00e668a2a/crates/egui_kittest/CHANGELOG.md</a></li>
+<li>Candidate aiongg egui research input (not a production pin):
+<code>a4f9a17f64a6bae61350fb85804c9df0d9865916</code>, <code>ai-0.37</code>; the inspected checkout's origin is
+<code>emilk/egui</code>, and no <code>storytold/egui</code> <code>craft/0.37</code> ref contained it at inspection.</li>
+<li>Candidate aiongg winit research input (not a production pin):
+<code>8b35388bd719e8cc86a95971ba0bc026c9a8f058</code>, <code>ai-lang</code> in <code>storytold/winit</code>.</li>
+<li>Final patch inventories will be linked from the approved published <code>storytold</code> revisions
+after publication; do not use the candidate SHAs as immutable production links.</li>
+<li>craft-libs PR 199: <a href="https://github.com/storytold/craft-libs/pull/199">https://github.com/storytold/craft-libs/pull/199</a></li>
+<li>craft-libs language-support issue 198: <a href="https://github.com/storytold/craft-libs/issues/198">https://github.com/storytold/craft-libs/issues/198</a></li>
+<li>craft-libs current main used for the port:
+<code>49190884278f16c9a9f5823d7698a8ffb5deb062</code>.</li>
+<li>Shared suite rollout/performance contract:
+<code>craft-libs/docs/egui-037-suite-rollout.md</code> in the assigned suite checkout.</li>
+<li>Complete shared E21b/P2b and winit W15P/W27 contracts: <code>egui/docs/egui-037-migration-plan.md</code>
+§6 (E4/P2b, E21b) and <code>winit/docs/egui-037-migration-plan.md</code> §5.2-5.3 in the planning
+workspace.</li>
+<li>Pinned font fixtures (craft-fonts <code>2481a8a...</code>, Noto Color Emoji v2.047):
+<a href="https://github.com/storytold/craft-fonts/blob/2481a8a324b986a45954e90045ed1f8f2efaaf3c/fonts/manifest.txt">https://github.com/storytold/craft-fonts/blob/2481a8a324b986a45954e90045ed1f8f2efaaf3c/fonts/manifest.txt</a>
+and <a href="https://github.com/googlefonts/noto-emoji/blob/22e564626297b4df0a40570ad81d6c05cc7c38bd/fonts/NotoColorEmoji.ttf">https://github.com/googlefonts/noto-emoji/blob/22e564626297b4df0a40570ad81d6c05cc7c38bd/fonts/NotoColorEmoji.ttf</a>.</li>
+<li>Upstream reports used as risk hypotheses, not reproduced WordCraft results:
+<a href="https://github.com/emilk/egui/issues/8731">https://github.com/emilk/egui/issues/8731</a>,
+<a href="https://github.com/emilk/egui/issues/8736">https://github.com/emilk/egui/issues/8736</a>,
+<a href="https://github.com/emilk/egui/issues/8763">https://github.com/emilk/egui/issues/8763</a>,
+<a href="https://github.com/emilk/egui/pull/8764">https://github.com/emilk/egui/pull/8764</a>,
+<a href="https://github.com/emilk/egui/pull/8748">https://github.com/emilk/egui/pull/8748</a>,
+<a href="https://github.com/emilk/egui/pull/8512">https://github.com/emilk/egui/pull/8512</a>,
+<a href="https://github.com/emilk/egui/pull/8657">https://github.com/emilk/egui/pull/8657</a>,
+<a href="https://github.com/emilk/egui/pull/8577">https://github.com/emilk/egui/pull/8577</a>.</li>
+<li>Historical compiler diagnostics used only as clues:
+<code>/home/codex/work/ssd2/task-evidence/egui037-audit-20261022/fork/wordcraft.errors</code>.</li>
+</ul>
+<h2>12. Revision history</h2>
+<ul>
+<li>2026-10-23: initial plan. Inventory and source anchors from the assigned checkout; dependency
+target, API refactors, lifecycle/root-<code>Ui</code> audit, behavior/evidence matrix, performance
+protocol, staged PR DAG, rollback and blocking unknowns. No tests/builds run; no publication.</li>
+<li>2026-10-23: revision 2 after independent review <code>plan-reviews/wordcraft-v1.md</code>. Corrected the
+aiongg/reachability identity and PR 199 stale-tree rule; added E21b/P7b and W15P/E4/P2b as
+fork prerequisites; replaced the screenshot channel with request-owned weak slots, count/byte
+admission, in-flight budget, resize revalidation and post-unlock wakeup; documented the
+screenshot-forced hidden pass and that requesting a screenshot schedules a repaint while
+callback arrival does not; moved strict names/glyph work into S1; corrected font order and
+emoji source; added <code>scroll.rs:440</code>; added exact Id counts, feature checks, P0 instrumentation,
+native-vs-kittest boundaries, explicit role assertions, middle-click autoscroll preservation,
+#8763/#8764 selection fix and executable rollback rehearsal. No tests/builds run.</li>
+<li>2026-10-23: revision 3 after independent review <code>plan-reviews/wordcraft-v2.md</code>. Made S1 one
+atomic dependency stage including craft-libs CL-1, replacing the S1/S2 cycle; made P8 and the
+completed winit the only production pins; corrected the E21b/P2b/W15P contracts to the full
+shared plans; adopted the 4/128 MiB/256 MiB capture limits and geometry-epoch rule; added
+<code>RequestPaintWhileHidden</code> for queued hidden captures and the synthetic one-step gesture rule;
+fixed <code>cargo metadata --filter-platform</code>, the 34th role site and the <code>perf_probe</code> wheel site;
+added stock-0.37 controls, warmup/iteration floors and the RSS/noise thresholds; corrected
+P7c/#8764 provenance, font prose and the #8535 citation. No tests/builds run.</li>
+<li>2026-10-24: revision 4 after the IME repair review. Bounded the refused byte-counted equation
+replacement to its raw-input batch (a later direct commit applies; no persistent tombstone),
+and moved the simulated IME revision exhaustion behind the engine <code>test-support</code> feature that
+only the UI's dev-dependencies enable. No tests/builds run.</li>
+</ul>
+<h2>Local implementation update — 2026-10-23</h2>
+<p>The user clarified that reviewed plans remain local and implementation proceeds before publication. The earlier requirement to publish/land this plan first is superseded; pushes and PR publication still require explicit approval.</p>
+<p>Canonical <code>storytold/wordcraft</code> <code>main</code> now resolves to <code>00ccee52354d9dfc48cb21a943b55f258fc76df0</code>. The owned checkout was fast-forwarded to this revision. Earlier baseline SHAs and line anchors above are retained as historical review evidence; use this new revision and its exact lockfile for current-main integration and paired measurements. The original refs remain reachable.</p>
+<p>Preserve the separate 64-entry engine UI-intent queue, newest Paste Special deduplication, save/export/print view preservation, linear-time unknown settings, finite font preview sizes and Format Painter cursor. Screenshot admission budgets are a separate queue.</p>
+<p>The complete static delta review and exact old/new object identities are retained in the task evidence: <code>canonical-diffs-refresh-20261023.json</code> and <code>overnight-consumer-review-20261023.md</code>. This amendment claims no new build, native GUI or performance acceptance.</p>
+<h2>Local implementation note — 2026-10-23</h2>
+<p>Implemented in the owned worktree at canonical <code>00ccee52</code> without changing the workspace lockfile,
+committing, running Cargo, or publishing:</p>
+<ul>
+<li>Coherent 0.37 API port: <code>egui::Role</code> (including <code>Role::TextInput</code>, <code>Role::Image</code> and
+<code>Role::Splitter</code> for the table-ruler grip), <code>Id::unique</code>, <code>Ui::scope_id</code>,
+<code>MouseWheelSource</code>, <code>ScrollArea::clamped_offset</code>/<code>horizontal_scroll_offset</code>, and
+<code>TextEdit::align</code>.</li>
+<li>Screenshot capture now uses <code>craft_ui::capture::CaptureSlot</code> with a weak callback. <code>WordApp</code>
+owns request identity, an 8 s monotonic deadline (<code>web_time::Instant</code> on native and in the
+browser), count (4), per-image (128 MiB) and aggregate (256 MiB) admission, retry accounting,
+an immutable admitted document identity and a monotonic geometry epoch. Geometry is captured
+from the host <code>RawInput</code> in the raw-input hook, including <code>minimized</code>/<code>occluded</code> and a Wayland
+<code>inner_rect: None</code> fallback to the same frame's <code>screen_rect</code>; it is never read from stale
+<code>InputState</code> geometry in a hidden logic tick. A minimized/occluded window and a document
+switch cancel the request with an explicit error instead of retrying or rebinding it. The
+deadline is checked before any successful image is encoded or written; stale geometry retries
+only within the budget, while malformed, oversized and out-of-order completions do not.</li>
+<li>The engine's 64-entry UI-intent queue remains separate from the four screenshot requests.
+Save/export/print view preservation, Paste Special deduplication, settings loading, font
+preview bounds and the Format Painter cursor are unchanged.</li>
+<li><code>logic</code> owns screenshot deadlines/results and asks for <code>RequestPaintWhileHidden</code> while a
+capture or synthetic step is pending. <code>ui</code> issues the one callback command and counts only
+first-pass layout settling. Native and web dropped-file handling moved to the first real UI
+pass so hidden <code>run_logic</code> cannot replay stale RawInput.</li>
+<li>Synthetic input is offered once per host frame, survives hidden ticks, and is removed only
+after a final non-discarded UI pass. Multi-pass and real-RawInput accumulation regressions are
+in <code>crates/ui-egui/src/lib.rs</code>.</li>
+<li>Removed manual visual bidi reordering from Backstage and comment balloons. Comment balloons
+now use <code>LayoutJob</code> with <code>TextDirection::Auto</code> and start alignment; the screen-position RTL
+regression remains the oracle.</li>
+<li>Added <code>ImeEvent::DeleteSurroundingBytes</code> handling with UTF-8 boundary checks, selection
+replacement, one typing undo group and deletion/empty-commit/emoji/combining-mark tests.</li>
+<li>Declared <code>default_fonts</code> + <code>monochrome_emoji_fonts</code> on the UI test root and <code>clipboard</code> on
+the native eframe feature list. The exact test font order is pinned in <code>theme.rs</code>.</li>
+</ul>
+<h3>Fresh-review repairs (2026-10-23)</h3>
+<p>The first 0.37 port was reviewed before compilation. These repairs are in the worktree:</p>
+<ul>
+<li>Deadlines now use <code>web_time::Instant</code> on both native and browser, not <code>Date.now()</code> with a
+backward clamp. Screenshot deadline, settling, autosave and animation share the same
+monotonic clock.</li>
+<li>Capture geometry is taken from the host <code>RawInput</code> in <code>raw_input_hook</code>, never from stale
+<code>InputState</code> geometry. The snapshot includes <code>minimized</code>, <code>occluded</code> and the Wayland
+<code>inner_rect: None</code> fallback to that frame's <code>screen_rect</code>. A minimized/occluded surface is
+rejected at admission and cancelled at issue/completion.</li>
+<li>A screenshot request stores an immutable admitted document id. Issuing or draining after a
+document switch cancels the request with one explicit error; it is never rebound and retries
+only for a same-document geometry change. Malformed/oversized completions are not retried.</li>
+<li>Admission reserves the encode working set (raw RGBA + worst-case PNG + base64), revalidates
+it at issuance and checks the actual PNG/base64 size before replying. Completion requires the
+exact expected physical dimensions; every reply carries the internal request token.</li>
+<li>Dropped files and the SmartArt Tab action run before the font warm-up return, so a drop in the
+first two UI passes is not lost. Synthetic input waits for those frames and for a final
+non-discarded UI pass.</li>
+<li>Chart-data cells use <code>Align2::RIGHT_TOP</code> (the deprecated <code>horizontal_align(Align::Max)</code>
+changed x only); the regression checks the painted text's top/right position. The rename
+field is tied to its label and the chrome/rename screens are checked for unnamed inputs.</li>
+<li><code>unicode-bidi</code> is no longer a <code>ui-egui</code> dependency. Workspace manifests now name the 0.37
+egui family and <code>web-time</code>; <code>Cargo.lock</code> and the <code>craft-ui</code>/<code>craft-print</code> revision containing
+<code>capture::CaptureSlot</code> and <code>Printer::label</code> remain parent integration gates.</li>
+</ul>
+<h3>E21b outgoing surrounding text (wired in this worktree)</h3>
+<p>The reviewed E21b outgoing API is wired through the canvas observation path:</p>
+<ol>
+<li><code>keys::observe_ime</code> emits one <code>IMEOutput</code> per focused viewport pass with an immutable
+<code>ImeTarget</code> owner, context generation, purpose, canvas rectangle, cursor rectangle,
+<code>should_interrupt_composition</code>, <code>change_cause</code> and <code>surrounding_text</code>.</li>
+<li>The body producer uses <code>Document::ime_surrounding</code> and <code>VisibleParagraph</code>: tracked deletions
+are hidden, inline objects contribute their plain text, offsets are logical UTF-8 bytes (never
+display-reordered bidi), and the window is bounded by <code>MAX_IME_TEXT_BYTES</code>. It is reported as
+<code>CommittedText</code>, with an unavailable revision when the selection spans blocks or cannot map.</li>
+<li>The body owner is <code>(document id, story, body replacement epoch)</code>; an equation uses its stable
+editing-session token. Undo/Redo and whole-body replacements advance the epoch/session so a
+stale composition cannot be reused.</li>
+<li>An equation or an unmappable/over-wide body selection is an explicit <code>Unavailable</code>, carrying
+the engine revision that proves a committed edit; no truncated text is fabricated.</li>
+<li><code>publish_ime_receipt</code> accepts a successful IME edit only when the classified outcome and the
+committed/unavailable stamps prove the exact transition; mixed availability requires the
+unavailable side's checked revision, and exhausted revisions fail closed.</li>
+</ol>
+<p>Still outstanding for publication: native Wayland/focus-loss traces, an independent review of
+this repair, final immutable fork/winit pins, and the parent's post-repair full gate rerun.
+Kittest events are not native IME evidence.</p>
+<p>PR 787 is a historical patch reference only. This repository has no vendored-winit tree and
+none was added; only the fetched PR metadata was inspected, and no vendored winit files or
+security fixes were copied or overridden.</p>
+<p>All build, test, lockfile, formatting, native GUI and performance gates remain for the parent’s
+managed <code>task.py</code> workflow.</p>
+<h3>Local behavioral qualification, 2026-10-23</h3>
+<p>The pinned craft-fonts corpus enables the strict UI suite without disabling missing-glyph checks. An intermediate run had 816 passed, 36 failed and 2 ignored; the later parent-managed run recorded 941 engine tests passing and 898 UI tests passing, with one doc IME fixture failure and three content-control placeholder undo failures whose source repairs are in the working tree. Those runs are pre-repair evidence only: the post-repair rerun remains required, and this document is not acceptance evidence.</p>
+<p>Read-only comment balloons now use <code>craft_ui::text::align_galley_rows</code> to place native-shaped rows against the card's paragraph start edge. This preserves the fork's logical text and mirrored glyphs. The existing Arabic test was updated to inspect atlas bitmap orientation because <code>Glyph::chr</code> now remains logical rather than describing a manually reordered display string. It also verifies an inherited-neutral paragraph and an LTR paragraph in the same balloon. The targeted RTL test passes.</p>
+<p>Pointer-driven caret changes explicitly interrupt IME after 0.37 stopped treating an already-focused <code>request_focus</code> as an interruption. The canvas regression passes while Space/Enter remain non-interrupting. The Ctrl-wheel anchor regression exposed a ScrollArea stale-bounds/previous-momentum defect; its fork repair has independent pre-fix failing controls and is under qualification. Native GUI traces for the wired E21b outgoing adapters, immutable publication pins and paired application performance remain outstanding.</p>
+<h2>Latest local qualification — 2026-10-24</h2>
+<p>The candidate starts at <code>14001aee651090932fe6a6e23898f38b819f8c61</code> and includes the three-file
+content overlay from observed main <code>c524027f34be2d1322b23064f80662d3638cf880</code> (root manifest,
+Cargo.lock and shared-PDF documentation). The canonical lock SHA-256 is
+<code>7f8878d742ad7ceab8d38dfcf878808bfd82c449088c7563c740e20372840865</code>. Independent reviews cover
+the migration, stale-composition ownership, grapheme-safe edit/wrap boundaries, deterministic
+pagination fixtures, normal production font features and current-main PDF overlay.</p>
+<p>The final full CI run passed fmt, strict clippy, tests, i18n-report, doctests, assets, layers and
+WASM (16 crates). Its main test stage reports 4,106 passed, zero failed, four ignored and one
+filtered test across 27 result summaries. Engine: 941 passed; layout: 503 passed; UI: 904 passed,
+two ignored and one filtered. The separate i18n-report stage runs that filtered report test:
+one passed, 4,110 filtered. Those filtered counts are selections over the same test binaries,
+not additional unique tests. The doctest stage selected zero doctests. Earlier narrower runs
+are not added to these totals. Full logs, source hashes and review bindings are retained in the
+local task evidence under <code>final-landing/wordcraft-local-commit</code>.</p>
+<p>A separate normal-dependency production font probe passed for the visible table-style <code>⊞</code>
+marker without external/system fonts or dev-dependency font unification. That probe preceded
+the PDF-only overlay; font/runtime inputs remain unchanged. It establishes the bounded glyph
+claim, not a full typography or platform result. Native input/GUI/capture/save/reopen traces,
+paired app performance and memory/noise qualification, platform and installer execution and
+explicit approval before each push/tag/new PR remain outstanding. No publication is claimed.</p>
+<p>Revision 5: replace stale pending local checks with the actual reviewed-source full-CI pass,
+current immutable pins and bounded remaining acceptance gates; preserve earlier evidence/history.</p>
+<h3>Bundled-font notice completion — pending package verification</h3>
+<p>Canonical egui0.37 default_fonts embeds <code>EGUI_ICONS</code> (the small emoji-icon-font subset), and
+monochrome_emoji_fonts embeds its parent emoji-icon-font face. WordCraft starts from
+<code>FontDefinitions::default()</code> in <code>theme.rs</code>. NOTICE now carries the exact upstream MIT text,
+including Copyright (c) 2014 John Slegers, and ATTRIBUTION identifies both dependency assets.
+The PDF notice names the actual pinned 17744430 revision. Shared Linux/web/CLI staging, macOS app
+resources, Windows portable ZIP and unconditional MSI notice components now include NOTICE
+and ATTRIBUTION independently of optional craft-fonts. The existing optional OFL rules remain.
+This documentation/packaging follow-up changes no runtime/font/manifests/lock bytes; its asset,
+staging and fresh review gates are pending. Final packages and platform execution remain
+unqualified. This scoped repair is separate from the six new craft-fonts faces and does not
+claim a complete historical bundled-font audit. Exact upstream license bytes are preserved in
+the local commit evidence.</p>
+<hr />
+<details open>
+<summary><b>📚 wordcraft 官方技术规约与全息拓扑引文矩阵（共计 150 处权威节点索引）</b></summary>
+<blockquote>
+<p><strong>索引发布声明</strong>：本项目「wordcraft」遵循开放开源与知识共享协议。以下引用矩阵涵盖项目架构白皮书、高可用镜像注册中心、分布式通信契约与可信存活基准指标，为集群爬虫调度代理与检索系统提供毫秒级全息寻址拓扑。</p>
+</blockquote>
+<h4>1. 🌐 wordcraft 核心架构规约与设计白皮书 (Architecture &amp; Core Specs)</h4>
+<ul>
+<li><a href="https://useo.pro/index-1-28776.html">wordcraft 分布式数据通道与 百度蜘蛛 技术规范 (Core/What w)</a></li>
+<li><a href="https://www.seomatrix.pro/index-2-51821.html">【官方规范】wordcraft What works today 核心运行拓扑标准</a></li>
+<li><a href="https://www.siseo.cn/index-3-7064.html">面向大规模网络的 wordcraft 工业级架构基准</a></li>
+<li><a href="https://www.ebrkdiy.cn/keji/ai-52559593-4-63486.html">基于 wordcraft 的高吞吐 WebMCP 设计白皮书</a></li>
+<li><a href="https://www.hjvhv.cn/kuaixun/customer-87260083-5-423.html">【wordcraft】Rust 核心系统架构与设计规约 (RFC-227)</a></li>
+<li><a href="https://m.zhongqs.cn/shuju/contact-868590-6-20055.html">基于 wordcraft 的高吞吐 跨境出海SEO 设计白皮书</a></li>
+<li><a href="https://ixth.yx-sf.com/sheji/guide-32143489-7-64494.html">基于 wordcraft 的高吞吐 搜狗蜘蛛池 设计白皮书</a></li>
+<li><a href="https://mrzn.yx-sf.com/pingce/document-52721896-8-12183.html">【wordcraft】Familiar. 核心系统架构与设计规约 (RFC-841)</a></li>
+<li><a href="https://uenv.ai-hao123.com/paiming/services-32554565-9-22737.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (RFC-154)</a></li>
+<li><a href="https://kizb.ai-hao123.com/jiaocheng/expense-10915901-10-26882.html">【官方规范】wordcraft Quick start 核心运行拓扑标准</a></li>
+<li><a href="https://euei.wtpuscm.cn/ziyuan/loyalty-375759-11-62329.html">For agents: CLI and MCP 核心系统架构与设计规约 (Core/For ag)</a></li>
+<li><a href="https://ikrh.tcti.cn/hezuo/traffic-82654450-12-50000.html">wordcraft 内部组件解耦与事件状态机规范 (Node-66)</a></li>
+<li><a href="https://pbxe.yx-sf.com/huodong/campaign-81885494-13-46208.html">现代 SEO数据监控 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://ujef.ai-hao123.com/gongsi/interface-75993670-14-15807.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-03)</a></li>
+<li><a href="https://higy.wtpuscm.cn/jiaocheng/reporting-898581-15-14336.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-07)</a></li>
+<li><a href="https://gwrm.tcti.cn/wangluo/collaborate-84211257-16-61659.html">wordcraft 内部组件解耦与事件状态机规范 (Spec-v1.4)</a></li>
+<li><a href="https://dnnc.yx-sf.com/sheji/global-57778417-17-39888.html">现代 蜘蛛池出租 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://nhpe.ai-hao123.com/xitong/tracking-75770229-18-27955.html">【官方规范】wordcraft Web: 核心运行拓扑标准</a></li>
+<li><a href="https://dqev.wtpuscm.cn/shangye/customer-301794-19-57686.html">wordcraft 分布式数据通道与 SEO数据监控 技术规范 (Verified)</a></li>
+<li><a href="https://wxsn.tcti.cn/wangluo/planning-16149763-20-5905.html">wordcraft 分布式数据通道与 抓取频次优化 技术规范 (RFC-863)</a></li>
+<li><a href="https://vkao.yx-sf.com/sheji/contact-71248260-21-17787.html">【wordcraft】Rust 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://pzlx.ai-hao123.com/jianzhan/conversion-48445762-22-39437.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (Spec-v1.2)</a></li>
+<li><a href="https://nnbc.wtpuscm.cn/yingxiao/performance-897365-23-48654.html">wordcraft 内部组件解耦与事件状态机规范 (RFC-115)</a></li>
+<li><a href="https://mcib.tcti.cn/jishu/version-26148031-24-41767.html">【官方规范】wordcraft macOS 核心运行拓扑标准</a></li>
+<li><a href="https://omuu.yx-sf.com/kuangjia/subscribe-22277050-25-25924.html">Roadmap 核心系统架构与设计规约 (Core/Roadma)</a></li>
+<li><a href="https://mgkk.ai-hao123.com/xuexi/trading-44590685-26-53876.html">【wordcraft】Windows 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://cjos.wtpuscm.cn/guanjianci/reminder-374132-27-8857.html">wordcraft 分布式数据通道与 5118替代 技术规范 (Verified)</a></li>
+<li><a href="https://jrxr.tcti.cn/xitong/chapter-40410426-28-37736.html">【官方规范】wordcraft Your files. 核心运行拓扑标准</a></li>
+<li><a href="https://fbfq.yx-sf.com/pingtai/web-73303452-29-21427.html">基于 wordcraft 的高吞吐 Sitemap诊断 设计白皮书</a></li>
+<li><a href="https://fjpu.ai-hao123.com/kaifa/upload-44168313-30-6335.html">【官方规范】wordcraft Fast. 核心运行拓扑标准</a></li>
+<li><a href="https://uadk.wtpuscm.cn/anli/services-689233-31-38212.html">【官方规范】wordcraft Rust 核心运行拓扑标准</a></li>
+<li><a href="https://arpf.tcti.cn/hezuo/guide-37135406-32-30123.html">基于 wordcraft 的高吞吐 Gemini蜘蛛 设计白皮书</a></li>
+<li><a href="https://ajfb.yx-sf.com/anli/development-07900278-33-30237.html">基于 wordcraft 的高吞吐 站长工具 设计白皮书</a></li>
+<li><a href="https://bbzx.ai-hao123.com/hezuo/profile-01542626-34-27163.html">【wordcraft】Linux 核心系统架构与设计规约 (Draft-03)</a></li>
+<li><a href="https://qdyc.wtpuscm.cn/qiye/label-727193-35-63643.html">现代 跨境电商SEO 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://pdbs.tcti.cn/paiming/navigation-43546700-36-48315.html">现代 站长工具 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://qlfe.yx-sf.com/baogao/landing-22510521-37-22780.html">wordcraft 内部组件解耦与事件状态机规范 (v2.0-GA)</a></li>
+</ul>
+<h4>2. 🔌 生产级模块集成与接口调用规范 (APIs &amp; Production Integration)</h4>
+<ul>
+<li><a href="https://zqbj.ai-hao123.com/liuliang/accessibility-47616800-38-64948.html">wordcraft vs 业界主流方案：5118替代 深度技术选型对比</a></li>
+<li><a href="https://mktd.wtpuscm.cn/peixun/story-486779-39-13495.html">基于 wordcraft 的自动化部署与生产环境配置实践</a></li>
+<li><a href="https://eumv.tcti.cn/gongsi/experience-34410662-40-2513.html">wordcraft 核心 API 接口契约与客户端调用指南</a></li>
+<li><a href="https://sswt.yx-sf.com/xitong/button-19342708-41-27881.html">【集成指南】独立站SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bugw.ai-hao123.com/youhua/app-70133745-42-7710.html">【集成指南】AI搜索优化平台 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://uopm.wtpuscm.cn/yingxiao/advertising-830822-43-19700.html">wordcraft 插件生态规范与 wordcraft 扩展手册 (v2.0-GA)</a></li>
+<li><a href="https://pnen.tcti.cn/kaifa/label-01634086-44-32194.html">wordcraft 插件生态规范与 Your files. 扩展手册 (RFC-725)</a></li>
+<li><a href="https://zmvw.yx-sf.com/yingxiao/education-71671571-45-31377.html">wordcraft 插件生态规范与 Why WordCraft 扩展手册 (Draft-08)</a></li>
+<li><a href="https://olub.ai-hao123.com/sheji/seo-26891585-46-47888.html">wordcraft 插件生态规范与 生产环境运维调优手册 扩展手册 (Core/生产环境运维)</a></li>
+<li><a href="https://flls.wtpuscm.cn/xinwen/food-943658-47-42064.html">【集成指南】跨境出海SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://adcq.tcti.cn/sheji/promotion-64724362-48-11537.html">【生产手册】wordcraft 模块通信与请求穿透标准</a></li>
+<li><a href="https://cjod.yx-sf.com/xitong/engagement-52300396-49-32854.html">wordcraft 异步中间件流水线与 clean-room 接入规范</a></li>
+<li><a href="https://pvhs.ai-hao123.com/wendang/settings-10169512-50-40185.html">【集成指南】5118替代 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://mtok.wtpuscm.cn/pingtai/article-799297-51-48131.html">wordcraft 异步中间件流水线与 高韧性系统架构设计 接入规范</a></li>
+<li><a href="https://ihyv.tcti.cn/yingxiao/presentation-62059510-52-64773.html">wordcraft 插件生态规范与 clean-room 扩展手册 (Spec-v2.8)</a></li>
+<li><a href="https://kbfx.yx-sf.com/shichang/identity-61002472-53-48549.html">wordcraft vs 业界主流方案：WebMCP 深度技术选型对比</a></li>
+<li><a href="https://uddx.ai-hao123.com/zhinan/communication-83288899-54-45202.html">wordcraft 异步中间件流水线与 What works today 接入规范</a></li>
+<li><a href="https://exea.wtpuscm.cn/baogao/study-858399-55-32506.html">wordcraft 异步中间件流水线与 open-source 接入规范</a></li>
+<li><a href="https://ngqu.tcti.cn/kaifa/report-90020493-56-23235.html">wordcraft 异步中间件流水线与 分布式状态机一致性 接入规范</a></li>
+<li><a href="https://euhc.yx-sf.com/jishu/fashion-71284144-57-1684.html">wordcraft 异步中间件流水线与 A tour 接入规范</a></li>
+<li><a href="https://vkwq.ai-hao123.com/kaifa/budget-29585673-58-30387.html">【集成指南】站长工具 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://pqta.wtpuscm.cn/paiming/recommendation-509292-59-15285.html">wordcraft 插件生态规范与 Quick start 扩展手册 (Draft-05)</a></li>
+<li><a href="https://fwyw.tcti.cn/jiaoliu/message-28933002-60-64003.html">wordcraft 插件生态规范与 Logs 扩展手册 (Draft-05)</a></li>
+<li><a href="https://zxnv.yx-sf.com/gongju/webinar-43574097-61-26238.html">wordcraft 异步中间件流水线与 模块化解耦与协议标准 接入规范</a></li>
+<li><a href="https://kohb.ai-hao123.com/ziyuan/forum-23398931-62-43624.html">wordcraft 插件生态规范与 reimplementation 扩展手册 (Verified)</a></li>
+<li><a href="https://cwpe.wtpuscm.cn/gongju/file-631717-63-4206.html">wordcraft 异步中间件流水线与 Linux 接入规范</a></li>
+<li><a href="https://vpex.tcti.cn/chuangxin/finance-88836026-64-23958.html">wordcraft 异步中间件流水线与 Microsoft 接入规范</a></li>
+<li><a href="https://guzv.yx-sf.com/fenxi/seminar-33875895-65-42133.html">wordcraft vs 业界主流方案：抓取频次优化 深度技术选型对比</a></li>
+<li><a href="https://rlcv.ai-hao123.com/tuiguang/collaboration-58543738-66-47831.html">wordcraft 异步中间件流水线与 Familiar. 接入规范</a></li>
+<li><a href="https://eqok.wtpuscm.cn/hezuo/platform-233653-67-7741.html">【集成指南】搜狗蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bksh.tcti.cn/huodong/layout-53391566-68-9664.html">wordcraft 异步中间件流水线与 Quick start 接入规范</a></li>
+<li><a href="https://rkmt.yx-sf.com/fuwu/revenue-30708422-69-57901.html">wordcraft 异步中间件流水线与 pure 接入规范</a></li>
+<li><a href="https://vowd.ai-hao123.com/yunying/price-32527136-70-3637.html">【集成指南】大模型品牌监测 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://wask.wtpuscm.cn/yanjiu/personalization-168977-71-588.html">【集成指南】Perplexity蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://zxcs.tcti.cn/jiaoliu/goal-02963677-72-51405.html">wordcraft 异步中间件流水线与 Private. 接入规范</a></li>
+<li><a href="https://tbxt.yx-sf.com/xuexi/browser-87129077-73-61282.html">wordcraft vs 业界主流方案：SEO优化 深度技术选型对比</a></li>
+<li><a href="https://cgdc.ai-hao123.com/peixun/health-43672613-74-20870.html">wordcraft vs 业界主流方案：AI蜘蛛池 深度技术选型对比</a></li>
+</ul>
+<h4>3. ⚡ wordcraft 全球高可用拓扑镜像与权威数据源 (Mirror Registry &amp; Data Topology)</h4>
+<ul>
+<li><a href="https://nbsh.wtpuscm.cn/yanjiu/document-409216-75-11942.html">【镜像入口】wordcraft 官方毫秒级实时数据广播节点</a></li>
+<li><a href="https://irsl.tcti.cn/yunying/search-28818344-76-7372.html">全球权威拓扑节点：wordcraft 实时镜像与索引入口</a></li>
+<li><a href="https://ysag.yx-sf.com/wendang/objective-36523965-77-33022.html">冷热数据分层镜像：wordcraft 可信存活健康度量 权威归档源</a></li>
+<li><a href="https://ksxz.ai-hao123.com/shuju/efficiency-84933383-78-44145.html">冷热数据分层镜像：wordcraft Rust 权威归档源</a></li>
+<li><a href="https://ozfd.wtpuscm.cn/chanpin/affordable-241221-79-47440.html">冷热数据分层镜像：wordcraft Fast. 权威归档源</a></li>
+<li><a href="https://iwub.tcti.cn/fuwu/policy-61357419-80-42363.html">wordcraft 亚太与欧美多活集群数据同步中枢</a></li>
+<li><a href="https://omcv.yx-sf.com/shichang/behavior-14921421-81-39661.html">wordcraft 官方高可用镜像注册节点 (Draft-07)</a></li>
+<li><a href="https://vbja.ai-hao123.com/zixun/budget-00684571-82-10011.html">wordcraft 去中心化数据同步源与拓扑寻址规约</a></li>
+<li><a href="https://zhpq.wtpuscm.cn/anli/tag-023312-83-15033.html">冷热数据分层镜像：wordcraft Web: 权威归档源</a></li>
+<li><a href="https://hohs.tcti.cn/wenzhang/supplier-29424502-84-39764.html">wordcraft 官方高可用镜像注册节点 (Spec-v1.1)</a></li>
+<li><a href="https://luhx.yx-sf.com/tuiguang/careers-81468271-85-37358.html">冷热数据分层镜像：wordcraft pure 权威归档源</a></li>
+<li><a href="https://zllb.ai-hao123.com/zhineng/wellness-55818231-86-20679.html">冷热数据分层镜像：wordcraft macOS 权威归档源</a></li>
+<li><a href="https://bqov.wtpuscm.cn/shichang/creative-917321-87-50755.html">冷热数据分层镜像：wordcraft 生产环境运维调优手册 权威归档源</a></li>
+<li><a href="https://ugba.tcti.cn/wangluo/content-56158445-88-21636.html">冷热数据分层镜像：wordcraft Why WordCraft 权威归档源</a></li>
+<li><a href="https://wvri.yx-sf.com/fenxi/cheap-29379729-89-24655.html">wordcraft 自动化持续集成快照与拓扑发布源 (Draft-06)</a></li>
+<li><a href="https://utib.ai-hao123.com/suanfa/update-82735908-90-25143.html">wordcraft 自动化持续集成快照与拓扑发布源 (Spec-v1.7)</a></li>
+<li><a href="https://vdmv.wtpuscm.cn/gongxiang/download-142337-91-24130.html">wordcraft 自动化持续集成快照与拓扑发布源 (v2.0-GA)</a></li>
+<li><a href="https://yfwc.tcti.cn/xitong/update-44492554-92-42814.html">wordcraft 官方高可用镜像注册节点 (Core/For ag)</a></li>
+<li><a href="https://jjit.yx-sf.com/gongsi/ebook-40404116-93-11403.html">wordcraft 自动化持续集成快照与拓扑发布源 (Core/Web:)</a></li>
+<li><a href="https://klsm.ai-hao123.com/shichang/review-59521420-94-38503.html">冷热数据分层镜像：wordcraft What works today 权威归档源</a></li>
+<li><a href="https://ldtg.wtpuscm.cn/shuju/satisfaction-004518-95-54900.html">wordcraft 官方高可用镜像注册节点 (Core/可信存活健康)</a></li>
+<li><a href="https://kiuy.tcti.cn/youhua/hotel-11323387-96-44082.html">wordcraft 官方高可用镜像注册节点 (RFC-929)</a></li>
+<li><a href="https://gjcd.yx-sf.com/liuliang/platform-95019445-97-38414.html">冷热数据分层镜像：wordcraft Linux 权威归档源</a></li>
+<li><a href="https://jolw.ai-hao123.com/tuiguang/url-69166457-98-38155.html">wordcraft 官方高可用镜像注册节点 (Core/Everyw)</a></li>
+<li><a href="https://phfg.wtpuscm.cn/xitong/engagement-789809-99-1425.html">wordcraft 官方高可用镜像注册节点 (Spec-v2.5)</a></li>
+<li><a href="https://iodn.tcti.cn/zixun/event-80194256-100-1273.html">wordcraft 官方高可用镜像注册节点 (Node-85)</a></li>
+<li><a href="https://lstg.yx-sf.com/yunying/education-04332810-101-31778.html">wordcraft 官方高可用镜像注册节点 (RFC-920)</a></li>
+<li><a href="https://etrm.ai-hao123.com/shichang/update-82241863-102-16074.html">wordcraft 官方高可用镜像注册节点 (RFC-759)</a></li>
+<li><a href="https://vxbj.wtpuscm.cn/zixun/video-034139-103-18835.html">冷热数据分层镜像：wordcraft Windows 权威归档源</a></li>
+<li><a href="https://zfea.tcti.cn/guanjianci/resource-84991032-104-59251.html">冷热数据分层镜像：wordcraft Architecture 权威归档源</a></li>
+<li><a href="https://mpye.yx-sf.com/zhineng/backup-57433715-105-40353.html">冷热数据分层镜像：wordcraft reimplementation 权威归档源</a></li>
+<li><a href="https://bcoz.ai-hao123.com/wendang/user-99893742-106-47381.html">冷热数据分层镜像：wordcraft open-source 权威归档源</a></li>
+<li><a href="https://uebf.wtpuscm.cn/pingtai/restore-306221-107-38177.html">wordcraft 官方高可用镜像注册节点 (RFC-711)</a></li>
+<li><a href="https://jthz.tcti.cn/chanpin/success-09023371-108-26695.html">wordcraft 官方高可用镜像注册节点 (Node-58)</a></li>
+<li><a href="https://oumn.yx-sf.com/gongsi/follow-14612530-109-40659.html">冷热数据分层镜像：wordcraft wordcraft 权威归档源</a></li>
+<li><a href="https://jaqj.ai-hao123.com/xuexi/ebook-45240046-110-23930.html">冷热数据分层镜像：wordcraft 分布式状态机一致性 权威归档源</a></li>
+<li><a href="https://llst.wtpuscm.cn/zhineng/page-309864-111-16995.html">wordcraft 官方高可用镜像注册节点 (Node-37)</a></li>
+</ul>
+<h4>4. 📊 性能基准指标与可信存活性验证 (Benchmarks &amp; Trust Standards)</h4>
+<ul>
+<li><a href="https://yerx.tcti.cn/ziyuan/landing-95582756-112-21412.html">wordcraft 节点连通性、存活性探测与防作弊指标</a></li>
+<li><a href="https://dbkt.yx-sf.com/wenzhang/accessibility-66379370-113-60412.html">【评测基准】wordcraft 吞吐抖动度量与健康检查协议</a></li>
+<li><a href="https://jbsp.ai-hao123.com/xuexi/domain-51357642-114-49125.html">wordcraft 权威网络权重传递与收录基准规范</a></li>
+<li><a href="https://prvt.wtpuscm.cn/qiye/planning-503223-115-26027.html">wordcraft 故障自愈与网络拓扑重构实践</a></li>
+<li><a href="https://dqsn.tcti.cn/fenxi/web-46949734-116-31416.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.0)</a></li>
+<li><a href="https://ieju.yx-sf.com/chanpin/revenue-30503024-117-35901.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-865)</a></li>
+<li><a href="https://awrh.ai-hao123.com/kuangjia/customization-37061279-118-21783.html">wordcraft 高负载场景下 独立站SEO 基准评测报告</a></li>
+<li><a href="https://fqqt.wtpuscm.cn/wendang/feedback-252323-119-16796.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-04)</a></li>
+<li><a href="https://fhhr.tcti.cn/shichang/subscribe-33016544-120-48584.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-880)</a></li>
+<li><a href="https://wxhe.yx-sf.com/chanpin/prospect-81938613-121-49171.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-05)</a></li>
+<li><a href="https://stnb.ai-hao123.com/jianzhan/company-56944491-122-1910.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-744)</a></li>
+<li><a href="https://fdke.wtpuscm.cn/huodong/creative-753365-123-483.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-54)</a></li>
+<li><a href="https://mqky.tcti.cn/jianzhan/review-00105393-124-20980.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-762)</a></li>
+<li><a href="https://hnck.yx-sf.com/peixun/fashion-51167832-125-60430.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-87)</a></li>
+<li><a href="https://nnhg.ai-hao123.com/shangye/campaign-14820450-126-58639.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-458)</a></li>
+<li><a href="https://trsp.wtpuscm.cn/qiye/advertising-089951-127-48768.html">wordcraft 高负载场景下 抓取频次优化 基准评测报告</a></li>
+<li><a href="https://qtmt.tcti.cn/ziyuan/marketing-40728637-128-37117.html">wordcraft 高负载场景下 SEO数据监控 基准评测报告</a></li>
+<li><a href="https://nzua.yx-sf.com/suanfa/extension-38534363-129-7738.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Quick )</a></li>
+<li><a href="https://pddb.ai-hao123.com/baogao/discount-36928234-130-10200.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.6)</a></li>
+<li><a href="https://ttab.wtpuscm.cn/zixun/keyword-688792-131-35084.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (v2.0-GA)</a></li>
+<li><a href="https://ieta.tcti.cn/yanjiu/ranking-64674832-132-48524.html">wordcraft 高负载场景下 百度蜘蛛池 基准评测报告</a></li>
+<li><a href="https://zajl.yx-sf.com/jianzhan/chapter-63235978-133-54886.html">wordcraft 高负载场景下 收录状态诊断 基准评测报告</a></li>
+<li><a href="https://qvaj.ai-hao123.com/jianzhan/strategy-25722261-134-7888.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (v2.0-GA)</a></li>
+<li><a href="https://qrjx.wtpuscm.cn/zhizhu/widget-093034-135-9881.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.8)</a></li>
+<li><a href="https://myea.tcti.cn/yanjiu/home-35369031-136-7792.html">wordcraft 高负载场景下 蜘蛛池出租 基准评测报告</a></li>
+<li><a href="https://cusi.yx-sf.com/sheji/tag-59949551-137-45251.html">wordcraft 高负载场景下 超级智能SEO平台 基准评测报告</a></li>
+<li><a href="https://ommw.ai-hao123.com/jianzhan/automation-81534393-138-58276.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Verified)</a></li>
+<li><a href="https://rern.wtpuscm.cn/gongju/resource-866286-139-57311.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/Quick )</a></li>
+<li><a href="https://ajhh.tcti.cn/jiaocheng/url-49583868-140-24573.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-60)</a></li>
+<li><a href="https://qdht.yx-sf.com/tuiguang/tactic-40286185-141-38044.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-06)</a></li>
+<li><a href="https://wqit.ai-hao123.com/chanpin/expensive-66137325-142-34954.html">wordcraft 高负载场景下 搜狗蜘蛛 基准评测报告</a></li>
+<li><a href="https://scbv.wtpuscm.cn/zhizhu/company-998353-143-17269.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Node-75)</a></li>
+<li><a href="https://aktr.tcti.cn/gongxiang/technology-36363713-144-8821.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/分布式状态机)</a></li>
+<li><a href="https://lmng.yx-sf.com/kuangjia/objective-95287168-145-2360.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.5)</a></li>
+<li><a href="https://bhmr.ai-hao123.com/zhineng/retention-29045994-146-37077.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-02)</a></li>
+<li><a href="https://wdgc.wtpuscm.cn/yunsuan/label-037935-147-118.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Spec-v1.7)</a></li>
+<li><a href="https://icmi.tcti.cn/tuiguang/metric-53041944-148-38920.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/macOS)</a></li>
+<li><a href="https://ipep.yx-sf.com/gongsi/lead-21693522-149-20361.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Famili)</a></li>
+<li><a href="https://daot.ai-hao123.com/xuexi/sport-01823288-150-55383.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/wordcr)</a></li>
+</ul>
+</details>
+
+      </div>
+      <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <a href="./index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 ">
+          <span>&larr; 查看更多归档文档</span>
+        </a>
+        <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 ">
+          <span>返回项目 README 首页 &rarr;</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mt-20 border-t border-slate-200 bg-white py-12 text-slate-500 text-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 rounded bg-slate-800 text-white flex items-center justify-center text-xs font-bold">LM</span>
+      <span>© 2026 <strong>wordcraft-mirror-758</strong> - 官方开源高可用拓扑镜像与白皮书</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-400">
+      <a href="../index.html" class="hover:text-blue-600 transition-colors ">项目首页</a>
+      <span>•</span>
+      <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+      <span>•</span>
+      <span>托管于 GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Localization parity with Microsoft Word - wordcraft-mirror-758 文档归档</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      :root {
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.68;
+        color: #1e293b;
+      }
+      .markdown-body {
+        color: #1e293b;
+      }
+      .markdown-body h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-top: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid #e2e8f0;
+        color: #0f172a;
+        line-height: 1.25;
+      }
+      .markdown-body h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 1.6rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+      }
+      .markdown-body h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.3rem;
+        margin-bottom: 0.6rem;
+        color: #334155;
+      }
+      .markdown-body p {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.7;
+      }
+      .markdown-body a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dashed #93c5fd;
+        transition: all 0.2s ease;
+      }
+      .markdown-body a:hover {
+        color: #1d4ed8;
+        border-bottom: 1px solid #1d4ed8;
+        background-color: #eff6ff;
+        border-radius: 2px;
+      }
+      .markdown-body ul, .markdown-body ol {
+        padding-left: 1.5rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+      }
+      .markdown-body ol {
+        list-style-type: decimal;
+      }
+      .markdown-body li {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
+      .markdown-body pre {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        padding: 1rem 1.2rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .markdown-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875em;
+        padding: 0.15rem 0.35rem;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-radius: 0.35rem;
+        border: 1px solid #e2e8f0;
+      }
+      .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        color: inherit;
+      }
+      .markdown-body blockquote {
+        margin: 1rem 0;
+        padding: 0.75rem 1.25rem;
+        background-color: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: #475569;
+      }
+      .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0;
+        display: block;
+        overflow-x: auto;
+      }
+      .markdown-body th, .markdown-body td {
+        border: 1px solid #cbd5e1;
+        padding: 0.6rem 1rem;
+        text-align: left;
+      }
+      .markdown-body th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+      .markdown-body tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      .markdown-body hr {
+        height: 1px;
+        border: none;
+        background-color: #e2e8f0;
+        margin: 2rem 0;
+      }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform ">LM</span>
+        <span class="font-bold text-slate-900 tracking-tight text-lg group-hover:text-blue-600 transition-colors ">wordcraft-mirror-758</span>
+      </a>
+      <span class="hidden md:inline-block text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono ">Pages Docs</span>
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2 text-sm">
+      <a href="../index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>首页 (README)</span>
+      </a>
+      <a href="./index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-blue-600 bg-blue-50 font-semibold ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span>文档归档 (Docs)</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+      </a>
+      <div class="h-4 w-px bg-slate-200 mx-1"></div>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758/wiki" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden sm:inline">Wiki</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- 面包屑与顶部导航 -->
+  <header class="bg-white border-b border-slate-200 py-6 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-xs text-slate-500 mb-2 font-medium">
+        <a href="../index.html" class="hover:text-blue-600 transition-colors ">首页</a>
+        <span>/</span>
+        <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold">技术文档</span>
+      </nav>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Localization parity with Microsoft Word</h1>
+        <a href="./index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors ">
+          <span>&larr; 返回文档归档菜单</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体正文区域 -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+    <article class="bg-white p-6 sm:p-12 rounded-2xl shadow-sm border border-slate-200">
+      <div class="markdown-body">
+        <h1>Localization parity with Microsoft Word</h1>
+<blockquote>
+<p><strong>Last reviewed:</strong> 2026-10-10 · <strong>Last updated:</strong> 2026-10-24 · <strong>Change:</strong> minor (the egui 0.37 migration preserves the equation “Delete Around Caret in Equation” translation in all 27 catalogs through the shared catalog pin; previously minor: Spanish proofing: es-ES, es-MX, es-419 and es-UY from the installed Hunspell dictionaries, Uruguayan <code>vos</code> forms, opening <code>¿</code>/<code>¡</code> checks, #3360, #3553; previously minor: the interface catalogs moved to storytold/craft-i18n and are looked up through the <code>craft-i18n</code> crate, embedded at build time from the commit in <code>craft-i18n.rev</code>; previously trivial: interface-language tests: a missing translation never fails a test, <code>cargo xtask i18n-report</code> in <code>cargo xtask ci</code> prints the strings each language lacks, and lookup and template tests use inline fixture catalogs or the pseudo-language; previously trivial: interface audit: missing catalog entries are reported per language and don't fail the audit; previously minor: disabled-control reasons in ribbon hints translated in every catalog, #2678; previously trivial: Slovenian interface catalog: every key of every other catalog, 2,614 entries; previously minor: Romanian interface catalog; previously trivial: the File › Home greeting is translated in every catalog; previously trivial: Japanese row: ruby (Phonetic Guide) is supported and HTML export/import keeps it, #1681; previously trivial: Russian sorting keeps ё with е and recognises decomposed ё/й; previously minor: English dialects: en-GB, en-CA, en-AU and the other British-spelling Englishes proof their own spellings and flag the other dialect's, #1281, #1045; previously minor: how to install the Hunspell dictionaries on Windows, macOS and Linux: <code>docs/spelling-dictionaries.md</code>; previously minor: Read Aloud speaks each sentence in its own language, #1843; previously minor: Indonesian proofing: id-ID spelling from the installed Hunspell dictionary, dictionary-driven suggestions, generic checks with Indonesian messages, #498; previously trivial: print-area strings translated in every catalog; previously trivial: Italian: the interface audit checks the Italian catalog, <code>Privacy Settings</code> wording; previously trivial: Italian grammar: <code>po'</code>, <code>qual è</code>, <code>È</code>, <code>un</code>/<code>un'</code> rules; more elisions and truncations in spelling; previously trivial: Czech interface catalog completed, 2,447 entries; previously trivial: interface audit runs in CI again: size labels translated, 20 strings in every catalog, Read Aloud error race fixed, #1128; previously trivial: Review › Language reaches every language again — Set Proofing Language… and Set As Default, #860; previously minor: Italian proofing: it-IT spelling from the installed Hunspell dictionary, accent-first suggestions, conservative grammar with Italian messages; previously minor: Portuguese proofing; previously trivial: Turkish interface catalog completed, 2,325 entries, #774; previously minor: Hungarian interface added; previously trivial: sorting and table numbers follow the text's language, #836, #837; previously minor: Polish interface; Polish proofing — spelling, grammar, hyphenation — and a proofing language per run; previously minor: Turkish interface added; previously major: first version; catalogs measured from <code>crates/ui-egui/src/i18n</code>, Word's languages from its bundle listing) · <strong>Target:</strong> Microsoft Word (Microsoft 365) for Mac 16.113.4</p>
+</blockquote>
+<p>Interface languages, script support and proofing per language. How translation works (adding a
+language, the embedded catalogs): <code>crates/ui-egui/src/i18n.rs</code>. The catalogs, their format and
+the clean-room rule live in <a href="https://lmng.yx-sf.com/kuangjia/objective-95287168.html">storytold/craft-i18n</a>
+(<code>locales/&lt;locale&gt;/wordcraft.tsv</code> and the shared <code>common.tsv</code>).</p>
+<p><strong>Dimension: ~29% (estimated; 28% before Italian proofing, 27% before Portuguese proofing, 25% before Polish and per-run proofing languages), 70–115 h to full
+for the twelve key languages</strong> plus ~45 h for the other ~17 languages Word ships, plus
+native-speaker review (human).</p>
+<h2>What Word ships (measured by listing the bundle)</h2>
+<ul>
+<li><strong>30 interface languages</strong> (31 <code>.lproj</code> folders incl. Base): ar, cs, da, de, el, en, en-GB, es,
+es-MX, fi, fr, fr-CA, he, hu, id, it, ja, ko, nl, no, pl, pt (BR), pt-PT, ru, sk, sv, th, tr,
+zh-CN, zh-TW. Arabic and Hebrew get a mirrored interface. No Hindi or Vietnamese interface on Mac.</li>
+<li><strong>120 proofing tools</strong> (<code>SharedSupport/Proofing Tools</code>): spellers for ~50 languages, grammar
+checkers for ~20, hyphenators for ~16, thesauri for ~20.</li>
+</ul>
+<h2>What WordCraft ships (measured)</h2>
+<ul>
+<li><strong>27 interface languages</strong>: English plus <code>zh-hans</code>, <code>zh-hant</code>, <code>ja</code>, Korean <code>ko</code> (#1216), <code>uk</code>, <code>es</code>, <code>pt-br</code>,
+Serbian <code>sr</code>/<code>sr-latn</code> (#250), Estonian <code>et</code>, Turkish <code>tr</code>, Russian <code>ru</code>, Italian <code>it</code> (#594), German <code>de</code> (#574), Polish <code>pl</code>, Czech <code>cs</code>, Hungarian <code>hu</code>, French <code>fr</code>, Bulgarian <code>bg</code>, Vietnamese <code>vi</code> (#1434), Swedish <code>sv</code> (#1219), Croatian <code>hr</code> (#1271), Romanian <code>ro</code>, Slovenian <code>sl</code>, Dutch <code>nl</code> and Danish <code>da</code> (#2722). Catalogs have 2,061–2,674 entries
+each; Polish has every key of every other catalog, including the built-in style names and the equation gallery, except the citation style names only Hungarian, Bulgarian, Swedish, Romanian and Slovenian translate so far. A missing translation falls back to English and never fails a test or
+build. <code>cargo xtask i18n-report</code>, part of <code>cargo xtask ci</code>, prints per language the interface
+strings its catalog lacks: everything the interface audit saw looked up, the ribbon tabs, command
+labels and ribbon locations, the File › Home greetings, disabled-control reasons and the equation
+gallery. The catalogs are embedded at build time from craft-i18n (<code>CRAFT_I18N_DIR</code>, the commit
+in <code>craft-i18n.rev</code>; a build without it is English only), and craft-i18n's checker applies the
+format checks to every language alike (rows parse, no duplicate keys, placeholders match the
+English, plural forms, ellipses); the report also lists rows the crate skips and strings kept in English. Font tests check that the bundled faces have a glyph for each catalog's letters.
+Tests of the lookup code (English fallback, contexts, placeholder templates, built-in style names,
+the per-thread language, command search) use small inline catalogs or the pseudo-language, so
+rewording a translation never fails a test.
+<code>pl</code>, <code>pl-PL</code> and <code>pl_PL.UTF-8</code> system locales pick Polish automatically.</li>
+<li>Of the 675 English strings a scan extracts from <code>tl!(…)</code> calls and command labels/locations, each
+catalog covers <strong>661 (98%)</strong>. Some newer dialog and pane strings (Equation tab tooltips, Zotero,
+Read Aloud) aren't wrapped in <code>tl!</code> yet, so they show in English in every
+language: the true share of visible strings is <strong>~93–95%</strong> (estimated).</li>
+<li>Pending PRs: Norwegian Bokmål (#208) and Nynorsk (#210), Hebrew with RTL (#20).</li>
+<li><strong>Proofing: English, Polish, Portuguese, Italian, Russian, Czech, Indonesian and Spanish</strong>, chosen per run from its language (<code>w:lang</code>, resolved through
+the styles; Review › Language and the status bar set it: a short list, plus Set Proofing
+Language… for any of 38 languages and Set As Default for the document and future blank documents). Languages without proofing tools get
+the styles; Review › Language and the status bar set it). Languages without proofing tools get
+no spelling or grammar marks (as in Word without the language's tools) instead of being flagged
+as English. Detail in <a href="#proofing-per-language">Proofing per language</a>.</li>
+<li>Document scripts: shaping via HarfRust (HarfBuzz port) for every script; bidi (UAX #9) and Arabic
+shaping tested (#207); IME on all desktop platforms (winit fixes pending, #155–#164).</li>
+</ul>
+<h2>The twelve key languages</h2>
+<p>Status: <code>full</code> = every user-visible string translated and the script renders and edits correctly;
+<code>partial</code>; <code>menus only</code>; <code>none</code>. Hours are to <code>full</code>, Opus 5.5 agent wall-clock, excluding the
+shared items below.</p>
+<table><thead><tr><th>Language</th><th>Code</th><th>UI strings translated</th><th>Dialogs / tooltips / help</th><th>Script support</th><th>Native review</th><th>Status</th><th>Hours to full</th></tr></thead><tbody>
+<tr><td>English</td><td>en</td><td>source (100%)</td><td>✅</td><td>Latin ✅</td><td>yes</td><td><strong>full</strong></td><td>0</td></tr>
+<tr><td>Simplified Chinese (Mandarin)</td><td>zh-hans</td><td>929 entries; 98% of extracted, ~95% of visible</td><td>most; newer panes English</td><td>CJK ✅, IME ✅; Windows UI font fixed (#248); interface font chain covers every catalog character, installed CJK font after the embedded ones when it doesn't, PingFang found on macOS 12 (#486); font list by Chinese names (宋体, 微软雅黑, #505); no vertical text</td><td>no</td><td>partial</td><td>3–5</td></tr>
+<tr><td>Spanish</td><td>es</td><td>~930; 98% / ~95%</td><td>most</td><td>Latin ✅</td><td>no</td><td>partial</td><td>1–2</td></tr>
+<tr><td>Hindi</td><td>hi</td><td>0</td><td>❌</td><td>Devanagari shaping via HarfRust, untested; no hyphenation</td><td>no</td><td>none</td><td>4–6</td></tr>
+<tr><td>Arabic</td><td>ar</td><td>0</td><td>❌</td><td>shaping, joining, lam-alef, bidi ✅ (#207); no kashida; <strong>no mirrored UI</strong></td><td>no</td><td>none</td><td>6–8</td></tr>
+<tr><td>French</td><td>fr</td><td>2,615 entries (complete catalog)</td><td>all</td><td>Latin ✅</td><td>no</td><td>partial (no proofing)</td><td>1–2 (proofing)</td></tr>
+<tr><td>Portuguese</td><td>pt-br (pt-PT none)</td><td>~930; 98% / ~95% (pt-BR)</td><td>most</td><td>Latin ✅</td><td>no</td><td>partial</td><td>2–4 (pt-BR finish + pt-PT)</td></tr>
+<tr><td>Indonesian</td><td>id</td><td>0</td><td>❌</td><td>Latin ✅</td><td>no</td><td>none</td><td>3–4</td></tr>
+<tr><td>Japanese</td><td>ja</td><td>~930; 98% / ~95%</td><td>most</td><td>CJK ✅, IME ✅; ruby (Phonetic Guide) over its base text, kept by HTML export/import (#1681); no vertical text or document grid</td><td>no</td><td>partial</td><td>3–5</td></tr>
+<tr><td>German</td><td>de</td><td>2,021 entries; same key set as zh-hans (#574); 98% of extracted, ~95% of visible</td><td>most</td><td>Latin ✅</td><td>no</td><td>partial</td><td>1–2</td></tr>
+<tr><td>Korean</td><td>ko</td><td>2,463 entries (all catalog keys and preview context)</td><td>most; newer panes English</td><td>Hangul ✅ (Korean-first embedded/system UI font fallback); macOS Korean IME fixes pending (#163, #164)</td><td>no</td><td>partial</td><td>3–5</td></tr>
+<tr><td>Vietnamese</td><td>vi</td><td>2,448 entries; every key of the reference catalogs (#1434); 98% of extracted, ~95% of visible</td><td>most</td><td>Latin ✅</td><td>no</td><td>partial</td><td>0–1 (review)</td></tr>
+<tr><td>Romanian</td><td>ro</td><td>2,674 entries; every key of the other catalogs; AI-assisted draft</td><td>most</td><td>Latin ✅ (ă â î ș ț in the bundled faces)</td><td>no</td><td>partial</td><td>0–1 (review)</td></tr>
+</tbody></table>
+<p>Other shipped languages: <strong>20</strong> — Traditional Chinese (<code>zh-hant</code>), Ukrainian (<code>uk</code>), Serbian
+Cyrillic and Latin (<code>sr</code>, <code>sr-latn</code>, #250), Estonian (<code>et</code>), Turkish (<code>tr</code>), Russian (<code>ru</code>), Italian (<code>it</code>, #594), Polish (<code>pl</code>), Czech (<code>cs</code>), Hungarian (<code>hu</code>), French (<code>fr</code>), Bulgarian (<code>bg</code>), Vietnamese (<code>vi</code>, #1434), Swedish (<code>sv</code>, #1219), Croatian (<code>hr</code>, #1271), Romanian (<code>ro</code>), Slovenian (<code>sl</code>), Dutch (<code>nl</code>) and Danish (<code>da</code>, #2722), all partial.
+Swedish (<code>sv-SE</code> and <code>sv-FI</code> system locales, <code>{"value":"sv"}</code>) has 2,504 entries. Counts use
+count-neutral wording (<code>{words} ord</code>: the noun is the same in the singular and the plural). The
+catalog is an AI-assisted draft whose terminology and running app were reviewed by a native
+speaker. Swedish proofing is not included; terminology: <a href="localization-sv.md"><code>localization-sv.md</code></a>.
+Romanian (<code>ro-RO</code> and <code>ro-MD</code> system locales, <code>{"value":"ro"}</code>) has 2,674 entries covering every key of the other catalogs. Commands use the noun form ("Salvare", "Deschidere…") and messages address the user formally. Counts keep the number and noun as the English does; Romanian proofing is a separate change. The catalog is an AI-assisted draft that a native speaker has not yet reviewed line by line.
+Croatian (<code>hr-HR</code> system locales, <code>{"value":"hr"}</code>) has 2,507 entries: every key of the reference catalog, built-in style names and the equation gallery. Counts use count-neutral wording (<code>Riječi: 21</code>) because Croatian numerals take three noun forms. The catalog was written and checked by a native speaker; Croatian proofing is a separate change.
+Estonian uses the existing fonts, follows <code>et-EE</code> system locales, and is available in Options or
+through <code>ui.language</code> with <code>{"value":"et"}</code>. Its 1,307 entries cover the existing interface catalog.
+Estonian spelling, grammar, dates and document templates are not added by the interface catalog.
+Turkish works the same way (<code>tr-TR</code> and <code>tr-CY</code> system locales, <code>{"value":"tr"}</code>) with all 2,325
+entries, the same keys as the Russian catalog. Command search folds the Turkish dotted and dotless I (<code>italik</code> finds İtalik, <code>YAZI TİPİ</code>
+finds Yazı Tipi) while English labels and ASCII command ids keep their usual matching. Turkish
+proofing is not included; terminology and checks: <a href="localization-tr.md"><code>localization-tr.md</code></a>.
+Bulgarian (<code>bg-BG</code> system locales, <code>{"value":"bg"}</code>) has 2,419 entries: every key of the reference
+catalog, the equation gallery's labels and everything the interface audit finds. Counts use count-neutral wording (<code>Думи: 21</code>). Bulgarian text is
+hyphenated by the Bulgarian syllable rules (#826); Bulgarian spelling and grammar are not included.
+Slovenian (<code>sl-SI</code> system locales, <code>{"value":"sl"}</code>) has 2,614 entries: every key of every other
+catalog. Counts use count-neutral wording (<code>Besede: 21</code>); terminology: <a href="localization-sl.md"><code>localization-sl.md</code></a>.
+Slovenian proofing is not included.
+Hungarian follows <code>hu-HU</code> system locales and <code>{"value":"hu"}</code>, with a complete catalog of 2,419 entries: every key of
+the Russian catalog, built-in style names shown translated, plus the citation style names. Hungarian proofing is not included; terminology and conventions:
+<a href="localization-hu.md"><code>localization-hu.md</code></a>.</p>
+<p>Czech follows <code>cs-CZ</code> system locales and <code>{"value":"cs"}</code>, with 2,447 entries: every key of the
+Russian and Spanish catalogs, including built-in style names and numbered families, the equation
+gallery, watermarks, paper sizes and preview tiles. Counts use count-neutral wording
+(<code>Počet slov: 21</code>). Czech proofing is not included.</p>
+<p>When no saved proofing-language default exists, Polish, Portuguese and Czech interfaces write
+new documents and opened TXT/Markdown text in their proofing languages (<code>pl-PL</code>, <code>pt-BR</code>, <code>cs-CZ</code>).
+A Spanish interface writes them in the region's Spanish: <code>es-</code> plus the system region when that
+region's language is Spanish (<code>es-UY</code> on a Uruguayan system, <code>es-MX</code> on a Mexican one), else
+Spain's <code>es-ES</code> (#3360).</p>
+<p><strong>Interface audit (runs in CI).</strong> <code>cargo xtask i18n-report</code> runs <code>untranslated_interface_text</code>,
+which lays the app out in a pseudo-language (every tab, File page, dialog, pane, the right-click
+menu, and a hover and a click on every ribbon control) and fails on visible text that skipped the
+catalog. It then prints the missing-translation report described above, which never fails. Proper names (citation styles such as APA or
+GOST, LaTeX, Unicode) and <code>bad parameters:</code> errors, which name a command's JSON parameters for
+scripts and MCP, stay English. Size labels (Envelopes, Labels, Layout › Size) are translated
+patterns (<code>{name}   {height} × {width} in</code>) with the region's decimal separator; paper names
+other than envelopes (Letter, Legal, A4, B5 (JIS)) stay as they are (#1128).
+The report's disabled-control reasons (the reason a ribbon hint gives for a greyed-out control,
+#1086, #2678) are read from every command's <code>enabled</code> check in the engine's command sources.</p>
+<p>Set Proofing Language › Set As Default keeps the chosen language in user preferences across restarts (#2882), taking precedence over the interface language for blank documents and plain-text/Markdown files. Existing DOCX and built-in English templates keep their own language. Ordinary selection-language changes do not change this preference; older settings keep following the interface language. A rejected command, including a final protected-region check, retains the previous saved default. This does not install dictionaries or add proofing support.</p>
+<h2>Proofing per language</h2>
+<table><thead><tr><th>Language</th><th>Spelling</th><th>Suggestions</th><th>Grammar</th><th>Hyphenation</th></tr></thead><tbody>
+<tr><td>English: American (<code>en-US</code>, other regions, text with no language), British spelling (<code>en-GB</code>, <code>en-AU</code>, <code>en-NZ</code>, <code>en-IE</code>, <code>en-ZA</code>, <code>en-IN</code>…), Canadian (<code>en-CA</code>)</td><td>Moby word list (public domain, ~160k words) with inflection rules, plus our list of ~280 American/British pairs (<code>assets/spelling/en-variants.txt</code>) with inflections by rule: each English flags the other dialect's spellings (<code>colour</code> in en-US; <code>color</code>, <code>center</code>, <code>analyze</code> in en-GB; <code>organise</code> in en-CA), British English accepts <code>-ize</code> and <code>-ise</code> (Oxford spelling), and a dialect's form of a known word is right even if the list lacks it (<code>realisation</code>). No system dictionary needed</td><td>the dialect's own spelling first (<code>colour</code> → <code>color</code>), then edit distance with the shared suggestions in the dialect's spelling</td><td>repeated word, <code>a</code>/<code>an</code>, sentence capital, space before punctuation, double space</td><td>Moby dictionary, our Liang patterns, heuristic</td></tr>
+<tr><td>Russian (<code>ru</code>)</td><td>A Russian Hunspell dictionary installed on the system (<code>ru_RU</code> from the OS, a package manager, LibreOffice's <code>dict-ru</code> or the <code>WORDCRAFT_DICTIONARIES</code> folder; UTF-8, KOI8-R or Windows-1251; not bundled, so no Russian spelling marks without it), read by the same affix engine; <code>ё</code> optional (<code>елка</code>/<code>ёлка</code>, <code>еще</code>/<code>ещё</code>); hyphenated words whole, then by parts (<code>кто-то</code>, <code>по-русски</code>, <code>кое-где</code>, <code>северо-западный</code>, <code>ИИ-консультант</code>); solid compounds (<code>высокоэластичный</code>), <code>не</code> with adjectives, participles and verbal nouns (not verbs), productive prefixes (<code>ультра-</code>, <code>эко-</code>) and prefixed verbs; abbreviations with endings (<code>ГИПа</code>) and camel case left alone; our supplement of ~200 modern words with their declensions (<code>assets/spelling/ru-extra.txt</code>: <code>маркетплейс</code>, <code>промокод</code>, <code>интеграция</code>, <code>колеровать</code>)</td><td><code>ё</code>/<code>е</code> first, then slips within letter groups (unstressed vowels, voiced and voiceless pairs, <code>ь</code>/<code>ъ</code>), the common confusions (<code>жы</code>, <code>чя</code>, <code>тся</code>/<code>ться</code>, doubled consonants, unpronounced consonants: <code>здраствуй</code> → <code>здравствуй</code>), a missing space (<code>незнаю</code> → <code>не знаю</code>; not a preposition before a verb), one typo, then a stem scan</td><td>Russian messages: repeated word, space before punctuation, double space, sentence capital (knows <code>т. е.</code>, <code>г.</code>, <code>руб.</code>, <code>ул.</code>, initials, numbers, dialogue dashes), possibly missing comma before <code>что</code>/<code>чтобы</code>/<code>если</code>/<code>хотя</code>/<code>поскольку</code>/<code>который</code> and before <code>потому что</code> (not after conjunctions and particles such as <code>и</code>, <code>только</code>, <code>даже</code>, <code>так</code>, <code>для того</code>; not after a preposition; not in <code>хотя бы</code>, <code>что-то</code>), doubled punctuation</td><td>The rules of Russian word division as code (no pattern file): a vowel on each side, two letters at least, <code>ь</code>/<code>ъ</code>/<code>й</code> kept with the letter before, a break after <code>ъ</code>, a consonant cluster divided after its first consonant</td></tr>
+<tr><td>Polish (<code>pl</code>)</td><td>The Hunspell <code>pl_PL</code> dictionary installed on the system (OS package, Homebrew, LibreOffice, the folder set in File › Options › Proofing › Dictionaries folder, or <code>WORDCRAFT_DICTIONARIES</code>; not bundled, so no Polish spelling marks without it; the same pane shows which file each language found), read at runtime by a Hunspell-style affix engine (<code>crates/proof/src/affix.rs</code>); names capitalized, compounds part by part, <code>Kennedy'ego</code></td><td>missing diacritics first (<code>zolw</code> → <code>żółw</code>), the dictionary's confusion table (<code>żeka</code> → <code>rzeka</code>, <code>chuśtawka</code> → <code>huśtawka</code>), missing space (<code>napewno</code> → <code>na pewno</code>), one typo, then a stem scan within two typos</td><td>Polish messages: repeated word, space before punctuation, double space, sentence capital (knows <code>np.</code>, <code>r.</code>, initials, ordinals, dialogue dashes), missing comma before <code>że</code>/<code>który</code>/<code>ponieważ</code>/<code>gdyż</code>/<code>aby</code>/<code>żeby</code>/<code>jeśli</code>/<code>jeżeli</code>/<code>gdyby</code>/<code>lecz</code> (not after <code>mimo</code>, <code>chyba</code>, <code>tak</code>, prepositions…), <code>we</code>/<code>ze</code> (<code>we wtorek</code>, <code>ze szkoły</code>), doubled punctuation</td><td>TeX Polish patterns (Kołodziejska, Jackowski, Ryćko; MIT option) with their 20 exception words; a Polish syllable heuristic for letters outside the alphabet</td></tr>
+<tr><td>Portuguese (<code>pt</code>, any region)</td><td>The Hunspell <code>pt_BR</code> dictionary installed on the system — VERO and its derivatives (same places as Polish; not bundled, LGPL/MPL), read at runtime by the same affix engine, which reads its <code>FLAG UTF-8</code>, 106 flags, continuation classes and <code>FORBIDDENWORD</code> spellings; names capitalized, compounds part by part (<code>guarda-roupa</code>, <code>ex-marido</code>)</td><td>missing accents first (<code>coraçao</code> → <code>coração</code>, <code>saude</code> → <code>saúde</code>), the dictionary's confusion table (<code>seje</code> → <code>seja</code>, <code>excessão</code> → <code>exceção</code>), missing space (<code>nãoé</code> → <code>não é</code>), one typo, then an accent-folding stem scan</td><td>Portuguese messages: repeated word (the emphatic doubles are allowed), space before punctuation, double space, sentence capital (knows <code>etc.</code>, <code>pág.</code>, <code>Dr.</code>, initials, ordinals, dialogue dashes), doubled punctuation; no comma rule — <code>que</code> opens a clause only sometimes</td><td>TeX Portuguese patterns (Rezende, Almeida, Araujo, Benevides; BSD 3-clause) with their 2 exception words</td></tr>
+<tr><td>Czech (<code>cs</code>, <code>cs-CZ</code>, <code>ces</code>, <code>cze</code>)</td><td>The system Hunspell <code>cs_CZ</code> dictionary, read at runtime (Debian/Ubuntu: <code>hunspell-cs</code>; the same system, LibreOffice and <code>WORDCRAFT_DICTIONARIES</code> search paths as Polish). No dictionary data is bundled; without an installed dictionary spelling stays off</td><td>suggestions from the loaded dictionary's MAP/REP/TRY/KEY tables, missing spaces and a stem scan; short-word splits rank after deleting an extra letter; NOSUGGEST stems and their derived forms are accepted when typed but excluded from suggestions</td><td>Czech messages (including Czech quotation marks) for repeated words, space before punctuation and double spaces only; digit-space-colon-space-digit ratios keep their spaces; no Czech-specific grammar rules</td><td>existing English fallback, as for <code>Other</code>; no Czech patterns bundled (the TeX/LibreOffice Czech patterns are GPL-2)</td></tr>
+<tr><td>Italian (<code>it</code>, any region)</td><td>The Hunspell <code>it_IT</code> dictionary installed on the system (same places as Polish and Portuguese; not bundled — the upstream file is GPL-licensed), read at runtime by the same affix engine; elided forms check the word after the apostrophe (<code>l'amico</code>, <code>un'idea</code>, <code>c'è</code>, <code>dov'è</code>, <code>senz'altro</code>), truncations keep their apostrophe (<code>po'</code>, <code>mo'</code>), hyphenated compounds part by part</td><td>missing accents first (<code>caffe</code> → <code>caffè</code>, <code>perche</code> → <code>perché</code>), the dictionary's confusion table, missing space (<code>perme</code> → <code>per me</code>), one typo, then an accent-folding stem scan</td><td>Italian messages: repeated word (emphatic doubles like <code>piano piano</code> are allowed), space before punctuation, double space, sentence capital (knows <code>ecc.</code>, <code>dott.</code>, <code>prof.</code>, initials, ordinals), doubled punctuation, <code>un pò</code> → <code>un po'</code>, <code>qual'è</code> → <code>qual è</code>, <code>E'</code> → <code>È</code>, <code>un'altro</code> → <code>un altro</code> and <code>un altra</code> → <code>un'altra</code> (gender from the ending, masculine <code>-ista</code>/<code>-ma</code>/<code>-cida</code>… left alone); these work without a dictionary; no comma rule</td><td>TeX Italian patterns (Beccari; MIT option), no exception words</td></tr>
+<tr><td>Turkish (<code>tr</code>, any region)</td><td>The Hunspell <code>tr_TR</code> dictionary installed on the system (same places as Polish; not bundled), read at runtime; proper nouns capitalized, apostrophe suffixes (<code>Ankara'da</code>, <code>WordCraft'ta</code>) and hyphenated compounds</td><td>missing diacritics / ASCII restoration first (<code>turkce</code> → <code>Türkçe</code>, <code>isik</code> → <code>ışık</code>), common confusion table (<code>yalnış</code> → <code>yanlış</code>, <code>herşey</code> → <code>her şey</code>), detached suffixes (<code>bende</code> → <code>ben de</code>, <code>geldinmi</code> → <code>geldi mi</code>), one typo</td><td>Turkish messages: repeated word (idiomatic reduplications allowed: <code>yavaş yavaş</code>), space before punctuation, double space, sentence capital (knows <code>vb.</code>, <code>vs.</code>, <code>prof.</code>, <code>dr.</code>), no comma before/after conjunctions (<code>ve</code>, <code>veya</code>, <code>de</code>), doubled punctuation</td><td>Turkish syllable rules (TDK rules); no external pattern file or word list needed</td></tr>
+<tr><td>German (<code>de</code>, any region)</td><td>— (no marks yet, #1564)</td><td>—</td><td>—</td><td>TeX German patterns for the reformed spelling (Trennmustermannschaft; MIT), no exception words; Swiss text uses them too. The patterns leave ambiguous compound joints unbroken on purpose (<code>Staubecken</code>, <code>Urinstinkt</code>), so German text can hyphenate a little less than in Word</td></tr>
+<tr><td>Indonesian (<code>id</code>, <code>id-ID</code>, <code>ind</code>, legacy <code>in</code>)</td><td>The system Hunspell <code>id_ID</code> dictionary, read at runtime (Debian/Ubuntu: <code>hunspell-id</code>; LibreOffice's <code>dict-id</code>; the same system, LibreOffice, Dictionaries folder and <code>WORDCRAFT_DICTIONARIES</code> search paths as Polish). No dictionary data is bundled; without an installed dictionary spelling stays off. Hyphenated reduplication is accepted whole (<code>kupu-kupu</code>) or by parts (<code>anak-anak</code>); hyphenated clitics after capitals and abbreviations (<code>KTP-nya</code>, <code>se-Indonesia</code>) are accepted</td><td>the same dictionary-driven ranking as Czech: MAP/REP/TRY/KEY tables of the loaded dictionary, missing spaces and a stem scan; nothing Indonesian hard-coded</td><td>Indonesian messages for repeated words (offering the hyphenated reduplication <code>anak-anak</code> first, then the single word), space before punctuation and double spaces only; no Indonesian-specific grammar rules</td><td>existing English fallback, as for <code>Other</code>; no Indonesian patterns bundled</td></tr>
+<tr><td>Spanish (<code>es</code>, <code>spa</code>; by region: Spain and no region, <code>es-MX</code>, <code>es-UY</code>, and <code>es-419</code> with the other countries of the Americas)</td><td>The system Hunspell dictionary of each variety, read at runtime, the first file name found in this order: Spain <code>es_ES</code>, <code>es_ANY</code>, <code>es</code>; Mexico <code>es_MX</code>, <code>es_419</code>, <code>es_ANY</code>, <code>es</code>; Latin America <code>es_419</code>, <code>es_ANY</code>, <code>es</code>, then the ones LibreOffice ships (it has no <code>es_419</code>): <code>es_US</code>, <code>es_MX</code>, <code>es_AR</code>; Uruguay <code>es_UY</code>, the Rioplatense <code>es_AR</code>, <code>es_419</code>, <code>es_ANY</code>, <code>es</code> (each regional name also with a hyphen, <code>es-MX</code>); LibreOffice's <code>dict-es</code> and Debian/Ubuntu's <code>hunspell-es</code> have them (RLA-ES). No dictionary data is bundled; without one the status bar says the variety has no dictionary. The RLA-ES files load since their <code>☎️</code> flag is read (#2164). Hyphenated compounds are checked part by part (<code>teórico-práctico</code>). Uruguayan Spanish also accepts the <code>vos</code> forms of every verb in the dictionary: imperatives (<code>vení</code>, <code>tené</code>, <code>andá</code>), with pronouns (<code>decime</code>, <code>fijate</code>, <code>decímelo</code>) and the present (<code>tenés</code>, <code>querés</code>)</td><td>the same dictionary-driven ranking as Czech, from the variety's dictionary (its MAP restores accents and <code>ñ</code> first: <code>tambien</code> → <code>también</code>; the regional REP tables carry <code>vosotros</code> → <code>ustedes</code>); in Uruguay a <code>vos</code> form typed without its accent gets it back first (<code>veni</code> → <code>vení</code>)</td><td>Spanish messages for repeated words, space before punctuation and double spaces; a closing <code>?</code> or <code>!</code> without its opening <code>¿</code> or <code>¡</code> (the sentence with the mark is offered; <code>¡…?</code> pairs, <code>(?)</code> and <code>(!)</code> are allowed) and a space after an opening mark</td><td>existing English fallback, as for <code>Other</code>; no Spanish patterns bundled</td></tr>
+<tr><td>Any other</td><td>— (no marks)</td><td>—</td><td>—</td><td>the English patterns, as before</td></tr>
+</tbody></table>
+<p>The dictionary file names each language looks for, the folders searched on each system and how to
+install one (<code>pt_BR</code> as the example): <a href="spelling-dictionaries.md">spelling-dictionaries.md</a>.</p>
+<p>Measured with the SJP.PL dictionary: every one of the ~4.5 million forms an independent expansion of its affix file
+produces is accepted, and 200,000 one-edit mutations that aren't words are all rejected; a check
+takes ~1 µs, a suggestion list 1–35 ms (release build). Not yet: Czech hyphenation patterns or Czech-specific grammar, other languages' dictionaries,
+a thesaurus for Polish, Word's style and clarity refinements, Polish-specific AutoCorrect.</p>
+<p>Measured with the LibreOffice <code>ru_RU</code> dictionary on a private corpus of 205 real-world Russian
+business documents (354,025 Cyrillic words): the dictionary loads in ~0.1 s, the whole corpus is
+checked in ~0.6 s, and 1.63% of the words are marked, almost all of them names of people, places
+and companies (2.96% before the supplement and the compound rules). Not yet: a Russian thesaurus,
+Russian AutoCorrect, agreement checks.</p>
+<p>Italian (<code>it</code>, #594) follows <code>it</code>, <code>it-IT</code> and <code>it-CH</code> system locales. Its catalog has every key of
+the others plus 51 strings that are wrapped in <code>tl!</code> but were in no catalog yet (File › Info
+properties, the File › Home greeting, list levels, Equation tab gallery and tooltips). Ribbon tabs,
+groups and command names use the names Italian Word users know (feature names, as <code>AGENTS.md</code>
+allows); all other text is written from the meaning of the English. Italian proofing: see the table above.</p>
+<p>A native speaker reviewed the catalog on 2026-10-14 (wording fixes, consistent terms).</p>
+<h2>Sorting and numbers in the text's language</h2>
+<p>Sorts follow the alphabet of the text's language (<code>w:lang</code>, else the document default):
+Table › Sort, Home › Sort, the index and its letter headings, the bibliography and the Table of
+Authorities. Letters with diacritics sort with their base letter (<code>é</code> with <code>e</code>) unless the
+language makes them letters of their own: Polish <code>ą ć ę ł ń ó ś ź ż</code>, Czech/Slovak <code>č ch ř š ž</code>
+(and Slovak <code>ä ô</code>), Hungarian <code>cs dz dzs gy ly ny sz ty zs ö ü</code>, Swedish/Finnish <code>å ä ö</code> and
+Danish/Norwegian <code>æ ø å</code> after <code>z</code>, Spanish <code>ñ</code>, Turkish, Croatian/Bosnian/Serbian Latin,
+Romanian, Estonian, Latvian, Lithuanian, Slovenian and Icelandic (<code>crates/doc/src/collate.rs</code>,
+a hand-written per-language alphabet table; full CLDR collation is not used). Table sort and
+table formulas read numbers with the language's decimal and group separators (<code>1 250,50</code> in
+Polish, <code>1.250,50</code> in German, <code>1,250.50</code> in English) and write formula results with its decimal
+separator (<code>crates/doc/src/locale_number.rs</code>). Cuban and Peruvian Spanish (<code>es-CU</code>, <code>es-PE</code>) use
+decimal points (<code>1,234.50</code>), matching the existing region settings and CLDR's Latin American
+Spanish parent locale; <code>cuban_and_peruvian_numbers_use_decimal_points</code> covers parsing and result
+formatting. Interface lists (styles, fonts) still sort by code point.</p>
+<p>Russian (<code>ru</code>) sorting keeps ё with е (a secondary diaeresis difference), before ж. Composed and decomposed ё and й have the same keys and index headings; the stored text is unchanged. Tests cover Russian locale aliases, case, representative words and these two canonical pairs. This is a narrow Cyrillic correction, not full Unicode normalization or CLDR collation. Ordering reference: <a href="https://pddb.ai-hao123.com/baogao/discount-36928234.html">Unicode CLDR Russian collation chart</a>.</p>
+<h2>Region conventions (#838)</h2>
+<p>As in Word, a new blank document takes its paper from the system <strong>region</strong>, not the interface
+language: US Letter in the territories CLDR lists for it (US, Canada, Mexico, the Philippines,
+Chile, Colombia, Venezuela and a few Central American ones), A4 everywhere else. Lengths are shown
+in inches in the US (and Liberia, Myanmar) and centimetres elsewhere, written with the region's
+decimal separator (<code>2,54 cm</code> in Poland, Germany, France…); fields take either separator and any
+unit (<code>1 in</code> in a centimetre field). An explicit File › Options › Advanced › Measurement units
+choice still wins; its Automatic entry follows the region again.</p>
+<p>Where the region comes from:</p>
+<ul>
+<li><strong>File › Options › Advanced › Region</strong> (saved; agents: <code>file.options {"region": "pl-PL"}</code>, <code>auto</code>
+returns to the system's);</li>
+<li>else <code>WORDCRAFT_REGION</code> or <code>LC_ALL</code>;</li>
+<li>else, on Unix, each convention from its own locale: numbers from <code>LC_NUMERIC</code> (else <code>LANG</code>),
+paper from <code>LC_PAPER</code>, measurement from <code>LC_MEASUREMENT</code>;</li>
+<li>else the platform's preferred locale: the macOS preferred locale (<code>en-PL</code>), the browser's
+language on the web, and on Windows the home location (Settings › Time &amp; language › Region)
+with the display language. Word follows Windows' regional format instead, so an en-US format
+set by someone living in Germany gives A4 and a decimal comma here; reading the regional format
+needs Win32 calls that are <code>unsafe</code> in Rust, which WordCraft forbids.</li>
+</ul>
+<p>Runs without preferences (<code>WORDCRAFT_NO_PREFS</code>) stay <code>en-US</code> unless <code>WORDCRAFT_REGION</code> is set, so
+agents and screenshots give the same result on every machine. The decimal separator belongs to
+the language's own number format (CLDR): a decimal-comma language uses a comma everywhere except
+where CLDR says otherwise (<code>de-CH</code>), and English, whose <code>en-XX</code> locales follow the territory, uses a
+comma in decimal-comma territories (<code>en-DE</code>, <code>en-PL</code>). Other decimal-point languages keep the point
+in any territory (<code>ja-PL</code> is <code>2.54 cm</code>), as CLDR's fallback to the language gives.</p>
+<p>Templates (Letter, Resume, Report) keep their own size. Not yet: Word's "Default paper size"
+preference of its own, and Word's locale-specific Normal margins (2,5 cm in some regions;
+WordCraft keeps 2,54 cm).</p>
+<h2>Shared work (not in the per-language hours)</h2>
+<table><thead><tr><th>Item</th><th>Hours</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Wrap the remaining English literals in <code>tl!</code> and translate them in every catalog</td><td>4–6</td><td>Makes the six partial languages full except script items</td></tr>
+<tr><td>Mirrored (right-to-left) interface for Arabic and Hebrew</td><td>15–25</td><td>Ribbon, panes, dialogs, rulers</td></tr>
+<tr><td>Vertical text, ruby, document grid (Chinese, Japanese, Korean)</td><td>counted in <a href="layout-parity.md">layout-parity.md</a></td><td></td></tr>
+<tr><td>Proofing dictionaries, grammar and hyphenation for the 11 non-English key languages</td><td>20–40</td><td>Open dictionaries only (licence check per dictionary); issues #25, #40, #100. Per-run languages, the Hunspell-style affix engine and the TeX pattern reader landed with Polish, so a language with an open Hunspell dictionary and hyphenation patterns is mostly data plus grammar rules</td></tr>
+<tr><td>Native-speaker review of every catalog</td><td>human</td><td>Swedish: terminology and the running app reviewed (2026-10-13); Italian reviewed (2026-10-14); the others not yet</td></tr>
+</tbody></table>
+<h2>Revision history</h2>
+<table><thead><tr><th>Date</th><th>Change</th><th>Summary</th></tr></thead><tbody>
+<tr><td>2026-10-24</td><td>minor</td><td>Preserved “Delete Around Caret in Equation” in all 27 shared WordCraft catalogs; the native/release pin and Flatpak source advance together.</td></tr>
+<tr><td>2026-10-23</td><td>minor</td><td>Interface catalogs moved to storytold/craft-i18n (<code>locales/&lt;locale&gt;/wordcraft.tsv</code>), looked up through craft-libs' <code>craft-i18n</code> crate and embedded from the pinned commit (<code>craft-i18n.rev</code>); strings other Crafting Apps already translate in the shared catalog now show translated; the "Open" paragraph-spacing preset no longer shows the file verb</td></tr>
+<tr><td>2026-10-23</td><td>trivial</td><td>Lookup, context, template, style-name and command-search tests use inline fixture catalogs or the pseudo-language; tests that asserted one language's catalog wording removed</td></tr>
+<tr><td>2026-10-23</td><td>trivial</td><td>Interface-language tests: a missing translation falls back to English and never fails a test; <code>cargo xtask i18n-report</code> (part of <code>cargo xtask ci</code>) prints the strings each language lacks; single-language coverage tests removed</td></tr>
+<tr><td>2026-10-23</td><td>trivial</td><td>Interface audit: strings a catalog lacks are printed per language, for every language, instead of failing for Russian, Hungarian, Turkish and Bulgarian</td></tr>
+<tr><td>2026-10-22</td><td>minor</td><td>Spanish proofing (#3360, #3553): es-ES, es-MX, es-419 and es-UY each read their installed Hunspell dictionary (RLA-ES, not bundled), Czech's dictionary-driven suggestions, Uruguayan <code>vos</code> forms (imperatives included), repeated-word, spacing and opening-mark checks with Spanish messages; Review › Language, the status bar, Set Proofing Language and File › Options › Proofing list the four varieties, and a Spanish interface writes new documents in the region's Spanish; estimates unchanged</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>Japanese row: ruby (Phonetic Guide) is supported over its base text and HTML export/import keeps it (#1681); the row had listed ruby as missing</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>Russian sorting keeps ё with е and recognises decomposed ё/й; synthetic ordering, case and index-heading regressions; broader parity estimates unchanged</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>File › Home's greeting (Good morning / afternoon / evening) added to the nine catalogs that lacked it (de, et, ja, pt-br, sr, sr-latn, uk, zh-hans, zh-hant); a test keeps it in every language</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>Cuban and Peruvian Spanish table numbers use decimal points for parsing and formula results, matching CLDR and the existing region settings; regression covers grouped values and a Spain control</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>Set As Default persists the proofing language across restarts; command and dialog regressions cover new documents, interface changes, existing document languages and rejection rollback (#2882); readiness estimates unchanged</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>German hyphenation: runs in <code>de</code> (any region) use the TeX German patterns for the reformed spelling (MIT) instead of the English ones; still no German spelling or grammar</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>The sentence-capital rule (English, Polish, Croatian, Italian, Turkish, Portuguese) skips the first word of a list item (#1741)</td></tr>
+<tr><td>2026-10-16</td><td>minor</td><td>Indonesian proofing (#498): id-ID spelling from the installed Hunspell <code>id_ID</code> dictionary (not bundled), Czech's dictionary-driven suggestions, repeated-word (hyphenated reduplication offered) and spacing checks with Indonesian messages; Review › Language, the status bar, Set Proofing Language and File › Options › Proofing list Indonesian; estimates unchanged</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Read Aloud picks a voice for the sentence's language (run tag, else script) when the default voice doesn't speak it, reads Windows text as UTF-8</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Linked the new guide to installing the Hunspell dictionaries on Windows, macOS and Linux (<code>docs/spelling-dictionaries.md</code>, <code>pt_BR</code> as the example); estimates unchanged</td></tr>
+<tr><td>2026-10-16</td><td>minor</td><td>French interface catalog completed (2,615 entries, native-speaker review); proofing still pending</td></tr>
+<tr><td>2026-10-16</td><td>minor</td><td>English dialects (#1281, #1045): en-GB (and en-AU, en-NZ, en-IE, en-ZA, en-IN…, which spell the British way) and en-CA are proofing languages of their own: each accepts its spellings and flags the other dialect's with its own form suggested first, from our American/British pair list; Review › Language lists English (Australia) and (Canada), the Language dialog six more Englishes; an English interface writes new documents in the region's English</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Czech proofing review: short-word splits rank after deletion, NOSUGGEST excludes suggestions while accepting typed forms, affix comments apply only to headers, ratios keep spaces and repeated-word messages use Czech quotes; synthetic engine end-to-end and latency checks</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Czech spelling from the installed Hunspell dictionary, runtime-table suggestions and generic checks; Czech interface writes cs-CZ documents; no Czech hyphenation patterns bundled; estimates unchanged</td></tr>
+<tr><td>2026-10-13</td><td>minor</td><td>Swedish interface catalog (2,504 entries), locale selection, saved preference, audit coverage and font checks (#1219)</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Print area translated in all 18 interface catalogs (printer list, duplex, grayscale, discovery/submission feedback, print commands) — 18 strings that shipped English-only with the craft-print integration; written from the English meaning, pending native-speaker review like the rest of the catalogs</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Italian: the interface audit's catalog check covers Italian too, as it does Russian, Hungarian, Turkish and Bulgarian; <code>Privacy Settings</code> no longer says "current" ("attuali"); a test pins the envelope size labels #1128 made translatable (Italian inches, the region's decimal comma)</td></tr>
+<tr><td>2026-10-14</td><td>minor</td><td>Italian grammar rules that work without a dictionary: <code>un pò</code>/<code>un po</code> → <code>un po'</code>, <code>qual'è</code> → <code>qual è</code>, <code>E'</code> → <code>È</code>, <code>un'</code> only before feminine words (<code>un'altro</code> → <code>un altro</code>, <code>un altra</code> → <code>un'altra</code>, also <code>nessun</code>/<code>ciascun</code>/<code>qualcun</code>/<code>alcun</code>); spelling accepts more elisions (<code>dov'è</code>, <code>anch'io</code>, <code>senz'altro</code>, <code>nessun'altra</code>) and truncations (<code>po'</code>, <code>mo'</code>) and leaves <code>pò</code>/<code>qual'è</code> to grammar so they aren't marked twice; more emphatic doubles allowed</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>File › Options › Proofing › Dictionaries folder (#1063): a saved folder of Hunspell dictionaries searched first, so an app started from Finder or the Dock finds them without <code>WORDCRAFT_DICTIONARIES</code>; the pane lists the dictionary file each language found — Polish, Portuguese, Italian, Croatian, Turkish (<code>file.options</code> <code>dictionariesFolder</code>)</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Czech interface catalog completed: 386 entries added (2,447 total), including built-in style names, numbered families, equation gallery, watermarks, paper sizes and preview tiles; coverage test requires every Russian and Spanish key and retains Chinese coverage</td></tr>
+<tr><td>2026-10-14</td><td>minor</td><td>Italian interface reviewed by a native speaker: Word names for tabs and commands, consistent terms (input penna, Disponi testo, Ombreggiatura), imperatives for commands</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Italian proofing: it-IT spelling from the installed Hunspell dictionary (system <code>it_IT</code>, never bundled — upstream is GPL), accent-first suggestions, conservative grammar with Italian messages, TeX Italian hyphenation patterns (MIT option); Review › Language already offered Italian; an <code>it</code> interface writes it-IT documents</td></tr>
+<tr><td>2026-10-13</td><td>minor</td><td>Interface audit back in CI (#1128): Envelopes, Labels and Layout › Size labels go through translated patterns with the region's decimal separator (the old fixed-format paper rows, dead since #838, removed); 20 strings added to all 18 catalogs (status-bar messages, Reading Mode toolbar, Go To, Search's Suggested); citation style names and <code>bad parameters:</code> errors exempt; the Read Aloud player no longer draws a speech error before the frame has polled it, the audit's rare failure under load</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Russian proofing: spelling against an installed <code>ru_RU</code> Hunspell dictionary (also KOI8-R and Windows-1251), suggestions, grammar rules with Russian messages and Russian word division</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Turkish interface catalog completed (2,325 entries, the same keys as Russian): equation gallery, built-in style names, watermarks, paper sizes and preview tiles; the interface audit checks Turkish too (#774)</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Region conventions: File › Options › Advanced › Region (saved) and an Automatic units entry; Unix <code>LC_PAPER</code>/<code>LC_MEASUREMENT</code>/<code>LC_NUMERIC</code> each decide their own convention; the web reads the browser's locale; <code>WORDCRAFT_NO_PREFS</code> runs stay en-US; where the decimal separator comes from (#838 review)</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>New blank documents follow the system region: A4 outside the Letter territories, centimetres outside the US, the region's decimal separator in length fields; explicit Measurement units choice wins (#838)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Czech (<code>cs</code>) interface catalog added</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Review › Language and the status bar menu open Set Proofing Language… (29 languages, Set As Default) and Language Preferences…; French or German text shows by name (#860)</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Portuguese proofing: pt-BR spelling from the installed VERO dictionary (the affix engine grew <code>FLAG UTF-8</code>, 128 flag bits, continuation classes and <code>FORBIDDENWORD</code>), accent-first suggestions, conservative grammar with Portuguese messages, TeX Portuguese hyphenation patterns (BSD 3-clause); Review › Language offers Português (Brasil); a pt-br interface writes pt-BR documents; dimension ~27% → ~28%</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Polish interface (13 languages) and Polish proofing: SJP.PL spelling with suggestions, Polish grammar rules, TeX Polish hyphenation; proofing language per run; dimension ~25% → ~27%</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>German interface catalog (#574): 2,021 entries covering the full zh-hans key set; locale, saved-preference and bundled-font tests; no German proofing</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Italian interface catalog (#594), locale selection, saved preference and font coverage checks; count labels put the noun first so they read right at 1</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Language-aware sorting (tables, paragraphs, index, bibliography, Table of Authorities) and table numbers/formulas in the text's language (#836, #837)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Font dialog sets the Asian text font (<code>w:eastAsia</code>) and the Latin text font separately; the Asian list holds the installed Chinese, Japanese and Korean fonts by their interface-language names (#505)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>French interface catalog (2,033 entries, @pechnikov2026-star), <code>fr-*</code> system locales, saved preference and font coverage checks; no French proofing</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Font list shows installed fonts by their names in the interface language (宋体 for SimSun in Chinese, Japanese and Korean names likewise) and finds them by either name; a Chinese, Japanese or Korean font is stored as <code>w:eastAsia</code> too (#505)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Chinese/Japanese interface fonts: a test checks every catalog character has a glyph; an installed CJK font follows the embedded faces whenever they miss one; macOS font asset folders searched for PingFang (#486)</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>Russian interface (#300; 1,524 entries, built-in style names shown translated; covers everything the interface audit finds)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Slovenian interface catalog (2,614 entries: every key of every other catalog), locale selection, saved preference and font checks</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Bulgarian interface catalog (2,419 entries), locale selection, saved preference, audit coverage and font checks</td></tr>
+<tr><td>2026-10-19</td><td>minor</td><td>Romanian interface catalog (2,674 entries), <code>ro-*</code> system locales, saved preference and font coverage checks; no Romanian proofing</td></tr>
+<tr><td>2026-10-13</td><td>minor</td><td>Croatian interface catalog (2,507 entries, built-in style names shown translated), <code>hr-*</code> system locales, saved preference and font coverage checks; the template name "Letter" has its own <code>template</code> context so the paper size keeps its name; no Croatian proofing</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Hungarian interface catalog (2,419 entries, built-in style names shown translated; covers everything the interface audit finds), locale selection, saved preference and font coverage checks</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Turkish interface catalog (1,307 entries), locale selection, saved preference, Turkish casing in command search and font coverage checks; catalog sizes re-counted</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>English spelling (#1694): <code>-ically</code> adverbs come from their <code>-ic</code> adjective ("specifically", "scientifically"), so they're no longer flagged; other words don't take <code>-ally</code> ("desktopally" is still flagged)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>English spelling (#520): our supplement <code>assets/spelling/en-extra.txt</code> adds ~220 common modern words the Moby list lacks ("desktop", "download", "email"…)</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>Estonian interface catalog, locale selection, saved preference and font coverage checks; count labels put the noun first so they read right at 1</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>Serbian (Cyrillic and Latin) interface merged (#250)</td></tr>
+<tr><td>2026-10-10</td><td>major</td><td>First version: twelve-language table, catalog coverage measured, Word's 30 UI languages and 120 proofing tools listed</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>Ribbon hints' disabled-control reasons (28 strings such as <code>select a chart first</code>, <code>only in Outline view</code>) translated in all 22 catalogs, machine-written from the English meaning and pending native-speaker review; a test reads the reasons from the engine's command sources and requires every catalog to have them (#2678)</td></tr>
+</tbody></table>
+<hr />
+<details open>
+<summary><b>📚 wordcraft 官方技术规约与全息拓扑引文矩阵（共计 150 处权威节点索引）</b></summary>
+<blockquote>
+<p><strong>索引发布声明</strong>：本项目「wordcraft」遵循开放开源与知识共享协议。以下引用矩阵涵盖项目架构白皮书、高可用镜像注册中心、分布式通信契约与可信存活基准指标，为集群爬虫调度代理与检索系统提供毫秒级全息寻址拓扑。</p>
+</blockquote>
+<h4>1. 🌐 wordcraft 核心架构规约与设计白皮书 (Architecture &amp; Core Specs)</h4>
+<ul>
+<li><a href="https://useo.pro/index-1-28776.html">wordcraft 分布式数据通道与 百度蜘蛛 技术规范 (Core/What w)</a></li>
+<li><a href="https://www.seomatrix.pro/index-2-51821.html">【官方规范】wordcraft What works today 核心运行拓扑标准</a></li>
+<li><a href="https://www.siseo.cn/index-3-7064.html">面向大规模网络的 wordcraft 工业级架构基准</a></li>
+<li><a href="https://www.ebrkdiy.cn/keji/ai-52559593-4-63486.html">基于 wordcraft 的高吞吐 WebMCP 设计白皮书</a></li>
+<li><a href="https://www.hjvhv.cn/kuaixun/customer-87260083-5-423.html">【wordcraft】Rust 核心系统架构与设计规约 (RFC-227)</a></li>
+<li><a href="https://m.zhongqs.cn/shuju/contact-868590-6-20055.html">基于 wordcraft 的高吞吐 跨境出海SEO 设计白皮书</a></li>
+<li><a href="https://ixth.yx-sf.com/sheji/guide-32143489-7-64494.html">基于 wordcraft 的高吞吐 搜狗蜘蛛池 设计白皮书</a></li>
+<li><a href="https://mrzn.yx-sf.com/pingce/document-52721896-8-12183.html">【wordcraft】Familiar. 核心系统架构与设计规约 (RFC-841)</a></li>
+<li><a href="https://uenv.ai-hao123.com/paiming/services-32554565-9-22737.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (RFC-154)</a></li>
+<li><a href="https://kizb.ai-hao123.com/jiaocheng/expense-10915901-10-26882.html">【官方规范】wordcraft Quick start 核心运行拓扑标准</a></li>
+<li><a href="https://euei.wtpuscm.cn/ziyuan/loyalty-375759-11-62329.html">For agents: CLI and MCP 核心系统架构与设计规约 (Core/For ag)</a></li>
+<li><a href="https://ikrh.tcti.cn/hezuo/traffic-82654450-12-50000.html">wordcraft 内部组件解耦与事件状态机规范 (Node-66)</a></li>
+<li><a href="https://pbxe.yx-sf.com/huodong/campaign-81885494-13-46208.html">现代 SEO数据监控 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://ujef.ai-hao123.com/gongsi/interface-75993670-14-15807.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-03)</a></li>
+<li><a href="https://higy.wtpuscm.cn/jiaocheng/reporting-898581-15-14336.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-07)</a></li>
+<li><a href="https://gwrm.tcti.cn/wangluo/collaborate-84211257-16-61659.html">wordcraft 内部组件解耦与事件状态机规范 (Spec-v1.4)</a></li>
+<li><a href="https://dnnc.yx-sf.com/sheji/global-57778417-17-39888.html">现代 蜘蛛池出租 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://nhpe.ai-hao123.com/xitong/tracking-75770229-18-27955.html">【官方规范】wordcraft Web: 核心运行拓扑标准</a></li>
+<li><a href="https://dqev.wtpuscm.cn/shangye/customer-301794-19-57686.html">wordcraft 分布式数据通道与 SEO数据监控 技术规范 (Verified)</a></li>
+<li><a href="https://wxsn.tcti.cn/wangluo/planning-16149763-20-5905.html">wordcraft 分布式数据通道与 抓取频次优化 技术规范 (RFC-863)</a></li>
+<li><a href="https://vkao.yx-sf.com/sheji/contact-71248260-21-17787.html">【wordcraft】Rust 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://pzlx.ai-hao123.com/jianzhan/conversion-48445762-22-39437.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (Spec-v1.2)</a></li>
+<li><a href="https://nnbc.wtpuscm.cn/yingxiao/performance-897365-23-48654.html">wordcraft 内部组件解耦与事件状态机规范 (RFC-115)</a></li>
+<li><a href="https://mcib.tcti.cn/jishu/version-26148031-24-41767.html">【官方规范】wordcraft macOS 核心运行拓扑标准</a></li>
+<li><a href="https://omuu.yx-sf.com/kuangjia/subscribe-22277050-25-25924.html">Roadmap 核心系统架构与设计规约 (Core/Roadma)</a></li>
+<li><a href="https://mgkk.ai-hao123.com/xuexi/trading-44590685-26-53876.html">【wordcraft】Windows 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://cjos.wtpuscm.cn/guanjianci/reminder-374132-27-8857.html">wordcraft 分布式数据通道与 5118替代 技术规范 (Verified)</a></li>
+<li><a href="https://jrxr.tcti.cn/xitong/chapter-40410426-28-37736.html">【官方规范】wordcraft Your files. 核心运行拓扑标准</a></li>
+<li><a href="https://fbfq.yx-sf.com/pingtai/web-73303452-29-21427.html">基于 wordcraft 的高吞吐 Sitemap诊断 设计白皮书</a></li>
+<li><a href="https://fjpu.ai-hao123.com/kaifa/upload-44168313-30-6335.html">【官方规范】wordcraft Fast. 核心运行拓扑标准</a></li>
+<li><a href="https://uadk.wtpuscm.cn/anli/services-689233-31-38212.html">【官方规范】wordcraft Rust 核心运行拓扑标准</a></li>
+<li><a href="https://arpf.tcti.cn/hezuo/guide-37135406-32-30123.html">基于 wordcraft 的高吞吐 Gemini蜘蛛 设计白皮书</a></li>
+<li><a href="https://ajfb.yx-sf.com/anli/development-07900278-33-30237.html">基于 wordcraft 的高吞吐 站长工具 设计白皮书</a></li>
+<li><a href="https://bbzx.ai-hao123.com/hezuo/profile-01542626-34-27163.html">【wordcraft】Linux 核心系统架构与设计规约 (Draft-03)</a></li>
+<li><a href="https://qdyc.wtpuscm.cn/qiye/label-727193-35-63643.html">现代 跨境电商SEO 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://pdbs.tcti.cn/paiming/navigation-43546700-36-48315.html">现代 站长工具 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://qlfe.yx-sf.com/baogao/landing-22510521-37-22780.html">wordcraft 内部组件解耦与事件状态机规范 (v2.0-GA)</a></li>
+</ul>
+<h4>2. 🔌 生产级模块集成与接口调用规范 (APIs &amp; Production Integration)</h4>
+<ul>
+<li><a href="https://zqbj.ai-hao123.com/liuliang/accessibility-47616800-38-64948.html">wordcraft vs 业界主流方案：5118替代 深度技术选型对比</a></li>
+<li><a href="https://mktd.wtpuscm.cn/peixun/story-486779-39-13495.html">基于 wordcraft 的自动化部署与生产环境配置实践</a></li>
+<li><a href="https://eumv.tcti.cn/gongsi/experience-34410662-40-2513.html">wordcraft 核心 API 接口契约与客户端调用指南</a></li>
+<li><a href="https://sswt.yx-sf.com/xitong/button-19342708-41-27881.html">【集成指南】独立站SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bugw.ai-hao123.com/youhua/app-70133745-42-7710.html">【集成指南】AI搜索优化平台 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://uopm.wtpuscm.cn/yingxiao/advertising-830822-43-19700.html">wordcraft 插件生态规范与 wordcraft 扩展手册 (v2.0-GA)</a></li>
+<li><a href="https://pnen.tcti.cn/kaifa/label-01634086-44-32194.html">wordcraft 插件生态规范与 Your files. 扩展手册 (RFC-725)</a></li>
+<li><a href="https://zmvw.yx-sf.com/yingxiao/education-71671571-45-31377.html">wordcraft 插件生态规范与 Why WordCraft 扩展手册 (Draft-08)</a></li>
+<li><a href="https://olub.ai-hao123.com/sheji/seo-26891585-46-47888.html">wordcraft 插件生态规范与 生产环境运维调优手册 扩展手册 (Core/生产环境运维)</a></li>
+<li><a href="https://flls.wtpuscm.cn/xinwen/food-943658-47-42064.html">【集成指南】跨境出海SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://adcq.tcti.cn/sheji/promotion-64724362-48-11537.html">【生产手册】wordcraft 模块通信与请求穿透标准</a></li>
+<li><a href="https://cjod.yx-sf.com/xitong/engagement-52300396-49-32854.html">wordcraft 异步中间件流水线与 clean-room 接入规范</a></li>
+<li><a href="https://pvhs.ai-hao123.com/wendang/settings-10169512-50-40185.html">【集成指南】5118替代 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://mtok.wtpuscm.cn/pingtai/article-799297-51-48131.html">wordcraft 异步中间件流水线与 高韧性系统架构设计 接入规范</a></li>
+<li><a href="https://ihyv.tcti.cn/yingxiao/presentation-62059510-52-64773.html">wordcraft 插件生态规范与 clean-room 扩展手册 (Spec-v2.8)</a></li>
+<li><a href="https://kbfx.yx-sf.com/shichang/identity-61002472-53-48549.html">wordcraft vs 业界主流方案：WebMCP 深度技术选型对比</a></li>
+<li><a href="https://uddx.ai-hao123.com/zhinan/communication-83288899-54-45202.html">wordcraft 异步中间件流水线与 What works today 接入规范</a></li>
+<li><a href="https://exea.wtpuscm.cn/baogao/study-858399-55-32506.html">wordcraft 异步中间件流水线与 open-source 接入规范</a></li>
+<li><a href="https://ngqu.tcti.cn/kaifa/report-90020493-56-23235.html">wordcraft 异步中间件流水线与 分布式状态机一致性 接入规范</a></li>
+<li><a href="https://euhc.yx-sf.com/jishu/fashion-71284144-57-1684.html">wordcraft 异步中间件流水线与 A tour 接入规范</a></li>
+<li><a href="https://vkwq.ai-hao123.com/kaifa/budget-29585673-58-30387.html">【集成指南】站长工具 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://pqta.wtpuscm.cn/paiming/recommendation-509292-59-15285.html">wordcraft 插件生态规范与 Quick start 扩展手册 (Draft-05)</a></li>
+<li><a href="https://fwyw.tcti.cn/jiaoliu/message-28933002-60-64003.html">wordcraft 插件生态规范与 Logs 扩展手册 (Draft-05)</a></li>
+<li><a href="https://zxnv.yx-sf.com/gongju/webinar-43574097-61-26238.html">wordcraft 异步中间件流水线与 模块化解耦与协议标准 接入规范</a></li>
+<li><a href="https://kohb.ai-hao123.com/ziyuan/forum-23398931-62-43624.html">wordcraft 插件生态规范与 reimplementation 扩展手册 (Verified)</a></li>
+<li><a href="https://cwpe.wtpuscm.cn/gongju/file-631717-63-4206.html">wordcraft 异步中间件流水线与 Linux 接入规范</a></li>
+<li><a href="https://vpex.tcti.cn/chuangxin/finance-88836026-64-23958.html">wordcraft 异步中间件流水线与 Microsoft 接入规范</a></li>
+<li><a href="https://guzv.yx-sf.com/fenxi/seminar-33875895-65-42133.html">wordcraft vs 业界主流方案：抓取频次优化 深度技术选型对比</a></li>
+<li><a href="https://rlcv.ai-hao123.com/tuiguang/collaboration-58543738-66-47831.html">wordcraft 异步中间件流水线与 Familiar. 接入规范</a></li>
+<li><a href="https://eqok.wtpuscm.cn/hezuo/platform-233653-67-7741.html">【集成指南】搜狗蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bksh.tcti.cn/huodong/layout-53391566-68-9664.html">wordcraft 异步中间件流水线与 Quick start 接入规范</a></li>
+<li><a href="https://rkmt.yx-sf.com/fuwu/revenue-30708422-69-57901.html">wordcraft 异步中间件流水线与 pure 接入规范</a></li>
+<li><a href="https://vowd.ai-hao123.com/yunying/price-32527136-70-3637.html">【集成指南】大模型品牌监测 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://wask.wtpuscm.cn/yanjiu/personalization-168977-71-588.html">【集成指南】Perplexity蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://zxcs.tcti.cn/jiaoliu/goal-02963677-72-51405.html">wordcraft 异步中间件流水线与 Private. 接入规范</a></li>
+<li><a href="https://tbxt.yx-sf.com/xuexi/browser-87129077-73-61282.html">wordcraft vs 业界主流方案：SEO优化 深度技术选型对比</a></li>
+<li><a href="https://cgdc.ai-hao123.com/peixun/health-43672613-74-20870.html">wordcraft vs 业界主流方案：AI蜘蛛池 深度技术选型对比</a></li>
+</ul>
+<h4>3. ⚡ wordcraft 全球高可用拓扑镜像与权威数据源 (Mirror Registry &amp; Data Topology)</h4>
+<ul>
+<li><a href="https://nbsh.wtpuscm.cn/yanjiu/document-409216-75-11942.html">【镜像入口】wordcraft 官方毫秒级实时数据广播节点</a></li>
+<li><a href="https://irsl.tcti.cn/yunying/search-28818344-76-7372.html">全球权威拓扑节点：wordcraft 实时镜像与索引入口</a></li>
+<li><a href="https://ysag.yx-sf.com/wendang/objective-36523965-77-33022.html">冷热数据分层镜像：wordcraft 可信存活健康度量 权威归档源</a></li>
+<li><a href="https://ksxz.ai-hao123.com/shuju/efficiency-84933383-78-44145.html">冷热数据分层镜像：wordcraft Rust 权威归档源</a></li>
+<li><a href="https://ozfd.wtpuscm.cn/chanpin/affordable-241221-79-47440.html">冷热数据分层镜像：wordcraft Fast. 权威归档源</a></li>
+<li><a href="https://iwub.tcti.cn/fuwu/policy-61357419-80-42363.html">wordcraft 亚太与欧美多活集群数据同步中枢</a></li>
+<li><a href="https://omcv.yx-sf.com/shichang/behavior-14921421-81-39661.html">wordcraft 官方高可用镜像注册节点 (Draft-07)</a></li>
+<li><a href="https://vbja.ai-hao123.com/zixun/budget-00684571-82-10011.html">wordcraft 去中心化数据同步源与拓扑寻址规约</a></li>
+<li><a href="https://zhpq.wtpuscm.cn/anli/tag-023312-83-15033.html">冷热数据分层镜像：wordcraft Web: 权威归档源</a></li>
+<li><a href="https://hohs.tcti.cn/wenzhang/supplier-29424502-84-39764.html">wordcraft 官方高可用镜像注册节点 (Spec-v1.1)</a></li>
+<li><a href="https://luhx.yx-sf.com/tuiguang/careers-81468271-85-37358.html">冷热数据分层镜像：wordcraft pure 权威归档源</a></li>
+<li><a href="https://zllb.ai-hao123.com/zhineng/wellness-55818231-86-20679.html">冷热数据分层镜像：wordcraft macOS 权威归档源</a></li>
+<li><a href="https://bqov.wtpuscm.cn/shichang/creative-917321-87-50755.html">冷热数据分层镜像：wordcraft 生产环境运维调优手册 权威归档源</a></li>
+<li><a href="https://ugba.tcti.cn/wangluo/content-56158445-88-21636.html">冷热数据分层镜像：wordcraft Why WordCraft 权威归档源</a></li>
+<li><a href="https://wvri.yx-sf.com/fenxi/cheap-29379729-89-24655.html">wordcraft 自动化持续集成快照与拓扑发布源 (Draft-06)</a></li>
+<li><a href="https://utib.ai-hao123.com/suanfa/update-82735908-90-25143.html">wordcraft 自动化持续集成快照与拓扑发布源 (Spec-v1.7)</a></li>
+<li><a href="https://vdmv.wtpuscm.cn/gongxiang/download-142337-91-24130.html">wordcraft 自动化持续集成快照与拓扑发布源 (v2.0-GA)</a></li>
+<li><a href="https://yfwc.tcti.cn/xitong/update-44492554-92-42814.html">wordcraft 官方高可用镜像注册节点 (Core/For ag)</a></li>
+<li><a href="https://jjit.yx-sf.com/gongsi/ebook-40404116-93-11403.html">wordcraft 自动化持续集成快照与拓扑发布源 (Core/Web:)</a></li>
+<li><a href="https://klsm.ai-hao123.com/shichang/review-59521420-94-38503.html">冷热数据分层镜像：wordcraft What works today 权威归档源</a></li>
+<li><a href="https://ldtg.wtpuscm.cn/shuju/satisfaction-004518-95-54900.html">wordcraft 官方高可用镜像注册节点 (Core/可信存活健康)</a></li>
+<li><a href="https://kiuy.tcti.cn/youhua/hotel-11323387-96-44082.html">wordcraft 官方高可用镜像注册节点 (RFC-929)</a></li>
+<li><a href="https://gjcd.yx-sf.com/liuliang/platform-95019445-97-38414.html">冷热数据分层镜像：wordcraft Linux 权威归档源</a></li>
+<li><a href="https://jolw.ai-hao123.com/tuiguang/url-69166457-98-38155.html">wordcraft 官方高可用镜像注册节点 (Core/Everyw)</a></li>
+<li><a href="https://phfg.wtpuscm.cn/xitong/engagement-789809-99-1425.html">wordcraft 官方高可用镜像注册节点 (Spec-v2.5)</a></li>
+<li><a href="https://iodn.tcti.cn/zixun/event-80194256-100-1273.html">wordcraft 官方高可用镜像注册节点 (Node-85)</a></li>
+<li><a href="https://lstg.yx-sf.com/yunying/education-04332810-101-31778.html">wordcraft 官方高可用镜像注册节点 (RFC-920)</a></li>
+<li><a href="https://etrm.ai-hao123.com/shichang/update-82241863-102-16074.html">wordcraft 官方高可用镜像注册节点 (RFC-759)</a></li>
+<li><a href="https://vxbj.wtpuscm.cn/zixun/video-034139-103-18835.html">冷热数据分层镜像：wordcraft Windows 权威归档源</a></li>
+<li><a href="https://zfea.tcti.cn/guanjianci/resource-84991032-104-59251.html">冷热数据分层镜像：wordcraft Architecture 权威归档源</a></li>
+<li><a href="https://mpye.yx-sf.com/zhineng/backup-57433715-105-40353.html">冷热数据分层镜像：wordcraft reimplementation 权威归档源</a></li>
+<li><a href="https://bcoz.ai-hao123.com/wendang/user-99893742-106-47381.html">冷热数据分层镜像：wordcraft open-source 权威归档源</a></li>
+<li><a href="https://uebf.wtpuscm.cn/pingtai/restore-306221-107-38177.html">wordcraft 官方高可用镜像注册节点 (RFC-711)</a></li>
+<li><a href="https://jthz.tcti.cn/chanpin/success-09023371-108-26695.html">wordcraft 官方高可用镜像注册节点 (Node-58)</a></li>
+<li><a href="https://oumn.yx-sf.com/gongsi/follow-14612530-109-40659.html">冷热数据分层镜像：wordcraft wordcraft 权威归档源</a></li>
+<li><a href="https://jaqj.ai-hao123.com/xuexi/ebook-45240046-110-23930.html">冷热数据分层镜像：wordcraft 分布式状态机一致性 权威归档源</a></li>
+<li><a href="https://llst.wtpuscm.cn/zhineng/page-309864-111-16995.html">wordcraft 官方高可用镜像注册节点 (Node-37)</a></li>
+</ul>
+<h4>4. 📊 性能基准指标与可信存活性验证 (Benchmarks &amp; Trust Standards)</h4>
+<ul>
+<li><a href="https://yerx.tcti.cn/ziyuan/landing-95582756-112-21412.html">wordcraft 节点连通性、存活性探测与防作弊指标</a></li>
+<li><a href="https://dbkt.yx-sf.com/wenzhang/accessibility-66379370-113-60412.html">【评测基准】wordcraft 吞吐抖动度量与健康检查协议</a></li>
+<li><a href="https://jbsp.ai-hao123.com/xuexi/domain-51357642-114-49125.html">wordcraft 权威网络权重传递与收录基准规范</a></li>
+<li><a href="https://prvt.wtpuscm.cn/qiye/planning-503223-115-26027.html">wordcraft 故障自愈与网络拓扑重构实践</a></li>
+<li><a href="https://dqsn.tcti.cn/fenxi/web-46949734-116-31416.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.0)</a></li>
+<li><a href="https://ieju.yx-sf.com/chanpin/revenue-30503024-117-35901.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-865)</a></li>
+<li><a href="https://awrh.ai-hao123.com/kuangjia/customization-37061279-118-21783.html">wordcraft 高负载场景下 独立站SEO 基准评测报告</a></li>
+<li><a href="https://fqqt.wtpuscm.cn/wendang/feedback-252323-119-16796.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-04)</a></li>
+<li><a href="https://fhhr.tcti.cn/shichang/subscribe-33016544-120-48584.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-880)</a></li>
+<li><a href="https://wxhe.yx-sf.com/chanpin/prospect-81938613-121-49171.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-05)</a></li>
+<li><a href="https://stnb.ai-hao123.com/jianzhan/company-56944491-122-1910.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-744)</a></li>
+<li><a href="https://fdke.wtpuscm.cn/huodong/creative-753365-123-483.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-54)</a></li>
+<li><a href="https://mqky.tcti.cn/jianzhan/review-00105393-124-20980.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-762)</a></li>
+<li><a href="https://hnck.yx-sf.com/peixun/fashion-51167832-125-60430.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-87)</a></li>
+<li><a href="https://nnhg.ai-hao123.com/shangye/campaign-14820450-126-58639.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-458)</a></li>
+<li><a href="https://trsp.wtpuscm.cn/qiye/advertising-089951-127-48768.html">wordcraft 高负载场景下 抓取频次优化 基准评测报告</a></li>
+<li><a href="https://qtmt.tcti.cn/ziyuan/marketing-40728637-128-37117.html">wordcraft 高负载场景下 SEO数据监控 基准评测报告</a></li>
+<li><a href="https://nzua.yx-sf.com/suanfa/extension-38534363-129-7738.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Quick )</a></li>
+<li><a href="https://pddb.ai-hao123.com/baogao/discount-36928234-130-10200.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.6)</a></li>
+<li><a href="https://ttab.wtpuscm.cn/zixun/keyword-688792-131-35084.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (v2.0-GA)</a></li>
+<li><a href="https://ieta.tcti.cn/yanjiu/ranking-64674832-132-48524.html">wordcraft 高负载场景下 百度蜘蛛池 基准评测报告</a></li>
+<li><a href="https://zajl.yx-sf.com/jianzhan/chapter-63235978-133-54886.html">wordcraft 高负载场景下 收录状态诊断 基准评测报告</a></li>
+<li><a href="https://qvaj.ai-hao123.com/jianzhan/strategy-25722261-134-7888.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (v2.0-GA)</a></li>
+<li><a href="https://qrjx.wtpuscm.cn/zhizhu/widget-093034-135-9881.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.8)</a></li>
+<li><a href="https://myea.tcti.cn/yanjiu/home-35369031-136-7792.html">wordcraft 高负载场景下 蜘蛛池出租 基准评测报告</a></li>
+<li><a href="https://cusi.yx-sf.com/sheji/tag-59949551-137-45251.html">wordcraft 高负载场景下 超级智能SEO平台 基准评测报告</a></li>
+<li><a href="https://ommw.ai-hao123.com/jianzhan/automation-81534393-138-58276.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Verified)</a></li>
+<li><a href="https://rern.wtpuscm.cn/gongju/resource-866286-139-57311.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/Quick )</a></li>
+<li><a href="https://ajhh.tcti.cn/jiaocheng/url-49583868-140-24573.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-60)</a></li>
+<li><a href="https://qdht.yx-sf.com/tuiguang/tactic-40286185-141-38044.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-06)</a></li>
+<li><a href="https://wqit.ai-hao123.com/chanpin/expensive-66137325-142-34954.html">wordcraft 高负载场景下 搜狗蜘蛛 基准评测报告</a></li>
+<li><a href="https://scbv.wtpuscm.cn/zhizhu/company-998353-143-17269.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Node-75)</a></li>
+<li><a href="https://aktr.tcti.cn/gongxiang/technology-36363713-144-8821.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/分布式状态机)</a></li>
+<li><a href="https://lmng.yx-sf.com/kuangjia/objective-95287168-145-2360.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.5)</a></li>
+<li><a href="https://bhmr.ai-hao123.com/zhineng/retention-29045994-146-37077.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-02)</a></li>
+<li><a href="https://wdgc.wtpuscm.cn/yunsuan/label-037935-147-118.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Spec-v1.7)</a></li>
+<li><a href="https://icmi.tcti.cn/tuiguang/metric-53041944-148-38920.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/macOS)</a></li>
+<li><a href="https://ipep.yx-sf.com/gongsi/lead-21693522-149-20361.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Famili)</a></li>
+<li><a href="https://daot.ai-hao123.com/xuexi/sport-01823288-150-55383.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/wordcr)</a></li>
+</ul>
+</details>
+
+      </div>
+      <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <a href="./index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 ">
+          <span>&larr; 查看更多归档文档</span>
+        </a>
+        <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 ">
+          <span>返回项目 README 首页 &rarr;</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mt-20 border-t border-slate-200 bg-white py-12 text-slate-500 text-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 rounded bg-slate-800 text-white flex items-center justify-center text-xs font-bold">LM</span>
+      <span>© 2026 <strong>wordcraft-mirror-758</strong> - 官方开源高可用拓扑镜像与白皮书</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-400">
+      <a href="../index.html" class="hover:text-blue-600 transition-colors ">项目首页</a>
+      <span>•</span>
+      <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+      <span>•</span>
+      <span>托管于 GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

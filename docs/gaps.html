@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where WordCraft falls short of Word - wordcraft-mirror-758 文档归档</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      :root {
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.68;
+        color: #1e293b;
+      }
+      .markdown-body {
+        color: #1e293b;
+      }
+      .markdown-body h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-top: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid #e2e8f0;
+        color: #0f172a;
+        line-height: 1.25;
+      }
+      .markdown-body h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 1.6rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+      }
+      .markdown-body h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.3rem;
+        margin-bottom: 0.6rem;
+        color: #334155;
+      }
+      .markdown-body p {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.7;
+      }
+      .markdown-body a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dashed #93c5fd;
+        transition: all 0.2s ease;
+      }
+      .markdown-body a:hover {
+        color: #1d4ed8;
+        border-bottom: 1px solid #1d4ed8;
+        background-color: #eff6ff;
+        border-radius: 2px;
+      }
+      .markdown-body ul, .markdown-body ol {
+        padding-left: 1.5rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+      }
+      .markdown-body ol {
+        list-style-type: decimal;
+      }
+      .markdown-body li {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
+      .markdown-body pre {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        padding: 1rem 1.2rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .markdown-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875em;
+        padding: 0.15rem 0.35rem;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-radius: 0.35rem;
+        border: 1px solid #e2e8f0;
+      }
+      .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        color: inherit;
+      }
+      .markdown-body blockquote {
+        margin: 1rem 0;
+        padding: 0.75rem 1.25rem;
+        background-color: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: #475569;
+      }
+      .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0;
+        display: block;
+        overflow-x: auto;
+      }
+      .markdown-body th, .markdown-body td {
+        border: 1px solid #cbd5e1;
+        padding: 0.6rem 1rem;
+        text-align: left;
+      }
+      .markdown-body th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+      .markdown-body tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      .markdown-body hr {
+        height: 1px;
+        border: none;
+        background-color: #e2e8f0;
+        margin: 2rem 0;
+      }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform ">LM</span>
+        <span class="font-bold text-slate-900 tracking-tight text-lg group-hover:text-blue-600 transition-colors ">wordcraft-mirror-758</span>
+      </a>
+      <span class="hidden md:inline-block text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono ">Pages Docs</span>
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2 text-sm">
+      <a href="../index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>首页 (README)</span>
+      </a>
+      <a href="./index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-blue-600 bg-blue-50 font-semibold ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span>文档归档 (Docs)</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+      </a>
+      <div class="h-4 w-px bg-slate-200 mx-1"></div>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758/wiki" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden sm:inline">Wiki</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- 面包屑与顶部导航 -->
+  <header class="bg-white border-b border-slate-200 py-6 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-xs text-slate-500 mb-2 font-medium">
+        <a href="../index.html" class="hover:text-blue-600 transition-colors ">首页</a>
+        <span>/</span>
+        <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold">技术文档</span>
+      </nav>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Where WordCraft falls short of Word</h1>
+        <a href="./index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors ">
+          <span>&larr; 返回文档归档菜单</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体正文区域 -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+    <article class="bg-white p-6 sm:p-12 rounded-2xl shadow-sm border border-slate-200">
+      <div class="markdown-body">
+        <h1>Where WordCraft falls short of Word</h1>
+<blockquote>
+<p><strong>Last reviewed:</strong> 2026-10-10 · <strong>Last updated:</strong> 2026-10-22 · <strong>Change:</strong> trivial (View windows: several open documents and Switch Windows in the engine; previously trivial: explicit documents keep the editor when recovery discovery finishes; readable recovery controls; previously trivial: text mini toolbar available with the right-click menu, #2959; previously trivial: personal templates in File › New and Save as Word Template, #2852; previously trivial: tracked table/row/cell/section property changes record in WordCraft, narrowing gap 5; previously trivial: a document with many content controls saves in the time the controls take, #13; previously trivial: Format Page Numbers dialog carries Word's number formats and Continue from previous section / Start at, #1113; previously trivial: centred list labels after leading page breaks, #2964; previously trivial: fixed font inputs in four layout controls; previously trivial: a right, centre or decimal tab whose text doesn't fit, or a left tab past the right indent, goes to the next line with its text, #1840; previously trivial: Bullets and Numbering toggle off style-inherited lists at their effective level, including basedOn chains and numbered ListParagraph styles; other paragraphs and list definitions stay unchanged (related to #3459); previously trivial: Russian sorting keeps ё with е and recognises decomposed ё/й; previously trivial: #8: English dialects — en-GB, en-CA, en-AU… flag each other's spellings, #1281; previously trivial: #1: shape gradients and transparency, #1500; previously trivial: text typed into a content control takes the control's formatting; localized placeholder styles recognised; previously trivial: forms protection keeps its content controls: no inserting, Properties or Remove Content Control; previously trivial: clearing a no-match font query keeps the recent heading visible, #2068; previously trivial: line breaking: a slash opening a word travels whole to the next line, #2963; previously trivial: recipient list search and merged-only view, #1576; previously trivial: #2 impact restated: only ink rendering and OLE editing remain; previously trivial: #2 narrowed: native ink nested in groups and drawing canvases kept on save; previously trivial: opening a DOCX no longer copies its pictures; previously trivial: RTF export writes sections (gap 19); previously trivial: ODT export writes sections (gap 19); previously trivial: automatic Asian/Latin and Asian/number spacing laid out, #2358; previously trivial: hint-reliant CJK outlines; previously trivial: numbered headings, #1793; previously trivial: legacy outline, shadow, emboss and imprint text effects drawn, #2534; previously trivial: #8 narrowed: Indonesian proofing from the installed Hunspell dictionary, #498; previously trivial: glossary/building blocks closed; previously trivial: Split Cells and Convert Text to Table follow the Word check, #2592; previously trivial: Language dialog keeps inherited proofing language and no-proof choices (#2717); previously trivial: #29: a copied equation also goes in the MathML clipboard formats, #1297; previously trivial: #24: the Spike, Ctrl+F3 and Ctrl+Shift+F3; previously trivial: VML freeforms read and kept on save; previously trivial: consistent preferred cell widths; previously trivial: multi-paragraph field instructions no longer add blank lines; previously trivial: page-break-only list paragraphs hide their labels; previously trivial: floating-table overlap ignores empty line-break lines; previously trivial: copies keep their formatting on the clipboard as HTML, #1523; previously trivial: sample-text formulas on Enter, #1067; previously trivial: #29: copied equations as MathML, OMML open as #1297, #816; previously trivial: the Font list no longer keeps every previewed font in memory, #848; previously trivial: table column and row markers on the rulers, #700; previously trivial: table borders and the resize handle drag on the page, #217; previously trivial: formatting revisions landed, #41; previously trivial: Draw Table and Eraser landed, #303; previously minor: beta distance restated: ~15 points, ~150–230 h; previously: first version; every known shortfall from the 2026-10-10 re-measure, ranked) · <strong>Target:</strong> Microsoft Word (Microsoft 365) for Mac 16.113.4
+<strong>Highlight update:</strong> 2026-10-25 · Highlight shortcut toggles the last chosen colour off when the whole selection has it; explicit colour commands remain setters (#4085). Readiness estimates unchanged.
+<strong>Last reviewed:</strong> 2026-10-10 · <strong>Last updated:</strong> 2026-10-25 · <strong>Change:</strong> trivial (#7: Custom Document Properties dialog, #2982; previously trivial: egui 0.37 migration: the interface catalogs stay shared and pinned by <code>craft-i18n.rev</code> at <code>9205108cfdced5177706264038848b68b2422d2b</code> (27 languages, English fallback); input-method handling has new regressions but managed CI passed, and native IME acceptance plus native-speaker catalog review remain open; previously trivial: Markdown code spans keep line-broken text literal, #3738; previously trivial: small follow-ups from the field, table and AutoFormat batch, #4232; previously trivial: highlight target includes selected paragraph marks, #4085; previously trivial: full-target highlight check beyond 10,000 runs, #4085; previously trivial: Exact-spacing table contact uses the specified line height rather than paragraph-mark metrics (#3977); previously trivial: cu20we: restrict pre-spacing float origins to paragraph anchors; document cap helpers and regressions; previously trivial: a command that changes nothing is not an edit: no undo step, no unsaved changes, no relayout, and the redo stack survives it; previously minor: #8 narrowed: Spanish proofing (Spain, Mexico, Latin America, Uruguay) from the installed Hunspell dictionaries, #3360, #3553; previously trivial: gap 10: group connector rerouting preserves transformed free and unresolved endpoints under nonuniform scaling; obstacle routing still missing; readiness estimates unchanged; previously trivial: a word with no break opportunity in it no longer makes the layout quadratic, #3412; previously trivial: the ranked gap list held two rows each for #19, #20 and #21; each gap appears once now; a document with many relationships opens in the time its part takes, #3411; previously trivial: the file commands that change the document are checked on a protected document, the protection of a protected document needs an explicit stop, the session author can't change through <code>file.setAuthor</code> under protection (the CLI's <code>--author</code> uses the same protection check), and the post-check compares the settings and the metadata; previously trivial: explicit documents keep the editor when recovery discovery finishes; readable recovery controls; previously trivial: text mini toolbar available with the right-click menu, #2959; previously trivial: personal templates in File › New and Save as Word Template, #2852; previously trivial: tracked table/row/cell/section property changes record in WordCraft, narrowing gap 5; previously trivial: a document with many content controls saves in the time the controls take, #13; previously trivial: Format Page Numbers dialog carries Word's number formats and Continue from previous section / Start at, #1113; previously trivial: centred list labels after leading page breaks, #2964; previously trivial: fixed font inputs in four layout controls; previously trivial: a right, centre or decimal tab whose text doesn't fit, or a left tab past the right indent, goes to the next line with its text, #1840; previously trivial: Bullets and Numbering toggle off style-inherited lists at their effective level, including basedOn chains and numbered ListParagraph styles; other paragraphs and list definitions stay unchanged (related to #3459); previously trivial: Russian sorting keeps ё with е and recognises decomposed ё/й; previously trivial: #8: English dialects — en-GB, en-CA, en-AU… flag each other's spellings, #1281; previously trivial: #1: shape gradients and transparency, #1500; previously trivial: text typed into a content control takes the control's formatting; localized placeholder styles recognised; previously trivial: forms protection keeps its content controls: no inserting, Properties or Remove Content Control; previously trivial: clearing a no-match font query keeps the recent heading visible, #2068; previously trivial: line breaking: a slash opening a word travels whole to the next line, #2963; previously trivial: recipient list search and merged-only view, #1576; previously trivial: #2 impact restated: only ink rendering and OLE editing remain; previously trivial: #2 narrowed: native ink nested in groups and drawing canvases kept on save; previously trivial: opening a DOCX no longer copies its pictures; previously trivial: RTF export writes sections (gap 19); previously trivial: ODT export writes sections (gap 19); previously trivial: automatic Asian/Latin and Asian/number spacing laid out, #2358; previously trivial: hint-reliant CJK outlines; previously trivial: numbered headings, #1793; previously trivial: legacy outline, shadow, emboss and imprint text effects drawn, #2534; previously trivial: #8 narrowed: Indonesian proofing from the installed Hunspell dictionary, #498; previously trivial: glossary/building blocks closed; previously trivial: Split Cells and Convert Text to Table follow the Word check, #2592; previously trivial: Language dialog keeps inherited proofing language and no-proof choices (#2717); previously trivial: #29: a copied equation also goes in the MathML clipboard formats, #1297; previously trivial: #24: the Spike, Ctrl+F3 and Ctrl+Shift+F3; previously trivial: VML freeforms read and kept on save; previously trivial: consistent preferred cell widths; previously trivial: multi-paragraph field instructions no longer add blank lines; previously trivial: page-break-only list paragraphs hide their labels; previously trivial: floating-table overlap ignores empty line-break lines; previously trivial: copies keep their formatting on the clipboard as HTML, #1523; previously trivial: sample-text formulas on Enter, #1067; previously trivial: #29: copied equations as MathML, OMML open as #1297, #816; previously trivial: the Font list no longer keeps every previewed font in memory, #848; previously trivial: table column and row markers on the rulers, #700; previously trivial: table borders and the resize handle drag on the page, #217; previously trivial: formatting revisions landed, #41; previously trivial: Draw Table and Eraser landed, #303; previously minor: beta distance restated: ~15 points, ~150–230 h; previously: first version; every known shortfall from the 2026-10-10 re-measure, ranked) · <strong>Target:</strong> Microsoft Word (Microsoft 365) for Mac 16.113.4</p>
+</blockquote>
+<p>Recovery discovery no longer interrupts an explicitly created or opened document. Older copies remain in File › Recover, whose buttons use the interface palette. See <a href="recovery.md">local recovery</a>.</p>
+<p>Group connectors (gap 10): re-routing preserves displayed rotated and flipped free endpoints after unit, uniform or nonuniform group scaling, including ends whose target shape or site cannot be resolved. Glued endpoints still use their existing connection-site path. Degenerate display scales that cannot be inverted, or fallback spans exceeding the renderer's 4000 pt child-size cap, leave connectors needing fallback endpoints unchanged; fully resolved connectors still reroute. Invalid child extents retain the renderer's unit-scale fallback. Model and engine regressions cover this geometry and guard against nonfinite coordinate writes and repeated shrinkage at the display cap; routing around shapes remains missing, with no new native Word comparison.</p>
+<blockquote>
+<p><strong>Printing update:</strong> 2026-10-12 · direct desktop printing through craft-print; details below.</p>
+</blockquote>
+<p>The work list. One entry per shortfall, ranked by how much it stops a Word user from switching
+(<strong>B</strong> = blocks beta). Each says what's missing, the evidence, who it hurts, an Opus 5.5 agent
+wall-clock estimate, and which parity document tracks it. Agents: pick from the top, check open PRs
+first (<code>gh pr list</code>), and update this file and the parity doc when a gap closes.</p>
+<p>egui 0.37 migration record: the interface catalogs remain the shared storytold/craft-i18n ones embedded from <code>craft-i18n.rev</code> (<code>9205108cfdced5177706264038848b68b2422d2b</code>; 27 WordCraft languages, English fallback), and the equation “Delete Around Caret in Equation” translation is preserved. The input-method path handles character- and byte-counted surrounding deletions, starts a new composition after a body or equation replacement, rejects queued stale replacements before mutation, keeps equation deletion transactional in one undo group, and maps tracked and placeholder length changes. The new regressions are documented, but managed CI passed; native IME acceptance (#155–#164), browser IME behavior and native-speaker catalog review remain open. No ranked gap or readiness estimate changes.</p>
+<p>Native save reliability: synthetic cases on macOS reproduced loss through the predictable temporary-file name. Saves now use owned, exclusively created siblings, synchronize before replacement and clean up on failure; originals survive pre-replacement errors. This narrows save-path reliability under gap #3; the listed field failures and broader stability work remain open. See <a href="file-format-parity.md#native-save-path-guarantees">save-path guarantees</a>.
+Row table border exceptions (<code>w:tblPrEx/w:tblBorders</code>) are read, drawn and saved. Other row table exceptions, including widths and cell margins, remain unsupported.</p>
+<p>Floating tables count exact contact with a line's bottom edge (#3977); shapes keep strict overlap. Original synthetic regressions cover the boundary and narrow-strip word skipping in modes 11/12/14/15, based on the reporter's Word measurements. Exact-spacing table checks use the specified height even when paragraph-mark metrics differ, including when a word skips a narrow strip. This narrows gap #4; wrapping earlier text around a later table remains #3790's scope.</p>
+<p>An otherwise empty section at page start retains its line before continuous content. Shared-section page totals and wrapping earlier text around later floating tables remain open.</p>
+<p>Consistent cell widths override stale table grid proportions when their totals agree. Conflicting widths, spans and percentages still need the shared-grid algorithm.</p>
+<p>Local desktop recovery now covers unsaved drafts and edits to existing files; see
+<a href="recovery.md">recovery.md</a>. This narrows gap #3 but does not resolve the crash/hang reports or
+establish cross-platform reliability.</p>
+<p>Document renaming: desktop renaming requires a filesystem that supports hard links (exFAT/FAT drives and some network shares refuse it). Behaviour: <a href="ui-parity.md">UI parity</a>.</p>
+<blockquote>
+<p><strong>Comment command update:</strong> 2026-10-14 · malformed explicit IDs rejected; synthetic refusal, undo/redo and DOCX save/reopen checks (#1690 finding 3). Readiness estimates unchanged.</p>
+</blockquote>
+<p>Comment command safety (#1690, finding 3): Delete, Resolve, Reply and Edit reject explicit fractional, negative or wrong-type IDs before editing, rather than truncating floats or using the caret. Synthetic tests cover refusal without document or history changes, valid operations with undo/redo and repeated DOCX saves. This narrows the data-path risks in gap #3; the other audit findings and broader stability gate are outside this change.</p>
+<p>Proofing robustness (security audit, #3613 part, #3661, #3657, #3625): installed Hunspell dictionaries with thousands of self-continuing rules check each word in linear time and list a bounded number of forms; dictionary files are read with a bounded read (Turkish included) and the hyphenation dictionary inflates under a 64 MiB limit; Russian hyphenation and Turkish suggestions no longer grow with the square of the word's length. This narrows the freeze risks in gap #3; distinct-strip rule chains and proofing off the UI thread remain (#3613).</p>
+<p>Font-menu reliability: clearing a query with no matches now shows the recent section from its first row, including its heading, in a scrollable list. Fixed synthetic-family widget and full-ribbon tests cover this case and matching-query controls (#2068).</p>
+<p>Additive paragraph spacing retains the full before-space after a section page break; ordinary overlapping spacing is unchanged. Other pagination gaps remain open.</p>
+<p>Exact line spacing keeps the run font baseline around tall equations; automatic and minimum spacing still grow for math. Other pagination gaps remain open.</p>
+<p>Legacy Word imports (#2445): interactive Save for <code>.doc</code>/<code>.dot</code> uses the existing DOCX Save As dialog. Cancel and write failures retain the draft and original path; Save before Close continues only after a successful supported-format save. This narrows save reliability under gap #3; binary <code>.doc</code> writing remains unsupported. Late Save As answers are rejected before writing if automation has replaced the document.</p>
+<p>Document model hangs (#3614, #3692): paragraph object walks, image deduplication, linear-equation letter runs and text box paste no longer do quadratic work or unbounded copies on hostile files. This narrows gap #3; the engine, DOCX reader and UI loops named in #3614 remain.</p>
+<p>Active footnote and endnote text stays readable while editing (#2545). This fixes a display-context defect; the broader fidelity, accessibility and readiness gates below are unchanged.</p>
+<p>Russian language-aware sorting now keeps ё with е instead of after я, with the diaeresis as a secondary difference. Composed and decomposed ё and й compare equally. Fixed synthetic collation tests cover order, case and index headings; this does not establish full Cyrillic or CLDR collation parity.</p>
+<p>Table sorting and formulas use decimal points for Cuban and Peruvian Spanish (<code>es-CU</code>, <code>es-PE</code>),
+matching their existing region settings. Parsing and result-formatting regression tests cover
+both locales and preserve Spain's decimal comma; see <a href="localization-parity.md">localization parity</a>.</p>
+<p>Set Proofing Language › Set As Default now persists in user preferences and applies to future blank documents and opened plain text (#2882). Existing document and template languages stay intact; rejected commands retain the previous saved default. This does not add proofing dictionaries.</p>
+<p>Text context menus now include the existing formatting mini toolbar (#2959), including at a caret. Object, equation and whole-cell menus keep their own controls; Read Mode and the mini-toolbar preference suppress it. The toolbar reuses the selection toolbar's commands; additional controls from Word's toolbar are not added. Context-menu paste choices remain tracked by #2583 / PR #2599.</p>
+<h2>Ranked</h2>
+<table><thead><tr><th>#</th><th>Gap</th><th>B</th><th>Evidence</th><th>Impact</th><th>Hours</th><th>Doc</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>DOCX never tested on real-world files.</strong> No corpus of files from Word, Google Docs, LibreOffice and Pages has been opened, rendered and round-tripped and compared with Word page by page</td><td>B</td><td>No corpus in the repo; <code>crates/docx/tests</code> are synthetic fixtures (including omitted/empty paragraph defaults and imported TOC range preservation); "DOCX fidelity corpus: not started" since 2026-10-06. Field reports fixed one by one: a cover page's theme-coloured shapes (#611), freeforms inside groups and text-box margins and Resize to fit (#743), shape gradients and transparency (#1500), cover-page positions relative to the page and freeforms drawn back to their start (#743), Word's text watermark in headers, read and written (#1290), VML freeform rule lines in headers, and <code>flowChartOr</code> drawn with its spokes (#1644); explicit DrawingML outline dashes and flat/square/round caps preserved; paragraph-relative header/footer/cell/text-box float origins corrected (cu20we, synthetic regressions)</td><td>Everyone: the files people receive are the files that break</td><td>30–50</td><td><a href="file-format-parity.md">file-format-parity.md</a></td></tr>
+<tr><td>3</td><td><strong>Crashes and freezes in the field</strong>: startup crash on Intel UHD Graphics (#170, open), a crash on macOS 12.7.6 Intel (#979, open) (lag on GPUs without a DirectX 12 driver fixed, #316; 32-bit Windows exited at launch because DirectX 12 graphics pipeline creation failed, now OpenGL), freezes (#59 Thai fonts and #31 font selector, both open; #77 closed), broken shape tool (#142, open); the Windows 11 no-write-without-admin (#218) and unmovable images (#82) reports are closed (pictures and shapes in Behind Text drag through the text over them, #1313); memory growth on every font change fixed (#848: the font list no longer loads each family it previews)</td><td>B</td><td>197 open issues (2026-10-12), among them the crash and freeze reports #170, #979, #59 and #31</td><td>Anyone hit loses work or trust; the never-crash standard covers panics, not hangs or GPU driver faults</td><td>20–30</td><td><a href="target-app-parity.md">target-app-parity.md</a> (Stability)</td></tr>
+<tr><td>4</td><td><strong>Pagination differs from Word</strong>: Aptos has no metric-matched substitute; legacy compatibility options only partially covered; no page-by-page comparison harness</td><td>B</td><td>SECTIONPAGES now counts shared continuous-section pages in body and header/footer fields; legacy same-style cell spacing preserved for measured modes 11/12/14, with mode 15 and non-cell controls; Contextual spacing corrected in body/header probes and repeated table-cell runs; <a href="layout-parity.md">layout-parity.md</a>; <a href="typing-parity.md">typing-parity.md</a> Known gaps; non-overlapping body floating tables clear header tables; stray labels on page-break-only list paragraphs fixed multi-paragraph field-code blank lines fixed; centred numbered heading labels after leading page breaks fixed (#2964); Arial Unicode MS no longer selects monospace substitutes; a slash opening a word travels whole to the next line (#2963) A right, centre or decimal tab whose text doesn't fit, or a left tab past the right indent, goes to the next line with its text, so a TOC entry's page number keeps its leader (#1840).</td><td>Page counts and line breaks differ, which matters for forms, legal and academic work</td><td>30–50 + owner (font)</td><td><a href="layout-parity.md">layout-parity.md</a></td></tr>
+<tr><td>2</td><td><strong>Word's native ink is not drawn from its strokes</strong>; OLE objects show only their picture</td><td>B</td><td>Every native ink form is preserved: drawing-level ink with its optional picture fallback, direct run-level content parts, and ink members of groups and drawing canvases (kept in their place among the members, drawn from their fallback picture). Drawing canvases are read and written (#344); group shapes (<code>wpg</code>) read and written (#267). Charts and SmartArt are drawn (#292) and, with OLE objects, written back with all their parts on save (#319)</td><td>Pen notes from Word show only as their picture and can't be edited; OLE objects can't be opened</td><td>45–70 to render and edit charts and SmartArt (#13)</td><td><a href="file-format-parity.md">file-format-parity.md</a></td></tr>
+<tr><td>5</td><td><strong>Content controls</strong> landed (#381): <code>w:sdt</code> kept, shown and edited (Developer tab, Design Mode, Properties). Move tracking landed (#400): <code>w:moveFrom</code>/<code>w:moveTo</code> with their named ranges round-trip, a tracked cut and paste of a paragraph or sentence records a move, either end accepts/rejects both, green double strike/underline markup and "Moved from/to" balloons; Track Changes Options has the Moves rows (Moved from / Moved to mark and colour) and <code>w:doNotTrackMoves</code> (Track moves off: a cut and paste is a deletion and an insertion) round-trips; still missing: drag-and-drop moves (no text drag yet). Formatting revisions landed (#41): <code>w:rPrChange</code>/<code>w:pPrChange</code>/<code>w:tblPrChange</code>/<code>w:trPrChange</code>/<code>w:tcPrChange</code>/<code>w:sectPrChange</code>/<code>w:numberingChange</code> round-trip, are recorded while tracking, accepted/rejected and shown in balloons; still missing: tracked style-definition changes (table, row, cell and section property changes now record in WordCraft too, #41 follow-up). Opaque custom XML backing stores now survive saves; binding evaluation remains absent. Replace All now checks content-control locks before editing any match; a refused batch preserves the document and undo history.</td><td>B</td><td>List-label pitch corrected in synthetic metric controls; Issues #41, #400; source grep</td><td>Legal and editorial review workflows; templates with form controls</td><td>5–8</td><td><a href="file-format-parity.md">file-format-parity.md</a></td></tr>
+<tr><td>6</td><td><strong>Print dialog depth</strong>: desktop printer choice, copies, collation, duplex and grayscale submit through craft-print; File › Print retains preview, page ranges and odd/even (#641) and scales pages to another paper size (#2108); driver tray/options and pages per sheet remain; web prints through the browser (#209)</td><td>B</td><td><code>ui.print</code> → <code>apps/wordcraft/src/print.rs</code>; issue #15</td><td>Everyone who prints</td><td>5–8</td><td><a href="hardware-parity.md">hardware-parity.md</a></td></tr>
+<tr><td>7</td><td><strong>Dialog depth</strong>: 61 modal dialogs vs Word's ~100 (Custom Document Properties from File › Info, #2982; Drop Cap Options matches Word's menu and dialog; Split Cells and Convert Text to Table match Word's observed limits and defaults; Format Page Numbers carries Word's number formats and Continue from previous section / Start at, #1113)</td><td>B</td><td><code>Dialog</code> enum in <code>crates/ui-egui/src/dialogs.rs</code>; Cell Margins (#1960) now opens with current defaults and applies only confirmed edits</td><td>Power users reach for dialogs the ribbon alone doesn't cover</td><td>11–19</td><td><a href="ui-parity.md">ui-parity.md</a></td></tr>
+<tr><td>9</td><td><strong>Password-protected <code>.doc</code> files with an AES header in the Word 97-2003 format</strong> can't be opened: [MS-OFFCRYPTO] defines AES only for encrypted packages, so these are refused with a clear message. Encrypted packages open under any Word extension (<code>.docx</code>, <code>.doc</code>, <code>.dot</code>…) with either agile (Word 2010+) or Standard (Word 2007, AES-ECB) encryption; protected <code>.docx</code> saves with agile encryption (#55, #281, gap 9)</td><td></td><td><code>crates/docx/src/crypt.rs</code> (agile and Standard); <code>crates/docbin/src/crypt.rs</code> opens XOR/RC4/RC4 CryptoAPI <code>.doc</code> with a password (#1079). All synthetic fixtures; untested on Word-written files</td><td>Corporate and legal users with old files</td><td>0 (refused by design; nothing left to build)</td><td><a href="file-format-parity.md">file-format-parity.md</a></td></tr>
+<tr><td>8</td><td><strong>Proofing covers English, Polish, Portuguese, Italian, Croatian, Turkish, Russian, Czech, Indonesian and Spanish only</strong>; no dictionaries or grammar for the other ~41 languages Word proofs (text in them is left unmarked), and no hyphenation for them except Bulgarian and German</td><td></td><td><code>crates/proof</code> <code>ProofLang::PROOFED</code>: English (American, British-spelling and Canadian, each flagging the other's spellings, #1281), Polish, Portuguese (pt-BR via the installed VERO dictionary, #797), Italian (it-IT via the installed Hunspell dictionary), Croatian (hr-HR, 2026-10-13), Turkish (tr_TR spelling, grammar, TDK hyphenation, 2026-10-13) Russian (the installed <code>ru_RU</code> dictionary, 2026-10-12) Indonesian (the installed <code>id_ID</code> dictionary, #498, 2026-10-16) and Spanish (es-ES, es-MX, es-419 and es-UY via the installed RLA-ES dictionaries, Uruguayan <code>vos</code> forms, #3360, #3553, 2026-10-22), a language per run; Bulgarian (#826) and German (TeX patterns, 2026-10-14) have hyphenation only; open PRs add Danish (#723), Russian (#894) and Czech (#1048); Word ships 120 proofing tools; issues #25, #40, #100 open</td><td>Every writer outside English, Polish, Portuguese, Italian, Croatian, Turkish, Russian, Czech, Indonesian and Spanish</td><td>20–40</td><td><a href="localization-parity.md">localization-parity.md</a></td></tr>
+<tr><td>10</td><td><strong>Objects</strong>: text in a freely rotated text box (free rotation and flips landed, #332; live rotation preview while dragging fixed for pictures and shapes without text stories, #2277; text direction, alignment and linked text boxes landed, #369; contour wrap and wrap side landed, #354), shape effects, WordArt 3-D effects and connector routing around shapes (WordArt effects and warps and glued connectors landed, #416), dragging members inside a Drawing Canvas (the canvas landed, #344)</td><td></td><td><a href="parity-checklist.md">parity-checklist.md</a> (Shape Format 11/11, Layout 22/22); group and ungroup landed (#267)</td><td>Newsletters, flyers, reports with diagrams</td><td>20–30</td><td><a href="target-app-parity.md">target-app-parity.md</a></td></tr>
+<tr><td>11</td><td><strong>Interface languages</strong>: 3 of the 12 key languages missing (hi, ar, id) and pt-PT (French landed, #729; Vietnamese, #1434; Korean, #1216; 21 interface languages in <code>crates/ui-egui/src/i18n</code>); open PRs for Arabic (#737, #1042, #1032), Indonesian (#572) and pt-PT (#1028); no mirrored RTL interface yet; ~5% of strings still English in the translated catalogs</td><td></td><td><a href="localization-parity.md">localization-parity.md</a></td><td>Most of the world's writers</td><td>50–80</td><td><a href="localization-parity.md">localization-parity.md</a></td></tr>
+<tr><td>12</td><td><strong>Draw tab / ink</strong>: pens, pencil, highlighter, eraser, Select and Hide Ink landed (#307); Lasso Select, Add Pen, Ink to Shape and Ink Replay landed (#395); Ink to Shape also recognises single-stroke arrows (a line plus a V head drawn in one stroke becomes a straight connector with an arrowhead); two-stroke arrows (a line and a separate V or closed-triangle head) and one-stroke arrows with a closed triangle head landed (#1778); missing: Ink to Math, pressure, rendering/editing Word's own ink (drawing-level and direct run-level InkML content parts now survive DOCX save)</td><td></td><td><a href="parity-checklist.md">parity-checklist.md</a> (Draw 10/11)</td><td>Pen and tablet users</td><td>4–8</td><td><a href="hardware-parity.md">hardware-parity.md</a></td></tr>
+<tr><td>13</td><td><strong>Charts and SmartArt editing</strong> (editing charts and SmartArt from Word, more chart types and formatting)</td><td></td><td><code>insert.chart</code> and Chart Design basics landed (#409): WordCraft's own charts are editable; charts from Word stay read-only (no embedded-workbook editing), radar charts are drawn (#1890); no combo/3D/stock charts (charts of those types show a placeholder with their title and type, #998), axis or series formatting; Insert › SmartArt landed (#497) for graphics WordCraft makes</td><td>Reports and business documents</td><td>35–55</td><td><a href="target-app-parity.md">target-app-parity.md</a></td></tr>
+<tr><td>14</td><td><strong><code>.doc</code> can't be written; Word 6/95 files refused</strong></td><td></td><td><code>crates/docbin</code> is read-only</td><td>Users exchanging files with old Word or legacy systems</td><td>25–40</td><td><a href="file-format-parity.md">file-format-parity.md</a></td></tr>
+<tr><td>15</td><td><strong>References depth</strong>: no EndNote/Mendeley desktop integration (bibliography sources are saved in DOCX, #790; Zotero landed, #189; Word's own <code>Sources.xml</code> master list imports into Manage Sources, #2640)</td><td></td><td>#790 stores sources in <code>customXml</code> and reads them back; <code>crates/zotero</code>; <code>references.sources</code> <code>import</code> reads a Word bibliography file (<code>b:Sources</code>)</td><td>Students and researchers</td><td>3–6</td><td><a href="target-app-parity.md">target-app-parity.md</a></td></tr>
+<tr><td>16</td><td><strong>Right-to-left completeness</strong>: kashida, RTL in HTML/ODT/RTF; six still-open older RTL bug reports to re-verify after #207 (#211, #199, #66, #63, #48, #19; #215 is closed). RTL tables and sections landed (#362); PDF export's Hebrew and Arabic text copies and searches as whole words (#1383)</td><td></td><td><a href="layout-parity.md">layout-parity.md</a></td><td>Arabic, Persian, Hebrew writers</td><td>7–11</td><td><a href="layout-parity.md">layout-parity.md</a></td></tr>
+<tr><td>17</td><td><strong>East Asian typography</strong>: hint-reliant DFKai-SB contours repaired (local Windows regression; no readiness estimate change); Asian Typography options (Phonetic Guide landed, #288; Enclose Characters landed, #297; document grid landed, #391; vertical text landed, #491)</td><td></td><td><code>para.asianTypography</code> is live (Paragraph dialog Asian Typography tab, #323), automatic Asian/Latin and Asian/number spacing is laid out (#2358), and no East Asian item is left in the catalog's missing list; the remaining depth is not measured</td><td>Chinese, Japanese and Korean documents</td><td>11–19</td><td><a href="layout-parity.md">layout-parity.md</a></td></tr>
+<tr><td>19</td><td><strong>RTF and ODT depth</strong>: notes, comments, revisions (RTF and ODT insertions and deletions done; RTF paragraph-mark and character/paragraph formatting revisions done; RTF section/table and ODT formatting revisions left), sections (RTF and ODT import and export done, #1378, #1379), RTL. ODT sections landed on import (#1379): page-style changes and columned <code>text:section</code>s; ODT table column widths are read (they were dropped on every open). ODT export writes sections back (a master page per new-page section, a columned <code>text:section</code> per continuous one); RTF export writes every section (<code>\sect</code>, <code>\sectd</code>)</td><td></td><td>~2,100 (RTF) and ~1,600 (ODT) lines in <code>crates/formats</code>; RTF code pages (#896) and page setup (#902), ODT page setup (#829) landed; open PRs: RTF notes and comments (#1056), ODT notes and comments (#1057), ODT headers and footers (#873)</td><td>Users exchanging with LibreOffice or older tools</td><td>18–27</td><td><a href="file-format-parity.md">file-format-parity.md</a></td></tr>
+<tr><td>18</td><td><strong>Screen-reader access</strong> to the document canvas: exposed, not yet tried with real screen readers</td><td></td><td>The canvas describes paragraphs, headings, lists, tables, links, pictures and the caret to AccessKit (#488), tested headlessly; the ribbon's font name and size boxes, and the dropdown arrows beside them, say what they are (#3172); Windows Magnifier follows the caret, onto a new line too (#1119); no NVDA, VoiceOver or Orca run yet</td><td>Blind and low-vision users; public-sector procurement</td><td>3–6</td><td><a href="ui-parity.md">ui-parity.md</a></td></tr>
+<tr><td>20</td><td><strong>Performance on large real-world documents</strong> unmeasured (500+ pages, many pictures)</td><td></td><td>Only the 188-page sample benchmark; scrolling a 1,096-page one-table document went from ~600 ms to ~2–5 ms a frame (#811), but opening it still lays out for seconds; opening a document with pictures no longer copies them (92 MB with 20 pictures: about 90 MB less); opening a document with many relationships now costs the size of its part and not that size times the number of relationships (1024 relationships and a 64 MiB part: 224 s → 0.2 s, #3411); a word with no break opportunity in it no longer lays out quadratically (1 MiB: 29.4 s → 0.35 s, #3412); saving a document with many content controls now costs the time the controls take (32,000 controls: 3.6 s → 0.1 s, #13)</td><td>Thesis and book authors</td><td>10–20</td><td><a href="layout-parity.md">layout-parity.md</a></td></tr>
+<tr><td>21</td><td><strong>Mail merge data sources</strong>: no Outlook/Contacts, Access or database sources, no email merge; CSV, typed lists (#247) and Excel/OpenDocument spreadsheets (#334, legacy .xls #778) only</td><td></td><td>Select Recipients reads .csv/.tsv/.txt in any common encoding (UTF-8/16, GBK, Big5, Shift_JIS…), .xlsx/.xlsm, .xls and .ods; Edit Recipient List filters and sorts (#778), finds records and can show only the merged ones (#1576)</td><td>Office administrators</td><td>4–8</td><td><a href="target-app-parity.md">target-app-parity.md</a></td></tr>
+<tr><td>22</td><td><strong>Ecosystem</strong>: no VBA execution (macros preserved only), no Office add-ins, no cloud storage, no real-time co-authoring</td><td></td><td><code>.docm</code> keeps macros (#172)</td><td>Enterprise users with macro templates; teams</td><td>40–80 + owner decisions</td><td><a href="target-app-parity.md">target-app-parity.md</a></td></tr>
+<tr><td>23</td><td><strong>PDF Reflow</strong> (open a PDF as an editable document, Word for Windows)</td><td></td><td></td><td>Users who edit PDFs they receive</td><td>30–50</td><td><a href="file-format-parity.md">file-format-parity.md</a></td></tr>
+<tr><td>24</td><td><strong>Default shortcuts</strong>: 140 (macOS) / 158 (Linux/Windows) of Word's ~250 (#330, #339, #343; Customize Keyboard #368, Customize Ribbon and Quick Access Toolbar #379; inspector, macros, strikethrough, file/edit keys, the Spike)</td><td></td><td><a href="ui-parity.md">ui-parity.md</a></td><td>Power users</td><td>1–3</td><td><a href="ui-parity.md">ui-parity.md</a></td></tr>
+<tr><td>25</td><td><strong>In-app AI assistant</strong> (Copilot-style draft, rewrite, summarize)</td><td></td><td>Chat PR #178 and AI assistant PR #815 open</td><td>Users expecting Copilot</td><td>15–30 + owner (provider)</td><td><a href="target-app-parity.md">target-app-parity.md</a></td></tr>
+<tr><td>27</td><td><strong>View windows</strong>: Side by Side, Synchronous Scrolling, Arrange All; a window per open document (the engine holds several open documents and Switch Windows lists and switches them)</td><td></td><td><a href="parity-checklist.md">parity-checklist.md</a> (View 26/29); PR #331 open</td><td>Comparing documents</td><td>3–5</td><td><a href="ui-parity.md">ui-parity.md</a></td></tr>
+<tr><td>26</td><td><strong>Minor formats</strong>: MHT, Works/WordPerfect</td><td></td><td>Word XML Document (Flat OPC) opens and saves, Word 2003 XML opens (#548) and saves (#1081, not yet checked in Word)</td><td>Rare</td><td>14–26</td><td><a href="file-format-parity.md">file-format-parity.md</a></td></tr>
+<tr><td>28</td><td><strong>Dictate</strong></td><td></td><td><code>tools.dictate</code> missing</td><td>Dictation users</td><td>8–15 + owner (speech model)</td><td><a href="hardware-parity.md">hardware-parity.md</a></td></tr>
+<tr><td>29</td><td><strong>Equations</strong>: ink equations; a copied equation pasting into Word as an editable equation, still to be confirmed (#816, #1297)</td><td></td><td>#191 notes; long display equations wrap at operators (#326); a copy holding an equation puts MathML in HTML on the clipboard (#816), and a copy of one equation alone also its MathML in the "MathML" clipboard formats Word reads first (Windows, macOS; #1297; Word/LibreOffice paste not yet verified)</td><td>Maths-heavy documents</td><td>2–3</td><td><a href="layout-parity.md">layout-parity.md</a></td></tr>
+</tbody></table>
+<p><strong>Beta needs #1–#7</strong> (~150–230 h with the stability and layout work they imply): they are the
+blocking gaps, and closing them lifts file formats, layout, stability and UI enough to take the
+full number from ~60% to ~75%. Everything else is depth on the way to full parity.</p>
+<blockquote>
+<p><strong>Three-column preset update:</strong> 2026-10-15 · the header/footer preset uses editable table cells and screen-only editing guides (#2197). Synthetic command, undo/redo and repeated DOCX save/reopen checks cover this preset; broader template/layout gaps and readiness estimates remain unchanged.</p>
+</blockquote>
+<h2>By kind</h2>
+<p>List toggles now recognise numbering inherited from paragraph styles (related to #3459). This closes that command-level case; the broader issue and readiness estimates are unchanged. See <a href="typing-parity.md">typing-parity.md</a> for the original-fixture and round-trip coverage.</p>
+<p>Sample-text formulas on Enter (#1067) are implemented: <code>=rand()</code> and <code>=lorem()</code>,
+optional paragraph/sentence counts and one-step undo. See <a href="typing-parity.md">typing-parity.md</a>
+for the accepted parameter range and validation limits; readiness numbers are unchanged.</p>
+<p>The same gaps grouped the way the parity documents are, for agents working in one area.</p>
+<ul>
+<li><strong>Feature gaps:</strong> #2 (preserve), #5, #10, #12, #13, #15, #17, #21, #25, #27, #28, #29; the Clipboard pane, Manage Styles and Group landed (#281, #323, #267). Paste Special, Advanced Find, Column Selection, Style Inspector, custom table
+styles, and Draw Table and Eraser (#303) landed on 2026-10-10. Paste from other programs keeps
+their formatting (system clipboard HTML/RTF), Merge Formatting keeps emphasis, Paste Special lists
+what the system clipboard holds, and Linux/Wayland clipboard pictures paste (#687, #833);</li>
+<li><strong>UI/UX gaps:</strong> #7, #18, #24; context menus for objects (the table's landed; it still lacks Border Styles); Linux title bar theming (#78); File ›
+still missing: the Paste Options button after a paste, and RTF on macOS and X11. Copy puts
+HTML beside the text on the clipboard, so other programs keep the formatting (#1523), with
+equations as MathML (#816), and a lone equation also in the MathML clipboard formats on
+Windows and macOS (#1297; pasting into Word/LibreOffice not yet verified); RTF on the
+clipboard is not written yet.
+Options › Animation effects › Use system setting reads macOS (Reduce motion) and the Linux/BSD
+desktops (<code>apps/wordcraft/src/animations.rs</code>) but hasn't been tried on a Mac or in a real
+GNOME or KDE session yet.</li>
+<li><strong>File-format gaps:</strong> #1, #2, #5, #9 (<code>.doc</code> only), #14, #19, #23, #26; embedded fonts; <code>w:altChunk</code> and sub-documents.</li>
+<li><strong>Hardware gaps:</strong> #6, #12, #28; scanner/Continuity Camera insert; KDE soft text (#140).</li>
+<li><strong>Localization gaps:</strong> #8, #11, #16, #17; native-speaker review of every catalog (human).</li>
+<li><strong>Stability and performance gaps:</strong> #3, #20.</li>
+</ul>
+<p>The Language dialog reads effective character formatting, including document defaults, paragraph styles and character styles. Accepting it unchanged keeps inherited language and no-proof choices (#2717); explicit direct formatting still takes precedence. Other proofing and Windows-specific reports remain separate.</p>
+<p>Footer page-table height and body wrapping are corrected. Other pagination gaps remain open.</p>
+<p>Small follow-ups from the 2026-10-25 field, table and AutoFormat batch (#4232):</p>
+<ul>
+<li>Convert Table to Text has no "Convert nested tables" check box; nested tables always stay tables, which is Word's default (#4155).</li>
+<li>PAGE with a section page-number format of cardinal or ordinal text (<code>w:pgNumType</code>) shows the words in lowercase; only a <code>\* CardText</code> or <code>\* OrdText</code> switch should lowercase them (#4224).</li>
+<li>A number outside a text format's range (<code>\* CardText</code> or <code>\* OrdText</code> past 999,999, <code>\* roman</code> past 50,000) keeps its digits; Word shows "Error! Number cannot be represented in specified format." (#4224).</li>
+<li>AutoFormat's <code>*bold*</code> and <code>_italic_</code> don't convert when a closing bracket or quote follows the closing mark (<code>(*see note*)</code>): the trigger checks only space and <code>,.;:!?</code> (#4098).</li>
+<li>The ribbon's Accept and Reject buttons only open their menus; Word's main half runs Accept (Reject) and Move to Next. The ribbon needs a big split button (Paste needs one too) (#4205).</li>
+</ul>
+<h2>Revision history</h2>
+<blockquote>
+<p>2026-10-23 · cu20we review follow-up: Only paragraph-relative box floats use the pre-spacing origin. Line-relative floats and page/margin fallbacks in cells and text boxes keep the text-top origin. Synthetic controls compare zero and 24 pt space-before across all four box contexts. New cap conversion helpers and regression tests document their contracts; readiness estimates unchanged.</p>
+</blockquote>
+<blockquote>
+<p>2026-10-23 · cu20we: DrawingML flat, square and round line caps are imported, saved, displayed and exported to PDF; absent or unknown caps default to flat. VML end caps (including shapetype inheritance) are preserved through DOCX save. Ink and metafile stroke handling remain separate. Synthetic DOCX, raster and PDF regressions cover the change; no new native Word comparison.</p>
+</blockquote>
+<blockquote>
+<p>2026-10-23 · cu20we: Paragraph-relative floats in headers, footers, cells and text boxes now start above effective space before; synthetic layout regressions cover all four contexts. Framed paragraphs already used the pre-spacing position. No new native Word comparison; broader object-position parity remains open.</p>
+</blockquote>
+<table><thead><tr><th>Date</th><th>Change</th><th>Summary</th></tr></thead><tbody>
+<tr><td>2026-10-22</td><td>trivial</td><td>View windows: several open documents and Switch Windows in the engine</td></tr>
+<tr><td>2026-10-25</td><td>trivial</td><td>egui 0.37 migration: interface catalogs remain pinned by <code>craft-i18n.rev</code> (<code>9205108…</code>; 27 languages, English fallback); IME surrounding deletions and composition resets are implemented with regressions, but managed CI passed; native IME acceptance and native-speaker catalog review remain open; no gap or readiness change</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>Gap 9 narrowed: Standard (Word 2007, AES-ECB) encrypted packages open with a password under any Word extension; AES headers in Word 97-2003 files are outside the public spec and refused with a clear message; estimate 3–5 → 0 h, since the remaining AES-in-<code>.doc</code> case is refused by design</td></tr>
+<tr><td>2026-10-25</td><td>trivial</td><td>Small follow-ups from the field, table and AutoFormat batch (#4232)</td></tr>
+<tr><td>2026-10-25</td><td>trivial</td><td>Highlight decisions include fully selected paragraph marks in whole cells and ordinary ranges, including empty paragraphs; partial text columns exclude unselected marks (#4085).</td></tr>
+<tr><td>2026-10-25</td><td>trivial</td><td>Highlight toggle checks the full target beyond 10,000 runs without collecting resolved formatting; mixed and inherited tails and Undo/Redo covered (#4085).</td></tr>
+<tr><td>2026-10-24</td><td>trivial</td><td>Highlight shortcut toggles the last chosen colour off when the whole selection has it; explicit colour commands remain setters (#4085).</td></tr>
+<tr><td>2026-10-22</td><td>minor</td><td>#8 narrowed: Spanish proofing (es-ES, es-MX, es-419, es-UY spelling from the installed Hunspell dictionaries, Uruguayan <code>vos</code> forms, generic and opening-mark checks, #3360, #3553)</td></tr>
+<tr><td>2026-10-25</td><td>trivial</td><td>Text Highlight Color buttons show the remembered colour and no bar after No Color (#4087); no ranked gap or readiness estimate changes</td></tr>
+<tr><td>2026-10-23</td><td>trivial</td><td>A command that changes nothing adds no undo step, marks no unsaved changes and evicts nothing from the undo history; the redo stack survives it. No gap row (defect fix); estimates unchanged.</td></tr>
+<tr><td>2026-10-23</td><td>trivial</td><td>cu20we: preserve and render outline caps across DOCX/VML, screen and PDF; synthetic regressions; readiness estimates unchanged</td></tr>
+<tr><td>2026-10-23</td><td>trivial</td><td>cu20we: paragraph-relative box floats use the pre-spacing origin; header/footer/cell/text-box regressions; readiness estimates unchanged</td></tr>
+<tr><td>2026-10-24</td><td>trivial</td><td>Exact-spacing table contact uses the specified line height in row selection and word skipping; large/small mark regressions in modes 11/12/14/15 (#3977); shape estimates unchanged</td></tr>
+<tr><td>2026-10-24</td><td>trivial</td><td>Floating tables count exact line-bottom contact; shapes keep strict overlap (#3977); original boundary/skip regressions in modes 11/12/14/15, expected Word rule from cyril265; readiness estimates unchanged</td></tr>
+<tr><td>2026-10-22</td><td>trivial</td><td>Gap 3: proofing robustness — linear affix rule walks, bounded dictionary reads, linear Russian hyphenation, Turkish word cap (#3613 part, #3661, #3657, #3625); readiness estimates unchanged</td></tr>
+<tr><td>2026-10-22</td><td>trivial</td><td>Gap #3 note: document model quadratic scans and text box paste copies bounded (#3692, part of #3614)</td></tr>
+<tr><td>2026-10-22</td><td>trivial</td><td>Gap 10: group connector rerouting preserves rotated/flipped free and unresolved endpoints under nonuniform scaling, with safe degenerate-dimension and display-size-cap handling; routing around shapes and readiness estimates unchanged</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>The ranked gap list held two rows each for #19, #20 and #21; the stale copies are gone, so each gap appears once, and the #20 row carries the measured figure (#3411)</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>#20 narrowed: a document with many relationships opens in the time its part takes (#3411)</td></tr>
+<tr><td>2026-10-22</td><td>minor</td><td>Compare's new and revised untitled results clear the previous document's version snapshots; a rejected protected comparison or mailing result preserves the snapshots and file identity. No gap row; estimates unchanged.</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>#20 narrowed: a word with no break opportunity in it no longer makes the layout quadratic (#3412)</td></tr>
+<tr><td>2026-10-20</td><td>minor</td><td>The Document Inspector's removals are refused while the document tracks changes (they aren't tracked), and a version snapshot belongs to the document it was taken from. No gap row (enforcement fix); estimates unchanged</td></tr>
+<tr><td>2026-10-22</td><td>trivial</td><td>Markdown code spans normalize line endings before export, keeping block markers literal (#3738); format readiness unchanged</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>Explicit New/Open is not interrupted by startup recovery discovery; older copies stay available and Recover follows the interface theme.</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>Bullets and Numbering toggle off style-inherited lists at their effective level, including basedOn chains and numbered ListParagraph styles; other paragraphs and list definitions stay unchanged (related to #3459)</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>#3172: the ribbon's font name and size boxes, and the dropdown arrows beside them, say what they are to a screen reader</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>Gap 19: ODT table column widths are read on import, so they survive a save</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>Pin the font input of four geometric layout controls; assertions and renderer font policy unchanged.</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>#20 narrowed: a document with many content controls saves in the time the controls take (#13)</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>Russian sorting keeps ё with е and recognises decomposed ё/й; synthetic ordering, case and index-heading regressions; broader parity estimates unchanged</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>Nested-picture textboxes retain their frames; WPS picture fills keep their existing image fallback.</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>Corrected Cuban and Peruvian Spanish table-number parsing and formula results to use decimal points; broader localization estimates unchanged</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>Set As Default persists the proofing language across restarts; command and dialog regressions cover new documents, interface changes, existing document languages and rejection rollback (#2882); readiness estimates unchanged</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>Restrict Editing, three more gaps closed: the protection of a protected document only changes through the explicit stop, the session author can't change through <code>file.setAuthor</code> under protection, and the post-check compares the settings and the metadata. No gap row (enforcement fix); estimates unchanged</td></tr>
+<tr><td>2026-10-22</td><td>trivial</td><td>The CLI author flag and the Options user name field now respect that protected-document refusal (#3279 follow-up). No gap row; estimates unchanged.</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>Restrict Editing: a file command that changes the open document is checked like any other (the privacy options, the properties, the inspector's removals), and restoring a stored version keeps the protection and its password. No gap row (enforcement fix); estimates unchanged</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>#4: a right, centre or decimal tab whose text doesn't fit, or a left tab past the right indent, goes to the next line with its text, so a TOC entry's page number keeps its leader (#1840)</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>#7: Format Page Numbers dialog (#1113), 60 modal dialogs</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>The text context menu includes the existing two-row formatting mini toolbar, at a caret or over selected text (#2959); formatting and its dropdowns preserve the selection, regular menu commands and dismissal still close the popup. Paste options remain in separate PR #2599.</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>Gap 8 narrowed: German text hyphenates by the TeX German patterns (reformed spelling); German spelling and grammar remain</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>Restrict Editing: with Filling in forms enforced, inserting content controls, their Properties and Remove Content Control are refused, as in Word (it greys them out), so a form's fields stay as they are and only their content is filled in</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>Content controls: text typed over a placeholder takes the control's own run properties (<code>w:sdtPr/w:rPr</code>, ECMA-376 §17.5.2.27), as in Word, and the placeholder style is recognised by its built-in name "Placeholder Text" whatever its localized id (German Word: <code>Platzhaltertext</code>), so entries in forms from localized Word no longer stay grey</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>Font list starts at its first row after clearing a no-match query; recent heading remains visible (#2068)</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>#2964: a centred or end-aligned list label after a leading page break uses its text line's alignment. Synthetic LTR/RTL numbered/bulleted controls and the issue's DOCX export; broader pagination gaps and readiness estimates unchanged</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>#1327: Restrict Editing exceptions no longer let table, row or cell formatting change protected tables; formatting-only protection refuses Paste Formatting, table shading/borders/alignment/margins/text direction, table-style edits and locked table styles; recipient-list commands no longer rewrite merge-field results in a protected document. No gap row (enforcement fix); estimates unchanged</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>#21: Find in list and "Show only records that will be merged" in Edit Recipient List (#1576)</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>#15 narrowed: Word's <code>Sources.xml</code> bibliography file imports into Manage Sources (#2640)</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>#2445: pending Save As answers keep their originating document identity, so a replacement document is never written to an old picker destination; real Save-button and focused-editor shortcut controls verified</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#2445: interactive Save on import-only .doc/.dot paths uses the existing DOCX Save As flow; cancel and failed writes keep the draft, and Close waits for a successful save. Explicit/script saves still report unsupported legacy output</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>#1327: Restrict Editing exceptions no longer let table, row or cell formatting change protected tables; formatting-only protection refuses Paste Formatting, table shading/borders/alignment/margins/text direction, table-style edits and locked table styles; recipient-list commands no longer rewrite merge-field results in a protected document. No gap row (enforcement fix); estimates unchanged</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>#21: Find in list and "Show only records that will be merged" in Edit Recipient List (#1576)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#24: the Spike (Ctrl+F3, Ctrl+Shift+F3)</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>#1: shape gradients and transparency (#1500): Word 365 cover pages' theme gradients and translucent shapes now open, draw and save</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>Glossary/building blocks closed (DOCX glossary read, kept and written); <code>w:altChunk</code> and sub-documents remain</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>#5 narrowed: Track Changes Options › Moves (Moved from / Moved to marks and colours) and Track moves (<code>w:doNotTrackMoves</code>) landed; drag-and-drop moves remain</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>Language dialog keeps inherited proofing language and no-proof choices (#2717); readiness estimates unchanged</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Gap 19: RTF tracked paragraph marks and character/paragraph formatting revisions read and written; RTF section/table and ODT formatting revisions remain</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>#19 narrowed: ODT export done (master page and page layout per section, columned <code>text:section</code>s)</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>Explicit DrawingML preset/custom outline dashes survive import/save and paint in raster/PDF, scaled to the effective stroke width even for zero-width paths. Synthetic controls; theme-inherited dashes and line caps remain unverified.</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td><code>wordcraft-cli convert --update-fields</code> explicitly refreshes unlocked fields before conversion; ordinary conversion keeps cached results. Field refresh can change pagination</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>Arial Unicode MS uses Arial and its proportional substitutes; glyph coverage and exact Word line height remain font-dependent.</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>#7: Split Cells and Convert Text to Table follow the Word check (#2592)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#7: Split Cells and Convert Text to Table dialogs (#2592), 58 modal dialogs (matches ui-parity.md)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#8 narrowed: Indonesian proofing (id-ID spelling from the installed Hunspell dictionary, generic checks, #498)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Legacy outline, shadow, emboss and imprint text effects drawn (#2534)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Numbered headings (#1793): heading-linked Multilevel List presets; numbering keeps heading styles. Not a ranked gap; style gallery previews without numbers remain</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Hint-reliant CJK fonts execute TrueType contour assembly; Windows DFKai-SB no longer loses strokes. Synthetic local-font regression; no font binaries bundled.</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#17: automatic space between Asian text and Latin text or digits laid out (#2358)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Drawing dispatch uses the direct graphic-data child so nested pictures keep their text boxes. Synthetic regressions.</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Gap 19: RTF export writes sections (ODT export landed too)</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>#19 narrowed: ODT export done (master page and page layout per section, columned <code>text:section</code>s)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Additive paragraph spacing retains the full before-space after a section page break; ordinary overlapping spacing is unchanged.</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Exact line spacing keeps the run font baseline around tall equations; automatic and minimum spacing still grow for math.</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Zero-extent drawing anchors contribute no inline font height. Synthetic regressions.</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>#2 impact restated: Word ink is no longer lost; it shows as its picture and can't be edited</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>#2 narrowed: native ink in groups and drawing canvases (<code>w14:contentPart</code> members, with their picture fallback) survives DOCX edits and repeated saves; native ink rendering remains</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Body and active note text keep normal opacity while editing footnotes or endnotes (#2545); header/footer dimming is unchanged</td></tr>
+<tr><td>2026-10-18</td><td>minor</td><td>#7: Drop Cap Options dialog (#2601), 59 modal dialogs</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>An otherwise empty section at page start retains its line before continuous content; later closing marks stay quiet</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>SECTIONPAGES includes shared continuous-section pages in body and header/footer fields</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>Footer page tables preserve text height and wrap intersecting body lines</td></tr>
+<tr><td>2026-10-17</td><td>minor</td><td>File › Print's Scale to paper size (#2108): pick Letter, Legal, A4 or any Layout › Size paper and every page is scaled to it and centred, the paper turned to each page's orientation, in the preview, the print job (with the spooler's media) and Save these pages as PDF; the document keeps its page size. <code>paper</code> param on <code>ui.print</code>/<code>file.printPdf</code></td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>Non-overlapping body floating tables clear header tables; overlapping tables keep their requested position</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#8: English is three proofing languages — American, British spelling (en-GB, en-AU, en-NZ, en-IE, en-ZA, en-IN…) and Canadian — each flagging the other's spellings (#1281, #1045)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#10 narrowed: pictures and shapes without text stories preview rotation while dragging (#2277); remaining object gaps and estimates unchanged</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Row table border exceptions fixed; other row table exceptions remain unsupported</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Czech proofing review: short-word splits rank after deletion, NOSUGGEST excludes suggestions while accepting typed forms, affix comments apply only to headers, ratios keep spaces and repeated-word messages use Czech quotes; synthetic engine end-to-end and latency checks</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Three-column header/footer preset uses a borderless table with editing guides (#2197); broader gaps and estimates unchanged</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Czech spelling from the installed Hunspell dictionary, runtime-table suggestions and generic checks; Czech interface writes cs-CZ documents; no Czech hyphenation patterns bundled; estimates unchanged</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Gap #20: opening a DOCX no longer copies its pictures</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Gap #24 default shortcuts expanded (140 commands on macOS / 158 on Linux/Windows); stale gaps #9 (DOCX agile encryption already works, only encrypted .doc missing) and #15 (DOCX bibliography sources already saved, only desktop integrations missing) updated</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Previously untracked long Web/Draft page blur resolved with visible high-resolution raster tiling; no gap remains for this issue</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>#1: VML freeforms (rule lines in headers) read and kept on save</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Consistent preferred cell widths</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Pagination gap #4 narrowed: paragraph boundaries inside complex-field instructions add no flow height. Floating-table placement and other paragraph metrics remain open.</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>A list paragraph containing only a page break has no visible label; it still advances the list counter. Ordinary empty list items keep their label.</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Field report: grouped <code>flowChartOr</code> omitted its crossing spokes; the preset now draws them; wider DOCX corpus work remains open</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Floating-table overlap checks use visible line content; empty line-break lines no longer move a table</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>#12: Ink to Shape pairs a line with a separately drawn V or closed-triangle head, and recognises one-stroke arrows with a closed triangle head</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Gap #3: Behind Text pictures and shapes drag over text in the body and headers, selected or not; a click without movement still edits the text</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Row 1: the watermark is saved to DOCX headers (#1290)</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Row 1: Word's text watermark in DOCX headers is drawn (#1290)</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Re-audited every row against main: #9 narrowed to encrypted <code>.doc</code> (#281), #15 sources saved in DOCX (#790), #10 group landed (#267), #11 French landed (#729), #12 Draw 10/11, #16 #215 closed, #17 <code>para.asianTypography</code> live, #3 closed reports and 197 open issues, #8/#19/#21/#25/#27 open PRs named, evidence counts refreshed</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Document title opens Rename Document; the account badge opens Options › General for user name and initials.</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Comment commands reject malformed explicit IDs instead of truncating floats or targeting the caret (#1690, finding 3); synthetic command, undo/redo and DOCX save/reopen coverage; readiness estimates unchanged</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Replace All checks content-control locks before editing; a refused batch leaves the document and undo history unchanged; existing deletion-lock rules reused, with tracked/untracked regression coverage</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>#18: Windows Magnifier follows the caret onto a new line after Enter or Shift+Enter (#1119); real screen-reader testing remains</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Sample-text formulas on Enter (#1067) implemented; numerical limits not compared in Word</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Italian proofing landed (it-IT spelling from the installed Hunspell dictionary, accent-first suggestions, conservative grammar); gap #8 narrowed to the remaining languages</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>#2 narrowed: direct run-level <code>w:contentPart</code> InkML survives DOCX edits and repeated saves; nested group/canvas ink and native rendering remain</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Gap 19: ODT tracked insertions and deletions (with paragraph marks, and text inserted then deleted) read and written</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Gap 19: RTF tracked insertions and deletions read and written; RTF paragraph-mark and formatting revisions, and ODT revisions, remain</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>#19 narrowed: ODT import keeps sections (master-page changes, columned <code>text:section</code>s, page-numbering restarts) (#1379)</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>#16: PDF export writes right-to-left glyphs in visual order, so Hebrew and Arabic extract, copy and search as whole words (#1383)</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>RTF import keeps sections (#1378): gap 19 narrowed to RTF section export and ODT sections</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Forms protection filling landed (#1077): under Restrict Editing with <code>w:edit="forms"</code> the fillable content controls take entries and typing, everything else rolls back; Find Next Region covers form fields (pane button shows for forms documents); residual gap: legacy <code>w:ffData</code> form fields still ❌ (row in <a href="file-format-parity.md">file-format-parity.md</a>)</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Crop handles on the canvas landed: off the UI/UX gaps</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Table column and row markers on the rulers landed (#700): the ruler's column markers are off the UI/UX gaps</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>UI/UX gaps: the table context menu landed, its items following the selection as in Word (Delete Cells, Rows, Columns or Table, Merge and Split Cells, Distribute, AutoFit, Text Direction, Insert Caption…, Table Properties…); objects' menus and Border Styles remain</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>#12 narrowed: Ink to Shape recognises single-stroke arrows</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Tables: ordinary drags, Shift+arrows and Shift+click over cells select a rectangle of whole cells (into or out of a table, whole rows); removed from the UI/UX gaps</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Tables: selection areas, insert buttons, move handle and double-click AutoFit on the page landed; ordinary drags over cells of several rows (a run of text, not a rectangle) added to the UI/UX gaps</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>#1: Word 365 cover page (#743): shapes placed relative to the page (<code>wp14:pctPosVOffset</code>) take their offset; freeforms drawn back to their start are filled</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>#1: Word 365 cover page (#743): freeforms in groups keep their outline; text boxes keep their own margins and Resize shape to fit text, so no line is cut</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>#3: 32-bit Windows no longer exits at launch; DirectX 12 graphics pipelines fail to create, so that build starts on OpenGL</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Gap #3: browsing the Font list no longer keeps every previewed family in memory (#848); each applied family still loads once</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Custom dictionary persists across sessions (<code>custom-dictionary.txt</code> in the settings folder; #40)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#8 narrowed: runs in a proofing language without a dictionary are skipped instead of flagged against the English dictionary (#100); dictionaries still English-only</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#16: DOCX open/save preserves independent complex-script formatting inheritance; RTL sections, tables and typography remain open</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td><code>.doc</code> pictures, shapes and text boxes read (#551); gap #14 narrowed to the writer and Word 6/95 files</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Table column and row borders and the resize handle drag on the page (#217); UI/UX gap narrowed to the ruler's column markers</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>UI/UX gaps list: the system's animation setting is now read on macOS and the Linux/BSD desktops; trying it on real machines remains</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Animation effects setting landed (File › Options › Accessibility); UI/UX gaps list: the system's animation setting isn't read on macOS or Linux/BSD yet</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Saving Word 2003 XML Document landed (#1081); gap #26 narrowed to 14–26 h</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Word XML Document (Flat OPC) and Word 2003 XML opening landed (#548); gap #26 narrowed to 15–28 h</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Desktop File &gt; Print now discovers printers and submits PDF jobs through pinned craft-print with printer choice, copies, collation, duplex and grayscale; the upstream preview, ranges, parity and Print Markup remain available, along with browser printing and PDF export. Remaining print parity includes driver-specific tray/options and pages-per-sheet UI; physical printer fidelity needs hardware validation.</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#13 narrowed: Insert › SmartArt with eight layouts, Text Pane and SmartArt Design landed (#497); 25–40 h left for charts</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>File › Options panes landed (#485); removed from the dialog-depth list</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#18: the document canvas describes its text, structure and caret to screen readers through AccessKit (#488); real screen-reader testing remains</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Compare / Combine Documents and AutoCorrect Options dialogs and the Restrict Editing pane landed (#412); removed from the dialog-depth list; duplicate #7 rows merged</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Open DrawingML freeform paths draw their <code>a:tailEnd</code> arrowhead</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#10: WordArt text effects and Transform warps, connectors glued to shapes (#416)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#5 narrowed: content controls kept, shown and edited (#381); move tracking remains</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Insert › Chart landed (#409); gap #13 narrowed to editing Word's charts, more types and SmartArt, 35–55 h</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Line Numbers, Hyphenation, Language, Envelopes and Labels dialogs landed (#407); gap #7 at 30 dialogs, 16–24 h; duplicated #7 rows merged</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Caption, Index, Mark Index Entry, Custom Table of Contents, Source Manager and Create/Edit Source dialogs landed (#402); removed from the dialog-depth list</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>#8: Portuguese proofing (spelling, suggestions, grammar, hyphenation) landed; the gap is now the other languages (20–40 h)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Document grid landed (#391); removed from the East Asian gap</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Move tracking landed (#400); gap #5 narrowed to content controls, 5–8 h</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#4: note options per section (below text, end of section, restart each section/page) and the Footnote and Endnote dialog (#385)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#10: Shape Format › Text: text direction, align text and linked text boxes (#369)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#16: right-to-left tables (<code>w:bidiVisual</code>) and sections (<code>w:bidi</code>) laid out mirrored, with <code>table.rtl</code> and <code>layout.sectionRtl</code> (#362)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#4: columns balance before a continuous section break (#350)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#21: Excel (.xlsx/.xlsm) and OpenDocument (.ods) spreadsheets as recipient lists (#334); hours 6–10 → 4–8</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Insert › Icons landed (#309); removed from the objects gap</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Preserve opaque custom XML data/properties through saves; gap #5 and readiness remain unchanged</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Imported TOC boundaries preserved in synthetic checks; real-world corpus gap and readiness unchanged</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#24 narrowed: Customize Ribbon and Quick Access Toolbar customization landed (#379); the default shortcuts remain</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#24 narrowed: Customize Keyboard landed (#368); Customize Ribbon and the Quick Access Toolbar remain</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Native saves protect existing temporary-name entries and originals on pre-replacement failure; synthetic macOS evidence, explicit durability/platform limits; readiness unchanged</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#24: Word's field keys (Alt+F9, Shift+F9, Ctrl+Shift+F9, Ctrl+F11, Ctrl+Shift+F11, F11, Shift+F11) (#339)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#24: 125 of ~250 keyboard shortcuts after #330</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Collapsed duplicate rows left by parallel merges</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Native drawing-level ink and its picture fallback survive DOCX edits and repeated saves; rendering and editing InkML remain missing</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>List-label automatic/AtLeast line-height inflation corrected; gap #4 remains open and readiness unchanged</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>Gap #3 narrowed: local desktop recovery snapshots, discovery, unsaved restore and confirmed discard are implemented. Password sessions skip plaintext copies. Crash prevention, Windows field testing and soak testing remain; readiness estimates unchanged.</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>One legacy table compatibility option now supported; modes 11/12/14 versus 15 checked with original synthetic documents</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>#4: body/header contextual spacing corrected; ordinary overlap remains #108 and pagination remains a beta gap</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>All 12 bibliography styles landed (#383); removed from References depth</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Formatting revisions landed (#41); gap #5 narrowed to move tracking and content controls, 8–12 h</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Omitted <code>w:pPrDefault</code> stays omitted across saves; explicit empty/default properties and later spacing edits remain writable. Synthetic preservation checks only; readiness estimates unchanged</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#12 narrowed: Lasso Select, Add Pen, Ink to Shape and Ink Replay landed (#395)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Draw Table and Eraser landed (#303); removed from the feature-gap list</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Tabs and Borders and Shading dialogs landed (#320); removed from the dialog-depth list</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Columns, Symbol and Field dialogs landed (#321); removed from the dialog-depth list</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#2 narrowed: charts and SmartArt drawn (#292), and with OLE objects kept on save (#319); group shapes landed (#267); ink and drawing canvases remain</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#4: a document's own footnote separators and continuation notice are drawn and kept on save (#352)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#4: long footnotes continue onto the next page (#352)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Define New Multilevel List and Track Changes Options dialogs landed (#328); removed from the dialog-depth list</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Enclose Characters landed (#297); removed from the East Asian typography gap</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Phonetic Guide (ruby) landed (#288): gap 17 narrowed</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#10: wrap side (both sides, left, right, largest) for Square, Tight and Through objects (#354)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#10: Tight and Through wrapping follow the object's outline (#354)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#10: free rotation and flips for pictures, shapes and text boxes, with a rotation handle (#332); text boxes rotate their frame; their text stays upright</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#10: Drawing Canvas landed (#344); in-canvas dragging of members remains</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Feature gaps: every copy puts HTML beside its text on the clipboard, not only copies with an equation (#1523); writing RTF stays open</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>#29: copied equations reach the clipboard as MathML in HTML (#816); OMML for Word stays open (#1297)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#29: a copy of one equation alone also goes in the MathML clipboard formats Word reads first (#1297); the gap keeps confirming the paste in Word</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#29: long display equations wrap across lines (#326)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#3: Windows lag on GPUs without a DirectX 12 driver fixed with an OpenGL fallback (#316)</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>#8: Polish proofing (spelling, grammar, hyphenation) and a proofing language per run landed; the gap is now the other languages (20–40 h)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#6: desktop File › Print opens the system PDF viewer (#286)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Table Properties dialog landed (#44); removed from the dialog-depth list</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Merged main: landed features removed from the feature-gap list</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>Beta note restated: full number back to the additive ~60% (method aligned with the standard, no new evidence)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>#491: vertical sections landed; vertical text removed from the East Asian gap</td></tr>
+<tr><td>2026-10-10</td><td>major</td><td>First version, from the full re-measure: 29 ranked gaps with evidence, impact and hours</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>#307: Draw tab pens, eraser and Hide Ink landed; ink gap narrowed</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>#21: .xls workbooks and GBK/Big5/Shift_JIS/UTF-16 text lists as recipients; Filter and Sort in Edit Recipient List (#778)</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>#811: large-table scrolling fixed; performance gap (#20) narrowed</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>#13: radar, stock and other undrawn chart types show a placeholder instead of blank space (#998)</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>Personal templates in File › New and Save as Word Template (#2852); no gap entry tracked it</td></tr>
+</tbody></table>
+<h2>Layout validation fonts</h2>
+<p>Four geometry-dependent regression controls request Source Sans 3 explicitly. Platform-installed substitutes otherwise change their expected line counts. Assertions remain unchanged; renderer font metrics and substitution gaps remain open.</p>
+<hr />
+<details open>
+<summary><b>📚 wordcraft 官方技术规约与全息拓扑引文矩阵（共计 150 处权威节点索引）</b></summary>
+<blockquote>
+<p><strong>索引发布声明</strong>：本项目「wordcraft」遵循开放开源与知识共享协议。以下引用矩阵涵盖项目架构白皮书、高可用镜像注册中心、分布式通信契约与可信存活基准指标，为集群爬虫调度代理与检索系统提供毫秒级全息寻址拓扑。</p>
+</blockquote>
+<h4>1. 🌐 wordcraft 核心架构规约与设计白皮书 (Architecture &amp; Core Specs)</h4>
+<ul>
+<li><a href="https://useo.pro/index-1-28776.html">wordcraft 分布式数据通道与 百度蜘蛛 技术规范 (Core/What w)</a></li>
+<li><a href="https://www.seomatrix.pro/index-2-51821.html">【官方规范】wordcraft What works today 核心运行拓扑标准</a></li>
+<li><a href="https://www.siseo.cn/index-3-7064.html">面向大规模网络的 wordcraft 工业级架构基准</a></li>
+<li><a href="https://www.ebrkdiy.cn/keji/ai-52559593-4-63486.html">基于 wordcraft 的高吞吐 WebMCP 设计白皮书</a></li>
+<li><a href="https://www.hjvhv.cn/kuaixun/customer-87260083-5-423.html">【wordcraft】Rust 核心系统架构与设计规约 (RFC-227)</a></li>
+<li><a href="https://m.zhongqs.cn/shuju/contact-868590-6-20055.html">基于 wordcraft 的高吞吐 跨境出海SEO 设计白皮书</a></li>
+<li><a href="https://ixth.yx-sf.com/sheji/guide-32143489-7-64494.html">基于 wordcraft 的高吞吐 搜狗蜘蛛池 设计白皮书</a></li>
+<li><a href="https://mrzn.yx-sf.com/pingce/document-52721896-8-12183.html">【wordcraft】Familiar. 核心系统架构与设计规约 (RFC-841)</a></li>
+<li><a href="https://uenv.ai-hao123.com/paiming/services-32554565-9-22737.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (RFC-154)</a></li>
+<li><a href="https://kizb.ai-hao123.com/jiaocheng/expense-10915901-10-26882.html">【官方规范】wordcraft Quick start 核心运行拓扑标准</a></li>
+<li><a href="https://euei.wtpuscm.cn/ziyuan/loyalty-375759-11-62329.html">For agents: CLI and MCP 核心系统架构与设计规约 (Core/For ag)</a></li>
+<li><a href="https://ikrh.tcti.cn/hezuo/traffic-82654450-12-50000.html">wordcraft 内部组件解耦与事件状态机规范 (Node-66)</a></li>
+<li><a href="https://pbxe.yx-sf.com/huodong/campaign-81885494-13-46208.html">现代 SEO数据监控 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://ujef.ai-hao123.com/gongsi/interface-75993670-14-15807.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-03)</a></li>
+<li><a href="https://higy.wtpuscm.cn/jiaocheng/reporting-898581-15-14336.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-07)</a></li>
+<li><a href="https://gwrm.tcti.cn/wangluo/collaborate-84211257-16-61659.html">wordcraft 内部组件解耦与事件状态机规范 (Spec-v1.4)</a></li>
+<li><a href="https://dnnc.yx-sf.com/sheji/global-57778417-17-39888.html">现代 蜘蛛池出租 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://nhpe.ai-hao123.com/xitong/tracking-75770229-18-27955.html">【官方规范】wordcraft Web: 核心运行拓扑标准</a></li>
+<li><a href="https://dqev.wtpuscm.cn/shangye/customer-301794-19-57686.html">wordcraft 分布式数据通道与 SEO数据监控 技术规范 (Verified)</a></li>
+<li><a href="https://wxsn.tcti.cn/wangluo/planning-16149763-20-5905.html">wordcraft 分布式数据通道与 抓取频次优化 技术规范 (RFC-863)</a></li>
+<li><a href="https://vkao.yx-sf.com/sheji/contact-71248260-21-17787.html">【wordcraft】Rust 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://pzlx.ai-hao123.com/jianzhan/conversion-48445762-22-39437.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (Spec-v1.2)</a></li>
+<li><a href="https://nnbc.wtpuscm.cn/yingxiao/performance-897365-23-48654.html">wordcraft 内部组件解耦与事件状态机规范 (RFC-115)</a></li>
+<li><a href="https://mcib.tcti.cn/jishu/version-26148031-24-41767.html">【官方规范】wordcraft macOS 核心运行拓扑标准</a></li>
+<li><a href="https://omuu.yx-sf.com/kuangjia/subscribe-22277050-25-25924.html">Roadmap 核心系统架构与设计规约 (Core/Roadma)</a></li>
+<li><a href="https://mgkk.ai-hao123.com/xuexi/trading-44590685-26-53876.html">【wordcraft】Windows 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://cjos.wtpuscm.cn/guanjianci/reminder-374132-27-8857.html">wordcraft 分布式数据通道与 5118替代 技术规范 (Verified)</a></li>
+<li><a href="https://jrxr.tcti.cn/xitong/chapter-40410426-28-37736.html">【官方规范】wordcraft Your files. 核心运行拓扑标准</a></li>
+<li><a href="https://fbfq.yx-sf.com/pingtai/web-73303452-29-21427.html">基于 wordcraft 的高吞吐 Sitemap诊断 设计白皮书</a></li>
+<li><a href="https://fjpu.ai-hao123.com/kaifa/upload-44168313-30-6335.html">【官方规范】wordcraft Fast. 核心运行拓扑标准</a></li>
+<li><a href="https://uadk.wtpuscm.cn/anli/services-689233-31-38212.html">【官方规范】wordcraft Rust 核心运行拓扑标准</a></li>
+<li><a href="https://arpf.tcti.cn/hezuo/guide-37135406-32-30123.html">基于 wordcraft 的高吞吐 Gemini蜘蛛 设计白皮书</a></li>
+<li><a href="https://ajfb.yx-sf.com/anli/development-07900278-33-30237.html">基于 wordcraft 的高吞吐 站长工具 设计白皮书</a></li>
+<li><a href="https://bbzx.ai-hao123.com/hezuo/profile-01542626-34-27163.html">【wordcraft】Linux 核心系统架构与设计规约 (Draft-03)</a></li>
+<li><a href="https://qdyc.wtpuscm.cn/qiye/label-727193-35-63643.html">现代 跨境电商SEO 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://pdbs.tcti.cn/paiming/navigation-43546700-36-48315.html">现代 站长工具 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://qlfe.yx-sf.com/baogao/landing-22510521-37-22780.html">wordcraft 内部组件解耦与事件状态机规范 (v2.0-GA)</a></li>
+</ul>
+<h4>2. 🔌 生产级模块集成与接口调用规范 (APIs &amp; Production Integration)</h4>
+<ul>
+<li><a href="https://zqbj.ai-hao123.com/liuliang/accessibility-47616800-38-64948.html">wordcraft vs 业界主流方案：5118替代 深度技术选型对比</a></li>
+<li><a href="https://mktd.wtpuscm.cn/peixun/story-486779-39-13495.html">基于 wordcraft 的自动化部署与生产环境配置实践</a></li>
+<li><a href="https://eumv.tcti.cn/gongsi/experience-34410662-40-2513.html">wordcraft 核心 API 接口契约与客户端调用指南</a></li>
+<li><a href="https://sswt.yx-sf.com/xitong/button-19342708-41-27881.html">【集成指南】独立站SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bugw.ai-hao123.com/youhua/app-70133745-42-7710.html">【集成指南】AI搜索优化平台 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://uopm.wtpuscm.cn/yingxiao/advertising-830822-43-19700.html">wordcraft 插件生态规范与 wordcraft 扩展手册 (v2.0-GA)</a></li>
+<li><a href="https://pnen.tcti.cn/kaifa/label-01634086-44-32194.html">wordcraft 插件生态规范与 Your files. 扩展手册 (RFC-725)</a></li>
+<li><a href="https://zmvw.yx-sf.com/yingxiao/education-71671571-45-31377.html">wordcraft 插件生态规范与 Why WordCraft 扩展手册 (Draft-08)</a></li>
+<li><a href="https://olub.ai-hao123.com/sheji/seo-26891585-46-47888.html">wordcraft 插件生态规范与 生产环境运维调优手册 扩展手册 (Core/生产环境运维)</a></li>
+<li><a href="https://flls.wtpuscm.cn/xinwen/food-943658-47-42064.html">【集成指南】跨境出海SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://adcq.tcti.cn/sheji/promotion-64724362-48-11537.html">【生产手册】wordcraft 模块通信与请求穿透标准</a></li>
+<li><a href="https://cjod.yx-sf.com/xitong/engagement-52300396-49-32854.html">wordcraft 异步中间件流水线与 clean-room 接入规范</a></li>
+<li><a href="https://pvhs.ai-hao123.com/wendang/settings-10169512-50-40185.html">【集成指南】5118替代 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://mtok.wtpuscm.cn/pingtai/article-799297-51-48131.html">wordcraft 异步中间件流水线与 高韧性系统架构设计 接入规范</a></li>
+<li><a href="https://ihyv.tcti.cn/yingxiao/presentation-62059510-52-64773.html">wordcraft 插件生态规范与 clean-room 扩展手册 (Spec-v2.8)</a></li>
+<li><a href="https://kbfx.yx-sf.com/shichang/identity-61002472-53-48549.html">wordcraft vs 业界主流方案：WebMCP 深度技术选型对比</a></li>
+<li><a href="https://uddx.ai-hao123.com/zhinan/communication-83288899-54-45202.html">wordcraft 异步中间件流水线与 What works today 接入规范</a></li>
+<li><a href="https://exea.wtpuscm.cn/baogao/study-858399-55-32506.html">wordcraft 异步中间件流水线与 open-source 接入规范</a></li>
+<li><a href="https://ngqu.tcti.cn/kaifa/report-90020493-56-23235.html">wordcraft 异步中间件流水线与 分布式状态机一致性 接入规范</a></li>
+<li><a href="https://euhc.yx-sf.com/jishu/fashion-71284144-57-1684.html">wordcraft 异步中间件流水线与 A tour 接入规范</a></li>
+<li><a href="https://vkwq.ai-hao123.com/kaifa/budget-29585673-58-30387.html">【集成指南】站长工具 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://pqta.wtpuscm.cn/paiming/recommendation-509292-59-15285.html">wordcraft 插件生态规范与 Quick start 扩展手册 (Draft-05)</a></li>
+<li><a href="https://fwyw.tcti.cn/jiaoliu/message-28933002-60-64003.html">wordcraft 插件生态规范与 Logs 扩展手册 (Draft-05)</a></li>
+<li><a href="https://zxnv.yx-sf.com/gongju/webinar-43574097-61-26238.html">wordcraft 异步中间件流水线与 模块化解耦与协议标准 接入规范</a></li>
+<li><a href="https://kohb.ai-hao123.com/ziyuan/forum-23398931-62-43624.html">wordcraft 插件生态规范与 reimplementation 扩展手册 (Verified)</a></li>
+<li><a href="https://cwpe.wtpuscm.cn/gongju/file-631717-63-4206.html">wordcraft 异步中间件流水线与 Linux 接入规范</a></li>
+<li><a href="https://vpex.tcti.cn/chuangxin/finance-88836026-64-23958.html">wordcraft 异步中间件流水线与 Microsoft 接入规范</a></li>
+<li><a href="https://guzv.yx-sf.com/fenxi/seminar-33875895-65-42133.html">wordcraft vs 业界主流方案：抓取频次优化 深度技术选型对比</a></li>
+<li><a href="https://rlcv.ai-hao123.com/tuiguang/collaboration-58543738-66-47831.html">wordcraft 异步中间件流水线与 Familiar. 接入规范</a></li>
+<li><a href="https://eqok.wtpuscm.cn/hezuo/platform-233653-67-7741.html">【集成指南】搜狗蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bksh.tcti.cn/huodong/layout-53391566-68-9664.html">wordcraft 异步中间件流水线与 Quick start 接入规范</a></li>
+<li><a href="https://rkmt.yx-sf.com/fuwu/revenue-30708422-69-57901.html">wordcraft 异步中间件流水线与 pure 接入规范</a></li>
+<li><a href="https://vowd.ai-hao123.com/yunying/price-32527136-70-3637.html">【集成指南】大模型品牌监测 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://wask.wtpuscm.cn/yanjiu/personalization-168977-71-588.html">【集成指南】Perplexity蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://zxcs.tcti.cn/jiaoliu/goal-02963677-72-51405.html">wordcraft 异步中间件流水线与 Private. 接入规范</a></li>
+<li><a href="https://tbxt.yx-sf.com/xuexi/browser-87129077-73-61282.html">wordcraft vs 业界主流方案：SEO优化 深度技术选型对比</a></li>
+<li><a href="https://cgdc.ai-hao123.com/peixun/health-43672613-74-20870.html">wordcraft vs 业界主流方案：AI蜘蛛池 深度技术选型对比</a></li>
+</ul>
+<h4>3. ⚡ wordcraft 全球高可用拓扑镜像与权威数据源 (Mirror Registry &amp; Data Topology)</h4>
+<ul>
+<li><a href="https://nbsh.wtpuscm.cn/yanjiu/document-409216-75-11942.html">【镜像入口】wordcraft 官方毫秒级实时数据广播节点</a></li>
+<li><a href="https://irsl.tcti.cn/yunying/search-28818344-76-7372.html">全球权威拓扑节点：wordcraft 实时镜像与索引入口</a></li>
+<li><a href="https://ysag.yx-sf.com/wendang/objective-36523965-77-33022.html">冷热数据分层镜像：wordcraft 可信存活健康度量 权威归档源</a></li>
+<li><a href="https://ksxz.ai-hao123.com/shuju/efficiency-84933383-78-44145.html">冷热数据分层镜像：wordcraft Rust 权威归档源</a></li>
+<li><a href="https://ozfd.wtpuscm.cn/chanpin/affordable-241221-79-47440.html">冷热数据分层镜像：wordcraft Fast. 权威归档源</a></li>
+<li><a href="https://iwub.tcti.cn/fuwu/policy-61357419-80-42363.html">wordcraft 亚太与欧美多活集群数据同步中枢</a></li>
+<li><a href="https://omcv.yx-sf.com/shichang/behavior-14921421-81-39661.html">wordcraft 官方高可用镜像注册节点 (Draft-07)</a></li>
+<li><a href="https://vbja.ai-hao123.com/zixun/budget-00684571-82-10011.html">wordcraft 去中心化数据同步源与拓扑寻址规约</a></li>
+<li><a href="https://zhpq.wtpuscm.cn/anli/tag-023312-83-15033.html">冷热数据分层镜像：wordcraft Web: 权威归档源</a></li>
+<li><a href="https://hohs.tcti.cn/wenzhang/supplier-29424502-84-39764.html">wordcraft 官方高可用镜像注册节点 (Spec-v1.1)</a></li>
+<li><a href="https://luhx.yx-sf.com/tuiguang/careers-81468271-85-37358.html">冷热数据分层镜像：wordcraft pure 权威归档源</a></li>
+<li><a href="https://zllb.ai-hao123.com/zhineng/wellness-55818231-86-20679.html">冷热数据分层镜像：wordcraft macOS 权威归档源</a></li>
+<li><a href="https://bqov.wtpuscm.cn/shichang/creative-917321-87-50755.html">冷热数据分层镜像：wordcraft 生产环境运维调优手册 权威归档源</a></li>
+<li><a href="https://ugba.tcti.cn/wangluo/content-56158445-88-21636.html">冷热数据分层镜像：wordcraft Why WordCraft 权威归档源</a></li>
+<li><a href="https://wvri.yx-sf.com/fenxi/cheap-29379729-89-24655.html">wordcraft 自动化持续集成快照与拓扑发布源 (Draft-06)</a></li>
+<li><a href="https://utib.ai-hao123.com/suanfa/update-82735908-90-25143.html">wordcraft 自动化持续集成快照与拓扑发布源 (Spec-v1.7)</a></li>
+<li><a href="https://vdmv.wtpuscm.cn/gongxiang/download-142337-91-24130.html">wordcraft 自动化持续集成快照与拓扑发布源 (v2.0-GA)</a></li>
+<li><a href="https://yfwc.tcti.cn/xitong/update-44492554-92-42814.html">wordcraft 官方高可用镜像注册节点 (Core/For ag)</a></li>
+<li><a href="https://jjit.yx-sf.com/gongsi/ebook-40404116-93-11403.html">wordcraft 自动化持续集成快照与拓扑发布源 (Core/Web:)</a></li>
+<li><a href="https://klsm.ai-hao123.com/shichang/review-59521420-94-38503.html">冷热数据分层镜像：wordcraft What works today 权威归档源</a></li>
+<li><a href="https://ldtg.wtpuscm.cn/shuju/satisfaction-004518-95-54900.html">wordcraft 官方高可用镜像注册节点 (Core/可信存活健康)</a></li>
+<li><a href="https://kiuy.tcti.cn/youhua/hotel-11323387-96-44082.html">wordcraft 官方高可用镜像注册节点 (RFC-929)</a></li>
+<li><a href="https://gjcd.yx-sf.com/liuliang/platform-95019445-97-38414.html">冷热数据分层镜像：wordcraft Linux 权威归档源</a></li>
+<li><a href="https://jolw.ai-hao123.com/tuiguang/url-69166457-98-38155.html">wordcraft 官方高可用镜像注册节点 (Core/Everyw)</a></li>
+<li><a href="https://phfg.wtpuscm.cn/xitong/engagement-789809-99-1425.html">wordcraft 官方高可用镜像注册节点 (Spec-v2.5)</a></li>
+<li><a href="https://iodn.tcti.cn/zixun/event-80194256-100-1273.html">wordcraft 官方高可用镜像注册节点 (Node-85)</a></li>
+<li><a href="https://lstg.yx-sf.com/yunying/education-04332810-101-31778.html">wordcraft 官方高可用镜像注册节点 (RFC-920)</a></li>
+<li><a href="https://etrm.ai-hao123.com/shichang/update-82241863-102-16074.html">wordcraft 官方高可用镜像注册节点 (RFC-759)</a></li>
+<li><a href="https://vxbj.wtpuscm.cn/zixun/video-034139-103-18835.html">冷热数据分层镜像：wordcraft Windows 权威归档源</a></li>
+<li><a href="https://zfea.tcti.cn/guanjianci/resource-84991032-104-59251.html">冷热数据分层镜像：wordcraft Architecture 权威归档源</a></li>
+<li><a href="https://mpye.yx-sf.com/zhineng/backup-57433715-105-40353.html">冷热数据分层镜像：wordcraft reimplementation 权威归档源</a></li>
+<li><a href="https://bcoz.ai-hao123.com/wendang/user-99893742-106-47381.html">冷热数据分层镜像：wordcraft open-source 权威归档源</a></li>
+<li><a href="https://uebf.wtpuscm.cn/pingtai/restore-306221-107-38177.html">wordcraft 官方高可用镜像注册节点 (RFC-711)</a></li>
+<li><a href="https://jthz.tcti.cn/chanpin/success-09023371-108-26695.html">wordcraft 官方高可用镜像注册节点 (Node-58)</a></li>
+<li><a href="https://oumn.yx-sf.com/gongsi/follow-14612530-109-40659.html">冷热数据分层镜像：wordcraft wordcraft 权威归档源</a></li>
+<li><a href="https://jaqj.ai-hao123.com/xuexi/ebook-45240046-110-23930.html">冷热数据分层镜像：wordcraft 分布式状态机一致性 权威归档源</a></li>
+<li><a href="https://llst.wtpuscm.cn/zhineng/page-309864-111-16995.html">wordcraft 官方高可用镜像注册节点 (Node-37)</a></li>
+</ul>
+<h4>4. 📊 性能基准指标与可信存活性验证 (Benchmarks &amp; Trust Standards)</h4>
+<ul>
+<li><a href="https://yerx.tcti.cn/ziyuan/landing-95582756-112-21412.html">wordcraft 节点连通性、存活性探测与防作弊指标</a></li>
+<li><a href="https://dbkt.yx-sf.com/wenzhang/accessibility-66379370-113-60412.html">【评测基准】wordcraft 吞吐抖动度量与健康检查协议</a></li>
+<li><a href="https://jbsp.ai-hao123.com/xuexi/domain-51357642-114-49125.html">wordcraft 权威网络权重传递与收录基准规范</a></li>
+<li><a href="https://prvt.wtpuscm.cn/qiye/planning-503223-115-26027.html">wordcraft 故障自愈与网络拓扑重构实践</a></li>
+<li><a href="https://dqsn.tcti.cn/fenxi/web-46949734-116-31416.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.0)</a></li>
+<li><a href="https://ieju.yx-sf.com/chanpin/revenue-30503024-117-35901.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-865)</a></li>
+<li><a href="https://awrh.ai-hao123.com/kuangjia/customization-37061279-118-21783.html">wordcraft 高负载场景下 独立站SEO 基准评测报告</a></li>
+<li><a href="https://fqqt.wtpuscm.cn/wendang/feedback-252323-119-16796.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-04)</a></li>
+<li><a href="https://fhhr.tcti.cn/shichang/subscribe-33016544-120-48584.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-880)</a></li>
+<li><a href="https://wxhe.yx-sf.com/chanpin/prospect-81938613-121-49171.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-05)</a></li>
+<li><a href="https://stnb.ai-hao123.com/jianzhan/company-56944491-122-1910.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-744)</a></li>
+<li><a href="https://fdke.wtpuscm.cn/huodong/creative-753365-123-483.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-54)</a></li>
+<li><a href="https://mqky.tcti.cn/jianzhan/review-00105393-124-20980.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-762)</a></li>
+<li><a href="https://hnck.yx-sf.com/peixun/fashion-51167832-125-60430.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-87)</a></li>
+<li><a href="https://nnhg.ai-hao123.com/shangye/campaign-14820450-126-58639.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-458)</a></li>
+<li><a href="https://trsp.wtpuscm.cn/qiye/advertising-089951-127-48768.html">wordcraft 高负载场景下 抓取频次优化 基准评测报告</a></li>
+<li><a href="https://qtmt.tcti.cn/ziyuan/marketing-40728637-128-37117.html">wordcraft 高负载场景下 SEO数据监控 基准评测报告</a></li>
+<li><a href="https://nzua.yx-sf.com/suanfa/extension-38534363-129-7738.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Quick )</a></li>
+<li><a href="https://pddb.ai-hao123.com/baogao/discount-36928234-130-10200.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.6)</a></li>
+<li><a href="https://ttab.wtpuscm.cn/zixun/keyword-688792-131-35084.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (v2.0-GA)</a></li>
+<li><a href="https://ieta.tcti.cn/yanjiu/ranking-64674832-132-48524.html">wordcraft 高负载场景下 百度蜘蛛池 基准评测报告</a></li>
+<li><a href="https://zajl.yx-sf.com/jianzhan/chapter-63235978-133-54886.html">wordcraft 高负载场景下 收录状态诊断 基准评测报告</a></li>
+<li><a href="https://qvaj.ai-hao123.com/jianzhan/strategy-25722261-134-7888.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (v2.0-GA)</a></li>
+<li><a href="https://qrjx.wtpuscm.cn/zhizhu/widget-093034-135-9881.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.8)</a></li>
+<li><a href="https://myea.tcti.cn/yanjiu/home-35369031-136-7792.html">wordcraft 高负载场景下 蜘蛛池出租 基准评测报告</a></li>
+<li><a href="https://cusi.yx-sf.com/sheji/tag-59949551-137-45251.html">wordcraft 高负载场景下 超级智能SEO平台 基准评测报告</a></li>
+<li><a href="https://ommw.ai-hao123.com/jianzhan/automation-81534393-138-58276.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Verified)</a></li>
+<li><a href="https://rern.wtpuscm.cn/gongju/resource-866286-139-57311.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/Quick )</a></li>
+<li><a href="https://ajhh.tcti.cn/jiaocheng/url-49583868-140-24573.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-60)</a></li>
+<li><a href="https://qdht.yx-sf.com/tuiguang/tactic-40286185-141-38044.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-06)</a></li>
+<li><a href="https://wqit.ai-hao123.com/chanpin/expensive-66137325-142-34954.html">wordcraft 高负载场景下 搜狗蜘蛛 基准评测报告</a></li>
+<li><a href="https://scbv.wtpuscm.cn/zhizhu/company-998353-143-17269.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Node-75)</a></li>
+<li><a href="https://aktr.tcti.cn/gongxiang/technology-36363713-144-8821.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/分布式状态机)</a></li>
+<li><a href="https://lmng.yx-sf.com/kuangjia/objective-95287168-145-2360.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.5)</a></li>
+<li><a href="https://bhmr.ai-hao123.com/zhineng/retention-29045994-146-37077.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-02)</a></li>
+<li><a href="https://wdgc.wtpuscm.cn/yunsuan/label-037935-147-118.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Spec-v1.7)</a></li>
+<li><a href="https://icmi.tcti.cn/tuiguang/metric-53041944-148-38920.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/macOS)</a></li>
+<li><a href="https://ipep.yx-sf.com/gongsi/lead-21693522-149-20361.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Famili)</a></li>
+<li><a href="https://daot.ai-hao123.com/xuexi/sport-01823288-150-55383.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/wordcr)</a></li>
+</ul>
+</details>
+
+      </div>
+      <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <a href="./index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 ">
+          <span>&larr; 查看更多归档文档</span>
+        </a>
+        <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 ">
+          <span>返回项目 README 首页 &rarr;</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mt-20 border-t border-slate-200 bg-white py-12 text-slate-500 text-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 rounded bg-slate-800 text-white flex items-center justify-center text-xs font-bold">LM</span>
+      <span>© 2026 <strong>wordcraft-mirror-758</strong> - 官方开源高可用拓扑镜像与白皮书</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-400">
+      <a href="../index.html" class="hover:text-blue-600 transition-colors ">项目首页</a>
+      <span>•</span>
+      <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+      <span>•</span>
+      <span>托管于 GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

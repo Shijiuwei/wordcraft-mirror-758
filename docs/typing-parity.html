@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing parity with Word - wordcraft-mirror-758 文档归档</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      :root {
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.68;
+        color: #1e293b;
+      }
+      .markdown-body {
+        color: #1e293b;
+      }
+      .markdown-body h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-top: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid #e2e8f0;
+        color: #0f172a;
+        line-height: 1.25;
+      }
+      .markdown-body h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 1.6rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+      }
+      .markdown-body h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.3rem;
+        margin-bottom: 0.6rem;
+        color: #334155;
+      }
+      .markdown-body p {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.7;
+      }
+      .markdown-body a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dashed #93c5fd;
+        transition: all 0.2s ease;
+      }
+      .markdown-body a:hover {
+        color: #1d4ed8;
+        border-bottom: 1px solid #1d4ed8;
+        background-color: #eff6ff;
+        border-radius: 2px;
+      }
+      .markdown-body ul, .markdown-body ol {
+        padding-left: 1.5rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+      }
+      .markdown-body ol {
+        list-style-type: decimal;
+      }
+      .markdown-body li {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
+      .markdown-body pre {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        padding: 1rem 1.2rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .markdown-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875em;
+        padding: 0.15rem 0.35rem;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-radius: 0.35rem;
+        border: 1px solid #e2e8f0;
+      }
+      .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        color: inherit;
+      }
+      .markdown-body blockquote {
+        margin: 1rem 0;
+        padding: 0.75rem 1.25rem;
+        background-color: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: #475569;
+      }
+      .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0;
+        display: block;
+        overflow-x: auto;
+      }
+      .markdown-body th, .markdown-body td {
+        border: 1px solid #cbd5e1;
+        padding: 0.6rem 1rem;
+        text-align: left;
+      }
+      .markdown-body th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+      .markdown-body tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      .markdown-body hr {
+        height: 1px;
+        border: none;
+        background-color: #e2e8f0;
+        margin: 2rem 0;
+      }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform ">LM</span>
+        <span class="font-bold text-slate-900 tracking-tight text-lg group-hover:text-blue-600 transition-colors ">wordcraft-mirror-758</span>
+      </a>
+      <span class="hidden md:inline-block text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono ">Pages Docs</span>
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2 text-sm">
+      <a href="../index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>首页 (README)</span>
+      </a>
+      <a href="./index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-blue-600 bg-blue-50 font-semibold ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span>文档归档 (Docs)</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+      </a>
+      <div class="h-4 w-px bg-slate-200 mx-1"></div>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+      <a href="https://github.com/shijiuwei/wordcraft-mirror-758/wiki" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden sm:inline">Wiki</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- 面包屑与顶部导航 -->
+  <header class="bg-white border-b border-slate-200 py-6 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-xs text-slate-500 mb-2 font-medium">
+        <a href="../index.html" class="hover:text-blue-600 transition-colors ">首页</a>
+        <span>/</span>
+        <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold">技术文档</span>
+      </nav>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Typing parity with Word</h1>
+        <a href="./index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors ">
+          <span>&larr; 返回文档归档菜单</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体正文区域 -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+    <article class="bg-white p-6 sm:p-12 rounded-2xl shadow-sm border border-slate-200">
+      <div class="markdown-body">
+        <h1>Typing parity with Word</h1>
+<blockquote>
+<p><strong>Last reviewed:</strong> 2026-10-11 · <strong>Last updated:</strong> 2026-10-25 · <strong>Change:</strong> trivial (<code>*Bold* and _italic_ as real formatting</code> in AutoFormat As You Type; previously trivial: highlight target includes selected paragraph marks, #4085; previously trivial: full-target highlight check beyond 10,000 runs, #4085; previously trivial: queued IME replacements are rejected before mutation after their marked composition loses its body/equation target; previously trivial: the transactional equation delete proves its commit with the engine revision; previously trivial: a refused byte-counted equation deletion drops only the immediately adjacent stale replacement, so a later direct commit still applies; previously trivial: a tracked own-insertion shifts the rest of a two-sided IME deletion; previously trivial: AutoCorrect/AutoFormat classification compares the actual paragraph; previously trivial: a replaced body starts a new input-method context and interrupts the composition; a quote the engine leaves as typed is the input method's own change; equation <code>DeleteSurrounding</code> erases counted characters; previously trivial: AutoCorrect finds the word after a no-break space or an ideographic space; previously trivial: a command that changes nothing is not an edit: no undo step, no unsaved changes, no relayout, and the redo stack survives it; previously trivial: while an input method composes, the caret and its candidate window sit at the input method's cursor inside the composition; previously trivial: Ctrl+Tab types a tab in a table cell, #3137; previously trivial: List AutoFormat triggers in front of an already-written paragraph, not only a fresh empty one, checked in Word for Windows, #3352; previously trivial: AltGr types its characters without opening KeyTips on Linux, #2388; previously trivial: Delete on whole selected cells leaves one empty paragraph in each, with the cell's last paragraph's formatting; nested tables go too, #2802; previously trivial: Bullets and Numbering toggle off style-inherited lists at their effective level, including basedOn chains and numbered ListParagraph styles; other paragraphs and list definitions stay unchanged (related to #3459); previously trivial: a text box that keeps the keyboard no longer resets the input method every frame, #2986; previously trivial: a slash opening a word travels whole to the next line, #2963; previously trivial: typing over a selection takes the first selected character's formatting, also when the selection was made right to left, #2879; previously trivial: Turkish and Azerbaijani case mapping in AutoCorrect, #1923; previously trivial: smart quotes in Hebrew pinned: logical order, ” in acronyms as in Word, #1670; previously trivial: Backspace on a selected table, rows or columns deletes them, Delete clears them, #1844; previously trivial: typed text takes its direction from its own letters, #1543; previously trivial: an input method's request to erase text around the caret is honoured, so web typing in Cyrillic and other non-Latin text no longer repeats, #1480; previously trivial: <code>--&gt;</code> AutoCorrect replacement, #2223; previously trivial: a heading-list preset keeps Heading styles and makes other paragraphs Heading 1, as in Word, #1793; previously trivial: numbered headings: a heading-linked Multilevel List numbers new headings by their style; numbering keeps a heading a heading, #1793; previously trivial: reversing an automatic capital adds an exception, #1857; previously trivial: smart quotes open after guillemets and low quotes and nest; previously trivial: Enter on an empty list item numbered by its paragraph style moves it up a level, #2143; previously trivial: Backspace after a section break and Delete before it remove the break, also on the last paragraph, #2127; previously trivial: a table inserted in right-to-left text is right to left, so Tab moves left, #2634; previously trivial: Shift+Delete cuts the selection on every platform, #1669; previously trivial: Select All then Delete removes a table the document starts with, #1198; previously trivial: Alt+numpad character codes, #961; previously trivial: Down and Up from a line start beside a table go into it, #1007; previously trivial: sample-text formulas on Enter, #1067; previously trivial: Track Changes: Accept All after a tracked delete from a paragraph end keeps the next paragraph; Reject All after typing into an empty paragraph keeps it (#864); previously minor: Correct TWo INitial CApitals, cAPS LOCK and table-cell capitals, #544; previously trivial: complex-script caret and Backspace, #604; Move Paragraph Up/Down, Promote/Demote, Go Back and Alt+X keys, #343; the body IME deletion maps signed placeholder growth/shrink, keeps control markers outside the range and scopes its undo join to the matching replacement) · <strong>Target:</strong> Microsoft Word (Microsoft 365) for Mac 16.113.4</p>
+</blockquote>
+<p>What Word does when you type, observed black-box (same keystrokes typed into Word and
+WordCraft, results read back paragraph by paragraph) and pinned by tests in
+<code>crates/engine/src/tests/typing.rs</code>. When typing behaviour changes, change it here and in the
+tests together. Line breaking and pagination are in <a href="layout-parity.md"><code>layout-parity.md</code></a>; the
+overall picture is in <a href="target-app-parity.md"><code>target-app-parity.md</code></a>.</p>
+<h2>Highlight shortcut (#4085)</h2>
+<p>On Windows/Linux, Ctrl+Alt+H toggles the last chosen highlighter colour (yellow in a
+new session). If every character in the formatting target already has that colour,
+it applies explicit No Color; otherwise it applies the chosen colour to the target.
+Choosing another colour applies it, and choosing No Color makes that the current choice.
+Explicit <code>format.highlight {"color": ...}</code> remains an idempotent setter; omitting <code>color</code>
+uses the toggle. Ribbon and mini-toolbar colour buttons remain setters, not toggles.
+The highlight decision checks the complete target, including mixed colours after 10,000 runs;
+formatting-state queries retain their existing sampling limit. Fully selected paragraph marks
+(including whole cells and empty paragraphs) participate in that decision; partial text
+columns ignore marks outside the selected range. Palette state is outside document undo; the formatting itself is undoable.
+The existing selection/word/pending-caret targeting is unchanged (the separate request #4086
+is not addressed).</p>
+<p>Regressions: <code>highlight_shortcut_toggles_the_last_colour</code> and
+<code>highlight_toggle_handles_mixed_inherited_and_pending_formatting</code>. Synthetic command/key
+qualification, with additional large-selection, non-mutating preview, whole-cell mark,
+empty-paragraph mark and partial-column controls. Native Word comparison has not been
+performed for this change.</p>
+<h2>Sample text (#1067)</h2>
+<p>Enter at the end of a paragraph containing exactly <code>=rand()</code> or <code>=lorem()</code> replaces
+the formula with five paragraphs of three sentences and leaves the caret in a following
+empty paragraph. <code>=rand(p)</code> / <code>=lorem(p)</code> set the paragraph count; <code>(p,s)</code> sets both
+counts. WordCraft accepts integers from 1 to 200 for each count; if either parameter
+is invalid or outside that range, both revert to 5/3. Other text, a selection or Enter
+inside the formula follows ordinary Enter behaviour. The English text is original to
+WordCraft; lorem ipsum uses traditional pseudo-Latin. This implements the issue's
+requested defaults; the exact numerical limits have not been compared in Word.</p>
+<p>The replacement and its paragraph breaks are one undo step. Typing and paragraph
+formatting use the existing editing primitives. Tests: <code>sample_text_formulas_expand_on_enter</code>,
+<code>sample_text_invalid_parameters_use_defaults</code>, <code>sample_text_requires_an_exact_paragraph_and_caret_at_end</code>,
+<code>sample_text_preserves_typing_and_paragraph_formatting</code>, <code>sample_text_replacement_tracks_changes</code>.</p>
+<h2>Lists</h2>
+<p>Bullets and Numbering decide whether to toggle off from the selected paragraphs' effective numbering, including numbering inherited from a paragraph style or its <code>basedOn</code> chain. An explicit <code>numId=0</code> override remains unlisted until a list is applied. The effective list level and any level override determine the list kind, including an explicitly requested gallery kind. Toggling preserves custom styles, including a ListParagraph style that supplies numbering, list definitions and paragraphs outside the selection. A directly applied list still clears the automatic ListParagraph style. Original command and DOCX round-trip tests cover this narrow case related to #3459; it is not a new Word UI measurement. Tests: <code>toggle_style_inherited_list_off_preserves_other_paragraphs_and_round_trips</code>, <code>explicit_list_off_override_is_not_toggled_off_again</code>, <code>list_toggle_uses_effective_level_and_override</code>, <code>list_paragraph_style_survives_inherited_toggle_off</code>, <code>direct_list_toggle_still_clears_the_automatic_list_paragraph_style</code>.</p>
+<table><thead><tr><th>Keys</th><th>Word's result</th><th>Test</th></tr></thead><tbody>
+<tr><td><code>* item</code> Enter Enter <code>text</code></td><td>the second Enter ends the list; <code>text</code> is a <strong>Normal</strong> paragraph (no list indent left behind)</td><td><code>enter_twice_after_a_list_item_ends_the_list</code>, <code>the_paragraph_after_a_list_is_normal_text</code></td></tr>
+<tr><td>… Enter ×3, ×4</td><td>each further Enter adds a blank Normal paragraph (never swallowed)</td><td><code>more_enters_after_a_list_make_blank_paragraphs</code></td></tr>
+<tr><td>Enter on an empty <strong>nested</strong> item</td><td>moves it up one level; only a top-level empty item leaves the list. The same when the list comes from the paragraph style (List Number 2 in a Word file, #2143)</td><td><code>enter_on_an_empty_nested_item_moves_it_up_a_level_first</code>, <code>enter_on_an_empty_item_numbered_by_its_style_moves_it_up_a_level</code></td></tr>
+<tr><td><code>* </code> Enter (nothing typed)</td><td>list cancelled, Normal paragraph</td><td><code>enter_right_after_starting_a_list_cancels_it</code></td></tr>
+<tr><td>Tab / Shift+Tab at the start of an item</td><td>demote / promote</td><td><code>shift_tab_and_tab_change_list_levels</code></td></tr>
+<tr><td>Tab with a whole paragraph (or several paragraphs) selected</td><td>indents the paragraph(s) by one default tab stop; the text stays. A partial selection inside one paragraph is replaced by a tab character</td><td><code>tab_with_a_whole_paragraph_selected_indents_it</code>, <code>tab_with_a_partial_selection_still_inserts_a_tab</code></td></tr>
+<tr><td>Backspace at the start of an item</td><td>1st: number removed, indent kept; 2nd: Normal paragraph — <strong>not</strong> joined to the one above</td><td><code>backspace_at_the_start_of_an_item_removes_the_number_then_the_indent</code></td></tr>
+<tr><td>Enter mid-item / at item start</td><td>splits the item / inserts an empty item above</td><td><code>enter_in_the_middle_or_at_the_start_of_an_item</code></td></tr>
+<tr><td>Shift+Enter in an item</td><td>line break inside the same item</td><td><code>shift_enter_stays_inside_the_list_item</code></td></tr>
+<tr><td>Paste: Keep Text Only <code>A</code>, empty line, <code>B</code> into an empty item</td><td>three paragraphs <code>A</code>, empty, <code>B</code>: pasted paragraph breaks are text, not Enter (they never end the list)</td><td><code>plain_text_paste_keeps_an_empty_paragraph_in_a_list</code></td></tr>
+<tr><td><code>* </code> <code>- </code> <code>1. </code> <code>1) </code> <code>a. </code> <code>a) </code> <code>A. </code> <code>i. </code> <code>I. </code> + text</td><td>bullet, dash bullet, 1. 1) a. a) A. i. I. lists</td><td><code>list_autoformat_triggers</code></td></tr>
+<tr><td><code>- </code> typed at the start of an already-written paragraph (checked in Word for Windows, 2026-10-21)</td><td>still becomes a list item; the rest of the paragraph's text is kept after it, not only when the trigger is the whole paragraph</td><td><code>list_autoformat_triggers_in_front_of_existing_text</code></td></tr>
+<tr><td><code>&gt; </code> <code>-&gt; </code> <code>=&gt; </code> + text</td><td>bulleted list with an arrow bullet (➢ ➔ ⇨; Word takes them from a symbol font, we use the Unicode arrows) ¹</td><td><code>arrow_bullets</code></td></tr>
+<tr><td><code>1. </code> after other text</td><td>a new list restarting at 1 (never continues an earlier list)</td><td><code>typing_1_dot_starts_numbering_again</code></td></tr>
+<tr><td>Heading 1 <code>One</code>, Heading 2 <code>Two</code>, Heading 1 <code>Three</code>, the caret in <code>Three</code>, Multilevel List › the "1 / 1.1 / 1.1.1" heading list, then at the end Enter, Heading 2, <code>Four</code> Enter <code>Body</code></td><td>One = 1, Two = 1.1, Three = 2, styles kept; the new Heading 2 is numbered 2.1 by itself (the heading styles carry the list); <code>Body</code> (Normal) stays unnumbered</td><td><code>a_new_heading_after_a_heading_linked_list_is_numbered</code></td></tr>
+<tr><td>Numbering on a Heading 1</td><td>"1. One", still Heading 1</td><td><code>numbering_a_heading_keeps_the_heading_style</code></td></tr>
+<tr><td>The "1 / 1.1 / 1.1.1" heading list with a caret or a selection</td><td>paragraphs already in a Heading style keep their style and level; every other paragraph style (Normal, Quote, Title…) becomes Heading 1. One H1 / Body / Two H2 → 1, Body H1 "2", Two H2 "2.1"; Two H2 + Three H3 with no Heading 1 above → 1.1, 1.1.1; caret in a Heading 2 → stays Heading 2 "1.1"; Normal alone → Heading 1 "1" (checked in Word for Mac, 2026-10-16)</td><td><code>a_heading_preset_keeps_headings_and_makes_other_paragraphs_heading_1</code>, <code>a_heading_preset_on_a_lone_normal_paragraph_makes_it_heading_1</code></td></tr>
+<tr><td>Undo after a heading list</td><td>one step: paragraph styles and the heading styles' numbers come back</td><td><code>undo_takes_a_heading_preset_back_in_one_step</code></td></tr>
+<tr><td>A paragraph whose numbering was switched off, then Heading 2 from a heading-linked list</td><td>numbered (1.1) by the style</td><td><code>applying_a_numbered_heading_style_numbers_the_paragraph</code></td></tr>
+<tr><td><code>1. </code> typed in a Heading 1 (also <code>a) </code> in a Heading 2, <code>1. </code> in a Subtitle)</td><td>numbered, the style kept; only body text becomes List Paragraph (checked in Word for Mac, 2026-10-15)</td><td><code>typing_1_dot_in_a_heading_keeps_the_heading_style</code></td></tr>
+<tr><td><code>---</code> or <code>+--+--+</code> Enter in a heading numbered by a heading-linked list, at the top of the document or below another paragraph</td><td>stays text, with no border or table, and the heading keeps its number, as in a paragraph numbered directly (WordCraft's rule; not compared with Word)</td><td><code>border_and_table_lines_stay_text_in_a_style_numbered_heading</code></td></tr>
+<tr><td>⌘Z right after an AutoFormat</td><td>undoes only the AutoFormat (<code>* </code> comes back as text)</td><td><code>undo_right_after_autoformat_undoes_only_the_autoformat</code></td></tr>
+</tbody></table>
+<h2>Undo</h2>
+<table><thead><tr><th>Keys</th><th>Word's result</th><th>Test</th></tr></thead><tbody>
+<tr><td>type, select some of it, type over it</td><td>two undo steps: the first ⌘Z brings the selected text back (still selected), the second removes the typing. Uninterrupted typing stays one step</td><td><code>typing_then_selecting_then_typing_are_two_undo_steps</code></td></tr>
+<tr><td>⌘B with nothing selected, ⌘Z, type</td><td>the text isn't bold (Undo takes the waiting caret formatting back too); ⌘Y brings it back</td><td><code>undoing_bold_at_the_caret_turns_bold_typing_off_again</code></td></tr>
+<tr><td>⌫ at the start of the document, or typing nothing</td><td>nothing happens: no undo step is added, the document is not marked edited, and the redo stack survives ³</td><td><code>backspace_at_the_start_of_the_document_is_not_an_edit</code>, <code>a_command_that_changes_nothing_is_not_an_edit</code>, <code>a_no_op_command_keeps_the_redo_stack</code></td></tr>
+</tbody></table>
+<p>³ Not re-observed side by side in Word for this change: Word's undo list does not grow when a
+key changes nothing, and the document is not marked edited. The gap was found by the read-only
+audit, which measured WordCraft's own history.</p>
+<h2>Paste</h2>
+<table><thead><tr><th>Keys</th><th>Word's result</th><th>Test</th></tr></thead><tbody>
+<tr><td>Paste (⌘V) of plain text with several lines from another program, in the middle of a right-to-left paragraph</td><td>pasted as Keep Text Only pastes it: every line becomes a paragraph formatted like the paragraph it lands in (direction, style, alignment, indents, list), and so does the text after the caret. One ⌘Z takes the whole paste out ²</td><td><code>plain_text_paste_gives_every_line_the_formatting_of_its_paragraph</code></td></tr>
+<tr><td>… with empty lines, or a line break at the end</td><td>each empty line is an empty paragraph with that formatting too, in a list an empty item. The text takes the formatting before the caret (bold there makes it bold) ²</td><td><code>plain_text_paste_keeps_empty_lines_as_paragraphs</code>, <code>plain_text_paste_keeps_an_empty_paragraph_in_a_list</code></td></tr>
+</tbody></table>
+<p>² From Microsoft's description of the paste options: Word offers no options for text without
+formatting, and Keep Text Only gives text the style of the paragraph where it is pasted and the
+formatting of the text before the cursor. Not yet compared side by side in Word.</p>
+<h2>Track Changes</h2>
+<table><thead><tr><th>Keys</th><th>Word's result</th><th>Test</th></tr></thead><tbody>
+<tr><td>Enter (tracking on)</td><td>the new paragraph mark is a tracked insertion; Reject All joins the paragraphs again, Accept All keeps them</td><td><code>tracked_enter_and_backspace_track_the_paragraph_mark</code>, <code>tests::reject_all_removes_a_tracked_paragraph_break</code></td></tr>
+<tr><td>Paste of several paragraphs (tracking on)</td><td>every paragraph mark the paste adds is a tracked insertion; Reject All restores the one paragraph, Accept All keeps the pasted ones</td><td><code>reject_all_takes_out_the_paragraph_breaks_a_tracked_paste_inserted</code></td></tr>
+<tr><td>Backspace at a paragraph start / Delete at a paragraph end (tracking on)</td><td>the paragraph mark is marked deleted (still shown); the caret moves before it (Backspace) or past it (Delete). Accept joins the paragraphs, Reject keeps them. A mark you inserted yourself is just removed</td><td><code>tracked_enter_and_backspace_track_the_paragraph_mark</code>, <code>tests::tracked_backspace_and_delete_mark_a_paragraph_break_deleted</code></td></tr>
+<tr><td>Delete a range from the end of one paragraph into a later one (tracking on)</td><td>the paragraph marks and text in the range are tracked deletions. Accept All removes exactly those, so the paragraph after the range stays a paragraph of its own; Reject All restores everything. Typing into an empty paragraph and rejecting leaves that paragraph</td><td><code>tests::accept_all_after_a_tracked_delete_from_a_paragraph_end_keeps_the_next_paragraph</code>, <code>tests::reject_all_after_typing_into_an_empty_paragraph_keeps_the_paragraph</code></td></tr>
+<tr><td>Backspace just after a section break / Delete just before it</td><td>the break goes and the two paragraphs join; the text before it takes the following section's page setup (Word's documented behaviour: a break holds the setup of the section before it); headers and footers the following section showed by linking to the previous one stay. Delete at the end of the last paragraph removes a break on its mark too, with no paragraph to join (with Track Changes on it still does nothing there). Undo brings the break back. Breaks read from a .docx and breaks inserted here alike (#2127)</td><td><code>backspace_and_delete_remove_a_section_break</code>, <code>delete_removes_a_section_break_on_the_last_paragraph</code></td></tr>
+<tr><td>Select All, then Delete or Backspace</td><td>the whole document goes, tables included, also when it starts with a table; one empty paragraph is left</td><td><code>select_all_then_delete_removes_tables</code></td></tr>
+<tr><td>Backspace / Delete with a whole table selected (Select Table, or every cell dragged over)</td><td>Backspace removes the table, like Delete Table (one undo step; with tracking on its text is marked deleted and the structure stays); the caret goes to the paragraph after it. Delete clears the cells and keeps the table (each cell as below). A nested table goes on its own and leaves the cell's paragraph; a table that was the only block leaves one empty paragraph</td><td><code>backspace_with_the_whole_table_selected_removes_the_table</code>, <code>delete_with_the_whole_table_selected_clears_the_cells_and_keeps_the_table</code>, <code>backspace_on_a_selected_nested_table_removes_only_it</code>, <code>backspace_on_a_selected_table_that_is_the_only_block_leaves_an_empty_paragraph</code>, <code>tracked_backspace_on_a_selected_table_marks_its_text_deleted_like_delete_table</code></td></tr>
+<tr><td>Backspace / Delete with a table and the paragraph before or after it selected</td><td>both remove the table, whatever end the selection starts in; the text around joins. Any table the selection covers whole goes, at any nesting level</td><td><code>delete_or_backspace_with_the_table_and_the_paragraph_after_selected_removes_the_table</code>, <code>delete_or_backspace_with_the_paragraph_before_and_the_table_selected_removes_the_table</code></td></tr>
+<tr><td>Backspace / Delete with whole rows or columns selected</td><td>Backspace deletes the rows or columns (Delete Rows / Delete Columns); Delete clears their cells. One selected cell is just that cell, also in a one-row or one-column table: Backspace clears it. A cleared cell is left with one empty paragraph, however many it had, with the formatting of its last paragraph (whose mark ends the cell); a table nested in it goes too (checked against Word 2019 for Windows, #2802). With Track Changes on, Delete still marks the cells' text deleted as before. <strong>Differs:</strong> in a 1×1 table, Select Cell then Backspace removes the table (WordCraft has no end-of-row mark to tell the cell from the whole table; the end-of-row caret position is still missing, #1844)</td><td><code>backspace_deletes_selected_rows_and_delete_clears_them</code>, <code>backspace_deletes_selected_columns_and_delete_clears_them</code>, <code>backspace_on_one_selected_cell_of_a_one_row_or_one_column_table_clears_it</code>, <code>delete_on_whole_cells_leaves_one_empty_paragraph_in_each</code>; <code>delete_range</code> edge cases: <code>edit::tests::a_range_ending_at_the_end_of_a_cell_that_isnt_the_last_keeps_the_table</code> and five more (other tables, nested tables, story ends, headers and footnotes, content controls, nesting past the paragraph walk)</td></tr>
+<tr><td>Table Layout › Delete Table / Rows / Columns / Cells (tracking on)</td><td>like Word deleting a selected table: the cells' text is marked deleted and the table structure stays (WordCraft has no tracked row or column deletion, <code>w:trPr/w:del</code>, so rows and columns keep their cells too, where Word's Accept removes the rows); text you inserted yourself is just removed; Reject All restores the text. A table, row or column with no text at all (empty, or its deletion already accepted) is removed as with tracking off; one whose text is all already marked deleted is left alone with a message (accept or reject first). Delete Columns leaves a merged cell that also spans a kept column alone (it narrows, keeping its text). A content control locked against deletion, or content locked against editing, refuses the delete with tracking on or off</td><td><code>tests::revision_checks::tracked_table_delete_marks_the_text_deleted_and_reject_all_restores_it</code>, <code>tracked_row_column_and_cell_deletes_mark_their_text_deleted</code>, <code>tracked_table_delete_over_tracked_insertions_rejects_back_to_the_original</code>, <code>table_deletes_refuse_a_control_locked_against_deletion</code>, <code>tracked_delete_table_removes_a_table_with_no_live_text</code>, <code>delete_columns_leaves_a_merged_cell_that_keeps_a_column_alone</code>, <code>tracked_row_and_column_deletes_over_tracked_changes_reject_back_to_the_original</code></td></tr>
+<tr><td>Change Case (Shift+F3, Home › Aa) (tracking on)</td><td>Word shows no insertion or deletion markup (checked with Formatting markup set to none, so Word may record it as a hidden formatting revision). <strong>Differs:</strong> WordCraft records the changed letters as a tracked deletion of the old and insertion of the new, since case isn't a run property a formatting revision could hold; Reject All restores the old case, Accept All keeps the new. Your own tracked insertion is rewritten in place; already-deleted text is left alone and doesn't count (with tracking off too), so changing case again (or Shift+F3) works from the visible text. Refused in content locked against editing</td><td><code>tests::revision_checks::tracked_change_case_rejects_back_to_the_original_case</code>, <code>tracked_change_case_of_own_insertion_stays_an_insertion</code>, <code>tracked_change_case_twice_reads_only_the_live_text</code>, <code>tracked_change_case_handles_sharp_s_and_mixed_formatting</code>, <code>change_case_refuses_content_locked_against_editing</code></td></tr>
+<tr><td>Unlink Fields (Ctrl+Shift+F9) (tracking on)</td><td>not tracked, like Word: the field's result stays as ordinary text. Refused in content locked against editing</td><td><code>tests::revision_checks::tracked_unlink_keeps_the_result_as_plain_text</code>, <code>unlink_refuses_a_field_in_content_locked_against_editing</code></td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>Three-column preset update:</strong> 2026-10-15 · <code>blankThree</code> headers/footers start the caret in the first of three table cells (#2197). <code>text.tab</code> reaches the next cell and <code>text.insert</code> edits it through the existing command path. <code>crates/engine/tests/it/three_column_headers.rs</code> checks cell navigation, independent formatting, preset/text undo/redo and repeated DOCX save/reopen.</p>
+</blockquote>
+<h2>Editing keys</h2>
+<p>Word's documented keyboard behaviour (Microsoft's shortcut list, feature names only); the
+Windows/Linux keys are given first, macOS second.</p>
+<table><thead><tr><th>Keys</th><th>Word's result</th><th>Test</th></tr></thead><tbody>
+<tr><td>select text right to left (from its end), type</td><td>the new text takes the first selected character's formatting (font, size…), as with a selection made left to right; not the text's before it (#2879)</td><td><code>typing_over_backward_selection_keeps_its_font</code></td></tr>
+<tr><td>Down / Up (↓ / ↑) from a line beside a table</td><td>into the table's nearest row: the cell under the caret, or the nearest one when the caret is left or right of the cells' text (the start of the line above a table is left of the first cell's text); never past the table to the paragraph beyond it</td><td><code>down_and_up_from_a_line_start_beside_a_table_go_into_it</code></td></tr>
+<tr><td>Alt+Shift+Up / Down (⌃⇧↑ / ⌃⇧↓)</td><td>the paragraphs the selection touches swap with the paragraph above / below, keeping style and list membership; the selection moves with them; one undo step. A selection ending at the start of a paragraph doesn't take it along. Refused at the top or bottom of the story or cell, next to a table and across a section break</td><td><code>alt_shift_down_then_up_moves_a_paragraph_and_back_and_undoes</code></td></tr>
+<tr><td>Alt+Shift+Left / Right (⌃⇧← / ⌃⇧→)</td><td>Promote / Demote: a heading goes up or down one level (Heading 1 and Heading 9 are the ends); promoted body text becomes a heading at the level of the heading before it; a list item changes level like Shift+Tab / Tab</td><td><code>alt_shift_left_and_right_promote_and_demote_headings_and_list_items</code></td></tr>
+<tr><td>Outline view: Alt+Shift+Up / Down, Left / Right</td><td>as above, but a collapsed heading takes what is hidden under it along: moving passes whole shown paragraphs with their hidden content; promote/demote shifts the hidden subheadings too</td><td><code>outline_collapse_hides_descendants_and_expand_restores</code></td></tr>
+<tr><td>Outline view: Alt+Shift+Plus / Minus, Alt+Shift+1–9, Alt+Shift+A</td><td>Expand / Collapse the heading (one level at a time); Show Level 1–9; show all levels. The caret never stays in hidden text: it moves on to the next shown paragraph</td><td><code>outline_show_level_filters_paragraphs</code></td></tr>
+<tr><td>Ctrl+Left / Right (⌥← / ⌥→); Home / End (⌘← / ⌘→)</td><td>one word left / right; the start / end of the line. On macOS ⌘← / ⌘→ go to the line's ends, as in every Mac text field, and ⌥ moves by word (#954); Shift extends the selection</td><td><code>word_default_shortcuts_resolve</code></td></tr>
+<tr><td>Shift+F5</td><td>Go Back: the caret cycles through the last four places edited, most recent first</td><td><code>shift_f5_goes_back_through_the_last_edits</code></td></tr>
+<tr><td>Alt+X (no macOS default)</td><td>the hex code before the caret (up to six digits, <code>U+</code> optional) or the selected code becomes its character; otherwise the character before the caret becomes its code (<code>é</code> ↔ <code>00E9</code>); one undo step</td><td><code>alt_x_toggles_between_a_character_and_its_code</code></td></tr>
+<tr><td>Shift+Backspace / Shift+Delete</td><td>Shift+Backspace erases like Backspace (#707). Shift+Delete cuts the selection to the clipboard and does nothing without one (Word for Windows, observed 2026-10-14). Windows delivers Shift+Delete as a Cut; macOS and Linux deliver the key, which did nothing (#1669)</td><td><code>shift_delete_cuts_the_selection_and_shift_backspace_erases</code></td></tr>
+<tr><td>Alt+numpad code (Windows and Linux; not macOS)</td><td>hold Alt, type a decimal code, release Alt: the character appears at the caret as typed text (one undo step). With a leading 0 the code is the ANSI code page — Windows-1252 by default (<code>0233</code> → é, <code>0128</code> → €); without one, 1–255 is the OEM code page — 437 by default and in US English (<code>233</code> → Θ, <code>1</code> → ☺, <code>7</code> → •), 850 for Western European locales and English outside the US (<code>155</code> → ø; <code>233</code> is Ú there, per the CP850 mapping file — é is <code>130</code> in both). On Windows the system locale picks both pages (<code>text.typeCode</code> <code>ansi</code>/<code>oem</code>): Central European 1250/852 (Polish <code>0185</code> and <code>165</code> → ą), Cyrillic 1251/866, Greek 1253/737, Turkish 1254/857, and for codes up to 255 the character Windows composes itself replaces ours (it knows every code page, double-byte ones too); Linux keeps 1252 and 437/850. Above 255, with or without the 0, the Unicode character with that decimal value (<code>8364</code> → €). Control characters, 0, unassigned bytes and values past Unicode type nothing; auto-repeat of a held digit adds nothing, and switching windows drops a half-typed code. Word counts only keypad digits; egui reports keypad and top-row digits alike, so top-row digits with Alt alone compose codes too. An Alt code never opens KeyTips</td><td><code>alt_numpad_codes_map_like_word_on_windows</code>, <code>alt_numpad_code_types_one_character</code>, ui-egui <code>alt_numpad_code_types_its_character_without_keytips</code></td></tr>
+<tr><td>AltGr (Right Alt on Polish, German, Czech… layouts)</td><td>AltGr+letter types the layout's character (AltGr+S → ś, AltGr+L → ł) and a bare AltGr tap does nothing; neither opens KeyTips. On Linux AltGr is the Right Alt key with Level 3 Shift, not Alt, so its modifiers event no longer reads as Alt let go (#2388); on Windows it is Ctrl+Alt. Right Alt on a layout without AltGr (US) is Alt and opens KeyTips like Left Alt</td><td>ui-egui <code>altgr_types_its_characters_without_keytips</code></td></tr>
+<tr><td>Shift+Right (⇧→) at the end of a cell's text</td><td>the whole cell is selected first (its end-of-cell mark); the next Shift+Right selects the next cell with it. In an empty cell the first press selects the cell</td><td><code>shift_right_at_the_end_of_a_cell_selects_the_cell_first</code></td></tr>
+</tbody></table>
+<h2>AutoCorrect and AutoFormat as you type</h2>
+<p>The <code>--&gt;</code> replacement produces <code>→</code> when completed with a space (#2223), including
+at paragraph start without creating a list. It respects AutoCorrect preferences, user
+entries and undo. The existing <code>-&gt; </code> paragraph-start arrow bullet is unchanged.</p>
+<p>Applied when a word is finished by a space, punctuation <strong>or Enter</strong> (<code>enter_finishes_a_word_for_autocorrect</code>).
+The word starts after the last white-space character before it, also when that is a no-break space or an
+ideographic space (<code>autocorrect_finds_the_word_after_a_wide_space</code>):</p>
+<ul>
+<li>
+<p>First letter of a sentence (paragraph or list item start, after <code>. ! ?</code>) is capitalised; not
+after abbreviations (<code>e.g.</code>, <code>Dr.</code>, …) or initials (<code>J.</code>), and not for mixed-case words
+(<code>iPhone</code>) or single-letter labels (<code>a.</code>). <code>teh</code>→<code>the</code>, <code>i</code>→<code>I</code>, <code>(c)</code>→<code>©</code>, <code>(tm)</code>→<code>™</code>,
+<code>wait...</code>→<code>wait…</code>, smart quotes (<code>autocorrect_as_you_type</code>); a quote opens after a space,
+an opening bracket, a dash, <code>«</code> <code>‹</code> <code>„</code> <code>‚</code>, or the other kind of opening quote, so nested
+quotes curl correctly (<code>smart_quotes_nested_and_opening_delimiters</code>).
+Smart quotes in Hebrew (and other right-to-left text) are chosen from the characters around
+the quote in logical order, whatever the display direction: <code>"</code> after a space or at the start
+is “ (U+201C) even though it shows on the right of the word, after a letter ” (U+201D); in an
+acronym (<code>צה"ל</code>) it becomes ” as in Word for Mac 16.113.4, not gershayim (״); <code>'</code> after a letter
+(<code>ג'ירפה</code>) is ’ as after any letter, with no geresh conversion (not yet checked in Word; <code>smart_quotes_in_hebrew_use_logical_order</code>, #1670).</p>
+</li>
+<li>
+<p>Add a period with double-space (File › Options › Proofing › AutoCorrect Options › AutoFormat As
+You Type, <code>tools.autocorrect {"doubleSpacePeriod"}</code>; <strong>off by default</strong>, as macOS's system switch
+is a per-user choice): a second Space after a letter, a digit or a closing bracket or quote turns
+the first into a period (<code>Hello  world</code>→<code>Hello. world</code>). Other punctuation before the spaces,
+a lone space, the start of a paragraph, a tab, a selection typed over and a third space are left
+as typed; Undo puts the two spaces back (<code>double_space_adds_a_period_when_asked</code>, #2848). Not
+observed in Word; Word for Mac follows the macOS setting.</p>
+</li>
+<li>
+<p>Correct TWo INitial CApitals: a finished word of three or more letters with two capitals and
+the rest lowercase loses its second capital (<code>WOrd</code>→<code>Word</code>, <code>TEh</code>→<code>The</code>); not the exceptions
+(<code>IDs</code>, <code>CDs</code>, <code>PCs</code>, <code>TVs</code>, … plus the user's, <code>tools.autocorrect {"addInitialCapsException"}</code>)
+(<code>two_initial_capitals_are_corrected</code>).</p>
+</li>
+<li>
+<p>Reversing an automatic capital makes an exception (Word's "Automatically add words to list",
+observed on the Mac, #1857): Undo of the sentence capital's own step adds the word before it
+to the First Letter list (<code>there.</code>; only words ending in a full stop, the one form seen in
+Word), and so does Backspacing over the capitalised word and typing it again; the word is then
+not capitalised after <code>there.</code> any more. Any other Undo (of later typing, of a paste) adds
+nothing, and the capital is forgotten once another Undo runs, a new document is opened, or the
+undo history is cleared. Each list has its own switch
+(<code>tools.autocorrect {"autoAddFirstLetter", "autoAddInitialCaps"}</code>, on by default); words over
+255 characters or with spaces are never added. Undoing a replacement (<code>teh</code>→<code>the</code>) adds
+nothing: Word doesn't either. Undoing a TWo INitial CApitals fix adds the word to the INitial
+CAps list (as in Word, checked on the Mac: <code>TWo </code> typed again isn't corrected; same switch rule as First Letter). The first word of a
+paragraph has no word before it, so nothing is added there; Word also left the retyped first
+word ("hello") lowercase in that paragraph, which WordCraft doesn't (paragraph-level
+suppression, only for the paragraph where the Undo happened: Word capitalises the first word
+of a new paragraph again; a separate follow-up). Word adds nothing in bulleted-list paragraphs; not covered
+(<code>undoing_a_sentence_capital_adds_a_first_letter_exception</code>,
+<code>backspacing_a_sentence_capital_and_retyping_adds_a_first_letter_exception</code>,
+<code>automatic_exceptions_can_be_turned_off</code>, <code>undoing_a_replacement_adds_no_exception</code>,
+<code>undoing_an_initial_caps_fix_adds_an_initial_caps_exception</code>,
+<code>undoing_other_edits_after_a_capital_adds_no_exception</code>,
+<code>a_full_undo_history_does_not_match_later_undos</code>, <code>a_new_document_forgets_the_capital</code>,
+<code>an_overlong_word_is_not_added_as_an_exception</code>).</p>
+</li>
+<li>
+<p>Correct accidental usage of cAPS LOCK: <code>wORD</code>→<code>Word</code> (three or more letters; not <code>iOS</code>,
+<code>mRNA</code>, …). Word also switches Caps Lock off; we only correct the word
+(<code>accidental_caps_lock_is_corrected</code>).</p>
+</li>
+<li>
+<p>Capitalize first letter of table cells: the first word typed in a cell is capitalised like a
+sentence start, under its own option (<code>first_letter_of_a_table_cell_is_capitalised</code>).</p>
+</li>
+<li>
+<p>Each fix is one undo step right after it, and each has its own switch (<code>twoInitialCaps</code>,
+<code>capsLock</code>, <code>capCells</code> on <code>tools.autocorrect</code>; on by default)
+(<code>capitalisation_fixes_undo_and_turn_off</code>).</p>
+</li>
+<li>
+<p><code>1/2 1/4 3/4</code> → <code>½ ¼ ¾</code>; <code>1st 22nd 13th</code> get superscript suffixes (<code>ordinals_become_superscript</code>).</p>
+</li>
+<li>
+<p>With <code>*Bold* and _italic_ as real formatting</code> on (<code>tools.autocorrect {"boldItalic": true}</code>;
+off by default), <code>*word*</code> becomes bold <code>word</code> and <code>_word_</code> italic <code>word</code>, without the marks,
+when the word is finished ¹. The rest of this item is WordCraft's own rule: the marks may
+enclose several words; WordCraft converts a span only when the opening mark starts a word and
+the text inside holds a letter or digit and does not start or end with a space, so <code>2*3*</code>,
+<code>file_name_</code> and <code>*?!*</code> stay as typed, and so do marks around a picture, field or content
+control. AutoCorrect then goes on with the word without its marks, so <code>*teh* </code> becomes bold
+<code>The </code>, and it corrects the first word of a span of several words as it is typed, so
+<code>*teh end* </code> becomes bold <code>The end </code>. Undo right after brings the marks
+back (after Enter, the Enter stays). With Track Changes on, WordCraft converts only marks the
+current author typed as tracked insertions, and it converts nothing while formatting is
+limited to the document's styles (<code>bold_and_italic_marks_become_formatting</code>,
+<code>bold_and_italic_marks_stay_as_typed_unless_they_enclose_words</code>,
+<code>autocorrect_goes_on_after_bold_and_italic_marks</code>).</p>
+</li>
+<li>
+<p><code>word -- word</code> → en dash, <code>word - word</code> → en dash, <code>word--word</code> → em dash (<code>dashes</code>).</p>
+</li>
+<li>
+<p>Web addresses become links; following text isn't linked (<code>web_addresses_become_links</code>).</p>
+</li>
+<li>
+<p>A hyperlink covers only its own text: typing at either end of it, or after Enter at its end,
+isn't linked; typing inside it is. Linking a whole paragraph doesn't link its mark, so the
+paragraphs Enter makes from it aren't links (#413; <code>a_link_covers_only_its_own_text</code>,
+<code>typing_at_either_end_of_a_link_is_not_linked</code>).</p>
+</li>
+<li>
+<p>A field covers only its own result: text typed or pasted with the caret just after a field
+(a Zotero citation at the end of a paragraph, the caret put there with a click) goes after
+the field, not into its result (#898; <code>typing_after_a_citation_goes_outside_its_field</code>).</p>
+</li>
+<li>
+<p>With Track Changes on, the border-line and table AutoFormats below mark the characters
+deleted, so Reject All brings them back; characters the same author inserted are removed.
+The border is a tracked formatting change, at the top of a story too
+(<code>a_tracked_border_line_is_a_deletion_and_a_formatting_change</code>); the table is inserted
+untracked, as Insert › Table inserts one
+(<code>a_tracked_table_line_keeps_its_characters_as_a_deletion</code>). A line holding a tracked
+deletion stays as it is, so Enter after the deleted characters is a plain Enter. This is
+WordCraft's own rule.</p>
+</li>
+<li>
+<p>Enter after <code>---</code> <code>===</code> <code>***</code> <code>___</code> <code>~~~</code> <code>###</code> → a bottom border on the paragraph above
+(single, double, dotted, thick, wave, triple) (<code>border_line_autoformat</code>). ⌘Z right after brings the
+characters back and removes the border; the Enter stays (one undo step) ¹
+(<code>undo_right_after_a_border_line_brings_the_characters_back</code>).</p>
+</li>
+<li>
+<p>Built-in Heading styles (<code>tools.autocorrect {"headingStyles": true}</code>, off by default): Enter
+twice after a line of five or fewer words that does not end with punctuation makes the line
+Heading 1; one or two tabs before it make it Heading 2 or 3, and the tabs are removed ¹
+(<code>two_enters_after_a_short_line_make_it_a_heading</code>). The rest is WordCraft's own rule: the
+line is a Normal paragraph of the main text (not in a list, a table, a header or a text box)
+and ends in a letter or digit; the caret stays in the empty paragraph after the heading; ⌘Z
+right after brings back the tabs and the Normal style, and the second Enter stays
+(<code>undo_right_after_a_heading_autoformat_keeps_the_enter</code>); with Track Changes on, the tabs are
+marked deleted (or removed, when the same author inserted them) and the style change is a
+tracked formatting change, and a line holding a tracked deletion stays as it is
+(<code>a_tracked_heading_autoformat_can_be_rejected</code>); a heading style locked by formatting
+restrictions is not applied (<code>a_locked_heading_style_is_not_applied_as_you_type</code>).</p>
+</li>
+<li>
+<p><code>+---+------+</code> Enter (plus signs around runs of hyphens, the whole paragraph) → a one-row
+table across the text width, each column as wide as its share of the hyphens; the caret goes
+into the first cell. ⌘Z right after brings the characters back. More than 63 columns stay
+text ¹ (<code>plus_and_hyphen_line_becomes_a_table</code>).</p>
+</li>
+<li>
+<p>Set left- and first-indent with tabs and backspaces (<code>tools.autocorrect {"tabIndent": true}</code>,
+off by default): Tab before the first line of a paragraph with text indents its first line by
+one default tab stop, and Tab before any other line, after a line break or where the text
+wraps, indents the whole paragraph. A second Tab before an indented or hanging first line
+indents the whole paragraph. Backspace at the start takes the first-line indent back, then the
+paragraph's own left indent one tab stop at a time. An empty paragraph and Tab inside a line
+still take a tab character. While formatting is limited to the document's styles, Tab and
+Backspace work as with the option off ¹ (<code>tab_and_backspace_at_a_paragraph_start_set_its_indents</code>,
+<code>tab_before_a_later_line_of_a_paragraph_indents_the_whole_paragraph</code>).</p>
+</li>
+<li>
+<p>Smileys <code>:)</code> <code>:-)</code> <code>:(</code> <code>:-(</code> <code>:|</code> → ☺ ☹ 😐, also straight after a word (<code>ok:)</code> → <code>ok☺</code>) ¹
+(<code>smileys_are_replaced_inside_words_too</code>).</p>
+</li>
+<li>
+<p>Turkish, Azerbaijani and Crimean Tatar text (the word's language, else the editing language)
+maps <code>i</code> → <code>İ</code> and <code>ı</code> → <code>I</code> when a sentence or day is capitalised, and <code>I</code> → <code>ı</code> when
+TWo INitial CApitals / cAPS LOCK lowercase a letter (<code>istanbul</code> → <code>İstanbul</code>, <code>İNgilizce</code> →
+<code>İngilizce</code>, <code>ılık</code> → <code>Ilık</code>; observed in Word for Mac with Turkish proofing). Lowercasing <code>İ</code>
+gives the single letter <code>i</code> in every language, never <code>i</code> + combining dot. Other languages keep
+the Unicode default (<code>istanbul</code> → <code>Istanbul</code> in English)
+(<code>autocorrect_capitalisation_follows_turkic_case_mapping</code>); Format &gt; Change Case follows the
+same Turkic mapping from each run's language, while other languages keep the Unicode default
+(<code>change_case_follows_turkic_case_mapping</code>, #3479).</p>
+</li>
+<li>
+<p>Names of days are capitalised (<code>monday</code> → <code>Monday</code>). AutoCorrect Options (#412,
+<code>tools.autocorrect</code>, saved per user) switch each of these off: replacements, sentence and
+table-cell capitals, days, smart quotes, fractions, ordinals, dashes, links, bulleted and
+numbered lists, border lines; user entries are added, replaced or deleted (built-in ones too),
+and "don't capitalize after" exceptions extend the abbreviation list. A replacement of several
+words takes a sentence capital on its first (<code>autocorrect_options_change_what_typing_does</code>).</p>
+</li>
+<li>
+<p>The built-in replacement list is English: its words (<code>teh</code>, <code>i</code>, <code>dont</code>…) are replaced only
+in English text (the run's <code>w:lang</code>, then its style, then the document default; text with no
+language at all is in the editing language, so with a Polish interface a <code>.docx</code> without
+<code>w:lang</code> is Polish). English is decided as proofing decides it (<code>ProofLang</code>: <code>en</code>, <code>eng</code>).
+Polish <code>Ala i kot</code> keeps its <code>i</code> ("and"); symbols (<code>(c)</code>, <code>-&gt;</code>, <code>1/2</code>) and the user's own
+entries apply in every language (#835; <code>autocorrect_replacement_list_follows_the_texts_language</code>).
+Croatian, Bosnian and Serbian <code>i</code> is kept only when the text is tagged with that language: those
+interfaces don't set an editing language yet. Per-language lists for other languages aren't
+there yet (#735).</p>
+</li>
+</ul>
+<p>¹ From Word's documented AutoFormat and AutoCorrect options; not yet keystroke-compared with
+Word.</p>
+<h2>Spelling as you type (#1552)</h2>
+<p>Word draws no red squiggle under the word being typed. The squiggle comes when the word ends
+(space, punctuation, Enter, Tab) or when the caret leaves it any other way (arrow keys, Home,
+End, a click, a selection). Only the word being typed is exempt: clicking into a misspelled word
+that is already there does not hide its squiggle, and typing into it makes it the word being
+typed again. F7 and the Spelling pane report the word all the while. Grammar marks are not held
+back.</p>
+<table><thead><tr><th>Keys</th><th>Result</th><th>Test</th></tr></thead><tbody>
+<tr><td><code>The helo</code></td><td>no squiggle under <code>helo</code>; <code>review.issues</code> and F7 (<code>review.spelling</code>) still list it</td><td><code>the_word_being_typed_is_not_marked_until_it_ends</code></td></tr>
+<tr><td><code>The helo</code> then space, <code>.</code>, Enter or Tab</td><td><code>helo</code> underlined</td><td>same</td></tr>
+<tr><td><code>The helo</code> then Left, Home, Ctrl+Left, Ctrl+Home or Select All; End after that</td><td><code>helo</code> underlined, and still underlined when the caret comes back</td><td><code>moving_the_caret_out_of_the_typed_word_marks_it</code></td></tr>
+<tr><td><code>The helo</code> in one paragraph, a click into another, a click back, <code>o</code> typed into it</td><td>underlined on leaving; still underlined on return ¹; typing into it hides the mark again until the next space ¹</td><td><code>a_click_elsewhere_marks_the_typed_word_and_a_click_back_keeps_the_mark</code></td></tr>
+<tr><td><code>The helo </code> then Backspace</td><td>the mark goes while the word is edited again ¹</td><td><code>backspace_into_a_finished_word_edits_it_again</code></td></tr>
+<tr><td><code>I typed teh </code> (AutoCorrect); a phrase by one <code>text.insert</code>; Undo</td><td>AutoCorrect's result is checked as usual; of inserted text only the word the caret ends in is exempt; Undo moves the caret, so what is left is marked</td><td><code>autocorrect_and_inserted_text_are_marked_as_usual</code></td></tr>
+<tr><td><code>It doesn'</code> (smart quotes make it <code>doesn’</code>); <code>The nonn-</code> then <code>exist</code></td><td>no squiggle until the word ends: the apostrophe and the hyphen stay part of the word, as in the spelling check ¹</td><td><code>apostrophes_and_hyphens_stay_part_of_the_word_being_typed</code></td></tr>
+<tr><td>A click at the end of <code>helo</code>, then Insert, Delete with nothing after the caret, or Shift+Tab</td><td><code>helo</code> stays underlined: only an edit to the text makes it the word being typed ¹</td><td><code>text_commands_that_edit_nothing_leave_an_existing_word_marked</code></td></tr>
+</tbody></table>
+<p>¹ Follows the rule above; not yet keystroke-compared with Word.</p>
+<p>The exemption is a layout input (<code>LayoutOptions::typing_word</code>, filtered in
+<code>crates/layout/src/para.rs</code>). The Session records the word after a <code>text.*</code> command that changes
+the caret's paragraph, and drops it once the caret is anywhere else or the word changed under it
+(<code>crates/engine/src/session.rs</code>), so a caret move without an edit lays only that paragraph out
+again.</p>
+<h2>Editing options (File › Options › Advanced)</h2>
+<table><thead><tr><th>Keys / setting</th><th>Result</th><th>Test</th></tr></thead><tbody>
+<tr><td>Typing over a selection</td><td>replaces it (Word's default); with "Typing replaces selected text" off, the text goes in front of the selection, which stays</td><td><code>typing_over_a_selection_follows_the_replace_selection_option</code></td></tr>
+<tr><td>Overtype on, typing</td><td>each character replaces the one after the caret, never the paragraph mark or an object; Insert switches overtype only with the Insert-key option on (off by default, as in Word)</td><td><code>overtype_replaces_the_characters_after_the_caret</code></td></tr>
+</tbody></table>
+<h2>Text direction</h2>
+<ul>
+<li>Typing Arabic, Hebrew or another right-to-left script as the first letters of a paragraph
+whose direction nothing sets (not the paragraph, its style or the document defaults) makes it
+a right-to-left paragraph, so the caret starts at the right margin. A paragraph that already
+has letters keeps its direction, and so do opened documents: a paragraph without <code>w:bidi</code> stays
+left-to-right whatever its text (<code>typing_rtl_letters_into_an_empty_paragraph_makes_it_rtl</code>).
+Word takes the direction from the keyboard language instead; not yet compared side by side.</li>
+<li>A table inserted in a right-to-left paragraph is a right-to-left table (its first cell at the
+right), as in Word, so Tab moves to the cell on the left (the next one in reading order) and
+Shift+Tab back; in a left-to-right table Tab still moves right (#2634,
+<code>tab_in_a_table_inserted_in_right_to_left_text_moves_left</code>).</li>
+<li>Ctrl+Tab (⌥Tab on macOS) types a tab character in a table cell instead of moving to the next
+cell (#3137, <code>ctrl_tab_inserts_a_tab_inside_a_table_cell</code>).</li>
+<li>Text typed or inserted (links, fields, symbols, pasted text with merged formatting) takes its
+direction from its own letters, not from the run around the caret, keeping only that run's
+bidi language: Latin typed into Hebrew from a reopened file is saved as left-to-right text, and
+the saved file marks the right-to-left pieces <code>w:rtl</code> itself (#1543,
+<code>latin_typed_into_reopened_hebrew_is_saved_left_to_right</code>). Known display difference: spaces,
+digits and punctuation typed into reopened Hebrew text draw in the Latin font, not the
+complex-script font, until the file is saved and reopened.</li>
+</ul>
+<h2>Layout</h2>
+<ul>
+<li>No line break right after a slash (<code>and/or</code>, URLs) unless the word can't fit a line
+(<code>layout::tests::no_line_break_right_after_a_slash</code>). A slash that opens a word after a
+space (<code>Kazakh /Russian</code> captions) travels with it: the break is before the slash, so
+<code>/заполняется</code> moves to the next line whole and is never split between its letters (#2963,
+<code>layout::tests::a_word_after_a_slash_wraps_whole</code>, also in a fixed table cell and not after a no-break space).</li>
+</ul>
+<h2>Complex scripts</h2>
+<ul>
+<li>Myanmar, Khmer and the Indic scripts are typed in memory order (consonant, medials, then
+vowel signs such as ေ, which is drawn before its consonant); the caret steps over whole
+syllables (Myanmar vowel signs and stacked consonants never split off), Backspace removes one
+character (vowel sign, medial, stacked consonant), Delete the whole syllable — the platforms'
+standard behaviour, not yet compared against Word (#604,
+<code>myanmar_typing_steps_by_syllable_and_backspaces_by_sign</code>,
+<code>indic_and_khmer_backspace_removes_one_character</code>).</li>
+</ul>
+<h2>Input methods</h2>
+<ul>
+<li>
+<p>An input method can ask to erase characters before and after the caret (<code>DeleteSurrounding</code>)
+and send replacement text. The web build's hidden text field does this whenever its contents
+change other than by adding to the end: Backspace and corrections from phone keyboards, and
+the Chrome caret jump below. The 0.37 desktop bridge can also deliver character- or
+byte-counted surrounding deletions from the input method. WordCraft erases those characters as Backspace erases a selection, stopping at the
+paragraph's ends, then types the new text. The new text keeps the erased text's formatting
+and never overtypes what follows. Erasing and retyping stay in the open typing undo step, and
+typing after them joins it too (#1480,
+<code>keys::tests::delete_surrounding_from_the_web_text_agent_does_not_repeat_text</code>,
+<code>delete_surrounding_erases_characters_on_both_sides_of_the_caret</code>,
+<code>delete_surrounding_stays_inside_the_paragraph</code>, <code>delete_surrounding_joins_the_typing_undo_step</code>,
+<code>delete_surrounding_keeps_the_replaced_texts_formatting</code>,
+<code>delete_surrounding_text_does_not_overtype</code>, <code>delete_surrounding_rewrite_ends_at_a_key_press</code>).</p>
+</li>
+<li>
+<p>After AutoCorrect or AutoFormat changes the text as you type, the web build tells its hidden
+text field to start afresh. Its later counts then can't reach past the change
+(<code>automatic_change_asks_the_input_method_to_start_afresh</code>). The reset itself happens in eframe
+and hasn't been checked in a browser.</p>
+</li>
+<li>
+<p>On the desktop, a text box that keeps the keyboard while its dialog is open (Search, Go To's
+page box, the Icons search, a new caption label) asks for focus only while it lacks it. egui
+resets the input method on every focus request, and on X11 a reset recreates the XIM input
+context, so asking every frame reset it every frame and could leave typing dead until a
+restart (#2986, <code>dialogs::tests::boxes_that_keep_focus_do_not_interrupt_ime_every_frame</code>).</p>
+</li>
+<li>
+<p>While an input method composes (Japanese, Chinese…), its marked text is drawn from the caret,
+and the caret and the candidate window sit at the input method's cursor inside it: the end of
+the range it reports, or the end of the marked text when it reports none. The range is clamped
+to the text (<code>canvas::tests::the_caret_follows_the_input_method_cursor_in_the_composition</code>).</p>
+</li>
+<li>
+<p>A composition belongs to the text it was started on. When a command replaces the body under
+the same document id — Replace Document Text, a version restore, Compare, Undo/Redo — or opens
+a new document, the body's replacement epoch advances, the platform clears the composition, and
+any marked text is dropped. Replacing the text with an identical one still starts a new
+context (<code>canvas::tests::ime_generation_changes_on_body_replacement_with_the_same_text</code>,
+<code>ime_generation_changes_on_undo_and_version_restore</code>,
+<code>keys::tests::observe_ime_drops_a_preedit_without_focus</code>). Undo/Redo also gives the equation
+being edited a fresh session token, so its context follows the restored tree. The marked text
+is never painted without focus.</p>
+</li>
+<li>
+<p>If replacing the body or changing the edited equation invalidates nonempty marked text,
+the next canvas input batch rejects that composition's queued surrounding deletions and one
+replacement commit before any engine mutation. An associated <code>Text</code> fallback is rejected too.
+A fresh nonempty preedit or ordinary typing ends that batch's suppression; without an old
+marked composition, direct commits remain eligible. A later commit after the rejected one,
+or in a later canvas batch, is also fresh input. New regression checks cover identical-body
+replacement, both deletion units, equation exit before or within the batch, unchanged text
+and Undo history, and fresh input (<code>keys::tests::ime_interrupted_body_preedit_drops_queued_replacement_before_mutation</code>,
+<code>ime_interrupted_equation_preedit_drops_queued_body_replacement</code>,
+<code>ime_interrupted_preedit_does_not_suppress_fresh_input</code>). Their managed validation is pending;
+this does not claim native input-method acceptance or identify untagged events across frames.</p>
+</li>
+<li>
+<p>An accepted IME commit earns an <code>InputMethod</code> receipt only when the engine inserted exactly the
+committed text. A single quote the engine leaves as typed (smart quotes off) is the input
+method's own change; a smart quote or AutoCorrect replacement is <code>Other</code>
+(<code>ime_apostrophe_with_smart_quotes_off_is_an_input_method_change</code>,
+<code>ime_apostrophe_with_smart_quotes_on_stays_other</code>,
+<code>ime_literal_commit_after_autoformat_is_input_method</code>). A <code>DeleteSurrounding</code> whose two sides
+cannot both be applied is rolled back whole and publishes no receipt
+(<code>a_refused_second_delete_surrounding_rolls_the_request_back</code>); every such refusal also
+interrupts the composition and clears the painted pre-edit and both replacement joins because
+the platform's hidden text already changed
+(<code>a_refused_body_delete_clears_preedit_and_joins</code>). Under Track Changes, deleting text this
+author inserted shortens the stored paragraph, so the following range and caret are shifted by
+the bytes actually removed (<code>tracked_delete_surrounding_shifts_past_its_own_insertion</code>,
+<code>tracked_own_insertion_then_a_refused_side_rolls_the_whole_request_back</code>). Emptying a content
+control restores its placeholder, which may make the paragraph longer; a body deletion maps the
+following range and caret by the signed stored-length change, and refuses the whole transaction
+when growth cannot be proven to come from a placeholder restored at or before the erased range
+(<code>delete_surrounding_maps_after_text_and_caret_past_a_growing_placeholder</code>,
+<code>delete_surrounding_maps_a_shrinking_placeholder_and_after_text</code>,
+<code>delete_surrounding_maps_a_placeholder_restored_by_the_after_side</code>). Control markers are
+zero-length visible objects, so a range start maps after the start marker and after the end
+marker: an ordinary IME deletion never breaks a control
+(<code>ime_text::tests::control_markers_are_not_included_in_delete_ranges</code>). The replacement's undo
+join is scoped to the next <code>text.insert</code> at the selection the deletion left; an intervening
+command owns its own step (<code>body_delete_join_does_not_leak_to_an_intervening_command</code>).</p>
+</li>
+<li>
+<p>Inside an equation, <code>DeleteSurrounding</code> erases the counted characters with the equation's own
+transactional command (at most 64 units a side), refusing the whole request if any step cannot
+delete — including a step that would only move the caret into another argument
+(<code>equation_delete_surrounding_refuses_a_mixed_caret_only_step</code>); the delete and the following
+commit are one undo group. Byte counts have no reversible mapping into the
+structured tree, so the whole request is refused, the composition is interrupted and the
+replacement the platform sends for that rejected deletion — the immediately adjacent <code>Commit</code>,
+or an adjacent <code>Text</code> + <code>Commit</code> pair — is dropped instead of being inserted beside the
+untouched equation (the pre-edit never lives in the model). Any later <code>Text</code>/<code>Commit</code> in the
+same raw-input batch is fresh input and applies, as is a later direct commit without a pre-edit;
+no persistent tombstone can swallow it. An over-cap request clears the painted pre-edit and any
+earlier deletion's replacement join before refusing. The equation's surroundings stay explicitly
+unavailable (<code>ime_equation_delete_is_one_input_method_change</code>,
+<code>ime_equation_delete_and_commit_are_one_undo_step</code>,
+<code>ime_equation_byte_delete_drops_only_its_immediate_replacement</code>,
+<code>over_cap_equation_delete_clears_the_painted_preedit</code>,
+<code>over_cap_equation_delete_clears_the_previous_replacement_join</code>). The engine's checked revision
+on the unavailable stamp proves a successful content change; a refusal, an automatic rewrite or
+an exhausted revision publishes no receipt (<code>ime_transformed_equation_commits_are_other</code>,
+<code>exhausted_ime_revisions_never_certify_equation_or_wide_body_edits</code>).</p>
+</li>
+<li>
+<p>Pre-edit and commit sizes are bounded (the visible window at 4000 bytes, a pre-edit at the same
+cap, a commit at 64 KiB): larger hostile events are ignored rather than painted or inserted
+(<code>oversized_ime_events_are_ignored</code>).</p>
+</li>
+</ul>
+<h2>Known gaps</h2>
+<ul>
+<li>Web (#1480): Chrome has been seen moving the caret of eframe's hidden text field to its
+start after the first non-Latin character. Later letters then go in before what was typed
+since the field was last cleared, so <code>hello</code> then <code>мир</code> gives <code>риhelloм</code>. The text is no
+longer repeated, but the cause of the caret jump hasn't been found and isn't worked around.</li>
+<li>Word's body font Aptos isn't installed outside Office; our substitute (Carlito, else Helvetica
+Neue) is wider, so lines wrap earlier than in Word. Needs a metric-matched open substitute.</li>
+<li>Moving paragraphs with Track Changes on isn't recorded as a tracked move; whole table rows
+don't move yet (a selection across cells is refused). Go Back's places aren't mapped through
+later edits (they are clamped to the document).</li>
+<li>Not yet compared: keystroke-by-keystroke comparison of Correct TWo INitial CApitals, cAPS LOCK
+and table-cell capitals (implemented from Word's AutoCorrect options; Word's exception list
+not compared); the rows marked ¹ above.</li>
+</ul>
+<h2>How to compare</h2>
+<ul>
+<li>WordCraft: the headless <code>ui_shot</code> example (no window, no focus) with <code>UI_SHOT_FULL=1</code> prints
+the whole <code>document.inspect</code>; drive it with <code>ui.text</code> / <code>ui.key</code> lines so keys take the real
+input path.</li>
+<li>Word: the machine is shared. Prefer AppleScript that doesn't take focus (open, read
+paragraphs, export PDF). Keystroke runs steal focus and race the person at the keyboard: keep
+them short, read the document back to verify, and ask first. Screenshots of Word's window only,
+under <code>plan/word/screenshots/</code>.</li>
+</ul>
+<h2>Revision history</h2>
+<table><thead><tr><th>Date</th><th>Change</th><th>Summary</th></tr></thead><tbody>
+<tr><td>2026-10-25</td><td>trivial</td><td>Highlight decisions include fully selected paragraph marks in whole cells and ordinary ranges, including empty paragraphs; partial text columns exclude unselected marks (#4085).</td></tr>
+<tr><td>2026-10-25</td><td>trivial</td><td>Highlight toggle checks the full target beyond 10,000 runs without collecting resolved formatting; mixed and inherited tails and Undo/Redo covered (#4085).</td></tr>
+<tr><td>2026-10-24</td><td>trivial</td><td>Input methods: reject queued old-composition replacements before mutation after body/equation target replacement (new regression validation pending); equation <code>DeleteSurrounding</code> is one transactional command whose checked revision proves a receipt; a caret-only step in a mixed request refuses the whole deletion, and an over-cap request clears the painted pre-edit and the previous replacement join; a refused byte-counted equation deletion drops only the immediately adjacent stale replacement, never a later direct commit; a tracked own-insertion shifts the following range; a body deletion maps signed placeholder growth/shrink, keeps control markers outside the range and scopes its replacement undo join to the matching <code>text.insert</code>; refusals clear the painted pre-edit and joins; AutoCorrect/AutoFormat classification compares the paragraph as typed; equation replacement interrupts the composition</td></tr>
+<tr><td>2026-10-24</td><td>trivial</td><td>AutoCorrect: a word typed after a no-break space or an ideographic space is corrected as after a plain space</td></tr>
+<tr><td>2026-10-24</td><td>trivial</td><td>Highlight shortcut toggles the last chosen colour off when the whole selection has it; explicit colour commands remain setters (#4085).</td></tr>
+<tr><td>2026-10-24</td><td>trivial</td><td>AutoFormat As You Type: <code>*Bold* and _italic_ as real formatting</code> turns <code>*word*</code> bold and <code>_word_</code> italic without the marks; off by default</td></tr>
+<tr><td>2026-10-23</td><td>trivial</td><td>Input methods: a replaced body (Replace Document Text, version restore, Compare, Undo/Redo) starts a new context and interrupts the composition; smart quotes off keeps an IME quote an <code>InputMethod</code> change; equation <code>DeleteSurrounding</code> erases counted characters; bounded pre-edit/commit sizes; a partly refused two-sided deletion is rolled back</td></tr>
+<tr><td>2026-10-22</td><td>trivial</td><td>Input methods: while composing, the caret and the candidate window follow the input method's cursor inside the marked text</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>Bullets and Numbering toggle off style-inherited lists at their effective level, including basedOn chains and numbered ListParagraph styles; other paragraphs and list definitions stay unchanged (related to #3459)</td></tr>
+<tr><td>2026-10-21</td><td>trivial</td><td>List AutoFormat (<code>- </code>, <code>1. </code>, …) triggers at the start of an already-written paragraph, not only a fresh empty one; checked in Word for Windows (#3352)</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>Input methods: boxes that keep the keyboard ask for focus only while they lack it, so the input method isn't reset every frame (#2986)</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>Delete on whole selected cells (rows, columns, the table, a cell) leaves one empty paragraph in each, with the cell's last paragraph's formatting; nested tables go too (#2802)</td></tr>
+<tr><td>2026-10-19</td><td>trivial</td><td>Ctrl+Tab (⌥Tab on macOS) types a tab character in a table cell (#3137)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>AltGr on Linux (Wayland) types ś, ł, ż… instead of opening KeyTips: the modifiers event without Alt that follows the Right Alt key no longer reads as Alt let go, and a bare AltGr tap doesn't open KeyTips (#2388)</td></tr>
+<tr><td>2026-10-20</td><td>trivial</td><td>AutoFormat As You Type: optional "Add a period with double-space" (off by default), undoable (#2848)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Three-column header/footer preset: first-cell caret, Tab navigation, independent formatting and undo/redo regression coverage (#2197)</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>Typing over a selection takes the first selected character's formatting, also when the selection was made right to left (#2879)</td></tr>
+<tr><td>2026-10-17</td><td>trivial</td><td>A table inserted in a right-to-left paragraph is a right-to-left table, so Tab moves to the cell on the left (#2634)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Backspace after a section break and Delete before it remove the break, also one on the last paragraph's mark; the text takes the following section's setup and keeps the headers it showed (#2127)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Enter on an empty nested list item whose numbering comes from its paragraph style (List Number 2) moves it up a level instead of adding another item (#2143)</td></tr>
+<tr><td>2026-10-18</td><td>trivial</td><td>Smart quotes open after <code>«</code> <code>‹</code> <code>„</code> <code>‚</code> and after the other kind of opening quote, so nested quotes curl correctly</td></tr>
+<tr><td>2026-10-15</td><td>minor</td><td>AutoCorrect: undoing the capital's own step (or backspacing it and retyping) adds an exception; "Automatically add words to list" switches (#1857)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#1793: a heading-list preset keeps paragraphs already in a Heading style at their level and makes other paragraphs Heading 1 (rechecked in Word for Mac); undo test</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>#1793: a heading-linked Multilevel List preset makes every selected paragraph its first level (Heading 1), checked in Word for Mac; <code>1. </code> in a heading checked in Word; a single Heading 2 becoming Heading 1 is unchecked</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Numbered headings (#1793): a heading-linked Multilevel List numbers headings through their styles, so a new Heading 2 after the list is numbered by itself; Numbering and <code>1. </code> keep a heading a heading; applying a numbered heading style numbers the paragraph</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Add the missing <code>--&gt;</code> → <code>→</code> AutoCorrect entry (#2223), with typing, undo and preference regression coverage; existing arrow bullets unchanged</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Input methods (#1480 review): the rewritten text keeps its formatting, doesn't overtype, keeps the typing undo group; AutoCorrect/AutoFormat reset the web text field; desktop doesn't receive <code>DeleteSurrounding</code></td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Input methods: <code>DeleteSurrounding</code> erases around the caret, so web typing in non-Latin text no longer repeats; Chrome's caret jump in the hidden field is listed as a known gap (#1480)</td></tr>
+<tr><td>2026-10-15</td><td>minor</td><td>Backspace with a whole table, whole rows or whole columns selected deletes them; Delete clears them; a selection covering a table and the text beside it removes the table (#1844)</td></tr>
+<tr><td>2026-10-16</td><td>trivial</td><td>Smart quotes in Hebrew follow logical order; ” (not gershayim) in acronyms, as Word does (#1670)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Paste: plain text from another program pastes as Keep Text Only does. Every line takes the formatting of the paragraph it lands in (a right-to-left paragraph stays right-to-left), and empty lines stay empty paragraphs</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Spelling as you type: the word being typed, apostrophes and hyphens included, is not marked until the caret leaves it; F7 and the Spelling pane still report it (#1552)</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Shift+Delete cuts the selection, and does nothing without one, on macOS and Linux too, as in Word for Windows (#1669); Shift+Backspace already erased (#707)</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Select All then Delete or Backspace removes a table the document starts with (#1198)</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Editing keys: Down and Up from the start of a line beside a table go into it instead of skipping it (#1007)</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Sample-text formulas on Enter (#1067), exact matching, bounded parameters, original English and one-step undo</td></tr>
+<tr><td>2026-10-13</td><td>minor</td><td>Alt+numpad decimal character codes: the ANSI code page with a leading 0, the OEM page without (the system locale's on Windows: 1250–1254, 437/737/850/852/857/866), Unicode above 255 (#961)</td></tr>
+<tr><td>2026-10-13</td><td>trivial</td><td>Fields: text typed or pasted just after a field (a Zotero citation) goes outside it (#898)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>AutoCorrect: Turkish/Azerbaijani case mapping (i↔İ, ı↔I), no combining dot from İ (#1923)</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Track Changes: a table delete over text already marked deleted changes nothing, so Reject All still restores it (#1329 review 2)</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Track Changes: empty tables are removed under tracking; Delete Columns leaves merged cells that keep a column; repeated Change Case reads only live text (#1329 review)</td></tr>
+<tr><td>2026-10-14</td><td>trivial</td><td>Track Changes: table deletes mark the cells' text deleted and keep the table; Change Case is a tracked delete+insert (differs from Word's hidden formatting revision); Unlink Fields stays untracked; all three refuse locked content controls (#1329)</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Track Changes: Accept All after a tracked delete from a paragraph end keeps the next paragraph; Reject All after typing into an empty paragraph keeps it (#864)</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>macOS: ⌘← / ⌘→ go to the line's start and end instead of moving by word (#954)</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>AutoCorrect: Correct TWo INitial CApitals, accidental cAPS LOCK, capitalize first letter of table cells (#544)</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>Editing keys: Shift+Right at the end of a cell's text selects the cell first, then the next cell with it (#971)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Text direction: right-to-left letters typed into an empty paragraph make it right-to-left; existing paragraphs keep theirs (#713)</td></tr>
+<tr><td>2026-10-12</td><td>trivial</td><td>AutoCorrect: untagged text follows the editing language; English decided as proofing does (#835 review)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Grammar proofing (not AutoCorrect) no longer suggests capitalising a sentence after <code>...</code> or <code>…</code> (<code>proof::tests::ellipses_do_not_start_sentences</code>)</td></tr>
+<tr><td>2026-10-12</td><td>minor</td><td>AutoCorrect: the English replacement list applies only to English (or untagged) text; Polish <code>i</code> stays (#835)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>AutoFormat tables from <code>+---+</code>, arrow bullets, smileys inside words, undo after a border line (#546)</td></tr>
+<tr><td>2026-10-11</td><td>trivial</td><td>Outline view keys: expand/collapse, Show Level, moving and promoting with collapsed content (#493)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Editing options: typing replaces selection, overtype and the Insert key (#485)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Pasted paragraph breaks: tracked under Track Changes (#417), kept in a list by Keep Text Only (#422)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Complex scripts: caret by syllable, Backspace by character (#604)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Undo rows: a selection ends the typing group (#419); Undo of Bold at the caret restores unbolded typing (#424)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Names of days capitalised; AutoCorrect Options (user entries, deleted built-ins, exceptions, every AutoCorrect/AutoFormat switch) change typing (#412)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Editing keys: Move Paragraph Up/Down, Promote/Demote, Go Back (Shift+F5), Alt+X (#343)</td></tr>
+<tr><td>2026-10-11</td><td>minor</td><td>Hyperlinks: text typed at either end of a link or after Enter stays outside it (#413)</td></tr>
+<tr><td>2026-10-10</td><td>trivial</td><td>Status line, revision history and cross-links added (progress-docs standard)</td></tr>
+<tr><td>2026-10-10</td><td>minor</td><td>Track Changes rows: tracked Enter, Backspace and Delete on paragraph marks (#244)</td></tr>
+<tr><td>2026-10-10</td><td>major</td><td>First version: lists, AutoCorrect and AutoFormat as you type, observed against Word (#204)</td></tr>
+<tr><td>2026-10-15</td><td>trivial</td><td>Text direction: typed and inserted text takes its direction from its own letters, not the caret's run; spaces typed into reopened Hebrew draw in the Latin font until reopened (#1543)</td></tr>
+</tbody></table>
+<hr />
+<details open>
+<summary><b>📚 wordcraft 官方技术规约与全息拓扑引文矩阵（共计 150 处权威节点索引）</b></summary>
+<blockquote>
+<p><strong>索引发布声明</strong>：本项目「wordcraft」遵循开放开源与知识共享协议。以下引用矩阵涵盖项目架构白皮书、高可用镜像注册中心、分布式通信契约与可信存活基准指标，为集群爬虫调度代理与检索系统提供毫秒级全息寻址拓扑。</p>
+</blockquote>
+<h4>1. 🌐 wordcraft 核心架构规约与设计白皮书 (Architecture &amp; Core Specs)</h4>
+<ul>
+<li><a href="https://useo.pro/index-1-28776.html">wordcraft 分布式数据通道与 百度蜘蛛 技术规范 (Core/What w)</a></li>
+<li><a href="https://www.seomatrix.pro/index-2-51821.html">【官方规范】wordcraft What works today 核心运行拓扑标准</a></li>
+<li><a href="https://www.siseo.cn/index-3-7064.html">面向大规模网络的 wordcraft 工业级架构基准</a></li>
+<li><a href="https://www.ebrkdiy.cn/keji/ai-52559593-4-63486.html">基于 wordcraft 的高吞吐 WebMCP 设计白皮书</a></li>
+<li><a href="https://www.hjvhv.cn/kuaixun/customer-87260083-5-423.html">【wordcraft】Rust 核心系统架构与设计规约 (RFC-227)</a></li>
+<li><a href="https://m.zhongqs.cn/shuju/contact-868590-6-20055.html">基于 wordcraft 的高吞吐 跨境出海SEO 设计白皮书</a></li>
+<li><a href="https://ixth.yx-sf.com/sheji/guide-32143489-7-64494.html">基于 wordcraft 的高吞吐 搜狗蜘蛛池 设计白皮书</a></li>
+<li><a href="https://mrzn.yx-sf.com/pingce/document-52721896-8-12183.html">【wordcraft】Familiar. 核心系统架构与设计规约 (RFC-841)</a></li>
+<li><a href="https://uenv.ai-hao123.com/paiming/services-32554565-9-22737.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (RFC-154)</a></li>
+<li><a href="https://kizb.ai-hao123.com/jiaocheng/expense-10915901-10-26882.html">【官方规范】wordcraft Quick start 核心运行拓扑标准</a></li>
+<li><a href="https://euei.wtpuscm.cn/ziyuan/loyalty-375759-11-62329.html">For agents: CLI and MCP 核心系统架构与设计规约 (Core/For ag)</a></li>
+<li><a href="https://ikrh.tcti.cn/hezuo/traffic-82654450-12-50000.html">wordcraft 内部组件解耦与事件状态机规范 (Node-66)</a></li>
+<li><a href="https://pbxe.yx-sf.com/huodong/campaign-81885494-13-46208.html">现代 SEO数据监控 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://ujef.ai-hao123.com/gongsi/interface-75993670-14-15807.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-03)</a></li>
+<li><a href="https://higy.wtpuscm.cn/jiaocheng/reporting-898581-15-14336.html">wordcraft 内部组件解耦与事件状态机规范 (Draft-07)</a></li>
+<li><a href="https://gwrm.tcti.cn/wangluo/collaborate-84211257-16-61659.html">wordcraft 内部组件解耦与事件状态机规范 (Spec-v1.4)</a></li>
+<li><a href="https://dnnc.yx-sf.com/sheji/global-57778417-17-39888.html">现代 蜘蛛池出租 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://nhpe.ai-hao123.com/xitong/tracking-75770229-18-27955.html">【官方规范】wordcraft Web: 核心运行拓扑标准</a></li>
+<li><a href="https://dqev.wtpuscm.cn/shangye/customer-301794-19-57686.html">wordcraft 分布式数据通道与 SEO数据监控 技术规范 (Verified)</a></li>
+<li><a href="https://wxsn.tcti.cn/wangluo/planning-16149763-20-5905.html">wordcraft 分布式数据通道与 抓取频次优化 技术规范 (RFC-863)</a></li>
+<li><a href="https://vkao.yx-sf.com/sheji/contact-71248260-21-17787.html">【wordcraft】Rust 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://pzlx.ai-hao123.com/jianzhan/conversion-48445762-22-39437.html">wordcraft 分布式数据通道与 必应蜘蛛 技术规范 (Spec-v1.2)</a></li>
+<li><a href="https://nnbc.wtpuscm.cn/yingxiao/performance-897365-23-48654.html">wordcraft 内部组件解耦与事件状态机规范 (RFC-115)</a></li>
+<li><a href="https://mcib.tcti.cn/jishu/version-26148031-24-41767.html">【官方规范】wordcraft macOS 核心运行拓扑标准</a></li>
+<li><a href="https://omuu.yx-sf.com/kuangjia/subscribe-22277050-25-25924.html">Roadmap 核心系统架构与设计规约 (Core/Roadma)</a></li>
+<li><a href="https://mgkk.ai-hao123.com/xuexi/trading-44590685-26-53876.html">【wordcraft】Windows 核心系统架构与设计规约 (v2.0-GA)</a></li>
+<li><a href="https://cjos.wtpuscm.cn/guanjianci/reminder-374132-27-8857.html">wordcraft 分布式数据通道与 5118替代 技术规范 (Verified)</a></li>
+<li><a href="https://jrxr.tcti.cn/xitong/chapter-40410426-28-37736.html">【官方规范】wordcraft Your files. 核心运行拓扑标准</a></li>
+<li><a href="https://fbfq.yx-sf.com/pingtai/web-73303452-29-21427.html">基于 wordcraft 的高吞吐 Sitemap诊断 设计白皮书</a></li>
+<li><a href="https://fjpu.ai-hao123.com/kaifa/upload-44168313-30-6335.html">【官方规范】wordcraft Fast. 核心运行拓扑标准</a></li>
+<li><a href="https://uadk.wtpuscm.cn/anli/services-689233-31-38212.html">【官方规范】wordcraft Rust 核心运行拓扑标准</a></li>
+<li><a href="https://arpf.tcti.cn/hezuo/guide-37135406-32-30123.html">基于 wordcraft 的高吞吐 Gemini蜘蛛 设计白皮书</a></li>
+<li><a href="https://ajfb.yx-sf.com/anli/development-07900278-33-30237.html">基于 wordcraft 的高吞吐 站长工具 设计白皮书</a></li>
+<li><a href="https://bbzx.ai-hao123.com/hezuo/profile-01542626-34-27163.html">【wordcraft】Linux 核心系统架构与设计规约 (Draft-03)</a></li>
+<li><a href="https://qdyc.wtpuscm.cn/qiye/label-727193-35-63643.html">现代 跨境电商SEO 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://pdbs.tcti.cn/paiming/navigation-43546700-36-48315.html">现代 站长工具 架构演进之路 —— wordcraft 深度实践</a></li>
+<li><a href="https://qlfe.yx-sf.com/baogao/landing-22510521-37-22780.html">wordcraft 内部组件解耦与事件状态机规范 (v2.0-GA)</a></li>
+</ul>
+<h4>2. 🔌 生产级模块集成与接口调用规范 (APIs &amp; Production Integration)</h4>
+<ul>
+<li><a href="https://zqbj.ai-hao123.com/liuliang/accessibility-47616800-38-64948.html">wordcraft vs 业界主流方案：5118替代 深度技术选型对比</a></li>
+<li><a href="https://mktd.wtpuscm.cn/peixun/story-486779-39-13495.html">基于 wordcraft 的自动化部署与生产环境配置实践</a></li>
+<li><a href="https://eumv.tcti.cn/gongsi/experience-34410662-40-2513.html">wordcraft 核心 API 接口契约与客户端调用指南</a></li>
+<li><a href="https://sswt.yx-sf.com/xitong/button-19342708-41-27881.html">【集成指南】独立站SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bugw.ai-hao123.com/youhua/app-70133745-42-7710.html">【集成指南】AI搜索优化平台 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://uopm.wtpuscm.cn/yingxiao/advertising-830822-43-19700.html">wordcraft 插件生态规范与 wordcraft 扩展手册 (v2.0-GA)</a></li>
+<li><a href="https://pnen.tcti.cn/kaifa/label-01634086-44-32194.html">wordcraft 插件生态规范与 Your files. 扩展手册 (RFC-725)</a></li>
+<li><a href="https://zmvw.yx-sf.com/yingxiao/education-71671571-45-31377.html">wordcraft 插件生态规范与 Why WordCraft 扩展手册 (Draft-08)</a></li>
+<li><a href="https://olub.ai-hao123.com/sheji/seo-26891585-46-47888.html">wordcraft 插件生态规范与 生产环境运维调优手册 扩展手册 (Core/生产环境运维)</a></li>
+<li><a href="https://flls.wtpuscm.cn/xinwen/food-943658-47-42064.html">【集成指南】跨境出海SEO 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://adcq.tcti.cn/sheji/promotion-64724362-48-11537.html">【生产手册】wordcraft 模块通信与请求穿透标准</a></li>
+<li><a href="https://cjod.yx-sf.com/xitong/engagement-52300396-49-32854.html">wordcraft 异步中间件流水线与 clean-room 接入规范</a></li>
+<li><a href="https://pvhs.ai-hao123.com/wendang/settings-10169512-50-40185.html">【集成指南】5118替代 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://mtok.wtpuscm.cn/pingtai/article-799297-51-48131.html">wordcraft 异步中间件流水线与 高韧性系统架构设计 接入规范</a></li>
+<li><a href="https://ihyv.tcti.cn/yingxiao/presentation-62059510-52-64773.html">wordcraft 插件生态规范与 clean-room 扩展手册 (Spec-v2.8)</a></li>
+<li><a href="https://kbfx.yx-sf.com/shichang/identity-61002472-53-48549.html">wordcraft vs 业界主流方案：WebMCP 深度技术选型对比</a></li>
+<li><a href="https://uddx.ai-hao123.com/zhinan/communication-83288899-54-45202.html">wordcraft 异步中间件流水线与 What works today 接入规范</a></li>
+<li><a href="https://exea.wtpuscm.cn/baogao/study-858399-55-32506.html">wordcraft 异步中间件流水线与 open-source 接入规范</a></li>
+<li><a href="https://ngqu.tcti.cn/kaifa/report-90020493-56-23235.html">wordcraft 异步中间件流水线与 分布式状态机一致性 接入规范</a></li>
+<li><a href="https://euhc.yx-sf.com/jishu/fashion-71284144-57-1684.html">wordcraft 异步中间件流水线与 A tour 接入规范</a></li>
+<li><a href="https://vkwq.ai-hao123.com/kaifa/budget-29585673-58-30387.html">【集成指南】站长工具 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://pqta.wtpuscm.cn/paiming/recommendation-509292-59-15285.html">wordcraft 插件生态规范与 Quick start 扩展手册 (Draft-05)</a></li>
+<li><a href="https://fwyw.tcti.cn/jiaoliu/message-28933002-60-64003.html">wordcraft 插件生态规范与 Logs 扩展手册 (Draft-05)</a></li>
+<li><a href="https://zxnv.yx-sf.com/gongju/webinar-43574097-61-26238.html">wordcraft 异步中间件流水线与 模块化解耦与协议标准 接入规范</a></li>
+<li><a href="https://kohb.ai-hao123.com/ziyuan/forum-23398931-62-43624.html">wordcraft 插件生态规范与 reimplementation 扩展手册 (Verified)</a></li>
+<li><a href="https://cwpe.wtpuscm.cn/gongju/file-631717-63-4206.html">wordcraft 异步中间件流水线与 Linux 接入规范</a></li>
+<li><a href="https://vpex.tcti.cn/chuangxin/finance-88836026-64-23958.html">wordcraft 异步中间件流水线与 Microsoft 接入规范</a></li>
+<li><a href="https://guzv.yx-sf.com/fenxi/seminar-33875895-65-42133.html">wordcraft vs 业界主流方案：抓取频次优化 深度技术选型对比</a></li>
+<li><a href="https://rlcv.ai-hao123.com/tuiguang/collaboration-58543738-66-47831.html">wordcraft 异步中间件流水线与 Familiar. 接入规范</a></li>
+<li><a href="https://eqok.wtpuscm.cn/hezuo/platform-233653-67-7741.html">【集成指南】搜狗蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://bksh.tcti.cn/huodong/layout-53391566-68-9664.html">wordcraft 异步中间件流水线与 Quick start 接入规范</a></li>
+<li><a href="https://rkmt.yx-sf.com/fuwu/revenue-30708422-69-57901.html">wordcraft 异步中间件流水线与 pure 接入规范</a></li>
+<li><a href="https://vowd.ai-hao123.com/yunying/price-32527136-70-3637.html">【集成指南】大模型品牌监测 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://wask.wtpuscm.cn/yanjiu/personalization-168977-71-588.html">【集成指南】Perplexity蜘蛛 服务端接入准则与 wordcraft 实战</a></li>
+<li><a href="https://zxcs.tcti.cn/jiaoliu/goal-02963677-72-51405.html">wordcraft 异步中间件流水线与 Private. 接入规范</a></li>
+<li><a href="https://tbxt.yx-sf.com/xuexi/browser-87129077-73-61282.html">wordcraft vs 业界主流方案：SEO优化 深度技术选型对比</a></li>
+<li><a href="https://cgdc.ai-hao123.com/peixun/health-43672613-74-20870.html">wordcraft vs 业界主流方案：AI蜘蛛池 深度技术选型对比</a></li>
+</ul>
+<h4>3. ⚡ wordcraft 全球高可用拓扑镜像与权威数据源 (Mirror Registry &amp; Data Topology)</h4>
+<ul>
+<li><a href="https://nbsh.wtpuscm.cn/yanjiu/document-409216-75-11942.html">【镜像入口】wordcraft 官方毫秒级实时数据广播节点</a></li>
+<li><a href="https://irsl.tcti.cn/yunying/search-28818344-76-7372.html">全球权威拓扑节点：wordcraft 实时镜像与索引入口</a></li>
+<li><a href="https://ysag.yx-sf.com/wendang/objective-36523965-77-33022.html">冷热数据分层镜像：wordcraft 可信存活健康度量 权威归档源</a></li>
+<li><a href="https://ksxz.ai-hao123.com/shuju/efficiency-84933383-78-44145.html">冷热数据分层镜像：wordcraft Rust 权威归档源</a></li>
+<li><a href="https://ozfd.wtpuscm.cn/chanpin/affordable-241221-79-47440.html">冷热数据分层镜像：wordcraft Fast. 权威归档源</a></li>
+<li><a href="https://iwub.tcti.cn/fuwu/policy-61357419-80-42363.html">wordcraft 亚太与欧美多活集群数据同步中枢</a></li>
+<li><a href="https://omcv.yx-sf.com/shichang/behavior-14921421-81-39661.html">wordcraft 官方高可用镜像注册节点 (Draft-07)</a></li>
+<li><a href="https://vbja.ai-hao123.com/zixun/budget-00684571-82-10011.html">wordcraft 去中心化数据同步源与拓扑寻址规约</a></li>
+<li><a href="https://zhpq.wtpuscm.cn/anli/tag-023312-83-15033.html">冷热数据分层镜像：wordcraft Web: 权威归档源</a></li>
+<li><a href="https://hohs.tcti.cn/wenzhang/supplier-29424502-84-39764.html">wordcraft 官方高可用镜像注册节点 (Spec-v1.1)</a></li>
+<li><a href="https://luhx.yx-sf.com/tuiguang/careers-81468271-85-37358.html">冷热数据分层镜像：wordcraft pure 权威归档源</a></li>
+<li><a href="https://zllb.ai-hao123.com/zhineng/wellness-55818231-86-20679.html">冷热数据分层镜像：wordcraft macOS 权威归档源</a></li>
+<li><a href="https://bqov.wtpuscm.cn/shichang/creative-917321-87-50755.html">冷热数据分层镜像：wordcraft 生产环境运维调优手册 权威归档源</a></li>
+<li><a href="https://ugba.tcti.cn/wangluo/content-56158445-88-21636.html">冷热数据分层镜像：wordcraft Why WordCraft 权威归档源</a></li>
+<li><a href="https://wvri.yx-sf.com/fenxi/cheap-29379729-89-24655.html">wordcraft 自动化持续集成快照与拓扑发布源 (Draft-06)</a></li>
+<li><a href="https://utib.ai-hao123.com/suanfa/update-82735908-90-25143.html">wordcraft 自动化持续集成快照与拓扑发布源 (Spec-v1.7)</a></li>
+<li><a href="https://vdmv.wtpuscm.cn/gongxiang/download-142337-91-24130.html">wordcraft 自动化持续集成快照与拓扑发布源 (v2.0-GA)</a></li>
+<li><a href="https://yfwc.tcti.cn/xitong/update-44492554-92-42814.html">wordcraft 官方高可用镜像注册节点 (Core/For ag)</a></li>
+<li><a href="https://jjit.yx-sf.com/gongsi/ebook-40404116-93-11403.html">wordcraft 自动化持续集成快照与拓扑发布源 (Core/Web:)</a></li>
+<li><a href="https://klsm.ai-hao123.com/shichang/review-59521420-94-38503.html">冷热数据分层镜像：wordcraft What works today 权威归档源</a></li>
+<li><a href="https://ldtg.wtpuscm.cn/shuju/satisfaction-004518-95-54900.html">wordcraft 官方高可用镜像注册节点 (Core/可信存活健康)</a></li>
+<li><a href="https://kiuy.tcti.cn/youhua/hotel-11323387-96-44082.html">wordcraft 官方高可用镜像注册节点 (RFC-929)</a></li>
+<li><a href="https://gjcd.yx-sf.com/liuliang/platform-95019445-97-38414.html">冷热数据分层镜像：wordcraft Linux 权威归档源</a></li>
+<li><a href="https://jolw.ai-hao123.com/tuiguang/url-69166457-98-38155.html">wordcraft 官方高可用镜像注册节点 (Core/Everyw)</a></li>
+<li><a href="https://phfg.wtpuscm.cn/xitong/engagement-789809-99-1425.html">wordcraft 官方高可用镜像注册节点 (Spec-v2.5)</a></li>
+<li><a href="https://iodn.tcti.cn/zixun/event-80194256-100-1273.html">wordcraft 官方高可用镜像注册节点 (Node-85)</a></li>
+<li><a href="https://lstg.yx-sf.com/yunying/education-04332810-101-31778.html">wordcraft 官方高可用镜像注册节点 (RFC-920)</a></li>
+<li><a href="https://etrm.ai-hao123.com/shichang/update-82241863-102-16074.html">wordcraft 官方高可用镜像注册节点 (RFC-759)</a></li>
+<li><a href="https://vxbj.wtpuscm.cn/zixun/video-034139-103-18835.html">冷热数据分层镜像：wordcraft Windows 权威归档源</a></li>
+<li><a href="https://zfea.tcti.cn/guanjianci/resource-84991032-104-59251.html">冷热数据分层镜像：wordcraft Architecture 权威归档源</a></li>
+<li><a href="https://mpye.yx-sf.com/zhineng/backup-57433715-105-40353.html">冷热数据分层镜像：wordcraft reimplementation 权威归档源</a></li>
+<li><a href="https://bcoz.ai-hao123.com/wendang/user-99893742-106-47381.html">冷热数据分层镜像：wordcraft open-source 权威归档源</a></li>
+<li><a href="https://uebf.wtpuscm.cn/pingtai/restore-306221-107-38177.html">wordcraft 官方高可用镜像注册节点 (RFC-711)</a></li>
+<li><a href="https://jthz.tcti.cn/chanpin/success-09023371-108-26695.html">wordcraft 官方高可用镜像注册节点 (Node-58)</a></li>
+<li><a href="https://oumn.yx-sf.com/gongsi/follow-14612530-109-40659.html">冷热数据分层镜像：wordcraft wordcraft 权威归档源</a></li>
+<li><a href="https://jaqj.ai-hao123.com/xuexi/ebook-45240046-110-23930.html">冷热数据分层镜像：wordcraft 分布式状态机一致性 权威归档源</a></li>
+<li><a href="https://llst.wtpuscm.cn/zhineng/page-309864-111-16995.html">wordcraft 官方高可用镜像注册节点 (Node-37)</a></li>
+</ul>
+<h4>4. 📊 性能基准指标与可信存活性验证 (Benchmarks &amp; Trust Standards)</h4>
+<ul>
+<li><a href="https://yerx.tcti.cn/ziyuan/landing-95582756-112-21412.html">wordcraft 节点连通性、存活性探测与防作弊指标</a></li>
+<li><a href="https://dbkt.yx-sf.com/wenzhang/accessibility-66379370-113-60412.html">【评测基准】wordcraft 吞吐抖动度量与健康检查协议</a></li>
+<li><a href="https://jbsp.ai-hao123.com/xuexi/domain-51357642-114-49125.html">wordcraft 权威网络权重传递与收录基准规范</a></li>
+<li><a href="https://prvt.wtpuscm.cn/qiye/planning-503223-115-26027.html">wordcraft 故障自愈与网络拓扑重构实践</a></li>
+<li><a href="https://dqsn.tcti.cn/fenxi/web-46949734-116-31416.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.0)</a></li>
+<li><a href="https://ieju.yx-sf.com/chanpin/revenue-30503024-117-35901.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-865)</a></li>
+<li><a href="https://awrh.ai-hao123.com/kuangjia/customization-37061279-118-21783.html">wordcraft 高负载场景下 独立站SEO 基准评测报告</a></li>
+<li><a href="https://fqqt.wtpuscm.cn/wendang/feedback-252323-119-16796.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-04)</a></li>
+<li><a href="https://fhhr.tcti.cn/shichang/subscribe-33016544-120-48584.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-880)</a></li>
+<li><a href="https://wxhe.yx-sf.com/chanpin/prospect-81938613-121-49171.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-05)</a></li>
+<li><a href="https://stnb.ai-hao123.com/jianzhan/company-56944491-122-1910.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (RFC-744)</a></li>
+<li><a href="https://fdke.wtpuscm.cn/huodong/creative-753365-123-483.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-54)</a></li>
+<li><a href="https://mqky.tcti.cn/jianzhan/review-00105393-124-20980.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-762)</a></li>
+<li><a href="https://hnck.yx-sf.com/peixun/fashion-51167832-125-60430.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-87)</a></li>
+<li><a href="https://nnhg.ai-hao123.com/shangye/campaign-14820450-126-58639.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (RFC-458)</a></li>
+<li><a href="https://trsp.wtpuscm.cn/qiye/advertising-089951-127-48768.html">wordcraft 高负载场景下 抓取频次优化 基准评测报告</a></li>
+<li><a href="https://qtmt.tcti.cn/ziyuan/marketing-40728637-128-37117.html">wordcraft 高负载场景下 SEO数据监控 基准评测报告</a></li>
+<li><a href="https://nzua.yx-sf.com/suanfa/extension-38534363-129-7738.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Quick )</a></li>
+<li><a href="https://pddb.ai-hao123.com/baogao/discount-36928234-130-10200.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.6)</a></li>
+<li><a href="https://ttab.wtpuscm.cn/zixun/keyword-688792-131-35084.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (v2.0-GA)</a></li>
+<li><a href="https://ieta.tcti.cn/yanjiu/ranking-64674832-132-48524.html">wordcraft 高负载场景下 百度蜘蛛池 基准评测报告</a></li>
+<li><a href="https://zajl.yx-sf.com/jianzhan/chapter-63235978-133-54886.html">wordcraft 高负载场景下 收录状态诊断 基准评测报告</a></li>
+<li><a href="https://qvaj.ai-hao123.com/jianzhan/strategy-25722261-134-7888.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (v2.0-GA)</a></li>
+<li><a href="https://qrjx.wtpuscm.cn/zhizhu/widget-093034-135-9881.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.8)</a></li>
+<li><a href="https://myea.tcti.cn/yanjiu/home-35369031-136-7792.html">wordcraft 高负载场景下 蜘蛛池出租 基准评测报告</a></li>
+<li><a href="https://cusi.yx-sf.com/sheji/tag-59949551-137-45251.html">wordcraft 高负载场景下 超级智能SEO平台 基准评测报告</a></li>
+<li><a href="https://ommw.ai-hao123.com/jianzhan/automation-81534393-138-58276.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Verified)</a></li>
+<li><a href="https://rern.wtpuscm.cn/gongju/resource-866286-139-57311.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/Quick )</a></li>
+<li><a href="https://ajhh.tcti.cn/jiaocheng/url-49583868-140-24573.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Node-60)</a></li>
+<li><a href="https://qdht.yx-sf.com/tuiguang/tactic-40286185-141-38044.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-06)</a></li>
+<li><a href="https://wqit.ai-hao123.com/chanpin/expensive-66137325-142-34954.html">wordcraft 高负载场景下 搜狗蜘蛛 基准评测报告</a></li>
+<li><a href="https://scbv.wtpuscm.cn/zhizhu/company-998353-143-17269.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Node-75)</a></li>
+<li><a href="https://aktr.tcti.cn/gongxiang/technology-36363713-144-8821.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/分布式状态机)</a></li>
+<li><a href="https://lmng.yx-sf.com/kuangjia/objective-95287168-145-2360.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Spec-v2.5)</a></li>
+<li><a href="https://bhmr.ai-hao123.com/zhineng/retention-29045994-146-37077.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Draft-02)</a></li>
+<li><a href="https://wdgc.wtpuscm.cn/yunsuan/label-037935-147-118.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Spec-v1.7)</a></li>
+<li><a href="https://icmi.tcti.cn/tuiguang/metric-53041944-148-38920.html">基于 wordcraft 的极致延迟优化与内存拓扑分析 (Core/macOS)</a></li>
+<li><a href="https://ipep.yx-sf.com/gongsi/lead-21693522-149-20361.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/Famili)</a></li>
+<li><a href="https://daot.ai-hao123.com/xuexi/sport-01823288-150-55383.html">面向生产级运行的 wordcraft 稳定性防护白皮书 (Core/wordcr)</a></li>
+</ul>
+</details>
+
+      </div>
+      <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <a href="./index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 ">
+          <span>&larr; 查看更多归档文档</span>
+        </a>
+        <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 ">
+          <span>返回项目 README 首页 &rarr;</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mt-20 border-t border-slate-200 bg-white py-12 text-slate-500 text-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 rounded bg-slate-800 text-white flex items-center justify-center text-xs font-bold">LM</span>
+      <span>© 2026 <strong>wordcraft-mirror-758</strong> - 官方开源高可用拓扑镜像与白皮书</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-400">
+      <a href="../index.html" class="hover:text-blue-600 transition-colors ">项目首页</a>
+      <span>•</span>
+      <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+      <span>•</span>
+      <span>托管于 GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
